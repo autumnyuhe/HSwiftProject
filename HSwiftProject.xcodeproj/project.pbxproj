@@ -34,13 +34,14 @@
 		A2B43007237D005C00795605 /* di_more_h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2B42FFB237D005C00795605 /* di_more_h@3x.png */; };
 		A2B43008237D005C00795605 /* di_kf_h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2B42FFC237D005C00795605 /* di_kf_h@3x.png */; };
 		A2B43009237D005C00795605 /* di_login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2B42FFD237D005C00795605 /* di_login@2x.png */; };
-		A2B4300D237D826A00795605 /* UIWindow+HPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4300C237D826A00795605 /* UIWindow+HPrinter.swift */; };
-		A2B4300F237D8A9000795605 /* NSObject+HExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4300E237D8A9000795605 /* NSObject+HExclusive.swift */; };
-		A2B43011237E43F200795605 /* HPrinterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B43010237E43F200795605 /* HPrinterManager.swift */; };
-		A2B43013237E56AB00795605 /* UIView+HPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B43012237E56AB00795605 /* UIView+HPrinter.swift */; };
-		A2B43016237ED4E200795605 /* Swifty.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B43015237ED4E200795605 /* Swifty.m */; };
-		A2B4302C237FE51300795605 /* HCommonDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4302B237FE51300795605 /* HCommonDefine.swift */; };
-		A2B4302E237FE5F700795605 /* UIView+HUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4302D237FE5F700795605 /* UIView+HUtil.swift */; };
+		A2B43042237FF01600795605 /* UIView+HPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B43035237FF01600795605 /* UIView+HPrinter.swift */; };
+		A2B43047237FF01600795605 /* HPrinterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4303A237FF01600795605 /* HPrinterManager.swift */; };
+		A2B43048237FF01600795605 /* UIWindow+HPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4303B237FF01600795605 /* UIWindow+HPrinter.swift */; };
+		A2B4304D237FF08800795605 /* HCommonDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4304C237FF08800795605 /* HCommonDefine.swift */; };
+		A2B43050237FF11B00795605 /* Swifty.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B4304F237FF11B00795605 /* Swifty.m */; };
+		A2B43052237FF12700795605 /* UIView+HUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B43051237FF12700795605 /* UIView+HUtil.swift */; };
+		A2B43055237FF13800795605 /* NSObject+HUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B43053237FF13800795605 /* NSObject+HUtil.swift */; };
+		A2B43056237FF13800795605 /* NSObject+HExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B43054237FF13800795605 /* NSObject+HExclusive.swift */; };
 		F117DC3F24BEC812781CBFDD /* Pods_HSwiftProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADCF505CCD6B194D7FAA67B /* Pods_HSwiftProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,13 +77,14 @@
 		A2B42FFB237D005C00795605 /* di_more_h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "di_more_h@3x.png"; sourceTree = "<group>"; };
 		A2B42FFC237D005C00795605 /* di_kf_h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "di_kf_h@3x.png"; sourceTree = "<group>"; };
 		A2B42FFD237D005C00795605 /* di_login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "di_login@2x.png"; sourceTree = "<group>"; };
-		A2B4300C237D826A00795605 /* UIWindow+HPrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+HPrinter.swift"; sourceTree = "<group>"; };
-		A2B4300E237D8A9000795605 /* NSObject+HExclusive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+HExclusive.swift"; sourceTree = "<group>"; };
-		A2B43010237E43F200795605 /* HPrinterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPrinterManager.swift; sourceTree = "<group>"; };
-		A2B43012237E56AB00795605 /* UIView+HPrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+HPrinter.swift"; sourceTree = "<group>"; };
-		A2B43015237ED4E200795605 /* Swifty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Swifty.m; sourceTree = "<group>"; };
-		A2B4302B237FE51300795605 /* HCommonDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCommonDefine.swift; sourceTree = "<group>"; };
-		A2B4302D237FE5F700795605 /* UIView+HUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+HUtil.swift"; sourceTree = "<group>"; };
+		A2B43035237FF01600795605 /* UIView+HPrinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+HPrinter.swift"; sourceTree = "<group>"; };
+		A2B4303A237FF01600795605 /* HPrinterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HPrinterManager.swift; sourceTree = "<group>"; };
+		A2B4303B237FF01600795605 /* UIWindow+HPrinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+HPrinter.swift"; sourceTree = "<group>"; };
+		A2B4304C237FF08800795605 /* HCommonDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCommonDefine.swift; sourceTree = "<group>"; };
+		A2B4304F237FF11B00795605 /* Swifty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Swifty.m; sourceTree = "<group>"; };
+		A2B43051237FF12700795605 /* UIView+HUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+HUtil.swift"; sourceTree = "<group>"; };
+		A2B43053237FF13800795605 /* NSObject+HUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+HUtil.swift"; sourceTree = "<group>"; };
+		A2B43054237FF13800795605 /* NSObject+HExclusive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+HExclusive.swift"; sourceTree = "<group>"; };
 		D6FA5573A6AEBBEE3FA9646A /* Pods-HSwiftProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSwiftProject.debug.xcconfig"; path = "Target Support Files/Pods-HSwiftProject/Pods-HSwiftProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,7 +129,7 @@
 		A2B42FCA237CED5A00795605 /* HSwiftProject */ = {
 			isa = PBXGroup;
 			children = (
-				A2B4300B237D824C00795605 /* HPrinter */,
+				A2B43031237FF01600795605 /* QFUtil */,
 				A2B42FE9237CFFAB00795605 /* Resource */,
 				A2B42FCB237CED5A00795605 /* AppDelegate.swift */,
 				A2B42FCD237CED5A00795605 /* SceneDelegate.swift */,
@@ -168,18 +170,99 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		A2B4300B237D824C00795605 /* HPrinter */ = {
+		A2B43031237FF01600795605 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
-				A2B4300C237D826A00795605 /* UIWindow+HPrinter.swift */,
-				A2B4300E237D8A9000795605 /* NSObject+HExclusive.swift */,
-				A2B43010237E43F200795605 /* HPrinterManager.swift */,
-				A2B43012237E56AB00795605 /* UIView+HPrinter.swift */,
-				A2B4302B237FE51300795605 /* HCommonDefine.swift */,
-				A2B4302D237FE5F700795605 /* UIView+HUtil.swift */,
-				A2B43015237ED4E200795605 /* Swifty.m */,
+				A2B4304E237FF11B00795605 /* SwiftyLoad */,
+				A2B4304B237FF06E00795605 /* HUtilHeader */,
+				A2B43034237FF01600795605 /* HPrinter */,
+				A2B43032237FF01600795605 /* UI-Category */,
+				A2B4303D237FF01600795605 /* NS-Category */,
+				A2B43041237FF01600795605 /* HSafeUtil */,
+			);
+			path = QFUtil;
+			sourceTree = "<group>";
+		};
+		A2B43032237FF01600795605 /* UI-Category */ = {
+			isa = PBXGroup;
+			children = (
+				A2B43033237FF01600795605 /* Ext-Category */,
+			);
+			path = "UI-Category";
+			sourceTree = "<group>";
+		};
+		A2B43033237FF01600795605 /* Ext-Category */ = {
+			isa = PBXGroup;
+			children = (
+				A2B43051237FF12700795605 /* UIView+HUtil.swift */,
+			);
+			path = "Ext-Category";
+			sourceTree = "<group>";
+		};
+		A2B43034237FF01600795605 /* HPrinter */ = {
+			isa = PBXGroup;
+			children = (
+				A2B4303A237FF01600795605 /* HPrinterManager.swift */,
+				A2B43035237FF01600795605 /* UIView+HPrinter.swift */,
+				A2B4303B237FF01600795605 /* UIWindow+HPrinter.swift */,
 			);
 			path = HPrinter;
+			sourceTree = "<group>";
+		};
+		A2B4303D237FF01600795605 /* NS-Category */ = {
+			isa = PBXGroup;
+			children = (
+				A2B4303E237FF01600795605 /* Ext-Category */,
+				A2B4303F237FF01600795605 /* Block-Category */,
+				A2B43040237FF01600795605 /* Chain-Category */,
+			);
+			path = "NS-Category";
+			sourceTree = "<group>";
+		};
+		A2B4303E237FF01600795605 /* Ext-Category */ = {
+			isa = PBXGroup;
+			children = (
+				A2B43054237FF13800795605 /* NSObject+HExclusive.swift */,
+				A2B43053237FF13800795605 /* NSObject+HUtil.swift */,
+			);
+			path = "Ext-Category";
+			sourceTree = "<group>";
+		};
+		A2B4303F237FF01600795605 /* Block-Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Block-Category";
+			sourceTree = "<group>";
+		};
+		A2B43040237FF01600795605 /* Chain-Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Chain-Category";
+			sourceTree = "<group>";
+		};
+		A2B43041237FF01600795605 /* HSafeUtil */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HSafeUtil;
+			sourceTree = "<group>";
+		};
+		A2B4304B237FF06E00795605 /* HUtilHeader */ = {
+			isa = PBXGroup;
+			children = (
+				A2B4304C237FF08800795605 /* HCommonDefine.swift */,
+			);
+			path = HUtilHeader;
+			sourceTree = "<group>";
+		};
+		A2B4304E237FF11B00795605 /* SwiftyLoad */ = {
+			isa = PBXGroup;
+			children = (
+				A2B4304F237FF11B00795605 /* Swifty.m */,
+			);
+			path = SwiftyLoad;
 			sourceTree = "<group>";
 		};
 		B8AD672C8195B528CA275ADD /* Pods */ = {
@@ -325,18 +408,19 @@
 			files = (
 				A2B42FE0237CEEB500795605 /* HMenuViewController.swift in Sources */,
 				A2B42FE4237CEF3400795605 /* HGameCategoryVC.swift in Sources */,
+				A2B43042237FF01600795605 /* UIView+HPrinter.swift in Sources */,
 				A2B42FE2237CEF1700795605 /* HMainViewController.swift in Sources */,
+				A2B43047237FF01600795605 /* HPrinterManager.swift in Sources */,
 				A2B42FD0237CED5A00795605 /* ViewController.swift in Sources */,
-				A2B4302E237FE5F700795605 /* UIView+HUtil.swift in Sources */,
 				A2B42FCC237CED5A00795605 /* AppDelegate.swift in Sources */,
+				A2B43056237FF13800795605 /* NSObject+HExclusive.swift in Sources */,
 				A2B42FCE237CED5A00795605 /* SceneDelegate.swift in Sources */,
-				A2B43011237E43F200795605 /* HPrinterManager.swift in Sources */,
-				A2B43016237ED4E200795605 /* Swifty.m in Sources */,
-				A2B4300D237D826A00795605 /* UIWindow+HPrinter.swift in Sources */,
-				A2B43013237E56AB00795605 /* UIView+HPrinter.swift in Sources */,
-				A2B4300F237D8A9000795605 /* NSObject+HExclusive.swift in Sources */,
+				A2B4304D237FF08800795605 /* HCommonDefine.swift in Sources */,
 				A2B42FE8237CEF7100795605 /* HCenterViewController.swift in Sources */,
-				A2B4302C237FE51300795605 /* HCommonDefine.swift in Sources */,
+				A2B43052237FF12700795605 /* UIView+HUtil.swift in Sources */,
+				A2B43048237FF01600795605 /* UIWindow+HPrinter.swift in Sources */,
+				A2B43050237FF11B00795605 /* Swifty.m in Sources */,
+				A2B43055237FF13800795605 /* NSObject+HUtil.swift in Sources */,
 				A2B42FE6237CEF4000795605 /* HCServiceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
