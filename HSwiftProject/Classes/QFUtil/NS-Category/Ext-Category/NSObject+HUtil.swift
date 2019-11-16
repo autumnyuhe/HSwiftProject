@@ -23,4 +23,13 @@ extension NSObject {
         }
     }
     
+    public func isSystemClass(_ aClass: AnyClass ) -> Bool {
+        let bundle: Bundle = Bundle.init(for: aClass)
+        if bundle == Bundle.main {
+            return false
+        }else {
+            return true
+        }
+    }
+    
 }
