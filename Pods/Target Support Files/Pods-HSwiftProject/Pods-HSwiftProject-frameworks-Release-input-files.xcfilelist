@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-HSwiftProject/Pods-HSwiftProject-frameworks.sh
+${BUILT_PRODUCTS_DIR}/SwiftyLoad/SwiftyLoad.framework
+${BUILT_PRODUCTS_DIR}/SwizzleSwift/SwizzleSwift.framework

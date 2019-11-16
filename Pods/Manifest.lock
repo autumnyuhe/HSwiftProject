@@ -1,0 +1,20 @@
+PODS:
+  - SwiftyLoad (0.1.0)
+  - SwizzleSwift (1.0)
+
+DEPENDENCIES:
+  - SwiftyLoad
+  - SwizzleSwift
+
+SPEC REPOS:
+  trunk:
+    - SwiftyLoad
+    - SwizzleSwift
+
+SPEC CHECKSUMS:
+  SwiftyLoad: 8e529992e2ce9b84d56f583201117a55a526891b
+  SwizzleSwift: 875aa0d66cd42caa361ab1ecbca663250d725907
+
+PODFILE CHECKSUM: d371fbfcd494f52efa100b5ec73126b3fa86ecf2
+
+COCOAPODS: 1.8.1
