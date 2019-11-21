@@ -9,5 +9,7 @@ target 'HSwiftProject' do
 
   pod 'SwiftyLoad'
   pod 'SwizzleSwift'
+  pod 'Alamofire'
+  pod 'Kingfisher'
 
 end

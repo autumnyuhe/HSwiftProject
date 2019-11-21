@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <HSwiftProject-Swift.h>
 
-SWIFTY_LOAD_INITIALIZE(UIImage)
-SWIFTY_LOAD_INITIALIZE(UIViewController)
+//SWIFTY_LOAD_INITIALIZE(UIImage)
+//SWIFTY_LOAD_INITIALIZE(UIViewController)
 //SWIFTY_LOAD_INITIALIZE(HMenuViewController)

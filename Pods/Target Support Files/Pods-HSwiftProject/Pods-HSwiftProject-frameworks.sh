@@ -161,10 +161,14 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyLoad/SwiftyLoad.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwizzleSwift/SwizzleSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyLoad/SwiftyLoad.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwizzleSwift/SwizzleSwift.framework"
 fi

@@ -108,36 +108,36 @@ class HMenuViewController: UITabBarController {
 
 }
 
-
-extension HMenuViewController {
-    
-    @objc static func swizzle() -> Void {
-        Swizzle(HMenuViewController.self) {
-            #selector(viewDidLoad) <-> #selector(myViewDidLoad)
-            #selector(viewWillAppear(_:)) <-> #selector(myViewWillAppear(_:))
-        }
-    }
-    
-    @objc private func myViewDidLoad() {
-        print(#function)
-        myViewDidLoad()
-    }
-    
-    @objc private func myViewWillAppear(_ animated: Bool) {
-        print(#function)
-        myViewWillAppear(animated)
-    }
-    
-}
-
-
-extension HMenuViewController : NSSwiftyLoadProtocol {
-    public static func swiftyLoad() {
-        print("UIViewController--->swiftyLoad")
-        
-//        static let share: HPrinterManager = {
-//            let instance = HPrinterManager()
-//            return instance
-//        }()
-    }
-}
+//
+//extension HMenuViewController {
+//
+//    @objc class func swizzle() -> Void {
+//        Swizzle(HMenuViewController.self) {
+//            #selector(viewDidLoad) <-> #selector(myViewDidLoad)
+//            #selector(viewWillAppear(_:)) <-> #selector(myViewWillAppear(_:))
+//        }
+//    }
+//
+//    @objc private func myViewDidLoad() {
+//        print(#function)
+//        myViewDidLoad()
+//    }
+//
+//    @objc private func myViewWillAppear(_ animated: Bool) {
+//        print(#function)
+//        myViewWillAppear(animated)
+//    }
+//
+//}
+//
+//
+//extension HMenuViewController : NSSwiftyLoadProtocol {
+//    public static func swiftyLoad() {
+//        print("UIViewController--->swiftyLoad")
+//
+////        static let share: HPrinterManager = {
+////            let instance = HPrinterManager()
+////            return instance
+////        }()
+//    }
+//}

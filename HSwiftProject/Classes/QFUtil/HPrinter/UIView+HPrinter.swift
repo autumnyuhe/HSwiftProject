@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwizzleSwift
 
 extension UIView {
     
@@ -125,7 +124,7 @@ extension UIView {
 
 //extension UIImage {
 //
-//    @objc static func swizzle() -> Void {
+//    @objc class func swizzle() -> Void {
 //        Swizzle(UIImage.self) {
 ////            #selector(imageNamed:) <-> #selector(myViewDidLoad)
 //            #selector(init?(named _:)) <-> #selector(init?(mynamed _:))

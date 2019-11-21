@@ -9,6 +9,7 @@
 import UIKit
 
 private var kExclusiveSetKey: String = "kExclusiveSetKey"
+private var kIdSetKey: String = "kIdSetKey"
 
 typealias HExclusive = () -> Void
 
@@ -51,4 +52,107 @@ extension NSObject {
         }
     }
 
+}
+
+private let KSegStateKey = "_seg_"
+
+extension NSObject {
+    
+    var segStatue: Int {
+        get { return self.getAssociatedValueForKey(#function) as! Int }
+        set (newValue) { self.setAssociateWeakValue(newValue, key: #function) }
+    }
+    
+    var segTotalStatue: Int {
+        get { return self.getAssociatedValueForKey(#function) as! Int }
+        set (newValue) { self.setAssociateWeakValue(newValue, key: #function) }
+    }
+    
+    private var segStatueDict: NSMutableDictionary {
+        get {
+            var set: NSMutableDictionary? = self.getAssociatedValueForKey(#function) as? NSMutableDictionary
+            if set == nil {
+                set = NSMutableDictionary()
+                self.setAssociateValue(set, key: #function)
+            }
+            return set!
+        }
+        set (newValue) {
+            self.setAssociateValue(newValue, key: #function)
+        }
+    }
+    
+    func setObject(_ anObject: AnyObject, forKey aKey: String, segStatue statue: Int) -> Void {
+        let key = "\(aKey)+\(KSegStateKey)+\(statue)" as NSCopying
+        self.segStatueDict.setObject(anObject, forKey: key)
+    }
+    
+    func objectForKey(_ aKey: String, segStatue statue: Int) -> AnyObject {
+        let key = "\(aKey)+\(KSegStateKey)+\(statue)" as NSCopying
+        return self.segStatueDict.object(forKey: key) as AnyObject
+    }
+    
+    func removeObjectForKey(_ aKey: String, segStatue statue: Int) -> Void {
+        let key = "\(aKey)+\(KSegStateKey)+\(statue)"
+        self.segStatueDict.removeObject(forKey: key)
+    }
+    
+    func removeObjectForSegStatue(_ statue: Int) -> Void {
+        let key = "\(KSegStateKey)+\(statue)"
+        self.segStatueDict.removeObject(forKey: key)
+    }
+    
+    func clearSegStatue() -> Void {
+        self.segStatue = 0
+        if self.segStatueDict.count > 0 {
+            self.segStatueDict.removeAllObjects()
+        }
+    }
+
+}
+
+extension UIView {
+    
+    private var idSet: NSMutableSet {
+        get {
+            var set: NSMutableSet? = objc_getAssociatedObject(self, &kIdSetKey) as? NSMutableSet
+            if set == nil {
+                set = NSMutableSet()
+                objc_setAssociatedObject(self, &kIdSetKey, set, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            }
+            return set!
+        }
+        set(newValue) {
+            objc_setAssociatedObject(self, &kIdSetKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+
+    func containsId(_ anId: String) -> Bool {
+        return self.idSet.contains(anId)
+    }
+    
+    func addId(_ anId: String) -> Void {
+        if self.idSet.contains(anId) == false {
+            self.idSet.add(anId)
+        }
+    }
+    
+    func removeId(_ anId: String) -> Void {
+        if self.idSet.contains(anId) == true {
+            self.idSet.remove(anId)
+        }
+    }
+    
+}
+
+extension UIView {
+    
+    func exclusiveOtherTouch() -> Void {
+        self.isExclusiveTouch = true
+    }
+    
+    static func exclusiveOtherTouch() -> Void {
+        UIView.appearance().isExclusiveTouch = true
+    }
+    
 }
