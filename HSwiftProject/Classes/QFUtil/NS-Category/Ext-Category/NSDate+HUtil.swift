@@ -88,8 +88,6 @@ extension NSDate {
             formatString = "yyyy-MM-dd"
         case .style3:
             formatString = "yyyy年MM月dd日"
-        default:
-            formatString = "yyyy-MM-dd HH:mm:ss"
         }
         return formatString
     }

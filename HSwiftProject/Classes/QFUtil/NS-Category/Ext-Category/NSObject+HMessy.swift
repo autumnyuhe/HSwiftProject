@@ -24,6 +24,22 @@ extension NSObject {
     func removeAssociatedValues() {
         objc_removeAssociatedObjects(self)
     }
+    
+    static func setAssociateValue(_ value: Any?, key: UnsafeRawPointer) {
+        objc_setAssociatedObject(self, key, value, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+    }
+    static func setAssociateWeakValue(_ value: Any?, key: UnsafeRawPointer) {
+        objc_setAssociatedObject(self, key, value, .OBJC_ASSOCIATION_ASSIGN)
+    }
+    static func setAssociateCopyValue(_ value: Any?, key: UnsafeRawPointer) {
+        objc_setAssociatedObject(self, key, value, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+    }
+    static func getAssociatedValueForKey(_ key: UnsafeRawPointer) -> Any? {
+        return objc_getAssociatedObject(self, key)
+    }
+    static func removeAssociatedValues() {
+        objc_removeAssociatedObjects(self)
+    }
 }
 
 extension NSDictionary {
