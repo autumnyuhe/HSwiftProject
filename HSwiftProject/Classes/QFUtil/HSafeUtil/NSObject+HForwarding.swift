@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwizzleSwift
 
 //public class MyClass {
 //    public func handler(value1: Int, value2: Double, text: String) {
@@ -193,54 +192,23 @@ import SwizzleSwift
 //    }
 //}
 
-extension NSObject {
-    
-    @objc class func swizzle() -> Void {
-        Swizzle(NSObject.self) {
-            #selector(perform(_:)) <-> #selector(h_perform(_:))
-            #selector(perform(_:with:)) <-> #selector(h_perform(_:with:))
-            #selector(perform(_:with:with:)) <-> #selector(h_perform(_:with:with:))
-        }
-    }
-    
-    @objc func h_perform(_ aSelector: Selector!) -> AnyObject {
-        let unmanaged: Unmanaged<AnyObject> = self.h_perform(aSelector) as! Unmanaged<AnyObject>
-        return unmanaged.takeRetainedValue()
+extension NSObjectProtocol {
+
+    @discardableResult
+    func perform(_ aSelector: Selector!, withPre pre: String!) -> AnyObject? {
+        let selector = NSSelectorFromString(pre+NSStringFromSelector(aSelector))
+        return self.perform(selector).takeRetainedValue()
     }
 
-    @objc func h_perform(_ aSelector: Selector!, with object: Any!) -> AnyObject {
-        let unmanaged: Unmanaged = self.h_perform(aSelector, with: object) as! Unmanaged<AnyObject>
-        return unmanaged.takeRetainedValue()
+    @discardableResult
+    func perform(_ aSelector: Selector!, with object: Any!, withPre pre: String!) -> AnyObject? {
+        let selector = NSSelectorFromString(pre+NSStringFromSelector(aSelector))
+        return self.perform(selector, with: object).takeRetainedValue()
     }
 
-    @objc func h_perform(_ aSelector: Selector!, with object1: Any!, with object2: Any!) -> AnyObject {
-        let unmanaged: Unmanaged = self.h_perform(aSelector, with: object1, with: object2) as! Unmanaged<AnyObject>
-        return unmanaged.takeRetainedValue()
+    @discardableResult
+    func perform(_ aSelector: Selector!, with object1: Any!, with object2: Any!, withPre pre: String!) -> AnyObject? {
+        let selector = NSSelectorFromString(pre+NSStringFromSelector(aSelector))
+        return self.perform(selector, with: object1, with: object2).takeRetainedValue()
     }
-
-//    func myperformSelector(_ selector: Selector) -> AnyObject? {
-//        swizzle()
-//        return self.myperformSelector(selector)
-//    }
-//
-//    func myperformSelector(_ selector: Selector, withObject object: AnyObject?) -> AnyObject? {
-//        swizzle()
-//        return self.myperformSelector(selector, withObject: object)
-//    }
-//
-//    func myperformSelector(_ selector: Selector, withObject object1: AnyObject?, withObject object2: AnyObject?) -> AnyObject? {
-//        swizzle()
-//        return self.myperformSelector(selector, withObject: object1, withObject: object2)
-//    }
-//
-//    func myperformSelector(_ selector: Selector, withObject object: AnyObject?, afterDelay delay: TimeInterval, inModes modes: [AnyObject?]?) {
-//        swizzle()
-//        self.myperformSelector(selector, withObject: object, afterDelay: delay, inModes: modes)
-//    }
-//
-//    func myperformSelector(_ selector: Selector, withObject object: AnyObject?, afterDelay delay: TimeInterval) {
-//        swizzle()
-//        self.myperformSelector(selector, withObject: object, afterDelay: delay)
-//    }
-
 }

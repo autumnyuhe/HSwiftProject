@@ -9,7 +9,7 @@
 import UIKit
 import SwizzleSwift
 
-enum HVCDisappearType : Int {
+@objc enum HVCDisappearType : Int {
     case other   = 0
     case push    = 1
     case pop     = 2
@@ -18,7 +18,7 @@ enum HVCDisappearType : Int {
 
 extension UIViewController {
     
-    @objc override class func swizzle() -> Void {
+    @objc class func swizzle() -> Void {
         Swizzle(UIViewController.self) {
             #selector(dismiss(animated:completion:)) <-> #selector(pvc_dismiss(animated:completion:))
         }
@@ -37,7 +37,7 @@ extension UIViewController {
         }
     }
     
-    func vcWillDisappear(_ type: HVCDisappearType) -> Void { }
+    @objc func vcWillDisappear(_ type: HVCDisappearType) -> Void { }
 
 }
 

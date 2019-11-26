@@ -21,7 +21,7 @@ class HVCAppearance: NSObject {
 
 extension UIView {
 
-    @objc override class func swizzle() -> Void {
+    @objc class func swizzle() -> Void {
         Swizzle(UIImage.self) {
             #selector(willMove(toSuperview:)) <-> #selector(pvc_willMove(toSuperview:))
         }
@@ -191,8 +191,9 @@ class HViewController: UIViewController {
         }
         _topBar!.autoresizingMask = .flexibleWidth
         if _topBarLine == nil {
-            _topBarLine!.frame = CGRect(x: 0, y: UIDevice.naviBarHeight - 1, width: _topBar!.width, height: 1)
+            _topBarLine = UIView()
         }
+        _topBarLine!.frame = CGRect(x: 0, y: UIDevice.naviBarHeight - 1, width: _topBar!.width, height: 1)
         _topBar!.addSubview(_topBarLine!)
         _topBarLine!.isHidden = self.prefersTopBarLineHidden
         return _topBar!
@@ -264,10 +265,10 @@ class HViewController: UIViewController {
         }
         //reset topBar line
         _topBarLine!.frame = CGRect(x: 0, y: UIDevice.naviBarHeight - 1, width: topBar.width, height: 1)
-        //reset right button
-        _rightNaviButton!.frame = CGRect(x: topBar.width - _rightNaviButton!.width - 10, y: _rightNaviButton!.y, width: _rightNaviButton!.width, height: _rightNaviButton!.height)
         //reset title label
         if _rightNaviButton != nil {
+            //reset right button
+            _rightNaviButton!.frame = CGRect(x: topBar.width - _rightNaviButton!.width - 10, y: _rightNaviButton!.y, width: _rightNaviButton!.width, height: _rightNaviButton!.height)
             self.titleLabel.frame = CGRect(x: _leftNaviButton!.maxX, y: 0, width: _rightNaviButton!.minX - _leftNaviButton!.maxX, height: UIDevice.naviBarHeight)
         }else {
             self.titleLabel.frame = CGRect(x: _leftNaviButton!.maxX, y: 0, width: self.view.width - _leftNaviButton!.maxX - 10, height: UIDevice.naviBarHeight)

@@ -33,9 +33,9 @@ typealias HTupleRefreshBlock = () -> Void
 typealias HTupleLoadMoreBlock = () -> Void
 
 ///tuple header & footer & item block
-typealias HTupleHeader = (_ iblk: AnyObject, _ cls: AnyClass, _ pre: String, _ idx: Bool ) -> AnyObject
-typealias HTupleFooter = (_ iblk: AnyObject, _ cls: AnyClass, _ pre: String, _ idx: Bool ) -> AnyObject
-typealias HTupleItem   = (_ iblk: AnyObject, _ cls: AnyClass, _ pre: String, _ idx: Bool ) -> AnyObject
+typealias HTupleHeader = (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) -> AnyObject
+typealias HTupleFooter = (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) -> AnyObject
+typealias HTupleItem   = (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) -> AnyObject
 
 ///split design exclusive sections block
 typealias HTupleSectionExclusiveBlock = () -> NSArray
@@ -60,32 +60,31 @@ class HTupleAppearance : NSObject {
     }
 }
 
-@objc protocol HTupleViewDelegate {
-    @objc optional
-    func numberOfSectionsInTupleView() -> Int
-    func numberOfItemsInSection(_ section: Int) -> Int
+@objc protocol HTupleViewDelegate : NSObjectProtocol {
+    @objc optional func numberOfSectionsInTupleView() -> HObject
+    @objc optional func numberOfItemsInSection(_ section: Int) -> HObject
     ///layout == HCollectionViewFlowLayout
-    func colorForSectionAt(_ section: Int) -> UIColor
+    @objc optional func colorForSectionAt(_ section: Int) -> UIColor
 
-    func sizeForHeaderInSection(_ section: Int) -> CGSize
-    func sizeForFooterInSection(_ section: Int) -> CGSize
-    func sizeForItemAtIndexPath(_ indexPath: NSIndexPath) -> CGSize
+    @objc optional func sizeForHeaderInSection(_ section: Int) -> HObject
+    @objc optional func sizeForFooterInSection(_ section: Int) -> HObject
+    @objc optional func sizeForItemAtIndexPath(_ indexPath: NSIndexPath) -> HObject
 
-    func edgeInsetsForHeaderInSection(_ section: Int) -> UIEdgeInsets
-    func edgeInsetsForFooterInSection(_ section: Int) -> UIEdgeInsets
-    func edgeInsetsForItemAtIndexPath(_ indexPath: NSIndexPath) -> UIEdgeInsets
+    @objc optional func edgeInsetsForHeaderInSection(_ section: Int) -> HObject
+    @objc optional func edgeInsetsForFooterInSection(_ section: Int) -> HObject
+    @objc optional func edgeInsetsForItemAtIndexPath(_ indexPath: NSIndexPath) -> HObject
 
-    func insetForSection(_ section: Int) -> UIEdgeInsets
+    @objc optional func insetForSection(_ section: Int) -> HObject
 
-    func tupleForHeader(_ headerBlock: HTupleHeader, inSection section: Int)
-    func tupleForFooter(_ footerBlock: HTupleFooter, inSection section: Int)
-    func tupleForItem(_ itemBlock: HTupleItem, inSection indexPath: NSIndexPath)
+    @objc optional func tupleForHeader(_ headerBlock: HTupleHeader, inSection section: Int)
+    @objc optional func tupleForFooter(_ footerBlock: HTupleFooter, inSection section: Int)
+    @objc optional func tupleForItem(_ itemBlock: HTupleItem, inSection indexPath: NSIndexPath)
 
-    func willDisplayCell(_ cell: UICollectionViewCell, atIndexPath indexPath: NSIndexPath)
-    func didSelectItemAtIndexPath(_ indexPath: NSIndexPath)
+    @objc optional func willDisplayCell(_ cell: UICollectionViewCell, atIndexPath indexPath: NSIndexPath)
+    @objc optional func didSelectItemAtIndexPath(_ indexPath: NSIndexPath)
 }
 
-class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, HCollectionViewDelegateFlowLayout {
 
     private var flowLayout: UICollectionViewFlowLayout?
 
@@ -405,10 +404,9 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         //调用代理方法
         var edgeInsets: UIEdgeInsets = UIEdgeInsetsZero
         let prefix: String = self.prefixWithSection(idxPath.section)
-        let selector: Selector = NSSelectorFromString("edgeInsetsForHeaderInSection(_:)")
-        let delegateObjc: NSObject = self.tupleDelegate as! NSObject
-        if delegateObjc.responds(to: selector, withPre: prefix) {
-            edgeInsets = delegateObjc.perform(selector, with: idxPath.section)?.takeRetainedValue() as! UIEdgeInsets
+        let selector: Selector = #selector(self.tupleDelegate!.edgeInsetsForHeaderInSection(_:))
+        if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
+            edgeInsets = (self.tupleDelegate!.perform(selector, with: idxPath.section, withPre: prefix) as! HObject).edgeInsetsValue
         }
         //设置属性
         cell.edgeInsets = edgeInsets
@@ -445,10 +443,9 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         //调用代理方法
         var edgeInsets: UIEdgeInsets = UIEdgeInsetsZero
         let prefix = self.prefixWithSection(idxPath.section)
-        let selector = NSSelectorFromString("edgeInsetsForFooterInSection(_:)")
-        let delegateObjc: NSObject = self.tupleDelegate as! NSObject
-        if delegateObjc.responds(to: selector, withPre: prefix) {
-            edgeInsets = delegateObjc.perform(selector, with: idxPath.section)?.takeRetainedValue() as! UIEdgeInsets
+        let selector = #selector(self.tupleDelegate!.edgeInsetsForFooterInSection(_:))
+        if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
+            edgeInsets = (self.tupleDelegate!.perform(selector, with: idxPath.section, withPre: prefix) as! HObject).edgeInsetsValue
         }
         //设置属性
         cell.edgeInsets = edgeInsets
@@ -484,10 +481,9 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         //调用代理方法
         var edgeInsets: UIEdgeInsets = UIEdgeInsetsZero
         let prefix = self.prefixWithSection(idxPath.section)
-        let selector = NSSelectorFromString("edgeInsetsForItemAtIndexPath(_:)")
-        let delegateObjc: NSObject = self.tupleDelegate as! NSObject
-        if delegateObjc.responds(to: selector, withPre: prefix) {
-            edgeInsets = delegateObjc.perform(selector, with: idxPath.section)?.takeRetainedValue() as! UIEdgeInsets
+        let selector = #selector(self.tupleDelegate!.edgeInsetsForItemAtIndexPath(_:))
+        if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
+            edgeInsets = (self.tupleDelegate!.perform(selector, with: idxPath.section, withPre: prefix) as! HObject).edgeInsetsValue
         }
         //设置属性
         cell.edgeInsets = edgeInsets
@@ -496,7 +492,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
     
     /// UICollectionViewDatasource  & delegate
     private func prefixWithSection(_ section: Int) -> String {
-        var prefix: String = ""
+        var prefix = ""
         if self.tupleStyle == .split {
             if (self.sectionPaths?.contains(section))! {
                 let idx: Int = self.sectionPaths!.index(of: section)
@@ -518,19 +514,17 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         case .default:
             var sections = 0
             let prefix = ""
-            let selector = NSSelectorFromString("numberOfSectionsInTupleView")
-            let delegateObjc: NSObject = self.tupleDelegate as! NSObject
-            if delegateObjc.responds(to: selector, withPre: prefix) {
-                sections = delegateObjc.perform(selector, with: collectionView)?.takeRetainedValue() as! Int
+            let selector = #selector(self.tupleDelegate!.numberOfSectionsInTupleView)
+            if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
+                sections = (self.tupleDelegate!.perform(selector, withPre: prefix) as! HObject).intValue
             }
             return sections
         case .split:
             var sections = 0
             let prefix = KTupleDesignKey+"_"+"\(self.tupleState)"
-            let selector = NSSelectorFromString("numberOfSectionsInTupleView")
-            let delegateObjc: NSObject = self.tupleDelegate as! NSObject
-            if delegateObjc.responds(to: selector, withPre: prefix) {
-                sections = delegateObjc.perform(selector, with: collectionView)?.takeRetainedValue() as! Int
+            let selector = #selector(self.tupleDelegate!.numberOfSectionsInTupleView)
+            if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
+                sections = (self.tupleDelegate!.perform(selector, withPre: prefix) as! HObject).intValue
             }
             return sections
         }
@@ -540,11 +534,9 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
     internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var items = 0
         let prefix = self.prefixWithSection(section)
-        
-        let delegateObjc: NSObject = self.tupleDelegate as! NSObject
-        let selector = NSSelectorFromString("numberOfItemsInSection(_:)")
-        if delegateObjc.responds(to: selector, withPre: prefix) {
-            items = delegateObjc.perform(selector, with: collectionView, with: section)?.takeRetainedValue() as! Int
+        let selector: Selector = #selector(self.tupleDelegate!.numberOfItemsInSection(_:))
+        if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
+            items = (self.tupleDelegate!.perform(selector, with: section, withPre: prefix) as! HObject).intValue
         }
         let edgeInsets = self.collectionView(self, layout: self.flowLayout!, insetForSectionAt: section)
         self.allSectionInsets.setObject(NSStringFromUIEdgeInsets(edgeInsets) as AnyObject, forKey: "\(section)" as NSString)
@@ -552,12 +544,11 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
     }
 
     ///layout == HCollectionViewFlowLayout
-    private func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, colorForSectionAt section: NSInteger) -> UIColor {
+    internal func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, colorForSectionAt section: NSInteger) -> UIColor {
         let prefix = self.prefixWithSection(section)
-        let delegateObjc: NSObject = self.tupleDelegate as! NSObject
-        let selector = NSSelectorFromString("colorForSectionAt(_:)")
-        if delegateObjc.responds(to: selector, withPre: prefix) {
-            return delegateObjc.perform(selector, with: section)?.takeRetainedValue() as! UIColor
+        let selector = #selector(self.tupleDelegate!.colorForSectionAt(_:))
+        if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
+            return self.tupleDelegate!.perform(selector, with: section, withPre: prefix) as! UIColor
         }
         return UIColor.clear
     }
@@ -575,10 +566,9 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
     @available(iOS 6.0, *)
     internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let prefix = self.prefixWithSection(section)
-        let delegateObjc: NSObject = self.tupleDelegate as! NSObject
-        let selector = NSSelectorFromString("insetForSection(_:)")
-        if delegateObjc.responds(to: selector, withPre: prefix) {
-            return delegateObjc.perform(selector, with: section)?.takeRetainedValue() as! UIEdgeInsets
+        let selector = #selector(self.tupleDelegate!.insetForSection(_:))
+        if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
+            return (self.tupleDelegate!.perform(selector, with: section, withPre: prefix) as! HObject).edgeInsetsValue
         }
         return UIEdgeInsetsZero
     }
@@ -587,10 +577,9 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
     internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         var size: CGSize = CGSizeZero
         let prefix = self.prefixWithSection(section)
-        let delegateObjc: NSObject = self.tupleDelegate as! NSObject
-        let selector = NSSelectorFromString("sizeForHeaderInSection(_:)")
-        if delegateObjc.responds(to: selector, withPre: prefix) {
-            size = delegateObjc.perform(selector, with: section)?.takeRetainedValue() as! CGSize
+        let selector = #selector(self.tupleDelegate!.sizeForHeaderInSection(_:))
+        if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
+            size = (self.tupleDelegate!.perform(selector, with: section, withPre: prefix) as! HObject).sizeValue
         }
         return UISizeIntegral(size)
     }
@@ -599,10 +588,9 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
     internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         var size: CGSize = CGSizeZero
         let prefix = self.prefixWithSection(section)
-        let delegateObjc: NSObject = self.tupleDelegate as! NSObject
-        let selector = NSSelectorFromString("sizeForFooterInSection(_:)")
-        if delegateObjc.responds(to: selector, withPre: prefix) {
-            size = delegateObjc.perform(selector, with: section)?.takeRetainedValue() as! CGSize
+        let selector = #selector(self.tupleDelegate!.sizeForFooterInSection(_:))
+        if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
+            size = (self.tupleDelegate!.perform(selector, with: section, withPre: prefix) as! HObject).sizeValue
         }
         return UISizeIntegral(size)
     }
@@ -611,10 +599,9 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
     internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var size: CGSize = CGSizeZero
         let prefix = self.prefixWithSection(indexPath.section)
-        let delegateObjc: NSObject = self.tupleDelegate as! NSObject
-        let selector = NSSelectorFromString("sizeForItemAtIndexPath(_:)")
-        if delegateObjc.responds(to: selector, withPre: prefix) {
-            size = delegateObjc.perform(selector, with: indexPath.section)?.takeRetainedValue() as! CGSize
+        let selector = #selector(self.tupleDelegate!.sizeForItemAtIndexPath(_:))
+        if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
+            size = (self.tupleDelegate!.perform(selector, with: indexPath, withPre: prefix) as! HObject).sizeValue
         }
         //不能为CGSizeZero，否则会崩溃
         if CGSizeZero == size {
@@ -627,18 +614,19 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //调用代理方法
         let prefix: String = self.prefixWithSection(indexPath.section)
-        let selector: Selector = NSSelectorFromString("tupleForItem(_:inSection:)")
-        let itemBlock: HTupleItem = { (_ iblk: AnyObject, _ cls: AnyClass, _ pre: String, _ idx: Bool ) -> AnyObject in
+        let selector: Selector = #selector(self.tupleDelegate!.tupleForItem(_:inSection:))
+        let itemBlock: HTupleItem = { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) -> AnyObject in
             return self.dequeueReusableCellWithClass(cls, iblk: iblk, pre: pre, idx: idx, idxPath: indexPath)
         }
-        let delegateObjc: NSObject = self.tupleDelegate as! NSObject
-        if delegateObjc.responds(to: selector, withPre: prefix) {
-            delegateObjc.perform(selector, with: itemBlock, with: indexPath)
+        if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
+            self.tupleDelegate!.perform(selector, with: itemBlock, with: indexPath, withPre: prefix)
         }
         //调用cell
         let cell: HTupleBaseCell = self.allReuseCells.object(forKey: indexPath.stringValue as NSString) as! HTupleBaseCell
         //更新布局
-        cell.relayoutSubviews()
+        if cell.responds(to: #selector(cell.relayoutSubviews)) {
+            cell.relayoutSubviews()
+        }
         return cell
     }
     
@@ -648,52 +636,50 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         if kind == UICollectionElementKindSectionHeader {
             //调用代理方法
             let prefix: String = self.prefixWithSection(indexPath.section)
-            let selector: Selector = NSSelectorFromString("tupleForHeader(_:inSection:)")
-            let headerBlock: HTupleHeader = { (_ iblk: AnyObject, _ cls: AnyClass, _ pre: String, _ idx: Bool ) -> AnyObject in
+            let selector: Selector = #selector(self.tupleDelegate!.tupleForHeader(_:inSection:))
+            let headerBlock: HTupleHeader = { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) -> AnyObject in
                 return self.dequeueReusableHeaderWithClass(cls, iblk: iblk, pre: pre, idx: idx, idxPath: indexPath)
             }
-            let delegateObjc: NSObject = self.tupleDelegate as! NSObject
-            if delegateObjc.responds(to: selector, withPre: prefix) {
-                delegateObjc.perform(selector, with: headerBlock, with: indexPath)
+            if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
+                self.tupleDelegate!.perform(selector, with: headerBlock, with: indexPath, withPre: prefix)
             }
             //调用cell
             cell = self.allReuseHeaders.object(forKey: indexPath.stringValue as NSString) as? HTupleBaseApex
         }else if (kind == UICollectionElementKindSectionFooter) {
             //调用代理方法
             let prefix: String = self.prefixWithSection(indexPath.section)
-            let selector: Selector = NSSelectorFromString("tupleForFooter(_:inSection:)")
-            let footerBlock: HTupleFooter = { (_ iblk: AnyObject, _ cls: AnyClass, _ pre: String, _ idx: Bool ) -> AnyObject in
+            let selector: Selector = #selector(self.tupleDelegate!.tupleForFooter(_:inSection:))
+            let footerBlock: HTupleFooter = { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) -> AnyObject in
                 return self.dequeueReusableFooterWithClass(cls, iblk: iblk, pre: pre, idx: idx, idxPath: indexPath)
             }
-            let delegateObjc: NSObject = self.tupleDelegate as! NSObject
-            if delegateObjc.responds(to: selector, withPre: prefix) {
-                delegateObjc.perform(selector, with: footerBlock, with: indexPath)
+            if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
+                self.tupleDelegate!.perform(selector, with: footerBlock, with: indexPath, withPre: prefix)
             }
             //调用cell
             cell = self.allReuseFooters.object(forKey: indexPath.stringValue as NSString) as? HTupleBaseApex
         }
         //更新布局
-        cell!.relayoutSubviews()
+        if cell!.responds(to: #selector(cell!.relayoutSubviews)) {
+            cell!.relayoutSubviews()
+        }
         return cell!
     }
     
     @available(iOS 8.0, *)
     internal func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let prefix = self.prefixWithSection(indexPath.section)
-        let delegateObjc: NSObject = self.tupleDelegate as! NSObject
-        let selector = NSSelectorFromString("willDisplayCell(_:atIndexPath:)")
-        if delegateObjc.responds(to: selector, withPre: prefix) {
-            delegateObjc.perform(selector, with: cell, with: indexPath)
+        let selector = #selector(self.tupleDelegate!.willDisplayCell(_:atIndexPath:))
+        if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
+            self.tupleDelegate!.perform(selector, with: cell, with: indexPath, withPre: prefix)
         }
     }
     
     @available(iOS 6.0, *)
     internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let prefix = self.prefixWithSection(indexPath.section)
-        let delegateObjc: NSObject = self.tupleDelegate as! NSObject
-        let selector = NSSelectorFromString("didSelectItemAtIndexPath(_:)")
-        if delegateObjc.responds(to: selector, withPre: prefix) {
-            delegateObjc.perform(selector, with: indexPath)
+        let selector = #selector(self.tupleDelegate!.didSelectItemAtIndexPath(_:))
+        if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
+            self.tupleDelegate!.perform(selector, with: indexPath, withPre: prefix)
         }
     }
     

@@ -88,14 +88,18 @@ class HCollectionViewFlowLayout : UICollectionViewFlowLayout {
 
     //此类原有方法 并加上 去掉Cell之间的间隔线
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        let attrs: NSMutableArray = super.layoutAttributesForElements(in: rect) as! NSMutableArray
-        for item in self.decorationViewAttrs {
-            let attr: UICollectionViewLayoutAttributes = item as! UICollectionViewLayoutAttributes
-            if rect == attr.frame {
-                attrs.add(attr)
+        let tmpAAttrs: NSArray? = super.layoutAttributesForElements(in: rect) as NSArray?
+        if tmpAAttrs != nil {
+            let attrs: NSMutableArray = NSMutableArray(array: tmpAAttrs!)
+            for item in self.decorationViewAttrs {
+                let attr: UICollectionViewLayoutAttributes = item as! UICollectionViewLayoutAttributes
+                if rect == attr.frame {
+                    attrs.add(attr)
+                }
             }
+            return attrs as? [UICollectionViewLayoutAttributes]
         }
-        return attrs as? [UICollectionViewLayoutAttributes]
+        return nil
     }
     
 }
