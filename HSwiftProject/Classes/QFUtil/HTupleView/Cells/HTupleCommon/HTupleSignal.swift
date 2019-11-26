@@ -15,7 +15,6 @@ typealias HTupleCellSignalBlock = (_ target: AnyObject, _ signal: HTupleSignal) 
 
 class HTupleSignal: NSObject {
     var signal: AnyObject?
-    var tag: Int
+    var tag: Int = 0
     var name: String?
-    
 }

@@ -18,7 +18,7 @@ enum HVCDisappearType : Int {
 
 extension UIViewController {
     
-    @objc class func swizzle() -> Void {
+    @objc override class func swizzle() -> Void {
         Swizzle(UIViewController.self) {
             #selector(dismiss(animated:completion:)) <-> #selector(pvc_dismiss(animated:completion:))
         }

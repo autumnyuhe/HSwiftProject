@@ -14,9 +14,15 @@ public struct UITBEdgeInsets {
 
     public var bottom: CGFloat
 
-    public init()
+    public init() {
+        self.top = 0.0
+        self.bottom = 0.0
+    }
 
-    public init(top: CGFloat, bottom: CGFloat)
+    public init(top: CGFloat, bottom: CGFloat) {
+        self.top = top
+        self.bottom = bottom
+    }
 }
 
 public struct UILREdgeInsets {
@@ -25,35 +31,46 @@ public struct UILREdgeInsets {
 
     public var right: CGFloat
 
-    public init()
+    public init() {
+        self.left = 0.0
+        self.right = 0.0
+    }
 
-    public init(left: CGFloat, right: CGFloat)
+    public init(left: CGFloat, right: CGFloat) {
+        self.left = left
+        self.right = right
+    }
 }
 
 extension UITBEdgeInsets : Equatable {
-    public static func == (lhs: UITBEdgeInsets, rhs: UITBEdgeInsets) -> Bool
+    public static func == (lhs: UITBEdgeInsets, rhs: UITBEdgeInsets) -> Bool {
+        return (lhs.top == rhs.top && lhs.bottom == rhs.bottom)
+    }
 }
 
 extension UILREdgeInsets : Equatable {
-    public static func == (lhs: UIEdgeInsets, rhs: UIEdgeInsets) -> Bool
+    public static func == (lhs: UILREdgeInsets, rhs: UILREdgeInsets) -> Bool {
+        return (lhs.left == rhs.left && lhs.right == rhs.right)
+    }
 }
 
 func  UIRectIntegral(_ rect: CGRect) -> CGRect {
-    let x: CGFloat = floorf(rect.x)
-    let y: CGFloat = floorf(rect.y)
-    let width: CGFloat = floorf(rect.x + rect.width - x)
-    let height: CGFloat = floorf(rect.y + rect.height - y)
+    let x: CGFloat = CGFloat(floorf(Float(rect.x)))
+    let y: CGFloat = CGFloat(floorf(Float(rect.y)))
+    let width: CGFloat = CGFloat(floorf(Float(rect.x + rect.width - x)))
+    let height: CGFloat = CGFloat(floorf(Float(rect.y + rect.height - y)))
     return CGRect(x: x, y: y, width: width, height: height)
 }
 
 func UISizeIntegral(_ size: CGSize) -> CGSize {
-    return CGSize(width: floorf(size.width), height: floorf(size.height))
+    return CGSize(width: CGFloat(floorf(Float(size.width))), height: CGFloat(floorf(Float(size.height))))
 }
 
 public let UITBEdgeInsetsZero = UITBEdgeInsets(top: 0.0, bottom: 0.0)
 public let UILREdgeInsetsZero = UILREdgeInsets(left: 0.0, right: 0.0)
 public let UIEdgeInsetsZero = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
 public let CGSizeZero = CGSize(width: 0.0, height: 0.0)
+public let CGRectZero = CGRect(x: 0.0, y: 0.0, width: 0.0, height: 0.0)
 
 func UITBEdgeInsetsMake(_ top: CGFloat, _ bottom: CGFloat) -> UITBEdgeInsets { return UITBEdgeInsets(top: top, bottom: bottom) }
 func UILREdgeInsetsMake(_ left: CGFloat, _ right: CGFloat) -> UILREdgeInsets { return UILREdgeInsets(left: left, right: right) }
@@ -62,21 +79,12 @@ func CGSizeMake(_ width: CGFloat, _ height: CGFloat) -> CGSize { return CGSize(w
 
 
 public func NSStringFromUIEdgeInsets(_ edgeInsets: UIEdgeInsets) -> String {
-    return "top:\(edgeInsets.top),"+"left:\(edgeInsets.left),"+"bottom:\(edgeInsets.bottom),"+"right:\(edgeInsets.right)"
+    return NSCoder.string(for: edgeInsets)
 }
-public func UIEdgeInsetsFromString(_ namestr: NSString) -> UIEdgeInsets {
-    let arr = namestr.components(separatedBy: ",")
-    let edgeInsets = UIEdgeInsetsZero
-    for name in arr {
-        let arr = namestr.components(separatedBy: ":")
-        if arr.count == 2 {
-            let first = arr[0]
-            let last  = CGFloat(arr[1])
-            if first == "top"         { edgeInsets.top = last }
-            else if first == "left"   { edgeInsets.left = last }
-            else if first == "bottom" { edgeInsets.bottom = last }
-            else if first == "right"  { edgeInsets.right = last }
-        }
-    }
-    return edgeInsets
+public func UIEdgeInsetsFromString(_ namestr: String) -> UIEdgeInsets {
+    return NSCoder.uiEdgeInsets(for: namestr)
+}
+
+public func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
+    return CGRect(x: x, y: y, width: width, height: height)
 }

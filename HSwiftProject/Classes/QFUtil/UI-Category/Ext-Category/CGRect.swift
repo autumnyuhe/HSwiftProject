@@ -34,16 +34,4 @@ extension CGRect {
         set { self.size.height = newValue }
     }
     
-    @available(iOS 2.0, *)
-    public var origin: CGPoint {
-        get { return self.origin }
-        set { self.origin = newValue }
-    }
-    
-    @available(iOS 2.0, *)
-    public var size: CGSize {
-        get { return self.size }
-        set { self.size = newValue }
-    }
-    
 }

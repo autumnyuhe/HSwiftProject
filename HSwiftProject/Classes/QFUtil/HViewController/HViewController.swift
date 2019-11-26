@@ -21,7 +21,7 @@ class HVCAppearance: NSObject {
 
 extension UIView {
 
-    @objc class func swizzle() -> Void {
+    @objc override class func swizzle() -> Void {
         Swizzle(UIImage.self) {
             #selector(willMove(toSuperview:)) <-> #selector(pvc_willMove(toSuperview:))
         }

@@ -32,8 +32,26 @@
 		A26D434323877F0A00F457AE /* UIControl+HSafeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26D434223877F0A00F457AE /* UIControl+HSafeUtil.swift */; };
 		A26D43452387827A00F457AE /* NSObject+HForwarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26D43442387827A00F457AE /* NSObject+HForwarding.swift */; };
 		A26D434923879FB900F457AE /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26D434823879FB900F457AE /* Router.swift */; };
-		A26D434C2387C2BC00F457AE /* HTupleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26D434B2387C2BC00F457AE /* HTupleView.swift */; };
-		A26D434E2387C99B00F457AE /* HCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26D434D2387C99B00F457AE /* HCollectionViewFlowLayout.swift */; };
+		A28923A2238B72F800E4AB75 /* HTupleBaseApex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2892396238B72F800E4AB75 /* HTupleBaseApex.swift */; };
+		A28923A3238B72F800E4AB75 /* HTupleBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2892398238B72F800E4AB75 /* HTupleBaseCell.swift */; };
+		A28923A4238B72F800E4AB75 /* HGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A289239A238B72F800E4AB75 /* HGeometry.swift */; };
+		A28923A5238B72F800E4AB75 /* HTupleSignal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A289239B238B72F800E4AB75 /* HTupleSignal.swift */; };
+		A28923A6238B72F800E4AB75 /* NSIndexPath+HUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A289239C238B72F800E4AB75 /* NSIndexPath+HUtil.swift */; };
+		A28923A7238B72F800E4AB75 /* HTupleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A289239E238B72F800E4AB75 /* HTupleView.swift */; };
+		A28923A8238B72F800E4AB75 /* HCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A289239F238B72F800E4AB75 /* HCollectionViewFlowLayout.swift */; };
+		A28923A9238B72F800E4AB75 /* NSObject+HSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28923A1238B72F800E4AB75 /* NSObject+HSelector.swift */; };
+		A28923AB238B733500E4AB75 /* HTupleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28923AA238B733500E4AB75 /* HTupleViewCell.swift */; };
+		A28923AE238B750000E4AB75 /* HTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28923AD238B750000E4AB75 /* HTextField.swift */; };
+		A28923B0238BC2D100E4AB75 /* HTupleViewCellVertValue1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28923AF238BC2D100E4AB75 /* HTupleViewCellVertValue1.swift */; };
+		A28923B2238BCB5000E4AB75 /* HTupleViewCellHoriValue1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28923B1238BCB5000E4AB75 /* HTupleViewCellHoriValue1.swift */; };
+		A28923BC238BCB6200E4AB75 /* icon_tuple_xx_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28923B4238BCB6200E4AB75 /* icon_tuple_xx_white@3x.png */; };
+		A28923BD238BCB6200E4AB75 /* icon_tuple_arrow_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28923B5238BCB6200E4AB75 /* icon_tuple_arrow_up@2x.png */; };
+		A28923BE238BCB6200E4AB75 /* icon_tuple_xx_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28923B6238BCB6200E4AB75 /* icon_tuple_xx_white@2x.png */; };
+		A28923BF238BCB6200E4AB75 /* icon_tuple_xx_gray@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28923B7238BCB6200E4AB75 /* icon_tuple_xx_gray@3x.png */; };
+		A28923C0238BCB6200E4AB75 /* icon_tuple_xx_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28923B8238BCB6200E4AB75 /* icon_tuple_xx_gray@2x.png */; };
+		A28923C1238BCB6200E4AB75 /* icon_tuple_arrow_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28923B9238BCB6200E4AB75 /* icon_tuple_arrow_down@2x.png */; };
+		A28923C2238BCB6200E4AB75 /* icon_tuple_arrow_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28923BA238BCB6200E4AB75 /* icon_tuple_arrow_right@2x.png */; };
+		A28923C3238BCB6200E4AB75 /* icon_tuple_arrow_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28923BB238BCB6200E4AB75 /* icon_tuple_arrow_left@2x.png */; };
 		A2B42FCC237CED5A00795605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B42FCB237CED5A00795605 /* AppDelegate.swift */; };
 		A2B42FCE237CED5A00795605 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B42FCD237CED5A00795605 /* SceneDelegate.swift */; };
 		A2B42FD0237CED5A00795605 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B42FCF237CED5A00795605 /* ViewController.swift */; };
@@ -77,12 +95,6 @@
 		A2B4308B2382598F00795605 /* UIButton+HFilletLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4308A2382598F00795605 /* UIButton+HFilletLayer.swift */; };
 		A2B4308D23825BBE00795605 /* HWebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4308C23825BBE00795605 /* HWebImageView.swift */; };
 		A2B4308F2382CC8A00795605 /* UIDevice+HUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4308E2382CC8A00795605 /* UIDevice+HUtil.swift */; };
-		A2CCDB352387E204009B98ED /* HGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CCDB342387E204009B98ED /* HGeometry.swift */; };
-		A2CCDB3723880D20009B98ED /* NSObject+HSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CCDB3623880D20009B98ED /* NSObject+HSelector.swift */; };
-		A2CCDB392388ECF1009B98ED /* HTupleSignal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CCDB382388ECF1009B98ED /* HTupleSignal.swift */; };
-		A2CCDB3B2388EEF7009B98ED /* NSIndexPath+HUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CCDB3A2388EEF7009B98ED /* NSIndexPath+HUtil.swift */; };
-		A2CCDB3D2388F0CE009B98ED /* HTupleBaseApex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CCDB3C2388F0CE009B98ED /* HTupleBaseApex.swift */; };
-		A2CCDB4123891EFB009B98ED /* HTupleBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CCDB4023891EFB009B98ED /* HTupleBaseCell.swift */; };
 		F117DC3F24BEC812781CBFDD /* Pods_HSwiftProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADCF505CCD6B194D7FAA67B /* Pods_HSwiftProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -114,8 +126,26 @@
 		A26D434223877F0A00F457AE /* UIControl+HSafeUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+HSafeUtil.swift"; sourceTree = "<group>"; };
 		A26D43442387827A00F457AE /* NSObject+HForwarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+HForwarding.swift"; sourceTree = "<group>"; };
 		A26D434823879FB900F457AE /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		A26D434B2387C2BC00F457AE /* HTupleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTupleView.swift; sourceTree = "<group>"; };
-		A26D434D2387C99B00F457AE /* HCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		A2892396238B72F800E4AB75 /* HTupleBaseApex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTupleBaseApex.swift; sourceTree = "<group>"; };
+		A2892398238B72F800E4AB75 /* HTupleBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTupleBaseCell.swift; sourceTree = "<group>"; };
+		A289239A238B72F800E4AB75 /* HGeometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HGeometry.swift; sourceTree = "<group>"; };
+		A289239B238B72F800E4AB75 /* HTupleSignal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTupleSignal.swift; sourceTree = "<group>"; };
+		A289239C238B72F800E4AB75 /* NSIndexPath+HUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSIndexPath+HUtil.swift"; sourceTree = "<group>"; };
+		A289239E238B72F800E4AB75 /* HTupleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTupleView.swift; sourceTree = "<group>"; };
+		A289239F238B72F800E4AB75 /* HCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		A28923A1238B72F800E4AB75 /* NSObject+HSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+HSelector.swift"; sourceTree = "<group>"; };
+		A28923AA238B733500E4AB75 /* HTupleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTupleViewCell.swift; sourceTree = "<group>"; };
+		A28923AD238B750000E4AB75 /* HTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTextField.swift; sourceTree = "<group>"; };
+		A28923AF238BC2D100E4AB75 /* HTupleViewCellVertValue1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTupleViewCellVertValue1.swift; sourceTree = "<group>"; };
+		A28923B1238BCB5000E4AB75 /* HTupleViewCellHoriValue1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTupleViewCellHoriValue1.swift; sourceTree = "<group>"; };
+		A28923B4238BCB6200E4AB75 /* icon_tuple_xx_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_xx_white@3x.png"; sourceTree = "<group>"; };
+		A28923B5238BCB6200E4AB75 /* icon_tuple_arrow_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_arrow_up@2x.png"; sourceTree = "<group>"; };
+		A28923B6238BCB6200E4AB75 /* icon_tuple_xx_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_xx_white@2x.png"; sourceTree = "<group>"; };
+		A28923B7238BCB6200E4AB75 /* icon_tuple_xx_gray@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_xx_gray@3x.png"; sourceTree = "<group>"; };
+		A28923B8238BCB6200E4AB75 /* icon_tuple_xx_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_xx_gray@2x.png"; sourceTree = "<group>"; };
+		A28923B9238BCB6200E4AB75 /* icon_tuple_arrow_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_arrow_down@2x.png"; sourceTree = "<group>"; };
+		A28923BA238BCB6200E4AB75 /* icon_tuple_arrow_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_arrow_right@2x.png"; sourceTree = "<group>"; };
+		A28923BB238BCB6200E4AB75 /* icon_tuple_arrow_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_arrow_left@2x.png"; sourceTree = "<group>"; };
 		A2B42FC8237CED5A00795605 /* HSwiftProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSwiftProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B42FCB237CED5A00795605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2B42FCD237CED5A00795605 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,12 +191,6 @@
 		A2B4308A2382598F00795605 /* UIButton+HFilletLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+HFilletLayer.swift"; sourceTree = "<group>"; };
 		A2B4308C23825BBE00795605 /* HWebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWebImageView.swift; sourceTree = "<group>"; };
 		A2B4308E2382CC8A00795605 /* UIDevice+HUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+HUtil.swift"; sourceTree = "<group>"; };
-		A2CCDB342387E204009B98ED /* HGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGeometry.swift; sourceTree = "<group>"; };
-		A2CCDB3623880D20009B98ED /* NSObject+HSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+HSelector.swift"; sourceTree = "<group>"; };
-		A2CCDB382388ECF1009B98ED /* HTupleSignal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTupleSignal.swift; sourceTree = "<group>"; };
-		A2CCDB3A2388EEF7009B98ED /* NSIndexPath+HUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSIndexPath+HUtil.swift"; sourceTree = "<group>"; };
-		A2CCDB3C2388F0CE009B98ED /* HTupleBaseApex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTupleBaseApex.swift; sourceTree = "<group>"; };
-		A2CCDB4023891EFB009B98ED /* HTupleBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTupleBaseCell.swift; sourceTree = "<group>"; };
 		D6FA5573A6AEBBEE3FA9646A /* Pods-HSwiftProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSwiftProject.debug.xcconfig"; path = "Target Support Files/Pods-HSwiftProject/Pods-HSwiftProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,16 +217,92 @@
 		A26D434A2387C2B500F457AE /* HTupleView */ = {
 			isa = PBXGroup;
 			children = (
-				A26D434B2387C2BC00F457AE /* HTupleView.swift */,
-				A26D434D2387C99B00F457AE /* HCollectionViewFlowLayout.swift */,
-				A2CCDB342387E204009B98ED /* HGeometry.swift */,
-				A2CCDB3623880D20009B98ED /* NSObject+HSelector.swift */,
-				A2CCDB382388ECF1009B98ED /* HTupleSignal.swift */,
-				A2CCDB3A2388EEF7009B98ED /* NSIndexPath+HUtil.swift */,
-				A2CCDB3C2388F0CE009B98ED /* HTupleBaseApex.swift */,
-				A2CCDB4023891EFB009B98ED /* HTupleBaseCell.swift */,
+				A28923AC238B74F000E4AB75 /* TextField */,
+				A28923A0238B72F800E4AB75 /* HSelector */,
+				A2892394238B72F800E4AB75 /* Cells */,
+				A289239D238B72F800E4AB75 /* View */,
 			);
 			path = HTupleView;
+			sourceTree = "<group>";
+		};
+		A2892394238B72F800E4AB75 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A2892395238B72F800E4AB75 /* HTupleViewApex */,
+				A2892397238B72F800E4AB75 /* HTupleViewCell */,
+				A2892399238B72F800E4AB75 /* HTupleCommon */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A2892395238B72F800E4AB75 /* HTupleViewApex */ = {
+			isa = PBXGroup;
+			children = (
+				A2892396238B72F800E4AB75 /* HTupleBaseApex.swift */,
+			);
+			path = HTupleViewApex;
+			sourceTree = "<group>";
+		};
+		A2892397238B72F800E4AB75 /* HTupleViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A2892398238B72F800E4AB75 /* HTupleBaseCell.swift */,
+				A28923AA238B733500E4AB75 /* HTupleViewCell.swift */,
+				A28923AF238BC2D100E4AB75 /* HTupleViewCellVertValue1.swift */,
+				A28923B1238BCB5000E4AB75 /* HTupleViewCellHoriValue1.swift */,
+				A28923B3238BCB6200E4AB75 /* tuple_arrow_icons */,
+			);
+			path = HTupleViewCell;
+			sourceTree = "<group>";
+		};
+		A2892399238B72F800E4AB75 /* HTupleCommon */ = {
+			isa = PBXGroup;
+			children = (
+				A289239A238B72F800E4AB75 /* HGeometry.swift */,
+				A289239B238B72F800E4AB75 /* HTupleSignal.swift */,
+				A289239C238B72F800E4AB75 /* NSIndexPath+HUtil.swift */,
+			);
+			path = HTupleCommon;
+			sourceTree = "<group>";
+		};
+		A289239D238B72F800E4AB75 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A289239E238B72F800E4AB75 /* HTupleView.swift */,
+				A289239F238B72F800E4AB75 /* HCollectionViewFlowLayout.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A28923A0238B72F800E4AB75 /* HSelector */ = {
+			isa = PBXGroup;
+			children = (
+				A28923A1238B72F800E4AB75 /* NSObject+HSelector.swift */,
+			);
+			path = HSelector;
+			sourceTree = "<group>";
+		};
+		A28923AC238B74F000E4AB75 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				A28923AD238B750000E4AB75 /* HTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		A28923B3238BCB6200E4AB75 /* tuple_arrow_icons */ = {
+			isa = PBXGroup;
+			children = (
+				A28923B4238BCB6200E4AB75 /* icon_tuple_xx_white@3x.png */,
+				A28923B5238BCB6200E4AB75 /* icon_tuple_arrow_up@2x.png */,
+				A28923B6238BCB6200E4AB75 /* icon_tuple_xx_white@2x.png */,
+				A28923B7238BCB6200E4AB75 /* icon_tuple_xx_gray@3x.png */,
+				A28923B8238BCB6200E4AB75 /* icon_tuple_xx_gray@2x.png */,
+				A28923B9238BCB6200E4AB75 /* icon_tuple_arrow_down@2x.png */,
+				A28923BA238BCB6200E4AB75 /* icon_tuple_arrow_right@2x.png */,
+				A28923BB238BCB6200E4AB75 /* icon_tuple_arrow_left@2x.png */,
+			);
+			path = tuple_arrow_icons;
 			sourceTree = "<group>";
 		};
 		A2B42FBF237CED5A00795605 = {
@@ -498,6 +598,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A28923C3238BCB6200E4AB75 /* icon_tuple_arrow_left@2x.png in Resources */,
 				A26D43332386914500F457AE /* hvc_back_icon@2x.png in Resources */,
 				A2B42FF1237CFFAB00795605 /* di_index_h@3x.png in Resources */,
 				A2B43000237D005C00795605 /* di_login_h@3x.png in Resources */,
@@ -505,12 +606,17 @@
 				A2B42FEF237CFFAB00795605 /* di_index@3x.png in Resources */,
 				A2B43005237D005C00795605 /* di_kf_h@2x.png in Resources */,
 				A2B43007237D005C00795605 /* di_more_h@3x.png in Resources */,
+				A28923BC238BCB6200E4AB75 /* icon_tuple_xx_white@3x.png in Resources */,
+				A28923BE238BCB6200E4AB75 /* icon_tuple_xx_white@2x.png in Resources */,
 				A2B42FFE237D005C00795605 /* di_login_h@2x.png in Resources */,
+				A28923C1238BCB6200E4AB75 /* icon_tuple_arrow_down@2x.png in Resources */,
 				A26D43322386914500F457AE /* hvc_back_icon@3x.png in Resources */,
 				A2B42FEE237CFFAB00795605 /* di_index@2x.png in Resources */,
 				A2B43001237D005C00795605 /* di_more_h@2x.png in Resources */,
 				A2B43004237D005C00795605 /* di_more@2x.png in Resources */,
+				A28923C2238BCB6200E4AB75 /* icon_tuple_arrow_right@2x.png in Resources */,
 				A2B43008237D005C00795605 /* di_kf_h@3x.png in Resources */,
+				A28923BD238BCB6200E4AB75 /* icon_tuple_arrow_up@2x.png in Resources */,
 				A2B42FD8237CED5B00795605 /* LaunchScreen.storyboard in Resources */,
 				A2B43009237D005C00795605 /* di_login@2x.png in Resources */,
 				A2B43003237D005C00795605 /* di_kf@2x.png in Resources */,
@@ -518,7 +624,9 @@
 				A2B42FFF237D005C00795605 /* di_kf@3x.png in Resources */,
 				A2B42FD3237CED5A00795605 /* Main.storyboard in Resources */,
 				A2B42FF0237CFFAB00795605 /* di_index_h@2x.png in Resources */,
+				A28923C0238BCB6200E4AB75 /* icon_tuple_xx_gray@2x.png in Resources */,
 				A2B43002237D005C00795605 /* di_more@3x.png in Resources */,
+				A28923BF238BCB6200E4AB75 /* icon_tuple_xx_gray@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,7 +680,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2B4308323801C4E00795605 /* HWebButtonView.swift in Sources */,
-				A2CCDB4123891EFB009B98ED /* HTupleBaseCell.swift in Sources */,
 				A2B4307D237FF2B100795605 /* HMainViewController.swift in Sources */,
 				A26D43172383DE5800F457AE /* UIColor+HUtil.swift in Sources */,
 				A2B4308B2382598F00795605 /* UIButton+HFilletLayer.swift in Sources */,
@@ -581,7 +688,10 @@
 				A2B4308D23825BBE00795605 /* HWebImageView.swift in Sources */,
 				A2B4308723823F3400795605 /* Error+HUtil.swift in Sources */,
 				A26D434323877F0A00F457AE /* UIControl+HSafeUtil.swift in Sources */,
+				A28923A7238B72F800E4AB75 /* HTupleView.swift in Sources */,
 				A26D431F238425BD00F457AE /* CGRect.swift in Sources */,
+				A28923A2238B72F800E4AB75 /* HTupleBaseApex.swift in Sources */,
+				A28923AB238B733500E4AB75 /* HTupleViewCell.swift in Sources */,
 				A26D43292385665700F457AE /* NSUserDefaults+HUtil.swift in Sources */,
 				A26D432123842C9400F457AE /* UIGestureRecognizer+HUtil.swift in Sources */,
 				A26D432D238682D200F457AE /* HNavigationController.swift in Sources */,
@@ -589,17 +699,16 @@
 				A26D431523839C2800F457AE /* UIApplication+HUtil.swift in Sources */,
 				A2B43078237FF2B100795605 /* NSObject+HExclusive.swift in Sources */,
 				A2B43079237FF2B100795605 /* HCenterViewController.swift in Sources */,
+				A28923A4238B72F800E4AB75 /* HGeometry.swift in Sources */,
+				A28923A3238B72F800E4AB75 /* HTupleBaseCell.swift in Sources */,
 				A2B43074237FF2B100795605 /* UIView+HPrinter.swift in Sources */,
-				A2CCDB352387E204009B98ED /* HGeometry.swift in Sources */,
 				A26D43392386C0A000F457AE /* UINavigationController+HUtil.swift in Sources */,
-				A2CCDB3B2388EEF7009B98ED /* NSIndexPath+HUtil.swift in Sources */,
 				A26D43352386BA5800F457AE /* UIAlertController+HError.swift in Sources */,
 				A2B4308523823B9000795605 /* HCommonBlock.swift in Sources */,
+				A28923A8238B72F800E4AB75 /* HCollectionViewFlowLayout.swift in Sources */,
 				A2B43071237FF2B100795605 /* Swifty.m in Sources */,
 				A2B43073237FF2B100795605 /* HCommonDefine.swift in Sources */,
 				A2B42FCC237CED5A00795605 /* AppDelegate.swift in Sources */,
-				A2CCDB392388ECF1009B98ED /* HTupleSignal.swift in Sources */,
-				A26D434C2387C2BC00F457AE /* HTupleView.swift in Sources */,
 				A2B4307C237FF2B100795605 /* HGameCategoryVC.swift in Sources */,
 				A26D43412386CD9000F457AE /* NSTimer+HSafeUtil.swift in Sources */,
 				A26D432B23856F8900F457AE /* NSTimer+HUtil.swift in Sources */,
@@ -609,22 +718,25 @@
 				A26D432723853F2900F457AE /* NSObject+HMessy.swift in Sources */,
 				A26D43192383E23300F457AE /* NSString+HUtil.swift in Sources */,
 				A26D434923879FB900F457AE /* Router.swift in Sources */,
-				A2CCDB3723880D20009B98ED /* NSObject+HSelector.swift in Sources */,
 				A2B43076237FF2B100795605 /* UIWindow+HPrinter.swift in Sources */,
 				A26D432523852DB700F457AE /* NSDate+HUtil.swift in Sources */,
 				A2B43072237FF2B100795605 /* UIView+HUtil.swift in Sources */,
 				A26D43372386BBD600F457AE /* AppDelegate+HUtil.swift in Sources */,
 				A26D433F2386CA0A00F457AE /* NSObject+HSwizzleUtil.swift in Sources */,
 				A26D433D2386C76D00F457AE /* NSObject+HSafeMessy.swift in Sources */,
+				A28923B0238BC2D100E4AB75 /* HTupleViewCellVertValue1.swift in Sources */,
+				A28923B2238BCB5000E4AB75 /* HTupleViewCellHoriValue1.swift in Sources */,
 				A2B43089238248EB00795605 /* UIImageView+HFilletLayer.swift in Sources */,
 				A26D432F23868AFE00F457AE /* UIViewController+HDisappear.swift in Sources */,
-				A2CCDB3D2388F0CE009B98ED /* HTupleBaseApex.swift in Sources */,
+				A28923A5238B72F800E4AB75 /* HTupleSignal.swift in Sources */,
 				A2B43077237FF2B100795605 /* NSObject+HUtil.swift in Sources */,
 				A2B43080237FF57C00795605 /* HViewController.swift in Sources */,
 				A2B4307A237FF2B100795605 /* HMenuViewController.swift in Sources */,
 				A2B43075237FF2B100795605 /* HPrinterManager.swift in Sources */,
-				A26D434E2387C99B00F457AE /* HCollectionViewFlowLayout.swift in Sources */,
+				A28923A6238B72F800E4AB75 /* NSIndexPath+HUtil.swift in Sources */,
+				A28923AE238B750000E4AB75 /* HTextField.swift in Sources */,
 				A26D431D2384177900F457AE /* UIScreen+HUtil.swift in Sources */,
+				A28923A9238B72F800E4AB75 /* NSObject+HSelector.swift in Sources */,
 				A2B4307B237FF2B100795605 /* HCServiceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

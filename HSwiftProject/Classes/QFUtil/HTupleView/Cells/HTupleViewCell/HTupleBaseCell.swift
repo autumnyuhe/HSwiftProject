@@ -8,27 +8,27 @@
 
 import UIKit
 
-func HLayoutTupleCell(_ v: UIView) {
-    let frame: CGRect = self.layoutViewBounds
-    if v.frame != frame {
-        v.frame = frame
-    }
-}
-
 typealias HTupleCellBlock = (_ idxPath: NSIndexPath) -> Void
 
 class HTupleBaseCell : UICollectionViewCell {
     
     ///cell所在的tuple view
-    weak var tuple: UICollectionView
+    weak var tuple: UICollectionView?
     
     ///cell所在的indexPath
-    var indexPath: NSIndexPath
+    var indexPath: IndexPath?
     
     ///cell点击block，用户用户点击事件
     var cellBlock: HTupleCellBlock?
     ///信号block
     var signalBlock: HTupleCellSignalBlock?
+    
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.backgroundColor = UIColor.clear
+        self.initUI()
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -131,7 +131,7 @@ class HTupleBaseCell : UICollectionViewCell {
     }
     
     private var getSeparatorFrame: CGRect {
-        let frame: CGRect = CGRectMake(0, self.height - 1, self.width, 1)
+        var frame: CGRect = CGRectMake(0, self.height - 1, self.width, 1)
         frame.x += self.separatorInset.left
         frame.width -= self.separatorInset.left + self.separatorInset.right
         return frame
@@ -139,14 +139,14 @@ class HTupleBaseCell : UICollectionViewCell {
     
     ///刷新当前cell
     func reloadData() {
-        if self.indexPath.isKind(of: NSIndexPath.self) {
-            self.tuple.reloadItems(at: [self.indexPath])
+        if self.indexPath != nil {
+            self.tuple?.reloadItems(at: [self.indexPath!])
         }
     }
 
     ///layoutView的frame和bounds
     var layoutViewFrame: CGRect {
-        let frame: CGRect = self.bounds
+        var frame: CGRect = self.bounds
         frame.x += _edgeInsets.left
         frame.y += _edgeInsets.top
         frame.width -= _edgeInsets.left + _edgeInsets.right
@@ -155,9 +155,16 @@ class HTupleBaseCell : UICollectionViewCell {
     }
 
     var layoutViewBounds: CGRect {
-        let frame: CGRect = self.layoutViewFrame
+        var frame: CGRect = self.layoutViewFrame
         frame.x = 0; frame.y = 0
         return frame
+    }
+    
+    func HLayoutTupleCell(_ v: UIView) {
+        let frame: CGRect = self.layoutViewBounds
+        if v.frame != frame {
+            v.frame = frame
+        }
     }
 
     deinit {

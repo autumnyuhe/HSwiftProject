@@ -18,24 +18,26 @@ private class HCollectionReusableView : UICollectionReusableView {
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         let attr = layoutAttributes as! HCollectionViewLayoutAttributes
+        self.backgroundColor = attr.backgroundColor
     }
 }
 
 /// 扩展section的背景色
 protocol HCollectionViewDelegateFlowLayout : UICollectionViewDelegateFlowLayout {
-    @objc func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, colorForSectionAtIndex: NSInteger) -> UIColor
+    func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, colorForSectionAt section: NSInteger) -> UIColor
 }
 
 class HCollectionViewFlowLayout : UICollectionViewFlowLayout {
     
-    private var decorationViewAttrs = NSMutableArray()
+    private var decorationViewAttrs: NSMutableArray = NSMutableArray()
     
     override func prepare() {
         super.prepare()
         
         let sections: Int = self.collectionView!.numberOfSections
         let delegate: HCollectionViewDelegateFlowLayout = self.collectionView!.delegate as! HCollectionViewDelegateFlowLayout
-        if delegate.responds(to: #selector(collectionView(_:layout:colorForSectionAtIndex:))) == false {
+        let selector = NSSelectorFromString("collectionView(_:layout:colorForSectionAt:)")
+        if delegate.responds(to: selector) == false {
             return
         }
         
@@ -44,38 +46,38 @@ class HCollectionViewFlowLayout : UICollectionViewFlowLayout {
         self.decorationViewAttrs.removeAllObjects()
         
         for section in 0..<sections {
-            let numberOfItems = self.collectionView?.numberOfItems(inSection: section)
+            let numberOfItems: Int = (self.collectionView?.numberOfItems(inSection: section))!
             if numberOfItems > 0 {
-                let firstAttr: UICollectionViewLayoutAttributes = self.layoutAttributesForItem(at: NSIndexPath(row: 0, section: section))
-                let lastAttr: UICollectionViewLayoutAttributes = self.layoutAttributesForItem(at: NSIndexPath(row: numberOfItems-1, section: section))
+                let firstAttr: UICollectionViewLayoutAttributes = self.layoutAttributesForItem(at: IndexPath(row: 0, section: section))!
+                let lastAttr: UICollectionViewLayoutAttributes = self.layoutAttributesForItem(at: IndexPath(row: numberOfItems-1, section: section))!
                 
-                let sectionInset = self.sectionInset
-                if delegate.responds(to: #selector(collectionView(_:layout:insetForSectionAtIndex:))) {
-                    let inset: UIEdgeInsets = delegate.collectionView(self.collectionView, layout: self, insetForSectionAtIndex: section)
+                var sectionInset = self.sectionInset
+                if delegate.responds(to: selector) {
+                    let inset: UIEdgeInsets = delegate.collectionView!(self.collectionView!, layout: self, insetForSectionAt: section)
                     if inset !=  sectionInset {
                         sectionInset = inset
                     }
                 }
                 
-                let sectionFrame: CGRect = firstAttr.frame.union(lastAttr.frame)
+                var sectionFrame: CGRect = firstAttr.frame.union(lastAttr.frame)
                 sectionFrame.origin.x -= sectionInset.left
                 sectionFrame.origin.y -= sectionInset.top
                 
                 if (self.scrollDirection == .horizontal) {
                     sectionFrame.size.width += sectionInset.left + sectionInset.right
-                    sectionFrame.size.height = self.collectionView.frame.size.height
+                    sectionFrame.size.height = (self.collectionView?.frame.size.height)!
                 }else {
-                    sectionFrame.size.width = self.collectionView.frame.size.width
+                    sectionFrame.size.width = (self.collectionView?.frame.size.width)!
                     sectionFrame.size.height += sectionInset.top + sectionInset.bottom
                 }
                 
                 //2. 定义
                 
-                let attr: HCollectionViewLayoutAttributes = HCollectionViewLayoutAttributes.init(forDecorationViewOfKind: HCollectionViewSectionColor, with: NSIndexPath(row: 0, section: section))
+                let attr: HCollectionViewLayoutAttributes = HCollectionViewLayoutAttributes.init(forDecorationViewOfKind: HCollectionViewSectionColor, with: IndexPath(row: 0, section: section))
 //                HCollectionViewLayoutAttributes *attr = [HCollectionViewLayoutAttributes layoutAttributesForDecorationViewOfKind:HCollectionViewSectionColor withIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
                 attr.frame = sectionFrame
                 attr.zIndex = -1
-                attr.backgroundColor = delegate.collectionView(self.collectionView, layout: self, colorForSectionAtIndex: section)
+                attr.backgroundColor = delegate.collectionView(self.collectionView!, layout: self, colorForSectionAt: section)
                 self.decorationViewAttrs.add(attr)
             }else {
                 continue
@@ -86,12 +88,14 @@ class HCollectionViewFlowLayout : UICollectionViewFlowLayout {
 
     //此类原有方法 并加上 去掉Cell之间的间隔线
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        let attrs: NSMutableArray = super.layoutAttributesForElements(in: rect)
-        for attr: UICollectionViewLayoutAttributes in self.decorationViewAttrs {
+        let attrs: NSMutableArray = super.layoutAttributesForElements(in: rect) as! NSMutableArray
+        for item in self.decorationViewAttrs {
+            let attr: UICollectionViewLayoutAttributes = item as! UICollectionViewLayoutAttributes
             if rect == attr.frame {
                 attrs.add(attr)
             }
         }
+        return attrs as? [UICollectionViewLayoutAttributes]
     }
     
 }

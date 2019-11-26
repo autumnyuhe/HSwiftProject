@@ -8,28 +8,28 @@
 
 import UIKit
 
-func HLayoutTupleApex(_ v: UIView) {
-    let frame: CGRect = self.layoutViewBounds
-    if v.frame != frame {
-        v.frame = frame
-    }
-}
-
 typealias HTupleApexBlock = (_ idxPath: NSIndexPath) -> Void
 
 class HTupleBaseApex : UICollectionReusableView {
     
     ///cell所在的tuple view
-    weak var tuple: UICollectionView
+    weak var tuple: UICollectionView?
     ///cell是否为section header
-    var isHeader: Bool
+    var isHeader: Bool = false
     ///cell所在的indexPath
-    var indexPath: NSIndexPath
+    var indexPath: IndexPath?
     
     ///cell点击block，用户用户点击事件
     var cellBlock: HTupleApexBlock?
     ///信号block
     var signalBlock: HTupleCellSignalBlock?
+    
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.backgroundColor = UIColor.clear
+        self.initUI()
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -132,7 +132,7 @@ class HTupleBaseApex : UICollectionReusableView {
     }
     
     private var getSeparatorFrame: CGRect {
-        let frame: CGRect = CGRectMake(0, self.height - 1, self.width, 1)
+        var frame: CGRect = CGRectMake(0, self.height - 1, self.width, 1)
         frame.x += self.separatorInset.left
         frame.width -= self.separatorInset.left + self.separatorInset.right
         return frame
@@ -140,7 +140,7 @@ class HTupleBaseApex : UICollectionReusableView {
 
     ///layoutView的frame和bounds
     var layoutViewFrame: CGRect {
-        let frame: CGRect = self.bounds
+        var frame: CGRect = self.bounds
         frame.x += _edgeInsets.left
         frame.y += _edgeInsets.top
         frame.width -= _edgeInsets.left + _edgeInsets.right
@@ -149,11 +149,18 @@ class HTupleBaseApex : UICollectionReusableView {
     }
 
     var layoutViewBounds: CGRect {
-        let frame: CGRect = self.layoutViewFrame
+        var frame: CGRect = self.layoutViewFrame
         frame.x = 0; frame.y = 0
         return frame
     }
 
+    func HLayoutTupleApex(_ v: UIView) {
+        let frame: CGRect = self.layoutViewBounds
+        if v.frame != frame {
+            v.frame = frame
+        }
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }

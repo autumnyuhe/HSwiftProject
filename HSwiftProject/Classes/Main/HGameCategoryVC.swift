@@ -20,7 +20,7 @@ class HGameCategoryVC: UIViewController {
 //        let unmanagedValue = self.perform(#selector(testSelector))
         //        NSLog("%@", tmpString)
 //                let value = unmanagedValue.takeRetainedValue()
-        let size: CGSize = self.perform(#selector(testSelector)).takeRetainedValue().cgSizeValue
+//        let _: CGSize = self.perform(#selector(testSelector)).takeRetainedValue().cgSizeValue
         let unmanagedValue:Unmanaged<AnyObject> = self.perform(#selector(testSelector))
 //        NSLog("%@", tmpString)
         let value = unmanagedValue.takeRetainedValue()

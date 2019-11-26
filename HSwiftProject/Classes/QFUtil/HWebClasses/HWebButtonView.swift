@@ -91,7 +91,7 @@ class HWebButtonView: UIButton {
     *
     *  @param image 图片
     */
-    override func setImage(_ image: UIImage?) {
+    func setImage(_ image: UIImage?) {
         self._setImage(image)
         self.lastURL = "";
         self.placeHoderImage = nil;

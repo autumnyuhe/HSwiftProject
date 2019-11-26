@@ -10,28 +10,34 @@ import UIKit
 
 extension UIButton {
 
-    open func setTitle(_ title: String?) {
-        self.setTitle(title, for: UIControl.State.normal)
+    open var text: String? {
+        get { return self.title(for: .normal) }
+        set { self.setTitle(newValue, for: .normal) }
+    }
+
+    open var textFont: UIFont? {
+        get { return self.titleLabel?.font }
+        set { self.titleLabel?.font = newValue }
     }
     
-    open func setTitleColor(_ color: UIColor?) {
-        self.setTitleColor(color, for: UIControl.State.normal)
+    open var textColor: UIColor? {
+        get { return self.titleColor(for: .normal) }
+        set { self.setTitleColor(newValue, for: UIControl.State.normal) }
     }
     
-    open func setFont(_ font: UIFont) {
-        self.titleLabel?.font = font
+    open var textAlignment: NSTextAlignment {
+        get { return self.titleLabel?.textAlignment ?? .center }
+        set { self.titleLabel?.textAlignment = newValue }
     }
     
-    open func setTextAlignment(_ textAlignment: NSTextAlignment) {
-        self.titleLabel?.textAlignment = textAlignment
+    open var image: UIImage? {
+        get { return self.image(for: .normal) }
+        set { self.setImage(newValue, for: UIControl.State.normal) }
     }
     
-    @objc  open func setImage(_ image: UIImage?) {
-        self.setImage(image, for: UIControl.State.normal)
-    }
-    
-    open func setBackgroundImage(_ image: UIImage?) {
-        self.setBackgroundImage(image, for: UIControl.State.normal)
+    open var backgroundImage: UIImage? {
+        get { return self.backgroundImage(for: .normal) }
+        set { self.setBackgroundImage(newValue, for: UIControl.State.normal) }
     }
     
     open func addTarget(_ target: Any?, action: Selector) {
@@ -41,8 +47,8 @@ extension UIButton {
     //let the min respond area is 44*44
     open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         var bounds: CGRect = self.bounds
-        let widthDelta: CGFloat = max(44.0 - bounds.size.width, 0)
-        let heightDelta: CGFloat = max(44.0 - bounds.size.height, 0)
+        let widthDelta: CGFloat = max(44.0 - bounds.width, 0)
+        let heightDelta: CGFloat = max(44.0 - bounds.height, 0)
         bounds = bounds.insetBy(dx: -0.5 * widthDelta, dy: -0.5 * heightDelta)
         return bounds.contains(point)
     }
@@ -55,13 +61,13 @@ extension UIButton {
 
     ///图右文字左
     open func textAndImageWithSpacing(_ spacing: CGFloat) {
-        self.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -(self.imageView?.frame.size.width)!, bottom: 0, right: (self.imageView?.frame.size.width)!-spacing)
-        self.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: (self.titleLabel?.bounds.size.width)!-spacing, bottom: 0, right: -(self.titleLabel?.bounds.size.width)!)
+        self.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -(self.imageView?.width)!, bottom: 0, right: (self.imageView?.width)!-spacing)
+        self.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: (self.titleLabel?.width)!-spacing, bottom: 0, right: -(self.titleLabel?.width)!)
     }
     
     ///图上文字下
     open func imageUpAndTextDownWithSpacing(_ spacing: CGFloat) {
-        self.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -(self.imageView?.frame.size.width)!, bottom: -(self.imageView?.frame.size.width)!-spacing/2, right: 0)
+        self.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -(self.imageView?.width)!, bottom: -(self.imageView?.width)!-spacing/2, right: 0)
         self.titleEdgeInsets = UIEdgeInsets.init(top: -(self.titleLabel?.intrinsicContentSize.width)!-spacing/2, left: 0, bottom: 0, right: -(self.titleLabel?.intrinsicContentSize.width)!)
     }
 
