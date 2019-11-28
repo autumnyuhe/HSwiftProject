@@ -19,7 +19,7 @@ class HGameCategoryVC : HViewController, HTupleViewDelegate {
             _tupleView = HTupleView.tupleFrame({ () -> CGRect in
                 return frame
             }, exclusiveSections: { () -> NSArray in
-                [0, 1, 2]
+                return [0, 1, 2]
             })
         }
         return _tupleView!
