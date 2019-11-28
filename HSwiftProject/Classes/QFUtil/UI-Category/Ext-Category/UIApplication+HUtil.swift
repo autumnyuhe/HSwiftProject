@@ -210,16 +210,12 @@ extension UIApplication {
     ///根据颜色动态设置状态栏样式
     static func setStatusBarStyleWithColor(_ color: UIColor) -> Void {
         if color.isLighterColor {
-            #if __IPHONE_13_0
             if #available(iOS 13.0, *) {
                 UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: false)
-                }else {
-                    // Fallback on earlier versions
-                    UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: false)
-                }
-            #else
+            }else {
+                // Fallback on earlier versions
                 UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: false)
-            #endif
+            }
         }else {
             UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: false)
         }

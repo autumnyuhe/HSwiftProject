@@ -38,7 +38,7 @@ class HTupleBaseCell : UICollectionViewCell {
     
     private var _edgeInsets: UIEdgeInsets = UIEdgeInsetsZero
     ///cell的边距
-    var edgeInsets: UIEdgeInsets {
+    @objc var edgeInsets: UIEdgeInsets {
         get {
             return _edgeInsets
         }

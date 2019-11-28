@@ -36,65 +36,60 @@ class HMenuViewController: UITabBarController {
         centerVC.tabBarItem.selectedImage = UIImage.init(named: "di_login_h")
         
         self.viewControllers = NSMutableArray.init(objects: mainVC, gameCategoryVC, serviceVC, centerVC) as? [UIViewController]
-     
-        self.testFunc()
-        self.testFunc2()
-        
-        print(#function)
     }
     
     
-    func testFunc() -> Void {
-        if self.isKind(of: UIViewController.self) {
-            NSLog("true")
-        }else {
-            NSLog("false")
-        }
-        
-//        if self.isKind(of: UIViewController.classForCoder()) {
-        if self.isKind(of: NSClassFromString("UIViewController")!) {
-            NSLog("true")
-        }else {
-            NSLog("false")
-        }
-    }
-    
-    func testFunc2() -> Void {
-
-    // 返回内部类名
-
-    print("deinit: \(object_getClassName(self))")
-    print("deinit: \(self.className)")
-
-//        let sing = Singleton.sharedInstance
-        print("address : \(Unmanaged.passUnretained(self).toOpaque())")
-        
-//        let str = "1234"
-        let address = String(format: "%p", self)
-        print(address)
-        
-    // 返回应用程序名+类名
-
-//    print("deinit: \(NSStringFromClass(self.dynamicType))")
-
-    // 返回应用程序名+类名，并去掉应用程序名
-
-//    print("deinit: \(NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last!)")
-
-    // 返回应用程序名+类名+内存地址
-
-    print("deinit: \(self)")
-
-    // 返回应用程序名+类名+内存地址
-
-    print("deinit: \(self.description)")
-
-    // 返回类名
-        
-//        self.dynami
-//    print("deinit: \(self.dynamicType)")
-
-    }
+//    func testFunc() -> Void {
+//        if self.isKind(of: UIViewController.self) {
+//            NSLog("true")
+//        }else {
+//            NSLog("false")
+//        }
+//
+////        if self.isKind(of: UIViewController.classForCoder()) {
+//        if self.isKind(of: NSClassFromString("UIViewController")!) {
+//            NSLog("true")
+//        }else {
+//            NSLog("false")
+//        }
+//    }
+//
+//    func testFunc2() -> Void {
+//
+//    // 返回内部类名
+//
+//    print("deinit: \(object_getClassName(self))")
+//    print("deinit: \(self.className)")
+//
+////        let sing = Singleton.sharedInstance
+//        print("address : \(Unmanaged.passUnretained(self).toOpaque())")
+//
+////        let str = "1234"
+//        let address = String(format: "%p", self)
+//        print(address)
+//
+//    // 返回应用程序名+类名
+//
+////    print("deinit: \(NSStringFromClass(self.dynamicType))")
+//
+//    // 返回应用程序名+类名，并去掉应用程序名
+//
+////    print("deinit: \(NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last!)")
+//
+//    // 返回应用程序名+类名+内存地址
+//
+//    print("deinit: \(self)")
+//
+//    // 返回应用程序名+类名+内存地址
+//
+//    print("deinit: \(self.description)")
+//
+//    // 返回类名
+//
+////        self.dynami
+////    print("deinit: \(self.dynamicType)")
+//
+//    }
 
     /*
     // MARK: - Navigation

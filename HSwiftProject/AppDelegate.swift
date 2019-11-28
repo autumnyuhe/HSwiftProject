@@ -78,6 +78,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window.rootViewController = UINavigationController.init(rootViewController: HMenuViewController.init())
 //        window.makeKeyAndVisible()
         
+        UIApplication .setStatusBarStyleWithColor(UIColor.white)
+        
         return true
     }
 

@@ -195,20 +195,37 @@ import UIKit
 extension NSObjectProtocol {
 
     @discardableResult
-    func perform(_ aSelector: Selector!, withPre pre: String!) -> AnyObject? {
+    func performWithRetainedValue(_ aSelector: Selector!, withPre pre: String!) -> AnyObject? {
         let selector = NSSelectorFromString(pre+NSStringFromSelector(aSelector))
         return self.perform(selector).takeRetainedValue()
     }
-
     @discardableResult
-    func perform(_ aSelector: Selector!, with object: Any!, withPre pre: String!) -> AnyObject? {
+    func performWithUnretainedValue(_ aSelector: Selector!, withPre pre: String!) -> AnyObject? {
+        let selector = NSSelectorFromString(pre+NSStringFromSelector(aSelector))
+        return self.perform(selector).takeUnretainedValue()
+    }
+
+    
+    @discardableResult
+    func performWithRetainedValue(_ aSelector: Selector!, with object: Any!, withPre pre: String!) -> AnyObject? {
         let selector = NSSelectorFromString(pre+NSStringFromSelector(aSelector))
         return self.perform(selector, with: object).takeRetainedValue()
     }
-
     @discardableResult
-    func perform(_ aSelector: Selector!, with object1: Any!, with object2: Any!, withPre pre: String!) -> AnyObject? {
+    func performWithUnretainedValue(_ aSelector: Selector!, with object: Any!, withPre pre: String!) -> AnyObject? {
+        let selector = NSSelectorFromString(pre+NSStringFromSelector(aSelector))
+        return self.perform(selector, with: object).takeUnretainedValue()
+    }
+
+    
+    @discardableResult
+    func performWithRetainedValue(_ aSelector: Selector!, with object1: Any!, with object2: Any!, withPre pre: String!) -> AnyObject? {
         let selector = NSSelectorFromString(pre+NSStringFromSelector(aSelector))
         return self.perform(selector, with: object1, with: object2).takeRetainedValue()
+    }
+    @discardableResult
+    func performWithUnretainedValue(_ aSelector: Selector!, with object1: Any!, with object2: Any!, withPre pre: String!) -> AnyObject? {
+        let selector = NSSelectorFromString(pre+NSStringFromSelector(aSelector))
+        return self.perform(selector, with: object1, with: object2).takeUnretainedValue()
     }
 }

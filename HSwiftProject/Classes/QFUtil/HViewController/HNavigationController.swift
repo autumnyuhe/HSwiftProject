@@ -52,11 +52,9 @@ class HNavigationController : UINavigationController, UIGestureRecognizerDelegat
         //modalPresentationStyle 设置默认样式为 UIModalPresentationFullScreen
         self.modalPresentationStyle = .fullScreen
         //关闭暗黑模式
-        #if __IPHONE_13_0
         if #available(iOS 13.0, *) {
             self.overrideUserInterfaceStyle = .light
         }
-        #endif
     }
 
     /// UIGestureRecognizerDelegate

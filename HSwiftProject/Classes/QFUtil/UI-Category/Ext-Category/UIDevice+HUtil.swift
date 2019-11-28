@@ -16,7 +16,7 @@ extension UIDevice {
         if UIDevice.current.userInterfaceIdiom == .phone {
             if #available(iOS 11.0, *) {
                 let mainWindow: UIWindow = UIWindow(frame: UIScreen.main.bounds)
-                if mainWindow.safeAreaInsets.bottom > 0.0 {
+                if mainWindow.safeAreaInsets.top > 20.0 {
                     iPhoneXSeries = true
                 }
             }

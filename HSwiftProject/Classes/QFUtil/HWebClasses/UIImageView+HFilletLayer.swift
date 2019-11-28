@@ -50,7 +50,6 @@ extension UIImageView {
     @objc override class func swizzle() -> Void {
             Swizzle(UIImageView.self) {
                 #selector(setter: image) <-> #selector(pvc_image)
-                #selector(setter: frame) <-> #selector(pvc_frame)
             }
         }
     
@@ -61,11 +60,16 @@ extension UIImageView {
         }
     }
     
-    @objc private func pvc_frame(_ frame: CGRect) {
-        if self.frame.equalTo(frame) == false {
-            self.pvc_frame(frame)
-            if self.fillet && image != nil {
-                self.addFilletLayer()
+    override open var frame: CGRect {
+        get {
+            return super.frame
+        }
+        set {
+            if super.frame != newValue {
+                super.frame = newValue
+                if self.fillet && image != nil {
+                    self.addFilletLayer()
+                }
             }
         }
     }

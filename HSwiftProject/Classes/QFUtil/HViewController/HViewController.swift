@@ -29,11 +29,9 @@ extension UIView {
     
     @objc open func pvc_willMove(toSuperview newSuperview: UIView?) {
         //关闭暗黑模式
-#if __IPHONE_13_0
         if #available(iOS 13.0, *) {
             self.overrideUserInterfaceStyle = .light
         }
-#endif
         self.pvc_willMove(toSuperview: newSuperview)
     }
 }
@@ -106,11 +104,9 @@ class HViewController: UIViewController {
         self.view.addSubview(self.topBar)
         self.view.isExclusiveTouch = true
         //关闭暗黑模式
-#if __IPHONE_13_0
         if #available(iOS 13.0, *) {
             self.overrideUserInterfaceStyle = .light
         }
-#endif
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -187,14 +183,14 @@ class HViewController: UIViewController {
             _topBar!.frame = CGRect(x: 0, y: statusBarPadding, width: self.view.width, height: UIDevice.naviBarHeight)
         }else {
             _topBar!.frame = CGRect(x: 0, y: 0, width: self.view.width, height: UIDevice.naviBarHeight + statusBarPadding)
-            _topBar!.bounds = CGRect(x: 0, y: statusBarPadding, width: self.view.width, height: UIDevice.naviBarHeight + statusBarPadding)
+            _topBar!.bounds = CGRect(x: 0, y: -statusBarPadding, width: self.view.width, height: UIDevice.naviBarHeight + statusBarPadding)
         }
         _topBar!.autoresizingMask = .flexibleWidth
         if _topBarLine == nil {
             _topBarLine = UIView()
+            _topBar!.addSubview(_topBarLine!)
         }
         _topBarLine!.frame = CGRect(x: 0, y: UIDevice.naviBarHeight - 1, width: _topBar!.width, height: 1)
-        _topBar!.addSubview(_topBarLine!)
         _topBarLine!.isHidden = self.prefersTopBarLineHidden
         return _topBar!
     }
@@ -224,8 +220,8 @@ class HViewController: UIViewController {
             _leftNaviButton!.frame = CGRect(x: 10, y: 0, width: UIDevice.naviBarHeight, height: UIDevice.naviBarHeight)
             _leftNaviButton!.titleLabel?.font = UIFont.systemFont(ofSize: 16)
             _leftNaviButton!.contentHorizontalAlignment = .left
-            _leftNaviButton!.pressed = {(_ sender: AnyObject, _ data: AnyObject?) -> () in
-                self.leftNaviButtonPressed()
+            _leftNaviButton!.pressed = { [weak self] (_ sender: AnyObject, _ data: AnyObject?) -> () in
+                self!.leftNaviButtonPressed()
             }
             _leftNaviButton!.imageView?.contentMode = .scaleAspectFit
             self.topBar.addSubview(_leftNaviButton!)
@@ -242,8 +238,8 @@ class HViewController: UIViewController {
             _rightNaviButton!.frame = CGRect(x: self.topBar.width - UIDevice.naviBarHeight - 10, y: 0, width: UIDevice.naviBarHeight, height: UIDevice.naviBarHeight)
             _rightNaviButton!.autoresizingMask = .flexibleLeftMargin
             _rightNaviButton!.contentHorizontalAlignment = .center
-            _rightNaviButton!.pressed = {(_ sender: AnyObject, _ data: AnyObject?) -> () in
-                self.rightNaviButtonPressed()
+            _rightNaviButton!.pressed = { [weak self] (_ sender: AnyObject, _ data: AnyObject?) -> () in
+                self!.rightNaviButtonPressed()
             }
             self.topBar.addSubview(_rightNaviButton!)
         }
@@ -269,16 +265,31 @@ class HViewController: UIViewController {
         if _rightNaviButton != nil {
             //reset right button
             _rightNaviButton!.frame = CGRect(x: topBar.width - _rightNaviButton!.width - 10, y: _rightNaviButton!.y, width: _rightNaviButton!.width, height: _rightNaviButton!.height)
-            self.titleLabel.frame = CGRect(x: _leftNaviButton!.maxX, y: 0, width: _rightNaviButton!.minX - _leftNaviButton!.maxX, height: UIDevice.naviBarHeight)
+            var minX: CGFloat = 0.0
+            let width: CGFloat = max(_leftNaviButton!.width, _rightNaviButton!.width)
+            if _leftNaviButton!.width == width {
+                minX = _leftNaviButton!.minX
+            }else {
+                minX = self.view.width - _rightNaviButton!.maxX
+            }
+            self.titleLabel.frame = CGRect(x: minX+width, y: 0, width: self.view.width - 2*(minX+width), height: UIDevice.naviBarHeight)
         }else {
-            self.titleLabel.frame = CGRect(x: _leftNaviButton!.maxX, y: 0, width: self.view.width - _leftNaviButton!.maxX - 10, height: UIDevice.naviBarHeight)
+            let width: CGFloat = _leftNaviButton!.width
+            self.titleLabel.frame = CGRect(x: _leftNaviButton!.minX+width, y: 0, width: self.view.width - 2*(_leftNaviButton!.minX+width), height: UIDevice.naviBarHeight)
         }
     }
 
     /// 设置视图
     override open var title: String? {
-        get { super.title }
-        set { super.title = newValue }
+        get {
+            return super.title
+        }
+        set {
+            super.title = newValue
+            if self.isViewLoaded {
+                self.titleLabel.text = newValue
+            }
+        }
     }
 
     func setLeftNaviImage(_ image: UIImage) -> Void {
@@ -502,7 +513,7 @@ extension UIViewController {
 }
 
 extension HViewController {
-    var window2: UIWindow {
+    var window: UIWindow {
         return (UIApplication.shared.delegate?.window!)!
     }
     var screen: UIScreen {

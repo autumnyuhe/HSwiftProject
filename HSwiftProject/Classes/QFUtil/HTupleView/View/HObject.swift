@@ -8,17 +8,16 @@
 
 import UIKit
 
-class HObject: NSObject {
-    
+class NSInt: NSObject {
     var intValue: Int = 0
-    var sizeValue: CGSize = CGSizeZero
-    var edgeInsetsValue: UIEdgeInsets = UIEdgeInsetsZero
-    
     required init(value: Int) {
         super.init()
         self.intValue = value
     }
+}
 
+class NSSize: NSObject {
+    var sizeValue: CGSize = CGSizeZero
     required init(size: CGSize) {
         super.init()
         self.sizeValue = size
@@ -27,7 +26,10 @@ class HObject: NSObject {
         super.init()
         self.sizeValue = CGSize(width: width, height: height)
     }
+}
 
+class NSEdgeInsets: NSObject {
+    var edgeInsetsValue: UIEdgeInsets = UIEdgeInsetsZero
     required init(edgeInsets: UIEdgeInsets) {
         super.init()
         self.edgeInsetsValue = edgeInsets
@@ -36,17 +38,28 @@ class HObject: NSObject {
         super.init()
         self.edgeInsetsValue = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
     }
-    
+}
+
+class NSItem: NSObject {
+    var itemBlock: HTupleItem!
+}
+
+class NSHeader: NSObject {
+    var headerBlock: HTupleHeader!
+}
+
+class NSFooter: NSObject {
+    var footerBlock: HTupleFooter!
 }
 
 extension CGSize {
-    var hObject: HObject {
-        return HObject(size: self)
+    var sizeValue: NSSize {
+        return NSSize(size: self)
     }
 }
 
 extension UIEdgeInsets {
-    var hObject: HObject {
-        return HObject(edgeInsets: self)
+    var edgeInsetsValue: NSEdgeInsets {
+        return NSEdgeInsets(edgeInsets: self)
     }
 }
