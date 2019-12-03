@@ -28,7 +28,7 @@ class HMainViewController: HTupleController {
     func insetForSection(_ section: Int) -> NSEdgeInsets {
         return UIEdgeInsetsMake(0, 10, 0, 10).edgeInsetsValue
     }
-    func colorForSectionAt(_ section: Int) -> UIColor {
+    func colorForSection(_ section: Int) -> UIColor {
         return UIColor.red
     }
     func sizeForItemAtIndexPath(_ indexPath: IndexPath) -> NSSize {

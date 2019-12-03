@@ -66,3 +66,39 @@ extension UINavigationController {
     }
 
 }
+
+extension HViewController {
+    
+    open override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        super.dismiss(animated: flag, completion: completion)
+        if (self.navigationController?.viewControllers.count)! > 0 {
+            let viewControllers = (self.navigationController?.viewControllers)!
+            for item in viewControllers {
+                let vc = item as UIViewController
+                vc.vcWillDisappear(.dismiss)
+            }
+        }else {
+            self.vcWillDisappear(.dismiss)
+        }
+    }
+    
+}
+
+extension HNavigationController {
+    
+    open override func popViewController(animated: Bool) -> UIViewController? {
+        let popVC = super.popViewController(animated: animated)
+        if (popVC?.isKind(of: UIViewController.self))! {
+            popVC?.vcWillDisappear(.pop)
+        }
+        return popVC
+    }
+    
+    open override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        if (self.topViewController?.isKind(of: UIViewController.self))! {
+            self.topViewController?.vcWillDisappear(.push)
+        }
+        super.pushViewController(viewController, animated: animated)
+    }
+
+}

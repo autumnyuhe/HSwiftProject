@@ -68,7 +68,7 @@ class HTupleAppearance : NSObject {
     @objc optional func numberOfSectionsInTupleView() -> NSInt
     @objc optional func numberOfItemsInSection(_ section: Int) -> NSInt
     ///layout == HCollectionViewFlowLayout
-    @objc optional func colorForSectionAt(_ section: Int) -> UIColor
+    @objc optional func colorForSection(_ section: Int) -> UIColor
 
     @objc optional func sizeForHeaderInSection(_ section: Int) -> NSSize
     @objc optional func sizeForFooterInSection(_ section: Int) -> NSSize
@@ -555,7 +555,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
     ///layout == HCollectionViewFlowLayout
     internal func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, colorForSectionAt section: NSInteger) -> UIColor {
         let prefix = self.prefixWithSection(section)
-        let selector = #selector(self.tupleDelegate!.colorForSectionAt(_:))
+        let selector = #selector(self.tupleDelegate!.colorForSection(_:))
         if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
             return self.tupleDelegate!.performWithUnretainedValue(selector, with: section, withPre: prefix) as! UIColor
         }
