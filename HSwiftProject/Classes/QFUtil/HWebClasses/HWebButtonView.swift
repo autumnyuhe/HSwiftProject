@@ -77,12 +77,12 @@ class HWebButtonView: UIButton {
         if (image != nil) {
             if renderColor != nil {
                 _imageView.tintColor = renderColor;
-                _imageView.image = image?.withRenderingMode(.alwaysTemplate)
+                _imageView.h_image = image?.withRenderingMode(.alwaysTemplate)
             }else {
-                _imageView.image = image;
+                _imageView.h_image = image;
             }
         }else {
-            _imageView.image = nil;
+            _imageView.h_image = nil;
         }
     }
     

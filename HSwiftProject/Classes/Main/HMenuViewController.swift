@@ -10,34 +10,101 @@ import UIKit
 import SwizzleSwift
 import SwiftyLoad
 
-class HMenuViewController: UITabBarController {
+let kTabBarHeight: CGFloat = 50.0
+
+//class HMenuViewController: UITabBarController {
+class HMenuViewController: HTabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let mainVC = HMainViewController.init()
-        mainVC.tabBarItem.title = "主页"
-        mainVC.tabBarItem.image = UIImage.init(named: "di_index")
-        mainVC.tabBarItem.selectedImage = UIImage.init(named: "di_index_h")
-        
-        let gameCategoryVC = HGameCategoryVC.init()
-        gameCategoryVC.tabBarItem.title = "分类"
-        gameCategoryVC.tabBarItem.image = UIImage.init(named: "di_more")
-        gameCategoryVC.tabBarItem.selectedImage = UIImage.init(named: "di_more_h")
-        
-        let serviceVC = HCServiceViewController.init()
-        serviceVC.tabBarItem.title = "客服"
-        serviceVC.tabBarItem.image = UIImage.init(named: "di_kf")
-        serviceVC.tabBarItem.selectedImage = UIImage.init(named: "di_kf_h")
-
-        let centerVC = HCenterViewController.init()
-        centerVC.tabBarItem.title = "会员中心"
-        centerVC.tabBarItem.image = UIImage.init(named: "di_login")
-        centerVC.tabBarItem.selectedImage = UIImage.init(named: "di_login_h")
-        
-        self.viewControllers = NSMutableArray.init(objects: mainVC, gameCategoryVC, serviceVC, centerVC) as? [UIViewController]
+        self.initViewControllers()
+        self.setupFrameOfTabBarAndContentView()
     }
     
+    func initViewControllers() {
+//        let mainVC = HMainViewController.init()
+//        mainVC.tabBarItem.title = "主页"
+//        mainVC.tabBarItem.image = UIImage.init(named: "di_index")
+//        mainVC.tabBarItem.selectedImage = UIImage.init(named: "di_index_h")
+//
+//        let gameCategoryVC = HGameCategoryVC.init()
+//        gameCategoryVC.tabBarItem.title = "分类"
+//        gameCategoryVC.tabBarItem.image = UIImage.init(named: "di_more")
+//        gameCategoryVC.tabBarItem.selectedImage = UIImage.init(named: "di_more_h")
+//
+//        let serviceVC = HCServiceViewController.init()
+//        serviceVC.tabBarItem.title = "客服"
+//        serviceVC.tabBarItem.image = UIImage.init(named: "di_kf")
+//        serviceVC.tabBarItem.selectedImage = UIImage.init(named: "di_kf_h")
+//
+//        let centerVC = HCenterViewController.init()
+//        centerVC.tabBarItem.title = "会员中心"
+//        centerVC.tabBarItem.image = UIImage.init(named: "di_login")
+//        centerVC.tabBarItem.selectedImage = UIImage.init(named: "di_login_h")
+//
+//        self.viewControllers = NSMutableArray.init(objects: mainVC, gameCategoryVC, serviceVC, centerVC) as? [UIViewController]
+        
+        let mainVC = HMainViewController.init()
+        mainVC.h_tabItemTitle = "主页"
+        mainVC.h_tabItemImage = UIImage.init(named: "di_index")
+        mainVC.h_tabItemSelectedImage = UIImage.init(named: "di_index_h")
+        
+        let gameCategoryVC = HGameCategoryVC.init()
+        gameCategoryVC.h_tabItemTitle = "分类"
+        gameCategoryVC.h_tabItemImage = UIImage.init(named: "di_more")
+        gameCategoryVC.h_tabItemSelectedImage = UIImage.init(named: "di_more_h")
+        
+        let serviceVC = HCServiceViewController.init()
+        serviceVC.h_tabItemTitle = "客服"
+        serviceVC.h_tabItemImage = UIImage.init(named: "di_kf")
+        serviceVC.h_tabItemSelectedImage = UIImage.init(named: "di_kf_h")
+
+        let centerVC = HCenterViewController.init()
+        centerVC.h_tabItemTitle = "会员中心"
+        centerVC.h_tabItemImage = UIImage.init(named: "di_login")
+        centerVC.h_tabItemSelectedImage = UIImage.init(named: "di_login_h")
+        
+        self.viewControllers = NSMutableArray.init(objects: mainVC, gameCategoryVC, serviceVC, centerVC)
+    }
+    
+    func setupFrameOfTabBarAndContentView() {
+
+        // 设置默认的tabBar的frame和contentViewFrame
+        let screenSize = UIScreen.main.bounds.size
+        
+        var contentViewY: CGFloat = 0.0
+        var tabBarY: CGFloat = screenSize.height - kTabBarHeight
+        tabBarY -= UIDevice.bottomBarHeight
+        
+        var contentViewHeight: CGFloat = tabBarY
+        // 如果parentViewController为UINavigationController及其子类
+        if self.parent != nil && self.navigationController != nil {
+            if self.parent!.isKind(of: UINavigationController.self) && !self.navigationController!.isNavigationBarHidden && !self.navigationController!.navigationBar.isHidden {
+                let navMaxY: CGFloat = self.navigationController!.navigationBar.frame.maxY
+                if (!self.navigationController!.navigationBar.isTranslucent ||
+                    self.edgesForExtendedLayout == Optional.none ||
+                    self.edgesForExtendedLayout == .top) {
+                    tabBarY = screenSize.height - kTabBarHeight - navMaxY
+                    contentViewHeight = tabBarY
+                } else {
+                    contentViewY = navMaxY
+                    contentViewHeight = screenSize.height - kTabBarHeight - contentViewY
+                }
+            }
+        }
+        
+        self.setTabBarFrame(CGRectMake(0, tabBarY, screenSize.width, kTabBarHeight),
+                            contentViewFrame: CGRectMake(0, contentViewY, screenSize.width, contentViewHeight))
+        
+        self.tabBar.itemTitleColor = UIColor(hex: "#535353")
+        self.tabBar.itemTitleSelectedColor = UIColor(hex: "#CFA359")
+        self.tabBar.itemTitleFont = UIFont.systemFont(ofSize: 14)
+        self.tabBar.itemTitleSelectedFont = UIFont.systemFont(ofSize: 14)
+        self.tabBar.backgroundColor = UIColor.white
+        self.tabBar.addTopLineViewWithColor(UIColor.gray)
+        self.tabBar.addBottomBlankViewWithColor(UIColor.white)
+    }
     
 //    func testFunc() -> Void {
 //        if self.isKind(of: UIViewController.self) {

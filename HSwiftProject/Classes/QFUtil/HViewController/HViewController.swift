@@ -12,6 +12,9 @@ import SwizzleSwift
 let HNavTitleButtonWidth: CGFloat = 70
 let HNavTitleButtonMargin: CGFloat = 10
 
+private var sourceArrKey = "sourceArrKey"
+private var sourceDictKey = "sourceDictKey"
+
 class HVCAppearance: NSObject {
     static let barColor: UIColor = UIColor.white
     static let bgColor: UIColor = UIColor.white
@@ -19,22 +22,22 @@ class HVCAppearance: NSObject {
     static let lightTextColor: UIColor = UIColor.lightGray
 }
 
-extension UIView {
-
-    @objc class func swizzle() -> Void {
-        Swizzle(UIImage.self) {
-            #selector(willMove(toSuperview:)) <-> #selector(pvc_willMove(toSuperview:))
-        }
-    }
-    
-    @objc open func pvc_willMove(toSuperview newSuperview: UIView?) {
-        //关闭暗黑模式
-        if #available(iOS 13.0, *) {
-            self.overrideUserInterfaceStyle = .light
-        }
-        self.pvc_willMove(toSuperview: newSuperview)
-    }
-}
+//extension UIView {
+//
+//    @objc static func swizzle() -> Void {
+//        Swizzle(UIView.self) {
+//            #selector(willMove(toSuperview:)) <-> #selector(pvc_willMove(toSuperview:))
+//        }
+//    }
+//
+//    @objc open func pvc_willMove(toSuperview newSuperview: UIView?) {
+//        //关闭暗黑模式
+//        if #available(iOS 13.0, *) {
+//            self.overrideUserInterfaceStyle = .light
+//        }
+//        self.pvc_willMove(toSuperview: newSuperview)
+//    }
+//}
 
 class HViewController: UIViewController {
     
@@ -521,20 +524,20 @@ extension HViewController {
     }
     var sourceArr: NSMutableArray {
         get {
-            var array = self.getAssociatedValueForKey(#function)
+            var array = self.getAssociatedValueForKey(&sourceArrKey)
             if array == nil {
                 array = NSMutableArray()
-                self.setAssociateValue(array, key: #function)
+                self.setAssociateValue(array, key: &sourceArrKey)
             }
             return array as! NSMutableArray
         }
     }
     var sourceDict: NSMutableDictionary {
         get {
-            var dictionary = self.getAssociatedValueForKey(#function)
+            var dictionary = self.getAssociatedValueForKey(&sourceDictKey)
             if dictionary == nil {
                 dictionary = NSMutableDictionary()
-                self.setAssociateValue(dictionary, key: #function)
+                self.setAssociateValue(dictionary, key: &sourceDictKey)
             }
             return dictionary as! NSMutableDictionary
         }

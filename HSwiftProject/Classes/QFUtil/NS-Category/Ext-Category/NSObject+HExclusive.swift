@@ -8,8 +8,8 @@
 
 import UIKit
 
-private var kExclusiveSetKey: String = "kExclusiveSetKey"
-private var kIdSetKey: String = "kIdSetKey"
+private var kIdSetKey = "kIdSetKey"
+private var kExclusiveSetKey = "kExclusiveSetKey"
 
 typealias HExclusive = () -> Void
 
@@ -55,30 +55,33 @@ extension NSObject {
 }
 
 private let KSegStateKey = "_seg_"
+private var segStatueKey = "segStatueKey"
+private var segTotalStatueKey = "segTotalStatueKey"
+private var segStatueDictKey = "segStatueDictKey"
 
 extension NSObject {
     
     var segStatue: Int {
-        get { return self.getAssociatedValueForKey(#function) as! Int }
-        set (newValue) { self.setAssociateWeakValue(newValue, key: #function) }
+        get { return self.getAssociatedValueForKey(&segStatueKey) as! Int }
+        set (newValue) { self.setAssociateWeakValue(newValue, key: &segStatueKey) }
     }
     
     var segTotalStatue: Int {
-        get { return self.getAssociatedValueForKey(#function) as! Int }
-        set (newValue) { self.setAssociateWeakValue(newValue, key: #function) }
+        get { return self.getAssociatedValueForKey(&segTotalStatueKey) as! Int }
+        set (newValue) { self.setAssociateWeakValue(newValue, key: &segTotalStatueKey) }
     }
     
     private var segStatueDict: NSMutableDictionary {
         get {
-            var set: NSMutableDictionary? = self.getAssociatedValueForKey(#function) as? NSMutableDictionary
+            var set: NSMutableDictionary? = self.getAssociatedValueForKey(&segStatueDictKey) as? NSMutableDictionary
             if set == nil {
                 set = NSMutableDictionary()
-                self.setAssociateValue(set, key: #function)
+                self.setAssociateValue(set, key: &segStatueDictKey)
             }
             return set!
         }
         set (newValue) {
-            self.setAssociateValue(newValue, key: #function)
+            self.setAssociateValue(newValue, key: &segStatueDictKey)
         }
     }
     

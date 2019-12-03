@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//
+
 //extension UIImage : NSSwiftyLoadProtocol {
 //    public static func swiftyLoad() {
 //        print("UIButton--->swiftyLoad")
@@ -19,6 +19,24 @@ import UIKit
 //    }
 //}
 
+//extension UIImage : SelfAware {
+//    @objc static func awake() {
+//
+//    }
+//}
+
+//extension UIImage : SelfAware {
+//    static func awake() {
+//
+//    }
+//}
+
+//extension NSObject : SelfAware {
+//    @objc static func awake() {
+//
+//    }
+//}
+//
 //protocol SelfAware: class {
 //    static func awake()
 //    static func swizzlingForClass(_ forClass: AnyClass, originalSelector: Selector, swizzledSelector: Selector)
@@ -77,8 +95,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window.backgroundColor = UIColor.white
 //        window.rootViewController = UINavigationController.init(rootViewController: HMenuViewController.init())
 //        window.makeKeyAndVisible()
-        
-        UIApplication .setStatusBarStyleWithColor(UIColor.white)
+
+        UIApplication.setStatusBarStyleWithColor(UIColor.white)
         
         return true
     }

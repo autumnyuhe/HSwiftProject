@@ -10,7 +10,7 @@ import UIKit
 
 #if DEBUG
 
-private var KPrinterManagerKey: String = "KPrinterManagerKey"
+private var KPrinterManagerKey = "KPrinterManagerKey"
 
 class HPrinterManager: NSObject {
     

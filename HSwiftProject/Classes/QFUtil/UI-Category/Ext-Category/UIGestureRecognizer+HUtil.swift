@@ -8,7 +8,7 @@
 
 import UIKit
 
-private var gesture_block_key: String = "gesture_block_key"
+private var gesture_block_key = "gesture_block_key"
 
 typealias HGestureBlock = (_ sender: AnyObject) -> Void
 

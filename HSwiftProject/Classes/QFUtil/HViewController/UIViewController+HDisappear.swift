@@ -18,11 +18,11 @@ import SwizzleSwift
 
 extension UIViewController {
     
-    @objc class func swizzle() -> Void {
-        Swizzle(UIViewController.self) {
-            #selector(dismiss(animated:completion:)) <-> #selector(pvc_dismiss(animated:completion:))
-        }
-    }
+//    @objc static func swizzle() -> Void {
+//        Swizzle(UIViewController.self) {
+//            #selector(dismiss(animated:completion:)) <-> #selector(pvc_dismiss(animated:completion:))
+//        }
+//    }
     
     @objc open func pvc_dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         self.dismiss(animated: flag, completion: completion)
@@ -43,12 +43,12 @@ extension UIViewController {
 
 extension UINavigationController {
     
-    @objc override class func swizzle() -> Void {
-        Swizzle(UIViewController.self) {
-            #selector(popViewController(animated:)) <-> #selector(disappear_popViewController(animated:))
-            #selector(pushViewController(_:animated:)) <-> #selector(disappear_pushViewController(_:animated:))
-        }
-    }
+//    @objc static func swizzle() -> Void {
+//        Swizzle(UIViewController.self) {
+//            #selector(popViewController(animated:)) <-> #selector(disappear_popViewController(animated:))
+//            #selector(pushViewController(_:animated:)) <-> #selector(disappear_pushViewController(_:animated:))
+//        }
+//    }
     
     @objc open func disappear_popViewController(animated: Bool) -> UIViewController? {
         let popVC = self.disappear_popViewController(animated: animated)

@@ -42,27 +42,27 @@ extension UIView {
         }
         if self.isKind(of: UILabel.self) {
             let label: UILabel = self as! UILabel
-            if (label.text != "") {
+            if (label.text != nil) {
                 print("HPrinting-->label.text:\(label.text!)\n");
             }
         }
         else if self.isKind(of: UITextView.self) {
             let textView: UITextView = self as! UITextView
-            if (textView.text != "") {
+            if (textView.text != nil) {
                 print("HPrinting-->textView.text:\(textView.text!)\n");
             }
         }
         else if self.isKind(of: UIControl.self) {
             if self.isKind(of: UIButton.self) {
                 let btn: UIButton = self as! UIButton
-                if (btn.titleLabel?.text != "") {
+                if (btn.titleLabel?.text != nil) {
                     print("HPrinting-->button.text:\(btn.titleLabel!.text!)\n");
                 }
 //                if btn.allTargets.count > 0 {
 //                    let objc: AnyHashable = btn.allTargets.first!
 //                    print("HPrinting-->button.targets:\(objc.description)\n");
 //                }
-                if btn.imageView?.image?.accessibilityIdentifier != "" {
+                if btn.imageView?.image?.accessibilityIdentifier != nil {
                     print("HPrinting-->button.image.name:\(btn.imageView!.image!.accessibilityIdentifier!)\n");
                     return;
                 }
@@ -76,7 +76,7 @@ extension UIView {
         }
         else if self.isKind(of: UIImageView.self) {
             let imageView: UIImageView = self as! UIImageView
-            if imageView.image?.accessibilityIdentifier != "" {
+            if imageView.image?.accessibilityIdentifier != nil {
                 print("HPrinting-->imageView.image.name:\(imageView.image!.accessibilityIdentifier!)\n");
             }
             return;

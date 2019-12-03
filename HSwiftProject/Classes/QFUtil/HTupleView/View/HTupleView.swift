@@ -25,6 +25,10 @@ private let KDefaultPageSize   = 20
 private let KTupleDesignKey    = "tuple"
 private let KTupleExaDesignKey = "tupleExa"
 
+private var tupleStateKey = "tupleStateKey"
+private var signalBlockKey = "signalBlockKey"
+private var tupleStateSourceKey = "tupleStateSourceKey"
+
 private let UICollectionElementKindSectionHeader = "UICollectionElementKindSectionHeader"
 private let UICollectionElementKindSectionFooter = "UICollectionElementKindSectionFooter"
 
@@ -98,7 +102,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
 
     private var sectionPaths: NSArray?
     
-    var tupleDelegate: HTupleViewDelegate?
+   weak var tupleDelegate: HTupleViewDelegate?
     
     ///默认layout为HCollectionViewFlowLayout
     ///默认为垂直滚动方向
@@ -699,10 +703,10 @@ extension HTupleView {
     ///tupleView持有的信号block
     var signalBlock: HTupleCellSignalBlock? {
         get {
-            return self.getAssociatedValueForKey(#function) as? HTupleCellSignalBlock
+            return self.getAssociatedValueForKey(&signalBlockKey) as? HTupleCellSignalBlock
         }
         set {
-            self.setAssociateCopyValue(newValue, key: #function)
+            self.setAssociateCopyValue(newValue, key: &signalBlockKey)
         }
     }
     
@@ -882,10 +886,10 @@ extension HTupleView {
 
     private var tupleStateSource: NSMutableDictionary {
         get {
-            var dict: NSMutableDictionary? = self.getAssociatedValueForKey(#function) as? NSMutableDictionary
+            var dict: NSMutableDictionary? = self.getAssociatedValueForKey(&tupleStateSourceKey) as? NSMutableDictionary
             if dict == nil {
                 dict = NSMutableDictionary()
-                self.setAssociateValue(dict, key: #function)
+                self.setAssociateValue(dict, key: &tupleStateSourceKey)
             }
             return dict!
         }
@@ -894,11 +898,11 @@ extension HTupleView {
     ///tupleView分体式设计所表示的状态
     private var tupleState: HTupleState {
         get {
-            return self.getAssociatedValueForKey(#function) as? HTupleState ?? 0
+            return self.getAssociatedValueForKey(&tupleStateKey) as? HTupleState ?? 0
         }
         set {
             if newValue != self.tupleState {
-                self.setAssociateWeakValue(newValue, key: #function)
+                self.setAssociateWeakValue(newValue, key: &tupleStateKey)
                 self.reloadData()
             }
         }

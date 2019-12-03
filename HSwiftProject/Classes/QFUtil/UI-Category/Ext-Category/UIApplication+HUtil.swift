@@ -32,7 +32,7 @@ extension UIApplication {
 
     ///get Window 0
     var getKeyWindow: UIWindow {
-        return self.keyWindow!
+        return self.windows.first!
     }
     
     ///get root VC of window 0
@@ -211,7 +211,7 @@ extension UIApplication {
     static func setStatusBarStyleWithColor(_ color: UIColor) -> Void {
         if color.isLighterColor {
             if #available(iOS 13.0, *) {
-                UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: false)
+                UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: false)
             }else {
                 // Fallback on earlier versions
                 UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: false)

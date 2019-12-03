@@ -8,11 +8,13 @@
 
 import UIKit
 
+private var shouldAutorotateKey = "shouldAutorotateKey"
+
 extension AppDelegate {
     
     static var shouldAutorotate: Bool {
-        get { self.getAssociatedValueForKey(#function) as! Bool }
-        set { self.setAssociateWeakValue(newValue, key: #function) }
+        get { self.getAssociatedValueForKey(&shouldAutorotateKey) as! Bool }
+        set { self.setAssociateWeakValue(newValue, key: &shouldAutorotateKey) }
     }
     
     @available(iOS 6.0, *)

@@ -27,9 +27,9 @@ class HWebImageView: UIImageView {
             self.renderColor = oldValue;
             if self.renderColor != nil {
                 self.tintColor = oldValue;
-                super.image = self.image?.withRenderingMode(.alwaysTemplate)
+                super.h_image = self.image?.withRenderingMode(.alwaysTemplate)
             }else {
-                super.image = self.image?.withRenderingMode(.alwaysOriginal)
+                super.h_image = self.image?.withRenderingMode(.alwaysOriginal)
             }
         }
     }
@@ -82,12 +82,12 @@ class HWebImageView: UIImageView {
         if (image != nil) {
             if renderColor != nil {
                 self.tintColor = renderColor;
-                super.image = image?.withRenderingMode(.alwaysTemplate)
+                super.h_image = image?.withRenderingMode(.alwaysTemplate)
             }else {
-                super.image = image;
+                super.h_image = image;
             }
         }else {
-            super.image = nil;
+            super.h_image = nil;
         }
     }
     

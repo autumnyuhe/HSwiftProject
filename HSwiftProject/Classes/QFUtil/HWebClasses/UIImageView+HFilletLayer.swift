@@ -15,8 +15,8 @@ public enum UIImageViewFilletStyle: Int {
     case rightOrBottom = 2
 }
 
-private var KUIImageViewFilletKey: String = "KUIImageViewFilletKey"
-private var KUIImageViewFilletStyleKey: String = "KUIImageViewFilletStyleKey"
+private var KUIImageViewFilletKey = "KUIImageViewFilletKey"
+private var KUIImageViewFilletStyleKey = "KUIImageViewFilletStyleKey"
 
 extension UIImageView {
     
@@ -47,16 +47,28 @@ extension UIImageView {
         
     }
     
-    @objc override class func swizzle() -> Void {
-            Swizzle(UIImageView.self) {
-                #selector(setter: image) <-> #selector(pvc_image)
-            }
-        }
+//    @objc override class func swizzle() -> Void {
+//            Swizzle(UIImageView.self) {
+//                #selector(setter: image) <-> #selector(pvc_image)
+//            }
+//        }
+//
+//    @objc private func pvc_image(_ image: UIImage?) {
+//        self.pvc_image(image)
+//        if self.fillet && image != nil {
+//            self.addFilletLayer()
+//        }
+//    }
     
-    @objc private func pvc_image(_ image: UIImage?) {
-        self.pvc_image(image)
-        if self.fillet && image != nil {
-            self.addFilletLayer()
+    open var h_image: UIImage? {
+        get {
+            return self.image
+        }
+        set {
+            self.image = newValue
+            if self.fillet && newValue != nil {
+                self.addFilletLayer()
+            }
         }
     }
     

@@ -30,7 +30,7 @@ extension UIButton {
         set { self.titleLabel?.textAlignment = newValue }
     }
     
-    open var image: UIImage? {
+    @objc open var image: UIImage? {
         get { return self.image(for: .normal) }
         set { self.setImage(newValue, for: UIControl.State.normal) }
     }

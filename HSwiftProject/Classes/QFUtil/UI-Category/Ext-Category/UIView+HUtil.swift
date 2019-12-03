@@ -11,9 +11,9 @@ import UIKit
 private let TIPS_IMAGE_VIEW_TAG = 10000
 private let TIPS_LABEL_TAG = 10001
 
-private var topLineLayerKey: String = "topLineLayerKey"
-private var bottomLineLayerKey: String = "bottomLineLayerKey"
-private var userInfoAddressKey: String = "userInfoAddressKey"
+private var topLineLayerKey = "topLineLayerKey"
+private var bottomLineLayerKey = "bottomLineLayerKey"
+private var userInfoAddressKey = "userInfoAddressKey"
 
 extension UIView {
     
