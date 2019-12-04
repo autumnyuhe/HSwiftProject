@@ -1,38 +1,39 @@
 //
-//  HTupleBaseApex.swift
+//  HTableBaseApex.swift
 //  HSwiftProject
 //
-//  Created by wind on 2019/11/23.
+//  Created by wind on 2019/12/3.
 //  Copyright © 2019 wind. All rights reserved.
 //
 
 import UIKit
 
-typealias HTupleApexBlock = (_ idxPath: IndexPath) -> Void
+typealias HTableApexBlock = (_ idxPath: IndexPath) -> Void
 
-class HTupleBaseApex : UICollectionReusableView {
+class HTableBaseApex : UITableViewHeaderFooterView {
     
-    ///cell所在的tuple view
-    weak var tuple: UICollectionView?
+    ///cell所在的table view
+    weak var table: UITableView?
     ///cell是否为section header
     var isHeader: Bool = false
-    ///cell所在的indexPath
-    var indexPath: IndexPath?
+    ///cell所在的section
+    var section: Int?
     
     ///cell点击block，用户用户点击事件
-    var cellBlock: HTupleApexBlock?
+    var cellBlock: HTableApexBlock?
     ///信号block
-    var signalBlock: HTupleCellSignalBlock?
+    var signalBlock: HTableCellSignalBlock?
     
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.backgroundColor = UIColor.clear
         self.initUI()
+        
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
         self.backgroundColor = UIColor.clear
         self.initUI()
     }
@@ -154,7 +155,7 @@ class HTupleBaseApex : UICollectionReusableView {
         return frame
     }
 
-    func HLayoutTupleApex(_ v: UIView) {
+    func HLayoutTableApex(_ v: UIView) {
         let frame: CGRect = self.layoutViewBounds
         if v.frame != frame {
             v.frame = frame

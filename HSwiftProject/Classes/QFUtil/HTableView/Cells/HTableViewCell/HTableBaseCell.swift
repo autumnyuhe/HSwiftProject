@@ -1,28 +1,27 @@
 //
-//  HTupleBaseApex.swift
+//  HTableBaseCell.swift
 //  HSwiftProject
 //
-//  Created by wind on 2019/11/23.
+//  Created by wind on 2019/12/3.
 //  Copyright © 2019 wind. All rights reserved.
 //
 
 import UIKit
 
-typealias HTupleApexBlock = (_ idxPath: IndexPath) -> Void
+typealias HTableCellBlock = (_ idxPath: IndexPath) -> Void
 
-class HTupleBaseApex : UICollectionReusableView {
+class HTableBaseCell : UITableViewCell {
     
-    ///cell所在的tuple view
-    weak var tuple: UICollectionView?
-    ///cell是否为section header
-    var isHeader: Bool = false
+    ///cell所在的table view
+    weak var table: UITableView?
+    
     ///cell所在的indexPath
     var indexPath: IndexPath?
     
     ///cell点击block，用户用户点击事件
-    var cellBlock: HTupleApexBlock?
+    var cellBlock: HTableCellBlock?
     ///信号block
-    var signalBlock: HTupleCellSignalBlock?
+    var signalBlock: HTableCellSignalBlock?
     
     
     required init?(coder: NSCoder) {
@@ -31,9 +30,10 @@ class HTupleBaseApex : UICollectionReusableView {
         self.initUI()
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = UIColor.clear
+        self.style = style
         self.initUI()
     }
     
@@ -52,7 +52,32 @@ class HTupleBaseApex : UICollectionReusableView {
             }
         }
     }
-
+    
+    ///cell的style
+    var style: UITableViewCell.CellStyle = .default
+    
+    ///cell accessory type
+    override var accessoryType: UITableViewCell.AccessoryType {
+        get {
+            return super.accessoryType
+        }
+        set {
+            if #available(iOS 13.0, *) {
+                switch newValue {
+                case .none:
+                    self.accessoryView = nil
+                case .disclosureIndicator:
+                    let arrowView = UIImageView(frame: CGRectMake(0, 0, 7, 13))
+                    arrowView.image = UIImage(named: "icon_tuple_arrow_right")
+                    self.accessoryView = arrowView
+                default: break
+                }
+            }else {
+                super.accessoryType = newValue
+            }
+        }
+    }
+    
     private var _layoutView: UIView?
     ///用于加载在contentView上的布局视图
     var layoutView: UIView {
@@ -102,9 +127,9 @@ class HTupleBaseApex : UICollectionReusableView {
         }
     }
 
-    private var _separatorInset: UILREdgeInsets = UILREdgeInsetsZero
+    private var _separatorInset: UIEdgeInsets = UIEdgeInsetsZero
     ///cell间隔线的边距
-    var separatorInset: UILREdgeInsets {
+    override var separatorInset: UIEdgeInsets {
         get {
             return _separatorInset
         }
@@ -123,7 +148,7 @@ class HTupleBaseApex : UICollectionReusableView {
             return _separatorColor
         }
         set {
-            if _separatorColor != newValue {
+            if _separatorColor != newValue && newValue?.isKind(of: NSClassFromString("UIDynamicSystemColor")!) == false {
                 _separatorColor = nil
                 _separatorColor = newValue
                 self.separatorView.backgroundColor = _separatorColor
@@ -136,6 +161,13 @@ class HTupleBaseApex : UICollectionReusableView {
         frame.x += self.separatorInset.left
         frame.width -= self.separatorInset.left + self.separatorInset.right
         return frame
+    }
+    
+    ///刷新当前cell
+    func reloadData() {
+        if self.indexPath != nil {
+            self.table?.reloadRows(at: [self.indexPath!], with: .fade)
+        }
     }
 
     ///layoutView的frame和bounds
@@ -153,14 +185,14 @@ class HTupleBaseApex : UICollectionReusableView {
         frame.x = 0; frame.y = 0
         return frame
     }
-
-    func HLayoutTupleApex(_ v: UIView) {
+    
+    func HLayoutTableCell(_ v: UIView) {
         let frame: CGRect = self.layoutViewBounds
         if v.frame != frame {
             v.frame = frame
         }
     }
-    
+
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -169,5 +201,5 @@ class HTupleBaseApex : UICollectionReusableView {
     func initUI() { }
     ///用于子类更新子视图布局
     @objc func relayoutSubviews() { }
-
+    
 }

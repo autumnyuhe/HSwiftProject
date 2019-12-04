@@ -19,7 +19,7 @@ private enum HTupleStyle: Int {
 }
 
 ///自定义类型
-typealias HTupleState = NSInteger
+typealias HTupleState = Int
 
 private let KDefaultPageSize   = 20
 private let KTupleDesignKey    = "tuple"
@@ -80,9 +80,9 @@ class HTupleAppearance : NSObject {
 
     @objc optional func insetForSection(_ section: Int) -> NSInt
 
-    @objc optional func tupleForHeader(_ headerObject: NSHeader, inSection section: Int)
-    @objc optional func tupleForFooter(_ footerObject: NSFooter, inSection section: Int)
-    @objc optional func tupleForItem(_ itemObject: NSItem, atIndexPath indexPath: IndexPath)
+    @objc optional func tupleForHeader(_ headerObject: NSTupleHeader, inSection section: Int)
+    @objc optional func tupleForFooter(_ footerObject: NSTupleFooter, inSection section: Int)
+    @objc optional func tupleForItem(_ itemObject: NSTupleItem, atIndexPath indexPath: IndexPath)
 
     @objc optional func willDisplayCell(_ cell: UICollectionViewCell, atIndexPath indexPath: IndexPath)
     @objc optional func didSelectItemAtIndexPath(_ indexPath: IndexPath)
@@ -624,7 +624,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         //调用代理方法
         let prefix: String = self.prefixWithSection(indexPath.section)
         let selector: Selector = #selector(self.tupleDelegate!.tupleForItem(_:atIndexPath:))
-        let cellObject = NSItem()
+        let cellObject = NSTupleItem()
         cellObject.itemBlock =  { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) in
             return self.dequeueReusableCellWithClass(cls, iblk: iblk, pre: pre, idx: idx, idxPath: indexPath)
         }
@@ -647,7 +647,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
             //调用代理方法
             let prefix: String = self.prefixWithSection(indexPath.section)
             let selector: Selector = #selector(self.tupleDelegate!.tupleForHeader(_:inSection:))
-            let cellObject = NSHeader()
+            let cellObject = NSTupleHeader()
             cellObject.headerBlock = { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) -> AnyObject in
                 return self.dequeueReusableHeaderWithClass(cls, iblk: iblk, pre: pre, idx: idx, idxPath: indexPath)
             }
@@ -660,7 +660,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
             //调用代理方法
             let prefix: String = self.prefixWithSection(indexPath.section)
             let selector: Selector = #selector(self.tupleDelegate!.tupleForFooter(_:inSection:))
-            let cellObject = NSFooter()
+            let cellObject = NSTupleFooter()
             cellObject.footerBlock = { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) -> AnyObject in
                 return self.dequeueReusableFooterWithClass(cls, iblk: iblk, pre: pre, idx: idx, idxPath: indexPath)
             }
@@ -735,7 +735,7 @@ extension HTupleView {
         DispatchQueue.main.async {
             let items = self.numberOfItems(inSection: section)
             for i in 0..<items {
-                let cell: HTupleBaseCell = self.allReuseCells.object(forKey: NSIndexPath.stringValue(i, section)) as! HTupleBaseCell
+                let cell: HTupleBaseCell = self.allReuseCells.object(forKey: IndexPath.stringValue(i, section) as NSString) as! HTupleBaseCell
                 if cell.signalBlock != nil {
                     cell.signalBlock!(cell, signal)
                 }
@@ -743,8 +743,8 @@ extension HTupleView {
         }
     }
 
-    func signal(_ signal: HTupleSignal, indexPath idxPath: NSIndexPath) {
-        let cell: HTupleBaseCell = self.allReuseCells.object(forKey: idxPath.stringValue) as! HTupleBaseCell
+    func signal(_ signal: HTupleSignal, indexPath idxPath: IndexPath) {
+        let cell: HTupleBaseCell = self.allReuseCells.object(forKey: idxPath.stringValue as NSString) as! HTupleBaseCell
         if cell.signalBlock != nil {
             DispatchQueue.main.async {
                 cell.signalBlock!(cell, signal)
@@ -757,7 +757,7 @@ extension HTupleView {
         DispatchQueue.main.async {
             let sections = self.numberOfSections
             for i in 0..<sections {
-                let header: HTupleBaseApex = self.allReuseCells.object(forKey: NSIndexPath.stringValue(0, i)) as! HTupleBaseApex
+                let header: HTupleBaseApex = self.allReuseCells.object(forKey: IndexPath.stringValue(0, i) as NSString) as! HTupleBaseApex
                 if header.signalBlock != nil {
                     header.signalBlock!(header, signal)
                 }
@@ -766,7 +766,7 @@ extension HTupleView {
     }
 
     func signal(_ signal: HTupleSignal, headerSection section: Int) {
-        let header: HTupleBaseApex = self.allReuseCells.object(forKey: NSIndexPath.stringValue(0, section)) as! HTupleBaseApex
+        let header: HTupleBaseApex = self.allReuseCells.object(forKey: IndexPath.stringValue(0, section) as NSString) as! HTupleBaseApex
         if header.signalBlock != nil {
             DispatchQueue.main.async {
                 header.signalBlock!(header, signal)
@@ -779,7 +779,7 @@ extension HTupleView {
         DispatchQueue.main.async {
             let sections = self.numberOfSections
             for i in 0..<sections {
-                let footer: HTupleBaseApex = self.allReuseCells.object(forKey: NSIndexPath.stringValue(0, i)) as! HTupleBaseApex
+                let footer: HTupleBaseApex = self.allReuseCells.object(forKey: IndexPath.stringValue(0, i) as NSString) as! HTupleBaseApex
                 if footer.signalBlock != nil {
                     footer.signalBlock!(footer, signal)
                 }
@@ -788,7 +788,7 @@ extension HTupleView {
     }
 
     func signal(_ signal: HTupleSignal, footerSection section: Int) {
-        let footer: HTupleBaseApex = self.allReuseCells.object(forKey: NSIndexPath.stringValue(0, section)) as! HTupleBaseApex
+        let footer: HTupleBaseApex = self.allReuseCells.object(forKey: IndexPath.stringValue(0, section) as NSString) as! HTupleBaseApex
         if footer.signalBlock != nil {
             DispatchQueue.main.async {
                 footer.signalBlock!(footer, signal)
@@ -828,10 +828,10 @@ extension HTupleView {
 
     ///根据传入的row和section获取cell或indexPath
     func cell(_ row: Int, _ section: Int) -> AnyObject {
-        return self.allReuseCells.object(forKey: NSIndexPath.stringValue(row, section))!
+        return self.allReuseCells.object(forKey: IndexPath.stringValue(row, section) as NSString)!
     }
-    func indexPath(_ row: Int, _ section: Int) -> NSIndexPath {
-        return NSIndexPath(row: row, section: section)
+    func indexPath(_ row: Int, _ section: Int) -> IndexPath {
+        return IndexPath(row: row, section: section)
     }
 
     ///获取某个section的宽高和大小

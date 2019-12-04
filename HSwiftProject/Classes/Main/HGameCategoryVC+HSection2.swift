@@ -19,7 +19,7 @@ extension HGameCategoryVC {
     @objc func tupleExa2_edgeInsetsForItemAtIndexPath(_ indexPath: IndexPath) -> NSEdgeInsets {
         return UIEdgeInsetsMake(10, 10, 10, 10).edgeInsetsValue
     }
-    @objc func tupleExa2_tupleForItem(_ itemObject: NSItem, atIndexPath indexPath: IndexPath) {
+    @objc func tupleExa2_tupleForItem(_ itemObject: NSTupleItem, atIndexPath indexPath: IndexPath) {
         let cell = itemObject.itemBlock(nil, HTupleViewCell.self, nil, true) as! HTupleViewCell
         cell.backgroundColor = UIColor.gray
         cell.shouldShowSeparator = true

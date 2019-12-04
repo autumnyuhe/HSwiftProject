@@ -67,7 +67,7 @@ class HMainViewController: HTupleController {
                 return UIEdgeInsetsMake(10, 10, 10, 10).edgeInsetsValue
         }
     }
-    func tupleForItem(_ itemObject: NSItem, atIndexPath indexPath: IndexPath) {
+    func tupleForItem(_ itemObject: NSTupleItem, atIndexPath indexPath: IndexPath) {
         switch indexPath.row {
             case 0:
                 let cell = itemObject.itemBlock(nil, HTupleViewCellHoriValue4.self, nil, true) as! HTupleViewCellHoriValue4

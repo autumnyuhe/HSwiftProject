@@ -8,7 +8,7 @@
 
 import UIKit
 
-typealias HTupleCellBlock = (_ idxPath: NSIndexPath) -> Void
+typealias HTupleCellBlock = (_ idxPath: IndexPath) -> Void
 
 class HTupleBaseCell : UICollectionViewCell {
     
@@ -171,7 +171,6 @@ class HTupleBaseCell : UICollectionViewCell {
         NotificationCenter.default.removeObserver(self)
     }
     
-    ///子类可覆盖下列方法
     ///cell初始化是调用的方法
     func initUI() { }
     ///用于子类更新子视图布局

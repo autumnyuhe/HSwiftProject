@@ -16,6 +16,14 @@ class NSInt: NSObject {
     }
 }
 
+class NSFloat: NSObject {
+    var floatValue: CGFloat = 0.0
+    required init(value: CGFloat) {
+        super.init()
+        self.floatValue = value
+    }
+}
+
 class NSSize: NSObject {
     var sizeValue: CGSize = CGSizeZero
     required init(size: CGSize) {
@@ -40,16 +48,28 @@ class NSEdgeInsets: NSObject {
     }
 }
 
-class NSItem: NSObject {
+class NSTupleItem: NSObject {
     var itemBlock: HTupleItem!
 }
 
-class NSHeader: NSObject {
+class NSTupleHeader: NSObject {
     var headerBlock: HTupleHeader!
 }
 
-class NSFooter: NSObject {
+class NSTupleFooter: NSObject {
     var footerBlock: HTupleFooter!
+}
+
+class NSTableRow: NSObject {
+    var itemBlock: HTableRow!
+}
+
+class NSTableHeader: NSObject {
+    var headerBlock: HTableHeader!
+}
+
+class NSTableFooter: NSObject {
+    var footerBlock: HTableFooter!
 }
 
 extension CGSize {
