@@ -49,6 +49,20 @@
 		A229489F23975D850058B939 /* HTableViewCellHoriValue1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A229489E23975D850058B939 /* HTableViewCellHoriValue1.swift */; };
 		A22948A123975F500058B939 /* HTableViewApexVertValue1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948A023975F500058B939 /* HTableViewApexVertValue1.swift */; };
 		A22948A323975FB10058B939 /* HTableViewApexHoriValue1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948A223975FB10058B939 /* HTableViewApexHoriValue1.swift */; };
+		A22948A5239798000058B939 /* HMainController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948A4239798000058B939 /* HMainController1.swift */; };
+		A22948A72397980A0058B939 /* HMainController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948A62397980A0058B939 /* HMainController2.swift */; };
+		A22948A92397985B0058B939 /* HMainController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948A82397985B0058B939 /* HMainController3.swift */; };
+		A22948AB2397986C0058B939 /* HMainController3+HSection0.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948AA2397986C0058B939 /* HMainController3+HSection0.swift */; };
+		A22948AD2397987A0058B939 /* HMainController3+HSection1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948AC2397987A0058B939 /* HMainController3+HSection1.swift */; };
+		A22948AF239798870058B939 /* HMainController3+HSection2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948AE239798870058B939 /* HMainController3+HSection2.swift */; };
+		A22948B1239798960058B939 /* HMainController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948B0239798960058B939 /* HMainController4.swift */; };
+		A22948B3239798A30058B939 /* HMainController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948B2239798A30058B939 /* HMainController5.swift */; };
+		A22948B5239798AF0058B939 /* HMainController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948B4239798AF0058B939 /* HMainController6.swift */; };
+		A22948B8239798EC0058B939 /* HLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948B7239798EC0058B939 /* HLoginController.swift */; };
+		A22948BA239798FC0058B939 /* HRegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948B9239798FC0058B939 /* HRegisterController.swift */; };
+		A22948BC2397990B0058B939 /* HRegisterController+KS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948BB2397990B0058B939 /* HRegisterController+KS.swift */; };
+		A22948BE239799190058B939 /* HRegisterController+SJ.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948BD239799190058B939 /* HRegisterController+SJ.swift */; };
+		A22948C02397992A0058B939 /* HServiceAuthorizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948BF2397992A0058B939 /* HServiceAuthorizationCell.swift */; };
 		A265D9FB2390B8EB001F39B0 /* HTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A265D9FA2390B8EB001F39B0 /* HTabItem.swift */; };
 		A265D9FD23910309001F39B0 /* HTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A265D9FC23910309001F39B0 /* HTabBar.swift */; };
 		A265D9FF239250F6001F39B0 /* HTabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A265D9FE239250F6001F39B0 /* HTabContentView.swift */; };
@@ -194,6 +208,20 @@
 		A229489E23975D850058B939 /* HTableViewCellHoriValue1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTableViewCellHoriValue1.swift; sourceTree = "<group>"; };
 		A22948A023975F500058B939 /* HTableViewApexVertValue1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTableViewApexVertValue1.swift; sourceTree = "<group>"; };
 		A22948A223975FB10058B939 /* HTableViewApexHoriValue1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTableViewApexHoriValue1.swift; sourceTree = "<group>"; };
+		A22948A4239798000058B939 /* HMainController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMainController1.swift; sourceTree = "<group>"; };
+		A22948A62397980A0058B939 /* HMainController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMainController2.swift; sourceTree = "<group>"; };
+		A22948A82397985B0058B939 /* HMainController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMainController3.swift; sourceTree = "<group>"; };
+		A22948AA2397986C0058B939 /* HMainController3+HSection0.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HMainController3+HSection0.swift"; sourceTree = "<group>"; };
+		A22948AC2397987A0058B939 /* HMainController3+HSection1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HMainController3+HSection1.swift"; sourceTree = "<group>"; };
+		A22948AE239798870058B939 /* HMainController3+HSection2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HMainController3+HSection2.swift"; sourceTree = "<group>"; };
+		A22948B0239798960058B939 /* HMainController4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMainController4.swift; sourceTree = "<group>"; };
+		A22948B2239798A30058B939 /* HMainController5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMainController5.swift; sourceTree = "<group>"; };
+		A22948B4239798AF0058B939 /* HMainController6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMainController6.swift; sourceTree = "<group>"; };
+		A22948B7239798EC0058B939 /* HLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HLoginController.swift; sourceTree = "<group>"; };
+		A22948B9239798FC0058B939 /* HRegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRegisterController.swift; sourceTree = "<group>"; };
+		A22948BB2397990B0058B939 /* HRegisterController+KS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HRegisterController+KS.swift"; sourceTree = "<group>"; };
+		A22948BD239799190058B939 /* HRegisterController+SJ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HRegisterController+SJ.swift"; sourceTree = "<group>"; };
+		A22948BF2397992A0058B939 /* HServiceAuthorizationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HServiceAuthorizationCell.swift; sourceTree = "<group>"; };
 		A265D9FA2390B8EB001F39B0 /* HTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTabItem.swift; sourceTree = "<group>"; };
 		A265D9FC23910309001F39B0 /* HTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTabBar.swift; sourceTree = "<group>"; };
 		A265D9FE239250F6001F39B0 /* HTabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTabContentView.swift; sourceTree = "<group>"; };
@@ -436,6 +464,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		A22948B6239798DF0058B939 /* HLoginController */ = {
+			isa = PBXGroup;
+			children = (
+				A22948B7239798EC0058B939 /* HLoginController.swift */,
+				A22948BF2397992A0058B939 /* HServiceAuthorizationCell.swift */,
+				A22948B9239798FC0058B939 /* HRegisterController.swift */,
+				A22948BB2397990B0058B939 /* HRegisterController+KS.swift */,
+				A22948BD239799190058B939 /* HRegisterController+SJ.swift */,
+			);
+			path = HLoginController;
+			sourceTree = "<group>";
+		};
 		A265D9F92390B8D7001F39B0 /* YPTabBarController */ = {
 			isa = PBXGroup;
 			children = (
@@ -615,6 +655,7 @@
 		A2B43058237FF2B100795605 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
+				A22948B6239798DF0058B939 /* HLoginController */,
 				A229487A23965D880058B939 /* HTableView */,
 				A265D9F92390B8D7001F39B0 /* YPTabBarController */,
 				A21887A323900832005C20BF /* HKeyChainStore */,
@@ -749,6 +790,15 @@
 				A2188796238FD3D6005C20BF /* HGameCategoryVC+HSection1.swift */,
 				A2188798238FD3E0005C20BF /* HGameCategoryVC+HSection2.swift */,
 				A2B43070237FF2B100795605 /* HMainViewController.swift */,
+				A22948A4239798000058B939 /* HMainController1.swift */,
+				A22948A62397980A0058B939 /* HMainController2.swift */,
+				A22948A82397985B0058B939 /* HMainController3.swift */,
+				A22948AA2397986C0058B939 /* HMainController3+HSection0.swift */,
+				A22948AC2397987A0058B939 /* HMainController3+HSection1.swift */,
+				A22948AE239798870058B939 /* HMainController3+HSection2.swift */,
+				A22948B0239798960058B939 /* HMainController4.swift */,
+				A22948B2239798A30058B939 /* HMainController5.swift */,
+				A22948B4239798AF0058B939 /* HMainController6.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -955,6 +1005,7 @@
 				A26D43172383DE5800F457AE /* UIColor+HUtil.swift in Sources */,
 				A2B4308B2382598F00795605 /* UIButton+HFilletLayer.swift in Sources */,
 				A2B42FD0237CED5A00795605 /* ViewController.swift in Sources */,
+				A22948BC2397990B0058B939 /* HRegisterController+KS.swift in Sources */,
 				A26D4323238526BA00F457AE /* UIViewController+HUtil.swift in Sources */,
 				A2B4308D23825BBE00795605 /* HWebImageView.swift in Sources */,
 				A2B4308723823F3400795605 /* Error+HUtil.swift in Sources */,
@@ -971,18 +1022,25 @@
 				A26D43292385665700F457AE /* NSUserDefaults+HUtil.swift in Sources */,
 				A265DA032394B24C001F39B0 /* HTabBarController.swift in Sources */,
 				A2294891239756770058B939 /* HTableView.swift in Sources */,
+				A22948C02397992A0058B939 /* HServiceAuthorizationCell.swift in Sources */,
 				A26D432123842C9400F457AE /* UIGestureRecognizer+HUtil.swift in Sources */,
+				A22948BA239798FC0058B939 /* HRegisterController.swift in Sources */,
 				A26D432D238682D200F457AE /* HNavigationController.swift in Sources */,
+				A22948B3239798A30058B939 /* HMainController5.swift in Sources */,
 				A2B4308F2382CC8A00795605 /* UIDevice+HUtil.swift in Sources */,
 				A229488E239756770058B939 /* HTableBaseApex.swift in Sources */,
+				A22948B1239798960058B939 /* HMainController4.swift in Sources */,
 				A229489D23975CE40058B939 /* HTableViewCellVertValue1.swift in Sources */,
 				A26D431523839C2800F457AE /* UIApplication+HUtil.swift in Sources */,
 				A21887A923900832005C20BF /* HTegKeychainConstants.swift in Sources */,
 				A2B43078237FF2B100795605 /* NSObject+HExclusive.swift in Sources */,
 				A2B43079237FF2B100795605 /* HCenterViewController.swift in Sources */,
 				A265D9FF239250F6001F39B0 /* HTabContentView.swift in Sources */,
+				A22948BE239799190058B939 /* HRegisterController+SJ.swift in Sources */,
 				A28923A4238B72F800E4AB75 /* HGeometry.swift in Sources */,
+				A22948A72397980A0058B939 /* HMainController2.swift in Sources */,
 				A28923A3238B72F800E4AB75 /* HTupleBaseCell.swift in Sources */,
+				A22948AF239798870058B939 /* HMainController3+HSection2.swift in Sources */,
 				A28923C7238D21F300E4AB75 /* HObject.swift in Sources */,
 				A2188795238FD3CC005C20BF /* HGameCategoryVC+HSection0.swift in Sources */,
 				A2B43074237FF2B100795605 /* UIView+HPrinter.swift in Sources */,
@@ -991,6 +1049,7 @@
 				A2B4308523823B9000795605 /* HCommonBlock.swift in Sources */,
 				A28923A8238B72F800E4AB75 /* HCollectionViewFlowLayout.swift in Sources */,
 				A2B43071237FF2B100795605 /* Swifty.m in Sources */,
+				A22948AB2397986C0058B939 /* HMainController3+HSection0.swift in Sources */,
 				A2B43073237FF2B100795605 /* HCommonDefine.swift in Sources */,
 				A2B42FCC237CED5A00795605 /* AppDelegate.swift in Sources */,
 				A2B4307C237FF2B100795605 /* HGameCategoryVC.swift in Sources */,
@@ -1003,6 +1062,7 @@
 				A26D432723853F2900F457AE /* NSObject+HMessy.swift in Sources */,
 				A229489F23975D850058B939 /* HTableViewCellHoriValue1.swift in Sources */,
 				A26D43192383E23300F457AE /* NSString+HUtil.swift in Sources */,
+				A22948A5239798000058B939 /* HMainController1.swift in Sources */,
 				A2188797238FD3D6005C20BF /* HGameCategoryVC+HSection1.swift in Sources */,
 				A26D434923879FB900F457AE /* Router.swift in Sources */,
 				A28923C5238CDE8400E4AB75 /* HTupleController.swift in Sources */,
@@ -1017,13 +1077,16 @@
 				A265D9FB2390B8EB001F39B0 /* HTabItem.swift in Sources */,
 				A26D433F2386CA0A00F457AE /* NSObject+HSwizzleUtil.swift in Sources */,
 				A218879C238FF891005C20BF /* HUserDefaults.swift in Sources */,
+				A22948AD2397987A0058B939 /* HMainController3+HSection1.swift in Sources */,
 				A26D433D2386C76D00F457AE /* NSObject+HSafeMessy.swift in Sources */,
 				A28923B0238BC2D100E4AB75 /* HTupleViewCellVertValue1.swift in Sources */,
 				A28923B2238BCB5000E4AB75 /* HTupleViewCellHoriValue1.swift in Sources */,
 				A2B43089238248EB00795605 /* UIImageView+HFilletLayer.swift in Sources */,
 				A26D432F23868AFE00F457AE /* UIViewController+HDisappear.swift in Sources */,
 				A21887A823900832005C20BF /* HKeychainSwift.swift in Sources */,
+				A22948B8239798EC0058B939 /* HLoginController.swift in Sources */,
 				A28923A5238B72F800E4AB75 /* HTupleSignal.swift in Sources */,
+				A22948A92397985B0058B939 /* HMainController3.swift in Sources */,
 				A2B43077237FF2B100795605 /* NSObject+HUtil.swift in Sources */,
 				A229489723975AE80058B939 /* HTupleViewApex.swift in Sources */,
 				A2B43080237FF57C00795605 /* HViewController.swift in Sources */,
@@ -1031,6 +1094,7 @@
 				A229488F239756770058B939 /* HTableSignal.swift in Sources */,
 				A2B4307A237FF2B100795605 /* HMenuViewController.swift in Sources */,
 				A21887A723900832005C20BF /* HKeychainSwiftAccessOptions.swift in Sources */,
+				A22948B5239798AF0058B939 /* HMainController6.swift in Sources */,
 				A2B43075237FF2B100795605 /* HPrinterManager.swift in Sources */,
 				A22948A323975FB10058B939 /* HTableViewApexHoriValue1.swift in Sources */,
 				A28923A6238B72F800E4AB75 /* NSIndexPath+HUtil.swift in Sources */,
