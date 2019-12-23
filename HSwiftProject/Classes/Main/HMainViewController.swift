@@ -34,25 +34,25 @@ class HMainViewController: HTupleController {
     func sizeForItemAtIndexPath(_ indexPath: IndexPath) -> NSSize {
         switch indexPath.row {
         case 0:
-            return CGSizeMake(self.tupleView.widthWithSection(indexPath.section), 65).sizeValue
+            return CGSizeMake(self.tupleView.widthForSection(indexPath.section), 65).sizeValue
         case 1:
-            return CGSizeMake(self.tupleView.widthWithSection(indexPath.section), 65).sizeValue
+            return CGSizeMake(self.tupleView.widthForSection(indexPath.section), 65).sizeValue
         case 2:
-            return CGSizeMake(self.tupleView.widthWithSection(indexPath.section), 65).sizeValue
+            return CGSizeMake(self.tupleView.widthForSection(indexPath.section), 65).sizeValue
         case 3:
-            var width: CGFloat = self.tupleView.widthWithSection(indexPath.section)
+            var width: CGFloat = self.tupleView.widthForSection(indexPath.section)
             width = self.tupleView.fixSlitWith(width, colCount: 3, index: indexPath.row-3)
             return CGSizeMake(width, 120).sizeValue
         case 4:
-            var width: CGFloat = self.tupleView.widthWithSection(indexPath.section)
+            var width: CGFloat = self.tupleView.widthForSection(indexPath.section)
             width = self.tupleView.fixSlitWith(width, colCount: 3, index: indexPath.row-3)
             return CGSizeMake(width, 120).sizeValue
         case 5:
-            var width: CGFloat = self.tupleView.widthWithSection(indexPath.section)
+            var width: CGFloat = self.tupleView.widthForSection(indexPath.section)
             width = self.tupleView.fixSlitWith(width, colCount: 3, index: indexPath.row-3)
             return CGSizeMake(width, 120).sizeValue
         default:
-            return CGSizeMake(self.tupleView.widthWithSection(indexPath.section), 65).sizeValue
+            return CGSizeMake(self.tupleView.widthForSection(indexPath.section), 65).sizeValue
         }
     }
     func edgeInsetsForItemAtIndexPath(_ indexPath: IndexPath) -> NSEdgeInsets {

@@ -841,7 +841,7 @@ extension HTupleView {
     }
 
     ///获取某个section的宽高和大小
-    func widthWithSection(_ section: Int) -> CGFloat {
+    func widthForSection(_ section: Int) -> CGFloat {
         var width: CGFloat = self.width
         let edgeInsetsString: String = self.allSectionInsets.object(forKey: "\(section)" as NSString) as! String
         if edgeInsetsString.length > 0 {
@@ -851,7 +851,7 @@ extension HTupleView {
         return width
     }
 
-    func heightWithSection(_ section: Int) -> CGFloat {
+    func heighForSection(_ section: Int) -> CGFloat {
         var height: CGFloat = self.height
         let edgeInsetsString: String = self.allSectionInsets.object(forKey: "\(section)" as NSString) as! String
         if edgeInsetsString.length > 0 {
@@ -861,7 +861,7 @@ extension HTupleView {
         return height
     }
     
-    func sizeWithSection(_ section: Int) -> CGSize {
+    func sizeForSection(_ section: Int) -> CGSize {
         var size: CGSize = self.size
         let edgeInsetsString: String = self.allSectionInsets.object(forKey: "\(section)" as NSString) as! String
         if edgeInsetsString.length > 0 {
