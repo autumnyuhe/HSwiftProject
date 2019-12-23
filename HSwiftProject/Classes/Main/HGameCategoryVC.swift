@@ -37,7 +37,7 @@ class HGameCategoryVC : HViewController, HTupleViewDelegate {
         self.view.backgroundColor = UIColor.white;
         self.leftNaviButton.isHidden = true
         self.title = "分类"
-        self.tupleView.tupleDelegate = self
+        self.tupleView.delegate = self
         self.view.addSubview(self.tupleView)
     }
     

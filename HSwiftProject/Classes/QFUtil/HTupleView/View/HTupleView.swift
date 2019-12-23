@@ -64,7 +64,7 @@ class HTupleAppearance : NSObject {
     }
 }
 
-@objc protocol HTupleViewDelegate : NSObjectProtocol {
+@objc protocol HTupleViewDelegate : UICollectionViewDelegate {
     @objc optional func numberOfSectionsInTupleView() -> NSInt
     @objc optional func numberOfItemsInSection(_ section: Int) -> NSInt
     ///layout == HCollectionViewFlowLayout
@@ -101,8 +101,6 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
     private var allReuseFooters  = NSMapTable<NSString, AnyObject>.strongToWeakObjects()
 
     private var sectionPaths: NSArray?
-    
-   weak var tupleDelegate: HTupleViewDelegate?
     
     ///默认layout为HCollectionViewFlowLayout
     ///默认为垂直滚动方向
@@ -149,10 +147,18 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         self.setup()
     }
     
+    private weak var tupleDelegate: HTupleViewDelegate?
+    override weak var delegate: UICollectionViewDelegate? {
+        get { return super.delegate }
+        set { tupleDelegate = newValue as? HTupleViewDelegate }
+    }
+    override weak var dataSource: UICollectionViewDataSource? {
+        get { return super.dataSource }
+        set { }
+    }
+    
     override var frame: CGRect {
-        get {
-            return super.frame
-        }
+        get { return super.frame }
         set {
             let frame = UIRectIntegral(newValue)
             if frame != super.frame {
@@ -179,8 +185,8 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         if #available(iOS 11.0, *) {
             self.contentInsetAdjustmentBehavior = .never
         }
-        self.delegate = self
-        self.dataSource = self
+        super.delegate = self
+        super.dataSource = self
     }
 
     private var _pageNo: Int = 1

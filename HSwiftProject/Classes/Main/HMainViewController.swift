@@ -16,7 +16,7 @@ class HMainViewController: HTupleController {
         self.view.backgroundColor = UIColor.white
         self.leftNaviButton.isHidden = true
         self.title = "第一页"
-        self.tupleView.tupleDelegate = self
+        self.tupleView.delegate = self
     }
 
     func numberOfSectionsInTupleView() -> NSInt {
