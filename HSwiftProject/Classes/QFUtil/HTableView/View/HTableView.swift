@@ -56,7 +56,7 @@ class HTableAppearance : NSObject {
     }
 }
 
-@objc protocol HTableViewDelegate : NSObjectProtocol {
+@objc protocol HTableViewDelegate : UITableViewDelegate {
     @objc optional func numberOfSectionsInTableView() -> NSInt
     @objc optional func numberOfRowsInSection(_ section: Int) -> NSInt
 
@@ -86,8 +86,6 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
      private var allReuseFooters  = NSMapTable<NSString, AnyObject>.strongToWeakObjects()
 
      private var sectionPaths: NSArray?
-     
-    weak var tableDelegate: HTableViewDelegate?
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -115,10 +113,18 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
         self.setup()
     }
     
+    private weak var tableDelegate: HTableViewDelegate?
+    override weak var delegate: UITableViewDelegate? {
+        get { return super.delegate }
+        set { tableDelegate = newValue as? HTableViewDelegate }
+    }
+    override weak var dataSource: UITableViewDataSource? {
+        get { return super.dataSource }
+        set { }
+    }
+    
     override var frame: CGRect {
-        get {
-            return super.frame
-        }
+        get { return super.frame }
         set {
             let frame = UIRectIntegral(newValue)
             if frame != super.frame {
@@ -147,8 +153,8 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
         self.estimatedSectionFooterHeight = 0
         
         self.tableFooterView = UIView()
-        self.delegate = self
-        self.dataSource = self
+        super.delegate = self
+        super.dataSource = self
     }
     
     private var _pageNo: Int = 1
