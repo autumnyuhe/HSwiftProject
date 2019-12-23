@@ -80,9 +80,9 @@ class HTupleAppearance : NSObject {
 
     @objc optional func insetForSection(_ section: Int) -> NSInt
 
-    @objc optional func tupleForHeader(_ headerObject: NSTupleHeader, inSection section: Int)
-    @objc optional func tupleForFooter(_ footerObject: NSTupleFooter, inSection section: Int)
-    @objc optional func tupleForItem(_ itemObject: NSTupleItem, atIndexPath indexPath: IndexPath)
+    @objc optional func tupleHeader(_ headerObject: NSTupleHeader, inSection section: Int)
+    @objc optional func tupleFooter(_ footerObject: NSTupleFooter, inSection section: Int)
+    @objc optional func tupleItem(_ itemObject: NSTupleItem, atIndexPath indexPath: IndexPath)
 
     @objc optional func willDisplayCell(_ cell: UICollectionViewCell, atIndexPath indexPath: IndexPath)
     @objc optional func didSelectItemAtIndexPath(_ indexPath: IndexPath)
@@ -629,7 +629,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //调用代理方法
         let prefix: String = self.prefixWithSection(indexPath.section)
-        let selector: Selector = #selector(self.tupleDelegate!.tupleForItem(_:atIndexPath:))
+        let selector: Selector = #selector(self.tupleDelegate!.tupleItem(_:atIndexPath:))
         let cellObject = NSTupleItem()
         cellObject.itemBlock =  { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) in
             return self.dequeueReusableCellWithClass(cls, iblk: iblk, pre: pre, idx: idx, idxPath: indexPath)
@@ -652,7 +652,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         if kind == UICollectionElementKindSectionHeader {
             //调用代理方法
             let prefix: String = self.prefixWithSection(indexPath.section)
-            let selector: Selector = #selector(self.tupleDelegate!.tupleForHeader(_:inSection:))
+            let selector: Selector = #selector(self.tupleDelegate!.tupleHeader(_:inSection:))
             let cellObject = NSTupleHeader()
             cellObject.headerBlock = { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) -> AnyObject in
                 return self.dequeueReusableHeaderWithClass(cls, iblk: iblk, pre: pre, idx: idx, idxPath: indexPath)
@@ -665,7 +665,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         }else if (kind == UICollectionElementKindSectionFooter) {
             //调用代理方法
             let prefix: String = self.prefixWithSection(indexPath.section)
-            let selector: Selector = #selector(self.tupleDelegate!.tupleForFooter(_:inSection:))
+            let selector: Selector = #selector(self.tupleDelegate!.tupleFooter(_:inSection:))
             let cellObject = NSTupleFooter()
             cellObject.footerBlock = { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) -> AnyObject in
                 return self.dequeueReusableFooterWithClass(cls, iblk: iblk, pre: pre, idx: idx, idxPath: indexPath)

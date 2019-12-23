@@ -68,9 +68,9 @@ class HTableAppearance : NSObject {
     @objc optional func edgeInsetsForFooterInSection(_ section: Int) -> NSEdgeInsets
     @objc optional func edgeInsetsForRowAtIndexPath(_ indexPath: IndexPath) -> NSEdgeInsets
 
-    @objc optional func tableForHeader(_ headerObject: NSTableHeader, inSection section: Int)
-    @objc optional func tableForFooter(_ footerObject: NSTableFooter, inSection section: Int)
-    @objc optional func tableForRow(_ itemObject: NSTableRow, atIndexPath indexPath: IndexPath)
+    @objc optional func tableHeader(_ headerObject: NSTableHeader, inSection section: Int)
+    @objc optional func tableFooter(_ footerObject: NSTableFooter, inSection section: Int)
+    @objc optional func tableRow(_ itemObject: NSTableRow, atIndexPath indexPath: IndexPath)
 
     @objc optional func willDisplayCell(_ cell: UITableViewCell, atIndexPath indexPath: IndexPath)
     @objc optional func didSelectRowAtIndexPath(_ indexPath: IndexPath)
@@ -563,7 +563,7 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //调用代理方法
         let prefix: String = self.prefixWithSection(indexPath.section)
-        let selector: Selector = #selector(self.tableDelegate!.tableForRow(_:atIndexPath:))
+        let selector: Selector = #selector(self.tableDelegate!.tableRow(_:atIndexPath:))
         let cellObject = NSTableRow()
         cellObject.itemBlock =  { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) in
             return self.dequeueReusableCellWithClass(cls, iblk: iblk, pre: pre, idx: idx, idxPath: indexPath)
@@ -583,7 +583,7 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         //调用代理方法
         let prefix: String = self.prefixWithSection(section)
-        let selector: Selector = #selector(self.tableDelegate!.tableForHeader(_:inSection:))
+        let selector: Selector = #selector(self.tableDelegate!.tableHeader(_:inSection:))
         let cellObject = NSTableHeader()
         cellObject.headerBlock = { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) -> AnyObject in
             return self.dequeueReusableHeaderWithClass(cls, iblk: iblk, pre: pre, idx: idx, section: section)
@@ -601,7 +601,7 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         //调用代理方法
         let prefix: String = self.prefixWithSection(section)
-        let selector: Selector = #selector(self.tableDelegate!.tableForFooter(_:inSection:))
+        let selector: Selector = #selector(self.tableDelegate!.tableFooter(_:inSection:))
         let cellObject = NSTableFooter()
         cellObject.footerBlock = { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) -> AnyObject in
             return self.dequeueReusableFooterWithClass(cls, iblk: iblk, pre: pre, idx: idx, section: section)
