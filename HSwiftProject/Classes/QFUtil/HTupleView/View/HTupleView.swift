@@ -749,8 +749,8 @@ extension HTupleView {
         }
     }
 
-    func signal(_ signal: HTupleSignal, indexPath idxPath: IndexPath) {
-        let cell: HTupleBaseCell = self.allReuseCells.object(forKey: idxPath.stringValue as NSString) as! HTupleBaseCell
+    func signal(_ signal: HTupleSignal, toRow row: Int, inSection section: Int) {
+        let cell: HTupleBaseCell = self.allReuseCells.object(forKey: indexPath(row, section).stringValue as NSString) as! HTupleBaseCell
         if cell.signalBlock != nil {
             DispatchQueue.main.async {
                 cell.signalBlock!(cell, signal)

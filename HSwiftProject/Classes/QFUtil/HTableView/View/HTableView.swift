@@ -681,8 +681,8 @@ extension HTableView {
         }
     }
 
-    func signal(_ signal: HTableSignal, indexPath idxPath: IndexPath) {
-        let cell: HTableBaseCell = self.allReuseCells.object(forKey: idxPath.stringValue as NSString) as! HTableBaseCell
+    func signal(_ signal: HTableSignal, toRow row: Int, inSection section: Int) {
+        let cell: HTableBaseCell = self.allReuseCells.object(forKey: indexPath(row, section).stringValue as NSString) as! HTableBaseCell
         if cell.signalBlock != nil {
             DispatchQueue.main.async {
                 cell.signalBlock!(cell, signal)
