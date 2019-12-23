@@ -487,7 +487,7 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
     private func prefixWithSection(_ section: Int) -> String {
         var prefix = ""
         if self.tableStyle == .split {
-            if (self.sectionPaths?.contains(section))! {
+            if self.sectionPaths?.contains(section) ?? false {
                 let idx: Int = self.sectionPaths!.index(of: section)
                 prefix = KTableExaDesignKey+"\(idx)"+"_"
             }else {

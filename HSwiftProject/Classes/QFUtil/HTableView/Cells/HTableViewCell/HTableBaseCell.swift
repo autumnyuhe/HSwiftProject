@@ -148,7 +148,7 @@ class HTableBaseCell : UITableViewCell {
             return _separatorColor
         }
         set {
-            if _separatorColor != newValue && newValue?.isKind(of: NSClassFromString("UIDynamicSystemColor")!) == false {
+            if _separatorColor != newValue && (newValue?.isKind(of: NSClassFromString("UIDynamicSystemColor")!) ?? false) == false {
                 _separatorColor = nil
                 _separatorColor = newValue
                 self.separatorView.backgroundColor = _separatorColor

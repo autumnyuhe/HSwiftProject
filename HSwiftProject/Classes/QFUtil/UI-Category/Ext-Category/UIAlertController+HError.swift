@@ -15,6 +15,6 @@ extension UIAlertController {
             cancel()
         }
         alertController.addAction(cancel)
-        UIApplication.shared.getKeyWindow.rootViewController?.present(alertController, animated: true, completion: nil)
+        UIApplication.shared.getKeyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
 }

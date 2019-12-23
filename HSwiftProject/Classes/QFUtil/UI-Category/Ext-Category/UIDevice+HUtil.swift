@@ -26,8 +26,7 @@ extension UIDevice {
 
     static var statusBarHeight: CGFloat {
         var height: CGFloat = 0.0
-        let statusBarOrientation: UIInterfaceOrientation = UIApplication.shared.statusBarOrientation
-        if statusBarOrientation.isPortrait {
+        if UIApplication.statusBarOrientation?.isPortrait ?? true {
             height = UIDevice.isIPhoneX ? 44.0 : 20.0
         }
         return height

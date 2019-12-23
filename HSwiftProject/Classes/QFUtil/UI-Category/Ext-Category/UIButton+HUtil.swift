@@ -61,14 +61,14 @@ extension UIButton {
 
     ///图右文字左
     open func textAndImageWithSpacing(_ spacing: CGFloat) {
-        self.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -(self.imageView?.width)!, bottom: 0, right: (self.imageView?.width)!-spacing)
-        self.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: (self.titleLabel?.width)!-spacing, bottom: 0, right: -(self.titleLabel?.width)!)
+        self.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -(self.imageView?.width ?? 0), bottom: 0, right: (self.imageView?.width)!-spacing)
+        self.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: (self.titleLabel?.width ?? 0)-spacing, bottom: 0, right: -(self.titleLabel?.width)!)
     }
     
     ///图上文字下
     open func imageUpAndTextDownWithSpacing(_ spacing: CGFloat) {
-        self.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -(self.imageView?.width)!, bottom: -(self.imageView?.width)!-spacing/2, right: 0)
-        self.titleEdgeInsets = UIEdgeInsets.init(top: -(self.titleLabel?.intrinsicContentSize.width)!-spacing/2, left: 0, bottom: 0, right: -(self.titleLabel?.intrinsicContentSize.width)!)
+        self.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -(self.imageView?.width ?? 0), bottom: -(self.imageView?.width ?? 0)-spacing/2, right: 0)
+        self.titleEdgeInsets = UIEdgeInsets.init(top: -(self.titleLabel?.intrinsicContentSize.width ?? 0)-spacing/2, left: 0, bottom: 0, right: -(self.titleLabel?.intrinsicContentSize.width ?? 0))
     }
 
 } 

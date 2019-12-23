@@ -26,29 +26,29 @@ extension UIApplication {
     }
         
     ///get Window 0
-    static var getKeyWindow: UIWindow {
+    static var getKeyWindow: UIWindow? {
         return UIApplication.shared.getKeyWindow
     }
 
     ///get Window 0
-    var getKeyWindow: UIWindow {
-        return self.windows.first!
+    var getKeyWindow: UIWindow? {
+        return self.windows.first
     }
     
     ///get root VC of window 0
-    static var getKeyWindowRootController: UIViewController {
+    static var getKeyWindowRootController: UIViewController? {
         return UIApplication.shared.getKeyWindowRootController
     }
 
     ///get root VC of window 0
-    var getKeyWindowRootController: UIViewController {
-        return self.getKeyWindow.rootViewController!
+    var getKeyWindowRootController: UIViewController? {
+        return self.getKeyWindow?.rootViewController
     }
 
     ///get root navigation controller
     static var navi: UINavigationController? {
-        let navi: UINavigationController = UIApplication.shared.getKeyWindowRootController as! UINavigationController
-        if navi.isKind(of: UINavigationController.self) {
+        let navi = UIApplication.getKeyWindowRootController as? UINavigationController
+        if navi?.isKind(of: UINavigationController.self) ?? false {
             return navi
         }
         return nil
@@ -56,25 +56,32 @@ extension UIApplication {
 
     ///get root navigation controller top
     static var naviTop: UIViewController? {
-        let navi: UINavigationController = UIApplication.shared.getKeyWindowRootController as! UINavigationController
-        if navi.isKind(of: UINavigationController.self) {
-            return navi.topViewController
+        let navi = UIApplication.getKeyWindowRootController as? UINavigationController
+        if navi?.isKind(of: UINavigationController.self) ?? false {
+            return navi?.topViewController
         }
         return nil
     }
 
     ///get root tabbar vc
     static var tabbarVC: UITabBarController? {
-        let tabVC: UIViewController = UIApplication.shared.getKeyWindowRootController
-        if tabVC.isKind(of: UITabBarController.self) {
+        let tabVC: UIViewController? = UIApplication.getKeyWindowRootController
+        if tabVC?.isKind(of: UITabBarController.self) ?? false {
             return tabVC as? UITabBarController
-        }else if tabVC.isKind(of: UINavigationController.self) {
-            let navi: UINavigationController = tabVC as! UINavigationController
-            if (navi.topViewController?.isKind(of: UITabBarController.self))! {
+        }else if tabVC?.isKind(of: UINavigationController.self) ?? false {
+            let navi = tabVC as! UINavigationController
+            if navi.topViewController?.isKind(of: UITabBarController.self) ?? false {
                 return navi.topViewController as? UITabBarController
             }
         }
         return nil
+    }
+    
+    /**
+    *  status bar orientation
+    */
+    static var statusBarOrientation: UIInterfaceOrientation? {
+        get { return UIApplication.shared.windows.first?.windowScene?.interfaceOrientation }
     }
 
     /**
@@ -118,8 +125,7 @@ extension UIApplication {
     static var appLaunchImage: UIImage? {
 
         var viewOrientation: String  = "Portrait"
-        let statusBarOrientation: UIInterfaceOrientation = UIApplication.shared.statusBarOrientation
-        if statusBarOrientation.isLandscape {
+        if UIApplication.statusBarOrientation?.isLandscape ?? false {
             viewOrientation = "Landscape"
         }
 
@@ -192,7 +198,7 @@ extension UIApplication {
     }
 
     static func hideKeyboard() -> Void {
-        UIApplication.shared.keyWindow?.endEditing(true)
+        UIApplication.shared.getKeyWindow?.endEditing(true)
     }
 
     static func call(_ phone: String) -> Void {

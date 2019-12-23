@@ -18,10 +18,10 @@ class HCServiceViewController: UIViewController {
         self.view.backgroundColor = UIColor.white;
         self.title = "客服"
         
-        let multipyClosure2 = { //实现一个闭包
-            (a:Int,b:Int) in
-            a * b
-        }
+//        let multipyClosure2 = { //实现一个闭包
+//            (a:Int,b:Int) in
+//            a * b
+//        }
         
         
         

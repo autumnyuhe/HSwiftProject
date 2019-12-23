@@ -74,7 +74,7 @@ class HViewController: UIViewController {
 
     private func pvc_initView() -> Void {
         self.setNeedsNavigationBarAppearanceUpdate()
-        self.setLeftNaviImage(UIImage(named: "hvc_back_icon")!)
+        self.setLeftNaviImage(UIImage(named: "hvc_back_icon"))
     }
     
     deinit {
@@ -295,7 +295,7 @@ class HViewController: UIViewController {
         }
     }
 
-    func setLeftNaviImage(_ image: UIImage) -> Void {
+    func setLeftNaviImage(_ image: UIImage?) -> Void {
         self.leftNaviButton.setTitle("", for: .normal)
         self.leftNaviButton.setTitle("", for: .highlighted)
         self.leftNaviButton.setImage(image, for: .normal)
@@ -308,13 +308,13 @@ class HViewController: UIViewController {
         self.leftNaviButton.setImage(nil, for: .highlighted)
         self.leftNaviButton.setImageUrlString(imageURL)
     }
-    func setNaviLeftImage(_ normal: UIImage, highlight: UIImage) -> Void {
+    func setNaviLeftImage(_ normal: UIImage?, highlight: UIImage?) -> Void {
         self.leftNaviButton.setTitle("", for: .normal)
         self.leftNaviButton.setTitle("", for: .highlighted)
         self.leftNaviButton.setImage(normal, for: .normal)
         self.leftNaviButton.setImage(highlight, for: .highlighted)
     }
-    func setRightNaviImage(_ image: UIImage) -> Void {
+    func setRightNaviImage(_ image: UIImage?) -> Void {
         self.rightNaviButton.setTitle("", for: .normal)
         self.rightNaviButton.setTitle("", for: .highlighted)
         self.rightNaviButton.setImage(image, for: .normal)
@@ -327,7 +327,7 @@ class HViewController: UIViewController {
         self.rightNaviButton.setImage(nil, for: .highlighted)
         self.rightNaviButton.setImageUrlString(imageURL)
     }
-    func setNaviRightImage(_ normal: UIImage, highlight: UIImage) -> Void {
+    func setNaviRightImage(_ normal: UIImage?, highlight: UIImage?) -> Void {
         self.rightNaviButton.setTitle("", for: .normal)
         self.rightNaviButton.setTitle("", for: .highlighted)
         self.rightNaviButton.setImage(normal, for: .normal)
@@ -408,8 +408,7 @@ class HViewController: UIViewController {
 
     @available(iOS 7.0, *)
     override open var prefersStatusBarHidden: Bool {
-        let statusBarOrientation: UIInterfaceOrientation = UIApplication.shared.statusBarOrientation
-        if statusBarOrientation.isLandscape {
+        if UIApplication.statusBarOrientation?.isLandscape ?? false {
             return true
         }
         return false
@@ -516,8 +515,8 @@ extension UIViewController {
 }
 
 extension HViewController {
-    var window: UIWindow {
-        return (UIApplication.shared.delegate?.window!)!
+    var window: UIWindow? {
+        return UIApplication.shared.delegate?.window ?? nil
     }
     var screen: UIScreen {
         return UIScreen.main

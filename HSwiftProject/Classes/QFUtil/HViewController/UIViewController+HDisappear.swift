@@ -26,7 +26,7 @@ extension UIViewController {
     
     @objc open func pvc_dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         self.dismiss(animated: flag, completion: completion)
-        if (self.navigationController?.viewControllers.count)! > 0 {
+        if self.navigationController?.viewControllers.count ?? 0 > 0 {
             let viewControllers = (self.navigationController?.viewControllers)!
             for item in viewControllers {
                 let vc = item as UIViewController
@@ -52,14 +52,14 @@ extension UINavigationController {
     
     @objc open func disappear_popViewController(animated: Bool) -> UIViewController? {
         let popVC = self.disappear_popViewController(animated: animated)
-        if (popVC?.isKind(of: UIViewController.self))! {
+        if popVC?.isKind(of: UIViewController.self) ?? false {
             popVC?.vcWillDisappear(.pop)
         }
         return popVC
     }
     
     @objc open func disappear_pushViewController(_ viewController: UIViewController, animated: Bool) {
-        if (self.topViewController?.isKind(of: UIViewController.self))! {
+        if self.topViewController?.isKind(of: UIViewController.self) ?? false {
             self.topViewController?.vcWillDisappear(.push)
         }
         self.disappear_pushViewController(viewController, animated: animated)
@@ -71,7 +71,7 @@ extension HViewController {
     
     open override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         super.dismiss(animated: flag, completion: completion)
-        if (self.navigationController?.viewControllers.count)! > 0 {
+        if self.navigationController?.viewControllers.count ?? 0 > 0 {
             let viewControllers = (self.navigationController?.viewControllers)!
             for item in viewControllers {
                 let vc = item as UIViewController
@@ -88,14 +88,14 @@ extension HNavigationController {
     
     open override func popViewController(animated: Bool) -> UIViewController? {
         let popVC = super.popViewController(animated: animated)
-        if (popVC?.isKind(of: UIViewController.self))! {
+        if popVC?.isKind(of: UIViewController.self) ?? false {
             popVC?.vcWillDisappear(.pop)
         }
         return popVC
     }
     
     open override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        if (self.topViewController?.isKind(of: UIViewController.self))! {
+        if self.topViewController?.isKind(of: UIViewController.self) ?? false {
             self.topViewController?.vcWillDisappear(.push)
         }
         super.pushViewController(viewController, animated: animated)

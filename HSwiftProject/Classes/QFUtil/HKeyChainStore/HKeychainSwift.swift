@@ -122,7 +122,7 @@ open class HKeychainSwift {
     withAccess access: HKeychainSwiftAccessOptions? = nil) -> Bool {
   
     let bytes: [UInt8] = value ? [1] : [0]
-    let data = Data(bytes: bytes)
+    let data = Data.init(bytes)
 
     return set(data, forKey: key, withAccess: access)
   }
@@ -167,7 +167,7 @@ open class HKeychainSwift {
     var query: [String: Any] = [
       HKeychainSwiftConstants.klass       : kSecClassGenericPassword,
       HKeychainSwiftConstants.attrAccount : prefixedKey,
-      HKeychainSwiftConstants.returnData  : kCFBooleanTrue,
+      HKeychainSwiftConstants.returnData  : kCFBooleanTrue!,
       HKeychainSwiftConstants.matchLimit  : kSecMatchLimitOne
     ]
     
