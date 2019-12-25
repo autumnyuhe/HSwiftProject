@@ -481,12 +481,12 @@ class HKeyChainStore : NSObject {
         return status == errSecSuccess || status == errSecInteractionNotAllowed
     }
 
-    private func stringForKey(_ key: String?) -> String? {
+    func stringForKey(_ key: String?) -> String? {
         var error: Error?
         return self.stringForKey(key, error: &error)
     }
 
-    private func stringForKey(_ key: String?, error: inout Error?) -> String? {
+    func stringForKey(_ key: String?, error: inout Error?) -> String? {
         let data: Data? = self.dataForKey(key, error:&error)
         if data != nil {
             let string: String? = String(data: data!, encoding: .utf8)
@@ -551,12 +551,12 @@ class HKeyChainStore : NSObject {
         return false
     }
 
-    private func dataForKey(_ key: String?) -> Data? {
+    func dataForKey(_ key: String?) -> Data? {
         var error: Error?
         return self.dataForKey(key, error: &error)
     }
 
-    private func dataForKey(_ key: String?, error: inout Error?) -> Data? {
+    func dataForKey(_ key: String?, error: inout Error?) -> Data? {
         let query: NSMutableDictionary = self.query
         query[kSecMatchLimit] = kSecMatchLimitOne
         query[kSecReturnData] = kCFBooleanTrue
