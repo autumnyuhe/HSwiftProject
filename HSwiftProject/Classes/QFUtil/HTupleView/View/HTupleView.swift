@@ -231,6 +231,12 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         }
     }
     
+    ///refresh header style
+    var refreshHeaderStyle: HTupleRefreshHeaderStyle = .gray
+    
+    ///load more footer style
+    var refreshFooterStyle: HTupleRefreshFooterStyle = .style1
+    
     private var _refreshBlock: HTupleRefreshBlock?
     /// block to refresh data
     var refreshBlock: HTupleRefreshBlock? {
@@ -239,16 +245,16 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         }
         set {
             _refreshBlock = newValue
-//            if _refreshBlock != nil {
-//                @www
-//                self.mj_header = [HTupleRefresh refreshHeaderWithStyle:_refreshHeaderStyle andBlock:^{
-//                    @sss
-//                    [self setPageNo:1];
-//                    self->_refreshBlock();
-//                }];
-//            }else {
-//                self.mj_header = nil
-//            }
+            if _refreshBlock != nil {
+                //@www
+                self.mj_header = HTupleRefresh.refreshHeaderWithStyle(refreshHeaderStyle) {
+                    //@sss
+                    self.pageNo = 1
+                    self._refreshBlock!()
+                }
+            }else {
+                self.mj_header = nil
+            }
         }
     }
         
@@ -260,21 +266,21 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         }
         set {
             _loadMoreBlock = newValue
-//            if _loadMoreBlock != nil {
-//                self.pageNo = 1
-//                @www
-//                self.mj_footer = [HTupleRefresh refreshFooterWithStyle:_refreshFooterStyle andBlock:^{
-//                    @sss
-//                    self.pageNo += 1;
-//                    if (self.pageSize*self.pageNo < self.totalNo) {
-//                        self->_loadMoreBlock();
-//                    }else {
-//                        [self.mj_footer endRefreshing];
-//                    }
-//                }];
-//            }else {
-//                self.mj_footer = nil;
-//            }
+            if _loadMoreBlock != nil {
+                self.pageNo = 1
+                //@www
+                self.mj_footer = HTupleRefresh.refreshFooterWithStyle(refreshFooterStyle) {
+                    //@sss
+                    self.pageNo += 1
+                    if self.pageSize*self.pageNo < self.totalNo {
+                        self._loadMoreBlock!()
+                    }else {
+                        self.mj_footer!.endRefreshing()
+                    }
+                }
+            }else {
+                self.mj_footer = nil
+            }
         }
     }
     
@@ -317,20 +323,21 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
     }
 
     ///block refresh & loadMore
-    func beginRefreshing(_ completion: () -> Void) {
+    func beginRefreshing(_ completion: @escaping () -> Void) {
         if self.refreshBlock != nil {
             self.pageNo = 1
-//            [self.mj_header beginRefreshingWithCompletionBlock:completion];
+            self.mj_header?.beginRefreshing(completionBlock:completion)
         }
     }
 
     ///stop refresh
-    func endRefreshing(_ completion: () -> Void) {
-//        [self.mj_header endRefreshingWithCompletionBlock:completion];
+    func endRefreshing(_ completion: @escaping () -> Void) {
+        self.mj_header?.endRefreshing(completionBlock:completion)
+
     }
     
-    func endLoadMore(_ completion: () -> Void) {
-//        [self.mj_footer endRefreshingWithCompletionBlock:completion];
+    func endLoadMore(_ completion: @escaping () -> Void) {
+        self.mj_footer?.endRefreshing(completionBlock:completion)
     }
     
     ///bounce method

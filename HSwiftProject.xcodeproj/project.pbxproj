@@ -161,6 +161,8 @@
 		A2B4308B2382598F00795605 /* UIButton+HFilletLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4308A2382598F00795605 /* UIButton+HFilletLayer.swift */; };
 		A2B4308D23825BBE00795605 /* HWebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4308C23825BBE00795605 /* HWebImageView.swift */; };
 		A2B4308F2382CC8A00795605 /* UIDevice+HUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4308E2382CC8A00795605 /* UIDevice+HUtil.swift */; };
+		A2CC441123B360AE00DB095F /* HTupleRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CC441023B360AE00DB095F /* HTupleRefresh.swift */; };
+		A2CC441323B3691D00DB095F /* HTableRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CC441223B3691D00DB095F /* HTableRefresh.swift */; };
 		F117DC3F24BEC812781CBFDD /* Pods_HSwiftProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ADCF505CCD6B194D7FAA67B /* Pods_HSwiftProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -323,6 +325,8 @@
 		A2B4308A2382598F00795605 /* UIButton+HFilletLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+HFilletLayer.swift"; sourceTree = "<group>"; };
 		A2B4308C23825BBE00795605 /* HWebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWebImageView.swift; sourceTree = "<group>"; };
 		A2B4308E2382CC8A00795605 /* UIDevice+HUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+HUtil.swift"; sourceTree = "<group>"; };
+		A2CC441023B360AE00DB095F /* HTupleRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTupleRefresh.swift; sourceTree = "<group>"; };
+		A2CC441223B3691D00DB095F /* HTableRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTableRefresh.swift; sourceTree = "<group>"; };
 		D6FA5573A6AEBBEE3FA9646A /* Pods-HSwiftProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSwiftProject.debug.xcconfig"; path = "Target Support Files/Pods-HSwiftProject/Pods-HSwiftProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -443,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				A2294889239756770058B939 /* HTableSignal.swift */,
+				A2CC441223B3691D00DB095F /* HTableRefresh.swift */,
 			);
 			path = HTableCommon;
 			sourceTree = "<group>";
@@ -542,6 +547,7 @@
 				A289239A238B72F800E4AB75 /* HGeometry.swift */,
 				A289239B238B72F800E4AB75 /* HTupleSignal.swift */,
 				A289239C238B72F800E4AB75 /* NSIndexPath+HUtil.swift */,
+				A2CC441023B360AE00DB095F /* HTupleRefresh.swift */,
 			);
 			path = HTupleCommon;
 			sourceTree = "<group>";
@@ -1043,6 +1049,7 @@
 				A22948BE239799190058B939 /* HRegisterController+SJ.swift in Sources */,
 				A28923A4238B72F800E4AB75 /* HGeometry.swift in Sources */,
 				A22948A72397980A0058B939 /* HMainController2.swift in Sources */,
+				A2CC441323B3691D00DB095F /* HTableRefresh.swift in Sources */,
 				A28923A3238B72F800E4AB75 /* HTupleBaseCell.swift in Sources */,
 				A22948AF239798870058B939 /* HMainController3+HSection2.swift in Sources */,
 				A28923C7238D21F300E4AB75 /* HObject.swift in Sources */,
@@ -1082,6 +1089,7 @@
 				A26D433F2386CA0A00F457AE /* NSObject+HSwizzleUtil.swift in Sources */,
 				A218879C238FF891005C20BF /* HUserDefaults.swift in Sources */,
 				A22948AD2397987A0058B939 /* HMainController3+HSection1.swift in Sources */,
+				A2CC441123B360AE00DB095F /* HTupleRefresh.swift in Sources */,
 				A26D433D2386C76D00F457AE /* NSObject+HSafeMessy.swift in Sources */,
 				A28923B0238BC2D100E4AB75 /* HTupleViewCellVertValue1.swift in Sources */,
 				A28923B2238BCB5000E4AB75 /* HTupleViewCellHoriValue1.swift in Sources */,

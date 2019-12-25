@@ -198,6 +198,12 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
            _totalNo = newValue
        }
     }
+    
+    ///refresh header style
+    var refreshHeaderStyle: HTableRefreshHeaderStyle = .gray
+    
+    ///load more footer style
+    var refreshFooterStyle: HTableRefreshFooterStyle = .style1
 
     private var _refreshBlock: HTableRefreshBlock?
     /// block to refresh data
@@ -207,16 +213,16 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
         }
         set {
             _refreshBlock = newValue
-//            if _refreshBlock != nil {
-//                @www
-//                self.mj_header = [HTableRefresh refreshHeaderWithStyle:_refreshHeaderStyle andBlock:^{
-//                    @sss
-//                    [self setPageNo:1];
-//                    self->_refreshBlock();
-//                }];
-//            }else {
-//                self.mj_header = nil
-//            }
+            if _refreshBlock != nil {
+                //@www
+                self.mj_header = HTableRefresh.refreshHeaderWithStyle(refreshHeaderStyle) {
+                    //@sss
+                    self.pageNo = 1
+                    self._refreshBlock!()
+                }
+            }else {
+                self.mj_header = nil
+            }
         }
     }
             
@@ -228,21 +234,21 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
         }
         set {
             _loadMoreBlock = newValue
-//            if _loadMoreBlock != nil {
-//                self.pageNo = 1
-//                @www
-//                self.mj_footer = [HTableRefresh refreshFooterWithStyle:_refreshFooterStyle andBlock:^{
-//                    @sss
-//                    self.pageNo += 1;
-//                    if (self.pageSize*self.pageNo < self.totalNo) {
-//                        self->_loadMoreBlock();
-//                    }else {
-//                        [self.mj_footer endRefreshing];
-//                    }
-//                }];
-//            }else {
-//                self.mj_footer = nil;
-//            }
+            if _loadMoreBlock != nil {
+                self.pageNo = 1
+                //@www
+                self.mj_footer = HTableRefresh.refreshFooterWithStyle(refreshFooterStyle) {
+                    //@sss
+                    self.pageNo += 1
+                    if self.pageSize*self.pageNo < self.totalNo {
+                        self._loadMoreBlock!()
+                    }else {
+                        self.mj_footer!.endRefreshing()
+                    }
+                }
+            }else {
+                self.mj_footer = nil
+            }
         }
     }
     
@@ -285,20 +291,20 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
     }
 
     ///block refresh & loadMore
-    func beginRefreshing(_ completion: () -> Void) {
+    func beginRefreshing(_ completion: @escaping () -> Void) {
         if self.refreshBlock != nil {
             self.pageNo = 1
-//            [self.mj_header beginRefreshingWithCompletionBlock:completion];
+            self.mj_header?.beginRefreshing(completionBlock:completion)
         }
     }
 
     ///stop refresh
-    func endRefreshing(_ completion: () -> Void) {
-//        [self.mj_header endRefreshingWithCompletionBlock:completion];
+    func endRefreshing(_ completion: @escaping () -> Void) {
+        self.mj_header?.endRefreshing(completionBlock:completion)
     }
     
-    func endLoadMore(_ completion: () -> Void) {
-//        [self.mj_footer endRefreshingWithCompletionBlock:completion];
+    func endLoadMore(_ completion: @escaping () -> Void) {
+        self.mj_footer?.endRefreshing(completionBlock:completion)
     }
     
     ///bounce method

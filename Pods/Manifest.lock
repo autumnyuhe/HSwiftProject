@@ -3,12 +3,14 @@ PODS:
   - Kingfisher (5.9.0):
     - Kingfisher/Core (= 5.9.0)
   - Kingfisher/Core (5.9.0)
+  - MJRefresh (3.3.1)
   - SwiftyLoad (0.1.0)
   - SwizzleSwift (1.0)
 
 DEPENDENCIES:
   - Alamofire
   - Kingfisher
+  - MJRefresh
   - SwiftyLoad
   - SwizzleSwift
 
@@ -16,15 +18,17 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - Kingfisher
+    - MJRefresh
     - SwiftyLoad
     - SwizzleSwift
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Kingfisher: ff98240aebb7302bdc4f1ecd701761030ce18b16
+  MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
   SwiftyLoad: 8e529992e2ce9b84d56f583201117a55a526891b
   SwizzleSwift: 875aa0d66cd42caa361ab1ecbca663250d725907
 
-PODFILE CHECKSUM: 1fa0afda0e76e568fcb99aecbacb8f57e0cd3008
+PODFILE CHECKSUM: c68e409d507fba55dcdfe6c7f62b681cf3d811df
 
 COCOAPODS: 1.8.1

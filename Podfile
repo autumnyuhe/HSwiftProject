@@ -11,5 +11,6 @@ target 'HSwiftProject' do
   pod 'SwizzleSwift'
   pod 'Alamofire'
   pod 'Kingfisher'
+  pod 'MJRefresh'
 
 end
