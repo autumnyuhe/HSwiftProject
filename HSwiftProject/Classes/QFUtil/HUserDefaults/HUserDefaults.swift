@@ -14,7 +14,20 @@ class HUserDefaults : NSObject {
 
 
     /** 是否登录 */
-    var isLogin: Bool = false
+    private var _isLogin: Bool = false
+    var isLogin: Bool {
+        get {
+            return _isLogin
+        }
+        set {
+            _isLogin = newValue;
+            if _isLogin {
+                self.saveUser()
+            }else {
+                self.removeUser()
+            }
+        }
+    }
 
 
     /** 用户ID */
@@ -91,20 +104,6 @@ class HUserDefaults : NSObject {
     //初始化数据
     @objc private func initData() {
         NotificationCenter.default.addObserver(self, selector: #selector(saveUser), name: UIApplication.willTerminateNotification, object: nil)
-//        [self h_addObserverBlockForKeyPath:@"isLogin" block:^(id  _Nonnull obj, id  _Nonnull oldVal, id  _Nonnull newVal) {
-//                if ([newVal boolValue]) {
-//                    [self saveUser];
-//                }else {
-//                    [self removeUser];
-//                }
-//            }];
-        //    [[RACObserve(share, isLogin) skip:1] subscribeNext:^(id  _Nullable x) {
-        //        if ([x boolValue]) {
-        //            [self saveUser];
-        //        }else {
-        //            [self removeUser];
-        //        }
-        //    }];
     }
 
     @objc private func saveUser() {
