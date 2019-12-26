@@ -10,46 +10,25 @@ import UIKit
 import SwizzleSwift
 import SwiftyLoad
 
-let kTabBarHeight: CGFloat = 50.0
+private let kTabBarHeight: CGFloat = 50.0
 
-//class HMenuViewController: UITabBarController {
 class HMenuViewController: HTabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.topBar.isHidden = true
         self.initViewControllers()
+        self.addSpecialItem()
         self.setupFrameOfTabBarAndContentView()
     }
     
     func initViewControllers() {
-//        let mainVC = HMainViewController.init()
-//        mainVC.tabBarItem.title = "主页"
-//        mainVC.tabBarItem.image = UIImage.init(named: "di_index")
-//        mainVC.tabBarItem.selectedImage = UIImage.init(named: "di_index_h")
-//
-//        let gameCategoryVC = HGameCategoryVC.init()
-//        gameCategoryVC.tabBarItem.title = "分类"
-//        gameCategoryVC.tabBarItem.image = UIImage.init(named: "di_more")
-//        gameCategoryVC.tabBarItem.selectedImage = UIImage.init(named: "di_more_h")
-//
-//        let serviceVC = HCServiceViewController.init()
-//        serviceVC.tabBarItem.title = "客服"
-//        serviceVC.tabBarItem.image = UIImage.init(named: "di_kf")
-//        serviceVC.tabBarItem.selectedImage = UIImage.init(named: "di_kf_h")
-//
-//        let centerVC = HCenterViewController.init()
-//        centerVC.tabBarItem.title = "会员中心"
-//        centerVC.tabBarItem.image = UIImage.init(named: "di_login")
-//        centerVC.tabBarItem.selectedImage = UIImage.init(named: "di_login_h")
-//
-//        self.viewControllers = NSMutableArray.init(objects: mainVC, gameCategoryVC, serviceVC, centerVC) as? [UIViewController]
         
         let mainVC1 = HMainController1()
         mainVC1.h_tabItemTitle = "第一页"
         mainVC1.h_tabItemImage = UIImage.init(named: "di_index")
         mainVC1.h_tabItemSelectedImage = UIImage.init(named: "di_index_h")
-        
         
         let mainVC2 = HMainController2()
         mainVC2.h_tabItemTitle = "第二页"
@@ -117,67 +96,29 @@ class HMenuViewController: HTabBarController {
         self.tabBar.addBottomBlankViewWithColor(UIColor.white)
     }
     
-//    func testFunc() -> Void {
-//        if self.isKind(of: UIViewController.self) {
-//            NSLog("true")
-//        }else {
-//            NSLog("false")
-//        }
-//
-////        if self.isKind(of: UIViewController.classForCoder()) {
-//        if self.isKind(of: NSClassFromString("UIViewController")!) {
-//            NSLog("true")
-//        }else {
-//            NSLog("false")
-//        }
-//    }
-//
-//    func testFunc2() -> Void {
-//
-//    // 返回内部类名
-//
-//    print("deinit: \(object_getClassName(self))")
-//    print("deinit: \(self.className)")
-//
-////        let sing = Singleton.sharedInstance
-//        print("address : \(Unmanaged.passUnretained(self).toOpaque())")
-//
-////        let str = "1234"
-//        let address = String(format: "%p", self)
-//        print(address)
-//
-//    // 返回应用程序名+类名
-//
-////    print("deinit: \(NSStringFromClass(self.dynamicType))")
-//
-//    // 返回应用程序名+类名，并去掉应用程序名
-//
-////    print("deinit: \(NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last!)")
-//
-//    // 返回应用程序名+类名+内存地址
-//
-//    print("deinit: \(self)")
-//
-//    // 返回应用程序名+类名+内存地址
-//
-//    print("deinit: \(self.description)")
-//
-//    // 返回类名
-//
-////        self.dynami
-////    print("deinit: \(self.dynamicType)")
-//
-//    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func addSpecialItem() {
+        
+        let specialItem: HTabItem = HTabItem(type: .custom)
+        specialItem.title = "中间"
+        specialItem.image = UIImage(named: "di_zhuce")
+        specialItem.selectedImage = UIImage(named: "di_zhuce")
+        specialItem.titleColor = UIColor(hex: "#535353")
+        specialItem.titleSelectedColor = UIColor(hex: "#CFA359")
+        specialItem.backgroundColor = UIColor.clear
+        specialItem.titleFont = UIFont.systemFont(ofSize: 14)
+        
+        specialItem.setContentHorizontalCenterWithVerticalOffset(13, spacing: 10)
+        // 设置其size，如果不设置，则默认为与其他item一样
+        specialItem.size = CGSizeMake(UIScreen.width/7, 80)
+        
+        //@www
+        self.tabBar.setSpecialItem(specialItem, afterItemWithIndex: 2) { (item) in
+            //@sss
+//            HNavigationController *registerVC = [[HNavigationController alloc] initWithRootViewController:HMainController5.new]
+//            [self presentViewController:registerVC animated:YES completion:nil]
+            self.navigationController?.pushViewController(HMainController5(), animated: true)
+        }
     }
-    */
 
 }
 

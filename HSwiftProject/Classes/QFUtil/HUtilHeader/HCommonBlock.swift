@@ -12,14 +12,14 @@ import Foundation
 
 typealias min_callback = () -> Void
 
-typealias callback = (_ sender: AnyObject, _ data: AnyObject?) -> Void
+typealias callback = (_ sender: Any?, _ data: Any?) -> Void
 
-typealias callback2 = (_ sender: AnyObject, _ data: AnyObject, _ data2: AnyObject) -> Void
+typealias callback2 = (_ sender: Any?, _ data: Any?, _ data2: Any?) -> Void
 
-typealias simple_callback = (_ sender: AnyObject) -> Void
+typealias simple_callback = (_ sender: Any?) -> Void
 
-typealias fail_callback = (_ sender: AnyObject, _ error: Error) -> Void
+typealias fail_callback = (_ sender: Any?, _ error: Error) -> Void
 
-typealias returnback = (_ sender: AnyObject, _ data: AnyObject) -> AnyObject
+typealias returnback = (_ sender: Any?, _ data: Any?) -> Any?
 
-typealias finish_callback = (_ sender: AnyObject, _ data: AnyObject, _ error: Error) -> Void
+typealias finish_callback = (_ sender: Any?, _ data: Any?, _ error: Error) -> Void

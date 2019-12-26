@@ -63,6 +63,9 @@
 		A22948BC2397990B0058B939 /* HRegisterController+KS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948BB2397990B0058B939 /* HRegisterController+KS.swift */; };
 		A22948BE239799190058B939 /* HRegisterController+SJ.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948BD239799190058B939 /* HRegisterController+SJ.swift */; };
 		A22948C02397992A0058B939 /* HServiceAuthorizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948BF2397992A0058B939 /* HServiceAuthorizationCell.swift */; };
+		A258395623B4E34600881941 /* di_zhuce@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A258395423B4E34600881941 /* di_zhuce@2x.png */; };
+		A258395723B4E34600881941 /* di_zhuce@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A258395523B4E34600881941 /* di_zhuce@3x.png */; };
+		A258395923B4E70F00881941 /* HTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A258395823B4E70F00881941 /* HTableController.swift */; };
 		A265D9FB2390B8EB001F39B0 /* HTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A265D9FA2390B8EB001F39B0 /* HTabItem.swift */; };
 		A265D9FD23910309001F39B0 /* HTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A265D9FC23910309001F39B0 /* HTabBar.swift */; };
 		A265D9FF239250F6001F39B0 /* HTabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A265D9FE239250F6001F39B0 /* HTabContentView.swift */; };
@@ -224,6 +227,9 @@
 		A22948BB2397990B0058B939 /* HRegisterController+KS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HRegisterController+KS.swift"; sourceTree = "<group>"; };
 		A22948BD239799190058B939 /* HRegisterController+SJ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HRegisterController+SJ.swift"; sourceTree = "<group>"; };
 		A22948BF2397992A0058B939 /* HServiceAuthorizationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HServiceAuthorizationCell.swift; sourceTree = "<group>"; };
+		A258395423B4E34600881941 /* di_zhuce@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "di_zhuce@2x.png"; sourceTree = "<group>"; };
+		A258395523B4E34600881941 /* di_zhuce@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "di_zhuce@3x.png"; sourceTree = "<group>"; };
+		A258395823B4E70F00881941 /* HTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTableController.swift; sourceTree = "<group>"; };
 		A265D9FA2390B8EB001F39B0 /* HTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTabItem.swift; sourceTree = "<group>"; };
 		A265D9FC23910309001F39B0 /* HTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTabBar.swift; sourceTree = "<group>"; };
 		A265D9FE239250F6001F39B0 /* HTabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTabContentView.swift; sourceTree = "<group>"; };
@@ -646,6 +652,8 @@
 				A2B42FFB237D005C00795605 /* di_more_h@3x.png */,
 				A2B42FF8237D005C00795605 /* di_more@2x.png */,
 				A2B42FF6237D005C00795605 /* di_more@3x.png */,
+				A258395423B4E34600881941 /* di_zhuce@2x.png */,
+				A258395523B4E34600881941 /* di_zhuce@3x.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -790,12 +798,12 @@
 			isa = PBXGroup;
 			children = (
 				A2B4306C237FF2B100795605 /* HCenterViewController.swift */,
-				A2B4306D237FF2B100795605 /* HMenuViewController.swift */,
 				A2B4306E237FF2B100795605 /* HCServiceViewController.swift */,
 				A2B4306F237FF2B100795605 /* HGameCategoryVC.swift */,
 				A2188794238FD3CC005C20BF /* HGameCategoryVC+HSection0.swift */,
 				A2188796238FD3D6005C20BF /* HGameCategoryVC+HSection1.swift */,
 				A2188798238FD3E0005C20BF /* HGameCategoryVC+HSection2.swift */,
+				A2B4306D237FF2B100795605 /* HMenuViewController.swift */,
 				A22948A4239798000058B939 /* HMainController1.swift */,
 				A22948A62397980A0058B939 /* HMainController2.swift */,
 				A22948A82397985B0058B939 /* HMainController3.swift */,
@@ -815,6 +823,7 @@
 				A26D43312386914500F457AE /* hvc_back_icon@2x.png */,
 				A26D43302386914500F457AE /* hvc_back_icon@3x.png */,
 				A2B4307F237FF57C00795605 /* HViewController.swift */,
+				A258395823B4E70F00881941 /* HTableController.swift */,
 				A28923C4238CDE8400E4AB75 /* HTupleController.swift */,
 				A26D432E23868AFE00F457AE /* UIViewController+HDisappear.swift */,
 				A26D432C238682D200F457AE /* HNavigationController.swift */,
@@ -926,6 +935,7 @@
 				A218878C238F7131005C20BF /* loading_new_7@2x.png in Resources */,
 				A2B43001237D005C00795605 /* di_more_h@2x.png in Resources */,
 				A2B43004237D005C00795605 /* di_more@2x.png in Resources */,
+				A258395623B4E34600881941 /* di_zhuce@2x.png in Resources */,
 				A28923C2238BCB6200E4AB75 /* icon_tuple_arrow_right@2x.png in Resources */,
 				A2188788238F7131005C20BF /* loading_new_5@2x.png in Resources */,
 				A2B43008237D005C00795605 /* di_kf_h@3x.png in Resources */,
@@ -951,6 +961,7 @@
 				A2188790238F7131005C20BF /* loading_new_4@2x.png in Resources */,
 				A2188792238F7131005C20BF /* loading_new_6@2x.png in Resources */,
 				A218877F238F7131005C20BF /* icon_no_network@2x.png in Resources */,
+				A258395723B4E34600881941 /* di_zhuce@3x.png in Resources */,
 				A2B43002237D005C00795605 /* di_more@3x.png in Resources */,
 				A2188786238F7131005C20BF /* loading_new_1@2x.png in Resources */,
 				A28923BF238BCB6200E4AB75 /* icon_tuple_xx_gray@3x.png in Resources */,
@@ -1025,6 +1036,7 @@
 				A28923AB238B733500E4AB75 /* HTupleViewCell.swift in Sources */,
 				A2188799238FD3E0005C20BF /* HGameCategoryVC+HSection2.swift in Sources */,
 				A26D43292385665700F457AE /* NSUserDefaults+HUtil.swift in Sources */,
+				A258395923B4E70F00881941 /* HTableController.swift in Sources */,
 				A265DA032394B24C001F39B0 /* HTabBarController.swift in Sources */,
 				A2294891239756770058B939 /* HTableView.swift in Sources */,
 				A22948C02397992A0058B939 /* HServiceAuthorizationCell.swift in Sources */,

@@ -210,9 +210,11 @@ class HTabBar : UIView {
         }
         set {
             _itemTitleColor = newValue
-            for tmpItem in self.items! {
-                let item = tmpItem as! HTabItem
-                item.titleColor = newValue
+            if self.items != nil && self.items!.count > 0 {
+                for tmpItem in self.items! {
+                    let item = tmpItem as! HTabItem
+                    item.titleColor = newValue
+                }
             }
         }
     }
@@ -225,9 +227,11 @@ class HTabBar : UIView {
         }
         set {
             _itemTitleSelectedColor = newValue
-            for tmpItem in self.items! {
-                let item = tmpItem as! HTabItem
-                item.titleSelectedColor = newValue
+            if self.items != nil && self.items!.count > 0 {
+                for tmpItem in self.items! {
+                    let item = tmpItem as! HTabItem
+                    item.titleSelectedColor = newValue
+                }
             }
         }
     }
@@ -255,9 +259,11 @@ class HTabBar : UIView {
                     }
                 } else {
                     // 未设置选中字体，更新所有item
-                    for tmpItem in self.items! {
-                        let item = tmpItem as! HTabItem
-                        item.titleFont = newValue
+                    if self.items != nil && self.items!.count > 0 {
+                        for tmpItem in self.items! {
+                            let item = tmpItem as! HTabItem
+                            item.titleFont = newValue
+                        }
                     }
                 }
             }
@@ -477,7 +483,8 @@ class HTabBar : UIView {
     *  TabItem的选中背景是否随contentView滑动而移动
     */
     var isIndicatorScrollFollowContent: Bool {
-        return _isIndicatorScrollFollowContent
+        get { return _isIndicatorScrollFollowContent }
+        set { _isIndicatorScrollFollowContent = newValue }
     }
 
     private var _isItemContentHorizontalCenter: Bool = true
@@ -603,7 +610,7 @@ class HTabBar : UIView {
 
     private func updateItemsFrame() {
         
-        if self.items?.count == 0 {
+        if self.items == nil || self.items!.count == 0 {
             return
         }
         
@@ -1089,6 +1096,11 @@ class HTabBar : UIView {
     }
 
     private func updateItemIndicatorInsets() {
+        
+        if self.items == nil || self.items!.count == 0 {
+            return
+        }
+        
         for tmpItem in self.items! {
             let item = tmpItem as! HTabItem
             if self.indicatorStyle == .fitTitle {
@@ -1121,11 +1133,13 @@ class HTabBar : UIView {
         if self.itemTitleSelectedFont != nil &&
             self.isItemFontChangeFollowContentScroll &&
             self.itemTitleSelectedFont?.pointSize != self.itemTitleFont.pointSize {
-            for tmpItem in self.items! {
-                let item = tmpItem as! HTabItem
-                item.titleFont = self.itemTitleSelectedFont
-                if item.isSelected == false {
-                    item.transform = CGAffineTransform(scaleX: self.itemTitleUnselectedFontScale, y: self.itemTitleUnselectedFontScale)
+            if self.items != nil && self.items!.count > 0 {
+                for tmpItem in self.items! {
+                    let item = tmpItem as! HTabItem
+                    item.titleFont = self.itemTitleSelectedFont
+                    if item.isSelected == false {
+                        item.transform = CGAffineTransform(scaleX: self.itemTitleUnselectedFontScale, y: self.itemTitleUnselectedFontScale)
+                    }
                 }
             }
         }
@@ -1138,30 +1152,31 @@ class HTabBar : UIView {
             }
             if self.separatorLayers!.count > 0 {
                 for item in self.separatorLayers! {
-                    let view = item as! UIView
-                    view.removeFromSuperview()
+                    let layer = item as! CALayer
+                    layer.removeFromSuperlayer()
                 }
                 self.separatorLayers!.removeAllObjects()
             }
-            
-            self.items!.enumerateObjects { (tmpItem, idx, stop) in
-                let item = tmpItem as! HTabItem
-                if idx > 0 {
-                    let layer: CALayer = CALayer()
-                    layer.backgroundColor = self.itemSeparatorColor!.cgColor
-                    if self.isVertical {
-                        layer.frame = CGRectMake(self.itemSeparatorLeading,
-                                                 item.frame.origin.y - self.itemSeparatorThickness / 2,
-                                                 self.bounds.size.width - self.itemSeparatorLeading - self.itemSeparatorTrailing,
-                                                 self.itemSeparatorThickness)
-                    } else {
-                        layer.frame = CGRectMake(item.frame.origin.x - self.itemSeparatorThickness / 2,
-                                                 self.itemSeparatorLeading,
-                                                 self.itemSeparatorThickness,
-                                                 self.bounds.size.height - self.itemSeparatorLeading - self.itemSeparatorTrailing)
+            if self.items != nil && self.items!.count > 0 {
+                self.items!.enumerateObjects { (tmpItem, idx, stop) in
+                    let item = tmpItem as! HTabItem
+                    if idx > 0 {
+                        let layer: CALayer = CALayer()
+                        layer.backgroundColor = self.itemSeparatorColor!.cgColor
+                        if self.isVertical {
+                            layer.frame = CGRectMake(self.itemSeparatorLeading,
+                                                     item.frame.origin.y - self.itemSeparatorThickness / 2,
+                                                     self.bounds.size.width - self.itemSeparatorLeading - self.itemSeparatorTrailing,
+                                                     self.itemSeparatorThickness)
+                        } else {
+                            layer.frame = CGRectMake(item.frame.origin.x - self.itemSeparatorThickness / 2,
+                                                     self.itemSeparatorLeading,
+                                                     self.itemSeparatorThickness,
+                                                     self.bounds.size.height - self.itemSeparatorLeading - self.itemSeparatorTrailing)
+                        }
+                        self.scrollView.layer.addSublayer(layer)
+                        self.separatorLayers!.add(layer)
                     }
-                    self.scrollView.layer.addSublayer(layer)
-                    self.separatorLayers!.add(layer)
                 }
             }
         } else {

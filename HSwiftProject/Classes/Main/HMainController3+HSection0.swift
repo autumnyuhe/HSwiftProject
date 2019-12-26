@@ -10,7 +10,7 @@ import UIKit
 
 extension HMainController3 {
 
-    @objc func tupleExa0_numberOfItemsInSection(_ section: Int) -> NSInt {
+    @objc func tupleExa0_numberOfItemsInSection(_ section: NSInt) -> NSInt {
         return NSInt(value: 1)
     }
     @objc func tupleExa0_sizeForItemAtIndexPath(_ indexPath: IndexPath) -> NSSize {

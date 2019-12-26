@@ -58,18 +58,18 @@ class HTableAppearance : NSObject {
 
 @objc protocol HTableViewDelegate : UITableViewDelegate {
     @objc optional func numberOfSectionsInTableView() -> NSInt
-    @objc optional func numberOfRowsInSection(_ section: Int) -> NSInt
+    @objc optional func numberOfRowsInSection(_ section: NSInt) -> NSInt
 
-    @objc optional func heightForHeaderInSection(_ section: Int) -> NSInt
-    @objc optional func heightForFooterInSection(_ section: Int) -> NSInt
-    @objc optional func heightForRowAtIndexPath(_ indexPath: IndexPath) -> NSInt
+    @objc optional func heightForHeaderInSection(_ section: NSInt) -> NSFloat
+    @objc optional func heightForFooterInSection(_ section: NSInt) -> NSFloat
+    @objc optional func heightForRowAtIndexPath(_ indexPath: IndexPath) -> NSFloat
 
-    @objc optional func edgeInsetsForHeaderInSection(_ section: Int) -> NSEdgeInsets
-    @objc optional func edgeInsetsForFooterInSection(_ section: Int) -> NSEdgeInsets
+    @objc optional func edgeInsetsForHeaderInSection(_ section: NSInt) -> NSEdgeInsets
+    @objc optional func edgeInsetsForFooterInSection(_ section: NSInt) -> NSEdgeInsets
     @objc optional func edgeInsetsForRowAtIndexPath(_ indexPath: IndexPath) -> NSEdgeInsets
 
-    @objc optional func tableHeader(_ headerObject: NSTableHeader, inSection section: Int)
-    @objc optional func tableFooter(_ footerObject: NSTableFooter, inSection section: Int)
+    @objc optional func tableHeader(_ headerObject: NSTableHeader, inSection section: NSInt)
+    @objc optional func tableFooter(_ footerObject: NSTableFooter, inSection section: NSInt)
     @objc optional func tableRow(_ itemObject: NSTableRow, atIndexPath indexPath: IndexPath)
 
     @objc optional func willDisplayCell(_ cell: UITableViewCell, atIndexPath indexPath: IndexPath)
@@ -399,7 +399,7 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
         let prefix: String = self.prefixWithSection(section)
         let selector: Selector = #selector(self.tableDelegate!.edgeInsetsForHeaderInSection(_:))
         if self.tableDelegate!.responds(to: selector, withPre: prefix) {
-            edgeInsets = (self.tableDelegate!.performWithUnretainedValue(selector, with: section, withPre: prefix) as! NSEdgeInsets).edgeInsetsValue
+            edgeInsets = (self.tableDelegate!.performWithUnretainedValue(selector, with: NSInt(value: section), withPre: prefix) as! NSEdgeInsets).edgeInsetsValue
         }
         //设置属性
         if cell.responds(to: #selector(setter: cell.edgeInsets)) {
@@ -440,7 +440,7 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
         let prefix = self.prefixWithSection(section)
         let selector = #selector(self.tableDelegate!.edgeInsetsForFooterInSection(_:))
         if self.tableDelegate!.responds(to: selector, withPre: prefix) {
-            edgeInsets = (self.tableDelegate!.performWithUnretainedValue(selector, with: section, withPre: prefix) as! NSEdgeInsets).edgeInsetsValue
+            edgeInsets = (self.tableDelegate!.performWithUnretainedValue(selector, with: NSInt(value: section), withPre: prefix) as! NSEdgeInsets).edgeInsetsValue
         }
         //设置属性
         if cell.responds(to: #selector(setter: cell.edgeInsets)) {
@@ -530,7 +530,7 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
         let prefix = self.prefixWithSection(section)
         let selector: Selector = #selector(self.tableDelegate!.numberOfRowsInSection(_:))
         if self.tableDelegate!.responds(to: selector, withPre: prefix) {
-            items = (self.tableDelegate!.performWithUnretainedValue(selector, with: section, withPre: prefix) as! NSInt).intValue
+            items = (self.tableDelegate!.performWithUnretainedValue(selector, with: NSInt(value: section), withPre: prefix) as! NSInt).intValue
         }
         return items
     }
@@ -541,7 +541,7 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
         let prefix = self.prefixWithSection(section)
         let selector = #selector(self.tableDelegate!.heightForHeaderInSection(_:))
         if self.tableDelegate!.responds(to: selector, withPre: prefix) {
-            height = (self.tableDelegate!.performWithUnretainedValue(selector, with: section, withPre: prefix) as! NSFloat).floatValue
+            height = (self.tableDelegate!.performWithUnretainedValue(selector, with: NSInt(value: section), withPre: prefix) as! NSFloat).floatValue
         }
         return height
     }
@@ -551,7 +551,7 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
         let prefix = self.prefixWithSection(section)
         let selector = #selector(self.tableDelegate!.heightForFooterInSection(_:))
         if self.tableDelegate!.responds(to: selector, withPre: prefix) {
-            height = (self.tableDelegate!.performWithUnretainedValue(selector, with: section, withPre: prefix) as! NSFloat).floatValue
+            height = (self.tableDelegate!.performWithUnretainedValue(selector, with: NSInt(value: section), withPre: prefix) as! NSFloat).floatValue
         }
         return height
     }
@@ -595,7 +595,7 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
             return self.dequeueReusableHeaderWithClass(cls, iblk: iblk, pre: pre, idx: idx, section: section)
         }
         if self.tableDelegate!.responds(to: selector, withPre: prefix) {
-            self.tableDelegate!.performWithUnretainedValue(selector, with: cellObject, with: section, withPre: prefix)
+            self.tableDelegate!.performWithUnretainedValue(selector, with: cellObject, with: NSInt(value: section), withPre: prefix)
         }
         //更新布局
         let cell = self.allReuseHeaders.object(forKey: "\(section)" as NSString) as? HTableBaseApex
@@ -613,7 +613,7 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
             return self.dequeueReusableFooterWithClass(cls, iblk: iblk, pre: pre, idx: idx, section: section)
         }
         if self.tableDelegate!.responds(to: selector, withPre: prefix) {
-            self.tableDelegate!.performWithUnretainedValue(selector, with: cellObject, with: section, withPre: prefix)
+            self.tableDelegate!.performWithUnretainedValue(selector, with: cellObject, with: NSInt(value: section), withPre: prefix)
         }
         //更新布局
         let cell = self.allReuseFooters.object(forKey: "\(section)" as NSString) as? HTableBaseApex
@@ -797,7 +797,7 @@ extension HTableView {
     }
     
     ///tableView分体式设计所表示的状态
-    private var tableState: HTableState {
+    var tableState: HTableState {
         get {
             return self.getAssociatedValueForKey(&tableStateKey) as? HTableState ?? 0
         }
@@ -810,11 +810,11 @@ extension HTableView {
     }
 
     ///向某个状态或当前状态添加一个值
-    func setObject(_ anObject: AnyObject, forKey aKey: String) -> Void {
+    func setObject(_ anObject: Any, forKey aKey: String) -> Void {
         self.setObject(anObject, forKey: aKey, state: self.tableState)
     }
     
-    func setObject(_ anObject: AnyObject, forKey aKey: String, state tableState: HTableState) -> Void {
+    func setObject(_ anObject: Any, forKey aKey: String, state tableState: HTableState) -> Void {
         let key: NSString = aKey+KTableStateKey+"\(tableState)" as NSString
         self.tableStateSource.setObject(anObject, forKey: key)
     }

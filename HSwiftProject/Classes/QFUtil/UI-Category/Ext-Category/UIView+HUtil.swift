@@ -310,7 +310,8 @@ extension UIView {
     *  设置圆角
     */
     var cornerRadius: CGFloat {
-        return self.layer.cornerRadius
+        get { return self.layer.cornerRadius }
+        set { self.layer.cornerRadius = newValue }
     }
         
 

@@ -1,21 +1,21 @@
 //
-//  HTupleController.swift
+//  HTableController.swift
 //  HSwiftProject
 //
-//  Created by wind on 2019/11/26.
+//  Created by wind on 2019/12/26.
 //  Copyright © 2019 wind. All rights reserved.
 //
 
 import UIKit
 
-class HTupleController : HViewController, HTupleViewDelegate {
+class HTableController: HViewController, HTableViewDelegate {
     
-    private var _tupleView: HTupleView?
-    var tupleView: HTupleView {
-        if _tupleView == nil {
-            _tupleView = HTupleView.init(frame: CGRectZero)
+    private var _tableView: HTableView?
+    var tableView: HTableView {
+        if _tableView == nil {
+            _tableView = HTableView.init(frame: CGRectZero)
         }
-        return _tupleView!
+        return _tableView!
     }
     
     ///default YES
@@ -32,12 +32,12 @@ class HTupleController : HViewController, HTupleViewDelegate {
         if (UIDevice.isIPhoneX) {
             extendedInset = UIEdgeInsetsMake(0, 0, UIDevice.bottomBarHeight, 0)
         }
-        self.view.addSubview(self.tupleView)
+        self.view.addSubview(self.tableView)
     }
 
     override func vcWillDisappear(_ type: HVCDisappearType) {
         if (type == .pop || type == .dismiss) {
-            self.tupleView.releaseTupleBlock()
+            self.tableView.releaseTableBlock()
         }
     }
 
@@ -50,13 +50,12 @@ class HTupleController : HViewController, HTupleViewDelegate {
                 frame.size.height -= UIDevice.topBarHeight
             }
             frame.size.height -= bottomExtendedHeight
-            self.tupleView.frame = frame
+            self.tableView.frame = frame
             if UIEdgeInsetsZero != extendedInset {//设置过值
-                if tupleView.contentInset != extendedInset {//设置的值与现有的值不相等
-                    self.tupleView.contentInset = extendedInset
+                if tableView.contentInset != extendedInset {//设置的值与现有的值不相等
+                    self.tableView.contentInset = extendedInset
                 }
             }
         }
     }
-
 }

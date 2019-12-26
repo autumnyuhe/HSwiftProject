@@ -32,6 +32,7 @@ class HMainController3: HViewController, HTupleViewDelegate {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         self.leftNaviButton.isHidden = true
         self.title = "第三页"

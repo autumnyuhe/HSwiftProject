@@ -373,14 +373,16 @@ class HTabContentView : UIView, UIScrollViewDelegate, HTabBarDelegate, _HTabCont
 
     private func updateContentViewsFrame() {
         if self.contentScrollEnabled {
-            self.contentScrollView.h_contentSize = CGSizeMake(self.contentScrollView.bounds.size.width * CGFloat(self.viewControllers!.count), self.contentScrollView.bounds.size.height)
-            self.viewControllers?.enumerateObjects({ (item, idx, stop) in
-                let controller = item as! UIViewController
-                if controller.isViewLoaded {
-                    controller.h_displayView.frame = self.frameForControllerAtIndex(idx)
-                }
-            })
-            self.contentScrollView.scrollRectToVisible(self.selectedController!.h_displayView.frame, animated: false)
+            if self.viewControllers != nil && self.viewControllers!.count > 0 {
+                self.contentScrollView.h_contentSize = CGSizeMake(self.contentScrollView.bounds.size.width * CGFloat(self.viewControllers!.count), self.contentScrollView.bounds.size.height)
+                self.viewControllers?.enumerateObjects({ (item, idx, stop) in
+                    let controller = item as! UIViewController
+                    if controller.isViewLoaded {
+                        controller.h_displayView.frame = self.frameForControllerAtIndex(idx)
+                    }
+                })
+                self.contentScrollView.scrollRectToVisible(self.selectedController!.h_displayView.frame, animated: false)
+            }
         } else {
             self.contentScrollView.h_contentSize = self.contentScrollView.bounds.size
             self.selectedController?.h_displayView.frame = self.contentScrollView.bounds

@@ -223,7 +223,7 @@ class HViewController: UIViewController {
             _leftNaviButton!.frame = CGRect(x: 10, y: 0, width: UIDevice.naviBarHeight, height: UIDevice.naviBarHeight)
             _leftNaviButton!.titleLabel?.font = UIFont.systemFont(ofSize: 16)
             _leftNaviButton!.contentHorizontalAlignment = .left
-            _leftNaviButton!.pressed = { [weak self] (_ sender: AnyObject, _ data: AnyObject?) -> () in
+            _leftNaviButton!.pressed = { [weak self] (_ sender: Any?, _ data: Any?) -> () in
                 self!.leftNaviButtonPressed()
             }
             _leftNaviButton!.imageView?.contentMode = .scaleAspectFit
@@ -241,7 +241,7 @@ class HViewController: UIViewController {
             _rightNaviButton!.frame = CGRect(x: self.topBar.width - UIDevice.naviBarHeight - 10, y: 0, width: UIDevice.naviBarHeight, height: UIDevice.naviBarHeight)
             _rightNaviButton!.autoresizingMask = .flexibleLeftMargin
             _rightNaviButton!.contentHorizontalAlignment = .center
-            _rightNaviButton!.pressed = { [weak self] (_ sender: AnyObject, _ data: AnyObject?) -> () in
+            _rightNaviButton!.pressed = { [weak self] (_ sender: Any?, _ data: Any?) -> () in
                 self!.rightNaviButtonPressed()
             }
             self.topBar.addSubview(_rightNaviButton!)
