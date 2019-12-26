@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HRegisterController: UIButton {
+class HRegisterController: HTupleController {
 
     /*
     // Only override draw() if you perform custom drawing.

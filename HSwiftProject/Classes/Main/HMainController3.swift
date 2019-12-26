@@ -8,14 +8,39 @@
 
 import UIKit
 
-class HMainController3: UIButton {
+class HMainController3: HViewController, HTupleViewDelegate {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    private var _tupleView: HTupleView?
+    var tupleView: HTupleView {
+        if _tupleView == nil {
+            var frame = UIScreen.bound
+            frame.origin.y += UIDevice.topBarHeight
+            frame.size.height -= UIDevice.topBarHeight
+            _tupleView = HTupleView.tupleFrame({ () -> CGRect in
+                return frame
+            }, exclusiveSections: { () -> NSArray in
+                return [0,1,2]
+            })
+        }
+        return _tupleView!
     }
-    */
+
+    override func vcWillDisappear(_ type: HVCDisappearType) {
+        if type == HVCDisappearType.pop || type == HVCDisappearType.dismiss {
+            self.tupleView.releaseTupleBlock()
+        }
+    }
+    
+    override func viewDidLoad() {
+        self.view.backgroundColor = UIColor.white
+        self.leftNaviButton.isHidden = true
+        self.title = "第三页"
+        self.tupleView.delegate = self
+        self.view.addSubview(self.tupleView)
+    }
+
+    @objc func tuple0_numberOfSectionsInTupleView() -> NSInt {
+        return NSInt(value: 3)
+    }
 
 }

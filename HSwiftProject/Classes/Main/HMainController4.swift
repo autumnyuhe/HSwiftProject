@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HMainController4: UIButton {
+class HMainController4: HTupleController {
 
     /*
     // Only override draw() if you perform custom drawing.

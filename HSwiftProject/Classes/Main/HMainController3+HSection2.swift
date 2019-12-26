@@ -8,14 +8,54 @@
 
 import UIKit
 
-class HMainController3_HSection2: UIButton {
+extension HMainController3 {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @objc func tupleExa2_numberOfItemsInSection(_ section: Int) -> NSInt {
+        return NSInt(value: 1)
     }
-    */
+    @objc func tupleExa2_sizeForItemAtIndexPath(_ indexPath: IndexPath) -> NSSize {
+        return CGSizeMake(self.tupleView.width, 65).sizeValue
+    }
+    @objc func tupleExa2_edgeInsetsForItemAtIndexPath(_ indexPath: IndexPath) -> NSEdgeInsets {
+        return UIEdgeInsetsMake(10, 10, 10, 10).edgeInsetsValue
+    }
+    @objc func tupleExa2_tupleItem(_ itemObject: NSTupleItem, atIndexPath indexPath: IndexPath) {
+        let cell = itemObject.itemBlock(nil, HTupleViewCell.self, nil, true) as! HTupleViewCell
+        cell.backgroundColor = UIColor.gray
+        cell.isShouldShowSeparator = true
+        cell.separatorInset = UILREdgeInsetsMake(10, 10)
+        
+        let frame: CGRect = cell.layoutViewBounds
+        
+        var tmpFrame: CGRect = frame
+        tmpFrame.size.width = tmpFrame.height
+        cell.imageView.frame = tmpFrame
+        cell.imageView.backgroundColor = UIColor.red
+        cell.imageView.setImageWithName("icon_no_server")
+        
+        var tmpFrame2: CGRect = CGRectMake(0, 0, 7, 13)
+        tmpFrame2.origin.x = frame.width-tmpFrame2.width
+        tmpFrame2.origin.y = frame.height/2-tmpFrame2.height/2
+        cell.accessoryImageView.frame = tmpFrame2
+        cell.accessoryImageView.setImageWithName("icon_tuple_arrow_right")
+        
+        var tmpFrame3: CGRect = tmpFrame
+        tmpFrame3.origin.x = tmpFrame2.minX-tmpFrame3.width-10
+        cell.detailImageView.frame = tmpFrame3
+        cell.detailImageView.backgroundColor = UIColor.red
+        cell.detailImageView.setImageWithName("icon_no_server")
+        
+        var tmpFrame4: CGRect = frame
+        tmpFrame4.origin.x += tmpFrame.maxX+10
+        tmpFrame4.size.width = tmpFrame3.minX-tmpFrame.width-10-10
+        tmpFrame4.size.height = tmpFrame.height/2
+        cell.label.frame = tmpFrame4
+        cell.label.backgroundColor = UIColor.red
+        
+        var tmpFrame5: CGRect = tmpFrame4
+        tmpFrame5.origin.y += tmpFrame4.maxY
+        cell.detailLabel.frame = tmpFrame5
+        cell.detailLabel.backgroundColor = UIColor.yellow
+    }
 
 }

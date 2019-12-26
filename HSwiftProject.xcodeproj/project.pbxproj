@@ -152,7 +152,6 @@
 		A2B4307A237FF2B100795605 /* HMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4306D237FF2B100795605 /* HMenuViewController.swift */; };
 		A2B4307B237FF2B100795605 /* HCServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4306E237FF2B100795605 /* HCServiceViewController.swift */; };
 		A2B4307C237FF2B100795605 /* HGameCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4306F237FF2B100795605 /* HGameCategoryVC.swift */; };
-		A2B4307D237FF2B100795605 /* HMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B43070237FF2B100795605 /* HMainViewController.swift */; };
 		A2B43080237FF57C00795605 /* HViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4307F237FF57C00795605 /* HViewController.swift */; };
 		A2B4308323801C4E00795605 /* HWebButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4308223801C4E00795605 /* HWebButtonView.swift */; };
 		A2B4308523823B9000795605 /* HCommonBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B4308423823B9000795605 /* HCommonBlock.swift */; };
@@ -316,7 +315,6 @@
 		A2B4306D237FF2B100795605 /* HMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMenuViewController.swift; sourceTree = "<group>"; };
 		A2B4306E237FF2B100795605 /* HCServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCServiceViewController.swift; sourceTree = "<group>"; };
 		A2B4306F237FF2B100795605 /* HGameCategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HGameCategoryVC.swift; sourceTree = "<group>"; };
-		A2B43070237FF2B100795605 /* HMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMainViewController.swift; sourceTree = "<group>"; };
 		A2B4307F237FF57C00795605 /* HViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HViewController.swift; sourceTree = "<group>"; };
 		A2B4308223801C4E00795605 /* HWebButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWebButtonView.swift; sourceTree = "<group>"; };
 		A2B4308423823B9000795605 /* HCommonBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCommonBlock.swift; sourceTree = "<group>"; };
@@ -798,7 +796,6 @@
 				A2188794238FD3CC005C20BF /* HGameCategoryVC+HSection0.swift */,
 				A2188796238FD3D6005C20BF /* HGameCategoryVC+HSection1.swift */,
 				A2188798238FD3E0005C20BF /* HGameCategoryVC+HSection2.swift */,
-				A2B43070237FF2B100795605 /* HMainViewController.swift */,
 				A22948A4239798000058B939 /* HMainController1.swift */,
 				A22948A62397980A0058B939 /* HMainController2.swift */,
 				A22948A82397985B0058B939 /* HMainController3.swift */,
@@ -1010,7 +1007,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2B4308323801C4E00795605 /* HWebButtonView.swift in Sources */,
-				A2B4307D237FF2B100795605 /* HMainViewController.swift in Sources */,
 				A26D43172383DE5800F457AE /* UIColor+HUtil.swift in Sources */,
 				A2B4308B2382598F00795605 /* UIButton+HFilletLayer.swift in Sources */,
 				A2B42FD0237CED5A00795605 /* ViewController.swift in Sources */,

@@ -45,27 +45,38 @@ class HMenuViewController: HTabBarController {
 //
 //        self.viewControllers = NSMutableArray.init(objects: mainVC, gameCategoryVC, serviceVC, centerVC) as? [UIViewController]
         
-        let mainVC = HMainViewController.init()
-        mainVC.h_tabItemTitle = "主页"
-        mainVC.h_tabItemImage = UIImage.init(named: "di_index")
-        mainVC.h_tabItemSelectedImage = UIImage.init(named: "di_index_h")
+        let mainVC1 = HMainController1()
+        mainVC1.h_tabItemTitle = "第一页"
+        mainVC1.h_tabItemImage = UIImage.init(named: "di_index")
+        mainVC1.h_tabItemSelectedImage = UIImage.init(named: "di_index_h")
         
-        let gameCategoryVC = HGameCategoryVC.init()
-        gameCategoryVC.h_tabItemTitle = "分类"
-        gameCategoryVC.h_tabItemImage = UIImage.init(named: "di_more")
-        gameCategoryVC.h_tabItemSelectedImage = UIImage.init(named: "di_more_h")
         
-        let serviceVC = HCServiceViewController.init()
-        serviceVC.h_tabItemTitle = "客服"
-        serviceVC.h_tabItemImage = UIImage.init(named: "di_kf")
-        serviceVC.h_tabItemSelectedImage = UIImage.init(named: "di_kf_h")
-
-        let centerVC = HCenterViewController.init()
-        centerVC.h_tabItemTitle = "会员中心"
-        centerVC.h_tabItemImage = UIImage.init(named: "di_login")
-        centerVC.h_tabItemSelectedImage = UIImage.init(named: "di_login_h")
+        let mainVC2 = HMainController2()
+        mainVC2.h_tabItemTitle = "第二页"
+        mainVC2.h_tabItemImage = UIImage.init(named: "di_index")
+        mainVC2.h_tabItemSelectedImage = UIImage.init(named: "di_index_h")
         
-        self.viewControllers = NSMutableArray.init(objects: mainVC, gameCategoryVC, serviceVC, centerVC)
+        let mainVC3 = HMainController3()
+        mainVC3.h_tabItemTitle = "第三页"
+        mainVC3.h_tabItemImage = UIImage.init(named: "di_index")
+        mainVC3.h_tabItemSelectedImage = UIImage.init(named: "di_index_h")
+        
+        let mainVC4 = HMainController4()
+        mainVC4.h_tabItemTitle = "第四页"
+        mainVC4.h_tabItemImage = UIImage.init(named: "di_index")
+        mainVC4.h_tabItemSelectedImage = UIImage.init(named: "di_index_h")
+        
+        let loginVC = HLoginController()
+        loginVC.h_tabItemTitle = "登录"
+        loginVC.h_tabItemImage = UIImage.init(named: "di_index")
+        loginVC.h_tabItemSelectedImage = UIImage.init(named: "di_index_h")
+        
+        let registerVC = HRegisterController()
+        registerVC.h_tabItemTitle = "注册"
+        registerVC.h_tabItemImage = UIImage.init(named: "di_index")
+        registerVC.h_tabItemSelectedImage = UIImage.init(named: "di_index_h")
+        
+        self.viewControllers = NSMutableArray.init(objects: mainVC1, mainVC2, mainVC3, mainVC4, loginVC, registerVC)
     }
     
     func setupFrameOfTabBarAndContentView() {
@@ -173,19 +184,19 @@ class HMenuViewController: HTabBarController {
 //
 //extension HMenuViewController {
 //
-//    @objc class func swizzle() -> Void {
+//    objc class func swizzle() -> Void {
 //        Swizzle(HMenuViewController.self) {
 //            #selector(viewDidLoad) <-> #selector(myViewDidLoad)
 //            #selector(viewWillAppear(_:)) <-> #selector(myViewWillAppear(_:))
 //        }
 //    }
 //
-//    @objc private func myViewDidLoad() {
+//    objc private func myViewDidLoad() {
 //        print(#function)
 //        myViewDidLoad()
 //    }
 //
-//    @objc private func myViewWillAppear(_ animated: Bool) {
+//    objc private func myViewWillAppear(_ animated: Bool) {
 //        print(#function)
 //        myViewWillAppear(animated)
 //    }
