@@ -135,7 +135,6 @@ class HViewController: UIViewController {
                     let scrollView: UIScrollView = view as! UIScrollView
                     scrollView.contentInsetAdjustmentBehavior = .never
                 }
-                
             }
         }else {
             self.automaticallyAdjustsScrollViewInsets = false

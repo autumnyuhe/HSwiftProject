@@ -341,6 +341,9 @@ class HTabContentView : UIView, UIScrollViewDelegate, HTabBarDelegate, _HTabCont
         _contentScrollView.h_delegate = self
         _contentScrollView.interceptRightSlideGuetureInFirstPage = self.interceptRightSlideGuetureInFirstPage
         _contentScrollView.interceptLeftSlideGuetureInLastPage = self.interceptLeftSlideGuetureInLastPage
+        if #available(iOS 11.0, *) {
+            _contentScrollView.contentInsetAdjustmentBehavior = .never
+        }
         self.addSubview(_contentScrollView)
     }
 
