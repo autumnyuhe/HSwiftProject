@@ -17,7 +17,6 @@ extension AppDelegate {
         set { self.setAssociateWeakValue(newValue, key: &shouldAutorotateKey) }
     }
     
-    @available(iOS 6.0, *)
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
 //        if (AppDelegate.shouldAutorotate) {
 //            return [.portrait, .landscapeLeft, .landscapeRight]

@@ -527,7 +527,6 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
     }
     
     ///以下为UICollectionView的代理方法
-    @available(iOS 6.0, *)
     internal func numberOfSections(in collectionView: UICollectionView) -> Int {
         if self.allSectionInsets.count > 0 {
             self.allSectionInsets.removeAllObjects()
@@ -552,7 +551,6 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         }
     }
     
-    @available(iOS 6.0, *)
     internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var items = 0
         let prefix = self.prefixWithSection(section)
@@ -575,17 +573,14 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         return UIColor.clear
     }
 
-    @available(iOS 6.0, *)
     internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
     }
 
-    @available(iOS 6.0, *)
     internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
     }
 
-    @available(iOS 6.0, *)
     internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let prefix = self.prefixWithSection(section)
         let selector = #selector(self.tupleDelegate!.insetForSection(_:))
@@ -595,7 +590,6 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         return UIEdgeInsetsZero
     }
     
-    @available(iOS 6.0, *)
     internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         var size: CGSize = CGSizeZero
         let prefix = self.prefixWithSection(section)
@@ -606,7 +600,6 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         return UISizeIntegral(size)
     }
 
-    @available(iOS 6.0, *)
     internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         var size: CGSize = CGSizeZero
         let prefix = self.prefixWithSection(section)
@@ -617,7 +610,6 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         return UISizeIntegral(size)
     }
     
-    @available(iOS 6.0, *)
     internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var size: CGSize = CGSizeZero
         let prefix = self.prefixWithSection(indexPath.section)
@@ -632,7 +624,6 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         return UISizeIntegral(size)
     }
     
-    @available(iOS 6.0, *)
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //调用代理方法
         let prefix: String = self.prefixWithSection(indexPath.section)
@@ -653,7 +644,6 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         return cell
     }
     
-    @available(iOS 6.0, *)
     internal func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         var cell: HTupleBaseApex?
         if kind == UICollectionElementKindSectionHeader {
@@ -690,7 +680,6 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         return cell!
     }
     
-    @available(iOS 8.0, *)
     internal func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let prefix = self.prefixWithSection(indexPath.section)
         let selector = #selector(self.tupleDelegate!.willDisplayCell(_:atIndexPath:))
@@ -699,7 +688,6 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         }
     }
 
-    @available(iOS 6.0, *)
     internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let prefix = self.prefixWithSection(indexPath.section)
         let selector = #selector(self.tupleDelegate!.didSelectItemAtIndexPath(_:))

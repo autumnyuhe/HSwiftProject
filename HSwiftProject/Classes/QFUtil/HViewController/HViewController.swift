@@ -420,18 +420,15 @@ class HViewController: UIViewController {
     }
     
     /// 旋转支持
-    @available(iOS 6.0, *)
     override open var shouldAutorotate: Bool {
         return false
     }
 
-    @available(iOS 6.0, *)
     override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
         //return [.portrait, .landscapeLeft, .landscapeRight]
     }
     
-    @available(iOS 6.0, *)
     override open var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
         return .portrait
     }

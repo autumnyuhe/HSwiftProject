@@ -85,17 +85,14 @@ class HNavigationController : UINavigationController, UIGestureRecognizerDelegat
     }
 
     /// 旋转支持
-    @available(iOS 6.0, *)
     override open var shouldAutorotate: Bool {
         return self.topViewController!.shouldAutorotate
     }
 
-    @available(iOS 6.0, *)
     override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return self.topViewController!.supportedInterfaceOrientations
     }
     
-    @available(iOS 6.0, *)
     override open var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
         return self.topViewController!.preferredInterfaceOrientationForPresentation
     }
