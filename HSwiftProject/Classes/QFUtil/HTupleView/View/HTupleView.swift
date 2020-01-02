@@ -392,7 +392,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
     /// register class
     func dequeueReusableHeaderWithClass(_ cls: AnyClass, iblk: AnyObject?, pre: String?, idx: Bool, idxPath: IndexPath) -> AnyObject {
         var cell: HTupleBaseApex
-        var identifier: String = NSStringFromClass(cls)
+        var identifier = NSStringFromClass(cls)
         identifier = identifier+self.addressValue
         identifier = identifier+"HeaderCell"
         if self.tupleStyle == .split && self.sectionPaths?.contains(idxPath.section) == false {
@@ -419,7 +419,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         self.allReuseHeaders.setObject(cell, forKey: idxPath.stringValue as NSString)
         //调用代理方法
         var edgeInsets: UIEdgeInsets = UIEdgeInsetsZero
-        let prefix: String = self.prefixWithSection(idxPath.section)
+        let prefix = self.prefixWithSection(idxPath.section)
         let selector: Selector = #selector(self.tupleDelegate!.edgeInsetsForHeaderInSection(_:))
         if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
             edgeInsets = (self.tupleDelegate!.performWithUnretainedValue(selector, with: NSInt(value: idxPath.section), withPre: prefix) as! NSEdgeInsets).edgeInsetsValue
@@ -433,7 +433,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
     
     func dequeueReusableFooterWithClass(_ cls: AnyClass, iblk: AnyObject?, pre: String?, idx: Bool, idxPath: IndexPath) -> AnyObject {
         var cell: HTupleBaseApex
-        var identifier: String = NSStringFromClass(cls)
+        var identifier = NSStringFromClass(cls)
         identifier = identifier+self.addressValue
         identifier = identifier+"FooterCell"
         if self.tupleStyle == .split && self.sectionPaths?.contains(idxPath.section) == false {
@@ -474,7 +474,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
 
     func dequeueReusableCellWithClass(_ cls: AnyClass, iblk: AnyObject?, pre: String?, idx: Bool, idxPath: IndexPath) -> AnyObject {
         var cell: HTupleBaseCell
-        var identifier: String = NSStringFromClass(cls)
+        var identifier = NSStringFromClass(cls)
         identifier = identifier+self.addressValue
         identifier = identifier+"ItemCell"
         if self.tupleStyle == .split && self.sectionPaths?.contains(idxPath.section) == false {
@@ -626,7 +626,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
     
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //调用代理方法
-        let prefix: String = self.prefixWithSection(indexPath.section)
+        let prefix = self.prefixWithSection(indexPath.section)
         let selector: Selector = #selector(self.tupleDelegate!.tupleItem(_:atIndexPath:))
         let cellObject = NSTupleItem()
         cellObject.itemBlock =  { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) in
@@ -648,7 +648,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         var cell: HTupleBaseApex?
         if kind == UICollectionElementKindSectionHeader {
             //调用代理方法
-            let prefix: String = self.prefixWithSection(indexPath.section)
+            let prefix = self.prefixWithSection(indexPath.section)
             let selector: Selector = #selector(self.tupleDelegate!.tupleHeader(_:inSection:))
             let cellObject = NSTupleHeader()
             cellObject.headerBlock = { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) -> AnyObject in
@@ -661,7 +661,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
             cell = self.allReuseHeaders.object(forKey: indexPath.stringValue as NSString) as? HTupleBaseApex
         }else if (kind == UICollectionElementKindSectionFooter) {
             //调用代理方法
-            let prefix: String = self.prefixWithSection(indexPath.section)
+            let prefix = self.prefixWithSection(indexPath.section)
             let selector: Selector = #selector(self.tupleDelegate!.tupleFooter(_:inSection:))
             let cellObject = NSTupleFooter()
             cellObject.footerBlock = { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) -> AnyObject in
@@ -838,7 +838,7 @@ extension HTupleView {
     ///获取某个section的宽高和大小
     func widthForSection(_ section: Int) -> CGFloat {
         var width: CGFloat = self.width
-        let edgeInsetsString: String = self.allSectionInsets.object(forKey: "\(section)" as NSString) as! String
+        let edgeInsetsString = self.allSectionInsets.object(forKey: "\(section)" as NSString) as! String
         if edgeInsetsString.length > 0 {
             let edgeInsets = UIEdgeInsetsFromString(edgeInsetsString)
             width -= edgeInsets.left + edgeInsets.right
@@ -848,7 +848,7 @@ extension HTupleView {
 
     func heighForSection(_ section: Int) -> CGFloat {
         var height: CGFloat = self.height
-        let edgeInsetsString: String = self.allSectionInsets.object(forKey: "\(section)" as NSString) as! String
+        let edgeInsetsString = self.allSectionInsets.object(forKey: "\(section)" as NSString) as! String
         if edgeInsetsString.length > 0 {
             let edgeInsets = UIEdgeInsetsFromString(edgeInsetsString)
             height -= edgeInsets.top + edgeInsets.bottom
@@ -858,7 +858,7 @@ extension HTupleView {
     
     func sizeForSection(_ section: Int) -> CGSize {
         var size: CGSize = self.size
-        let edgeInsetsString: String = self.allSectionInsets.object(forKey: "\(section)" as NSString) as! String
+        let edgeInsetsString = self.allSectionInsets.object(forKey: "\(section)" as NSString) as! String
         if edgeInsetsString.length > 0 {
             let edgeInsets = UIEdgeInsetsFromString(edgeInsetsString)
             size.width  -= edgeInsets.left + edgeInsets.right
@@ -947,7 +947,7 @@ extension HTupleView {
     func removeObjectForState(_ tupleState: HTupleState) -> Void {
         let key = KTupleStateKey+"\(tupleState)"
         for (aKey, _) in self.tupleStateSource.reversed() {
-            let aKey: String = aKey as! String
+            let aKey = aKey as! String
             if key == aKey {
                 self.tupleStateSource.removeObject(forKey: aKey)
             }

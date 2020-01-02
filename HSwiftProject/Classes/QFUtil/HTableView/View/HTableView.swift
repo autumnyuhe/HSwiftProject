@@ -369,7 +369,7 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
     /// register class
     func dequeueReusableHeaderWithClass(_ cls: AnyClass, iblk: AnyObject?, pre: String?, idx: Bool, section: Int) -> AnyObject {
         var cell: HTableBaseApex
-        var identifier: String = NSStringFromClass(cls)
+        var identifier = NSStringFromClass(cls)
         identifier = identifier+self.addressValue
         identifier = identifier+"HeaderCell"
         if self.tableStyle == .split && self.sectionPaths?.contains(section) == false {
@@ -396,7 +396,7 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
         self.allReuseHeaders.setObject(cell, forKey: "\(section)" as NSString)
         //调用代理方法
         var edgeInsets: UIEdgeInsets = UIEdgeInsetsZero
-        let prefix: String = self.prefixWithSection(section)
+        let prefix = self.prefixWithSection(section)
         let selector: Selector = #selector(self.tableDelegate!.edgeInsetsForHeaderInSection(_:))
         if self.tableDelegate!.responds(to: selector, withPre: prefix) {
             edgeInsets = (self.tableDelegate!.performWithUnretainedValue(selector, with: NSInt(value: section), withPre: prefix) as! NSEdgeInsets).edgeInsetsValue
@@ -410,7 +410,7 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
     
     func dequeueReusableFooterWithClass(_ cls: AnyClass, iblk: AnyObject?, pre: String?, idx: Bool, section: Int) -> AnyObject {
         var cell: HTableBaseApex
-        var identifier: String = NSStringFromClass(cls)
+        var identifier = NSStringFromClass(cls)
         identifier = identifier+self.addressValue
         identifier = identifier+"FooterCell"
         if self.tableStyle == .split && self.sectionPaths?.contains(section) == false {
@@ -451,7 +451,7 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
 
     func dequeueReusableCellWithClass(_ cls: AnyClass, iblk: AnyObject?, pre: String?, idx: Bool, idxPath: IndexPath) -> AnyObject {
         var cell: HTableBaseCell
-        var identifier: String = NSStringFromClass(cls)
+        var identifier = NSStringFromClass(cls)
         identifier = identifier+self.addressValue
         identifier = identifier+"ItemCell"
         if self.tableStyle == .split && self.sectionPaths?.contains(idxPath.section) == false {
@@ -568,7 +568,7 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //调用代理方法
-        let prefix: String = self.prefixWithSection(indexPath.section)
+        let prefix = self.prefixWithSection(indexPath.section)
         let selector: Selector = #selector(self.tableDelegate!.tableRow(_:atIndexPath:))
         let cellObject = NSTableRow()
         cellObject.itemBlock =  { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) in
@@ -588,7 +588,7 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         //调用代理方法
-        let prefix: String = self.prefixWithSection(section)
+        let prefix = self.prefixWithSection(section)
         let selector: Selector = #selector(self.tableDelegate!.tableHeader(_:inSection:))
         let cellObject = NSTableHeader()
         cellObject.headerBlock = { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) -> AnyObject in
@@ -606,7 +606,7 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         //调用代理方法
-        let prefix: String = self.prefixWithSection(section)
+        let prefix = self.prefixWithSection(section)
         let selector: Selector = #selector(self.tableDelegate!.tableFooter(_:inSection:))
         let cellObject = NSTableFooter()
         cellObject.footerBlock = { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) -> AnyObject in
@@ -847,7 +847,7 @@ extension HTableView {
     func removeObjectForState(_ tableState: HTableState) -> Void {
         let key = KTableStateKey+"\(tableState)"
         for (aKey, _) in self.tableStateSource.reversed() {
-            let aKey: String = aKey as! String
+            let aKey = aKey as! String
             if key == aKey {
                 self.tableStateSource.removeObject(forKey: aKey)
             }
