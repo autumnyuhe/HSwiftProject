@@ -64,7 +64,6 @@ class HLoginController: HTupleController {
                 cell.signalBlock = { ( cell: HTupleTextFieldCell, signal: HTupleSignal) in
 
                 } as? HTupleCellSignalBlock
-                break
             case 1:
                 let cell = itemObject.itemBlock(nil, HTupleTextFieldCell.self, nil, true) as! HTupleTextFieldCell
                 cell.textField.backgroundColor = UIColor(hex:"#F2F2F2")
@@ -80,7 +79,6 @@ class HLoginController: HTupleController {
                 cell.signalBlock = { ( cell: HTupleTextFieldCell, signal: HTupleSignal) in
 
                 } as? HTupleCellSignalBlock
-                break
             case 2:
                 let cell = itemObject.itemBlock(nil, HTupleTextFieldCell.self, nil, true) as! HTupleTextFieldCell
                 cell.textField.backgroundColor = UIColor(hex:"#F2F2F2")
@@ -104,10 +102,8 @@ class HLoginController: HTupleController {
                 cell.signalBlock = { ( cell: HTupleTextFieldCell, signal: HTupleSignal) in
 
                 } as? HTupleCellSignalBlock
-                break
             case 3:
-                itemObject.itemBlock(nil, HTupleBaseCell.self, nil, true)
-                break
+                _ = itemObject.itemBlock(nil, HTupleBaseCell.self, nil, true)
             case 4:
                 let cell = itemObject.itemBlock(nil, HTupleButtonCell.self, nil, true) as! HTupleButtonCell
                 cell.buttonView.backgroundColor = UIColor(hex:"#CCCCCC")
@@ -119,7 +115,6 @@ class HLoginController: HTupleController {
                 cell.signalBlock = { ( cell: HTupleButtonCell, signal: HTupleSignal) in
 
                 } as? HTupleCellSignalBlock
-                break
             case 5:
 
                 let cell = itemObject.itemBlock(nil, HServiceAuthorizationCell.self, nil, true) as! HServiceAuthorizationCell
@@ -133,10 +128,8 @@ class HLoginController: HTupleController {
                     }
                 } as? HTupleCellSignalBlock
 
-                break
             default:
-                itemObject.itemBlock(nil, HTupleBaseCell.self, nil, true)
-                break
+                _ = itemObject.itemBlock(nil, HTupleBaseCell.self, nil, true)
         }
     }
 

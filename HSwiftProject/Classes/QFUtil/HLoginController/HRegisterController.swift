@@ -70,11 +70,9 @@ class HRegisterController: HViewController, HTupleViewDelegate {
                     case 0:
                         item1.backgroundColor = UIColor.yellow
                         item2.backgroundColor = UIColor.white
-                        break
                     case 1:
                         item1.backgroundColor = UIColor.white
                         item2.backgroundColor = UIColor.yellow
-                        break
                     default: break
                 }
                 self.tupleView.tupleState = idx
@@ -110,7 +108,7 @@ class HRegisterController: HViewController, HTupleViewDelegate {
         return CGSizeMake(self.tupleView.width, 55).sizeValue
     }
     @objc func tupleExa0_tupleHeader(_ headerObject: NSTupleHeader, inSection section: NSInt) {
-        headerObject.headerBlock(nil, HTupleBaseApex.self, nil, false)
+        _ = headerObject.headerBlock(nil, HTupleBaseApex.self, nil, false)
     }
     @objc func tupleExa0_tupleItem(_ itemObject: NSTupleItem, atIndexPath indexPath: IndexPath) {
         let cell = itemObject.itemBlock(nil, HTupleBaseCell.self, nil, true) as! HTupleBaseCell

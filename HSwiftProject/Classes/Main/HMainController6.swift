@@ -68,7 +68,6 @@ class HMainController6: HTableController {
             cell.signalBlock = { (_ cell: HTableViewCellHoriValue4, _ signal: HTableSignal) in
                 
             } as? HTableCellSignalBlock
-            break
         case 1:
             let cell = itemObject.itemBlock(nil, HTableViewCellHoriValue4.self, nil, true) as! HTableViewCellHoriValue4
             cell.backgroundColor = UIColor.gray
@@ -89,7 +88,6 @@ class HMainController6: HTableController {
             
             //发送信号
             //self.TableView signal:nil indexPath:NSIndexPath.getValue(0, 0)
-            break
         case 2:
             let cell = itemObject.itemBlock(nil, HTableViewCellHoriValue4.self, nil, true) as! HTableViewCellHoriValue4
             cell.backgroundColor = UIColor.gray
@@ -107,7 +105,6 @@ class HMainController6: HTableController {
             cell.label.backgroundColor = UIColor.red
 
             cell.detailLabel.backgroundColor = UIColor.yellow
-            break
         case 3:
             let cell = itemObject.itemBlock(nil, HTableViewCellHoriValue3.self, nil, true) as! HTableViewCellHoriValue3
             cell.backgroundColor = UIColor.gray
@@ -127,7 +124,6 @@ class HMainController6: HTableController {
             cell.accessoryLabel.backgroundColor = UIColor.yellow
             cell.accessoryLabel.text = "accessoryLabel"
             cell.accessoryLabel.textAlignment = .center
-            break
         case 4:
             let cell = itemObject.itemBlock(nil, HTableTextFieldCell.self, nil, true) as! HTableTextFieldCell
             cell.backgroundColor = UIColor.gray
@@ -148,7 +144,6 @@ class HMainController6: HTableController {
             cell.textField.rightButton.pressed = { (_ sender: Any?, _ data: Any?) in
                 
             }
-            break
         default: break
         }
         

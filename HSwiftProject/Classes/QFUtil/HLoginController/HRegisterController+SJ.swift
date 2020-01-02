@@ -68,10 +68,10 @@ extension HRegisterController {
     }
 
     @objc func tuple1_tupleHeader(_ headerObject: NSTupleHeader, inSection section: NSInt) {
-        headerObject.headerBlock(nil, HTupleBaseApex.self, nil, false)
+        _ = headerObject.headerBlock(nil, HTupleBaseApex.self, nil, false)
     }
     @objc func tuple1_tupleFooter(_ footerObject: NSTupleFooter, inSection section: NSInt) {
-        footerObject.footerBlock(nil, HTupleBaseApex.self, nil, false)
+        _ = footerObject.footerBlock(nil, HTupleBaseApex.self, nil, false)
     }
     @objc func tuple1_tupleItem(_ itemObject: NSTupleItem, atIndexPath indexPath: IndexPath) {
         let cell = itemObject.itemBlock(nil, HTupleTextFieldCell.self, "tuple1", true) as! HTupleTextFieldCell
