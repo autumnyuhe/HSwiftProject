@@ -312,7 +312,11 @@ class HTextField : UITextField, UITextFieldDelegate {
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         if self.forbidPaste {
             OperationQueue.main.addOperation {
-                UIMenuController.shared.hideMenu()
+                if #available(iOS 13.0, *) {
+                    UIMenuController.shared.hideMenu()
+                }else {
+                    UIMenuController.shared.setMenuVisible(false, animated: false)
+                }
             }
             return false
         }

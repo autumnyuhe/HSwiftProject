@@ -120,11 +120,11 @@ class HViewController: UIViewController {
         //要更新statusbar状态的需要调用下这个方法,最好与viewWillDisappear对应
         self.setNeedsStatusBarAppearanceUpdate()
         //根据导航栏的颜色动态设置状态栏样式
-        if self.preferredStatusBarColor != nil {
-            UIApplication.setStatusBarStyleWithColor(self.preferredStatusBarColor ?? UIColor.white)
-        }else if self.autoAdjustStatusBarStyle && self.topBar.isHidden == false {
-            UIApplication.setStatusBarStyleWithColor(self.topBar.backgroundColor ?? UIColor.white)
-        }
+        //if self.preferredStatusBarColor != nil {
+        //    UIApplication.setStatusBarStyleWithColor(self.preferredStatusBarColor ?? UIColor.white)
+        //}else if self.autoAdjustStatusBarStyle && self.topBar.isHidden == false {
+        //    UIApplication.setStatusBarStyleWithColor(self.topBar.backgroundColor ?? UIColor.white)
+        //}
         if #available(iOS 11.0, *) {
             if self.view.isKind(of: UIScrollView.self) {
                 let scrollView: UIScrollView = self.view as! UIScrollView
@@ -402,12 +402,27 @@ class HViewController: UIViewController {
 
     @available(iOS 7.0, *)
     override open var preferredStatusBarStyle: UIStatusBarStyle {
-        return .default
+        let preferredStatusBarColor: UIColor? = self.preferredStatusBarColor
+        if preferredStatusBarColor !== nil && preferredStatusBarColor?.isLighterColor ?? false {
+            if #available(iOS 13.0, *) {
+                return .darkContent
+            }else {
+                return .default
+            }
+        }else if _topBar != nil && _topBar!.backgroundColor?.isLighterColor ?? false {
+            if #available(iOS 13.0, *) {
+                return .darkContent
+            }else {
+                return .default
+            }
+        }else {
+            return .lightContent
+        }
     }
 
     @available(iOS 7.0, *)
     override open var prefersStatusBarHidden: Bool {
-        if UIApplication.statusBarOrientation?.isLandscape ?? false {
+        if UIApplication.statusBarOrientation()?.isLandscape ?? false {
             return true
         }
         return false

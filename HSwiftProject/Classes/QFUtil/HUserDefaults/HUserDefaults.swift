@@ -85,7 +85,11 @@ class HUserDefaults : NSObject {
         if defaultsUserId != nil {
             let data: Data? = HKeyChainStore.keyChainStore.dataForKey(defaultsUserId)
             if data != nil {
-                share = try! NSKeyedUnarchiver.unarchivedObject(ofClasses: [HUserDefaults.self], from: data!) as! HUserDefaults
+                if #available(iOS 11.0, *) {
+                    share = try! NSKeyedUnarchiver.unarchivedObject(ofClasses: [HUserDefaults.self], from: data!) as! HUserDefaults
+                }else {
+                    share = NSKeyedUnarchiver.unarchiveObject(with: data!) as? HUserDefaults
+                }
             }
         }
         if share == nil && share!.responds(to: #selector(initData)) == false {
@@ -108,7 +112,12 @@ class HUserDefaults : NSObject {
 
     @objc private func saveUser() {
         if self.isLogin {
-            let data = try? NSKeyedArchiver.archivedData(withRootObject: self, requiringSecureCoding: true)
+            var data: Data?
+            if #available(iOS 11.0, *) {
+                data = try? NSKeyedArchiver.archivedData(withRootObject: self, requiringSecureCoding: true)
+            }else {
+                data = NSKeyedArchiver.archivedData(withRootObject: self)
+            }
             let defaultsUserId = HUserDefaults.defaultsUserId
             if defaultsUserId!.length > 0 && data != nil {
                 HKeyChainStore.keyChainStore.setData(data: data, forKey: defaultsUserId)
@@ -126,7 +135,12 @@ class HUserDefaults : NSObject {
             let defaultsUserId: String = userName.uppercased()
             let data: Data? = HKeyChainStore.keyChainStore.dataForKey(defaultsUserId)
             if data != nil {
-                var userDefaults = try! NSKeyedUnarchiver.unarchivedObject(ofClasses: [HUserDefaults.self], from: data!) as? HUserDefaults
+                var userDefaults: HUserDefaults?
+                if #available(iOS 11.0, *) {
+                    userDefaults = try! NSKeyedUnarchiver.unarchivedObject(ofClasses: [HUserDefaults.self], from: data!) as? HUserDefaults
+                } else {
+                    userDefaults = NSKeyedUnarchiver.unarchiveObject(with: data!) as? HUserDefaults
+                }
                 let propertyValue = userDefaults!.value(forKey: "password") as! String
                 //密码不相等则不能提取用户信息
                 if pwd != propertyValue {

@@ -80,9 +80,22 @@ extension UIApplication {
     /**
     *  status bar orientation
     */
-    static var statusBarOrientation: UIInterfaceOrientation? {
-        get { return UIApplication.shared.windows.first?.windowScene?.interfaceOrientation }
+    static func statusBarOrientation() -> UIInterfaceOrientation? {
+        if #available(iOS 13.0, *) {
+            return UIApplication.shared.windows.first?.windowScene?.interfaceOrientation
+        } else {
+            return UIApplication.shared.statusBarOrientation
+        }
     }
+//    static var statusBarOrientation2: UIInterfaceOrientation? {
+//        get {
+//            if #available(iOS 13.0, *) {
+//                return UIApplication.shared.windows.first?.windowScene?.interfaceOrientation
+//            } else {
+//                return UIApplication.shared.statusBarOrientation
+//            }
+//        }
+//    }
 
     /**
     *  Bundle Name
@@ -125,7 +138,7 @@ extension UIApplication {
     static var appLaunchImage: UIImage? {
 
         var viewOrientation: String  = "Portrait"
-        if UIApplication.statusBarOrientation?.isLandscape ?? false {
+        if UIApplication.statusBarOrientation()?.isLandscape ?? false {
             viewOrientation = "Landscape"
         }
 
@@ -213,18 +226,18 @@ extension UIApplication {
         }
     }
 
-    ///根据颜色动态设置状态栏样式
-    static func setStatusBarStyleWithColor(_ color: UIColor) -> Void {
-        if color.isLighterColor {
-            if #available(iOS 13.0, *) {
-                UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: false)
-            }else {
-                // Fallback on earlier versions
-                UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: false)
-            }
-        }else {
-            UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: false)
-        }
-    }
+//    ///根据颜色动态设置状态栏样式
+//    static func setStatusBarStyleWithColor(_ color: UIColor) -> Void {
+//        if color.isLighterColor {
+//            if #available(iOS 13.0, *) {
+//                UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.darkContent, animated: false)
+//            }else {
+//                // Fallback on earlier versions
+//                UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: false)
+//            }
+//        }else {
+//            UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: false)
+//        }
+//    }
     
 }

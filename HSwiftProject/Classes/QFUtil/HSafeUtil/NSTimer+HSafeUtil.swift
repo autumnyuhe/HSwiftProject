@@ -28,7 +28,11 @@ extension Timer {
     ///恢复
     func safe_resume() -> Void {
         if self.isValid == false { return }
-        self.fireDate = NSDate.now
+        if #available(iOS 13.0, *) {
+            self.fireDate = NSDate.now
+        } else {
+            self.fireDate = NSDate() as Date
+        }
     }
     
     ///暂停

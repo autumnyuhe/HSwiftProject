@@ -26,14 +26,22 @@ class HTupleRefresh : NSObject {
             header.isAutomaticallyChangeAlpha = true
             header.lastUpdatedTimeLabel?.isHidden = true
             header.stateLabel?.isHidden = true
-            header.activityIndicatorViewStyle = UIActivityIndicatorView.Style.gray
+            if #available(iOS 13.0, *) {
+                header.loadingView?.style = UIActivityIndicatorView.Style.medium
+            }else {
+                header.loadingView?.style = UIActivityIndicatorView.Style.gray
+            }
             return header
         case HTupleRefreshHeaderStyle.white:
             let header: MJRefreshNormalHeader = MJRefreshNormalHeader(refreshingBlock: refreshingBlock)
             header.isAutomaticallyChangeAlpha = true
             header.lastUpdatedTimeLabel?.isHidden = true
             header.stateLabel?.isHidden = true
-            header.activityIndicatorViewStyle = UIActivityIndicatorView.Style.white
+            if #available(iOS 13.0, *) {
+                header.loadingView?.style = UIActivityIndicatorView.Style.medium
+            }else {
+                header.loadingView?.style = UIActivityIndicatorView.Style.white
+            }
             return header
         }
     }

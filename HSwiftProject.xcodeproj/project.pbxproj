@@ -1271,6 +1271,7 @@
 				DEVELOPMENT_TEAM = 2TEVVN5W68;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = HSwiftProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1294,6 +1295,7 @@
 				DEVELOPMENT_TEAM = 2TEVVN5W68;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = HSwiftProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

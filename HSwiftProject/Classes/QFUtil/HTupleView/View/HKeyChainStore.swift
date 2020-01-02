@@ -887,7 +887,11 @@ class HKeyChainStore : NSObject {
         if status == errSecSuccess {
             var array: NSArray?
             if let data = result as! Data? {
-                array = try! NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSArray.self], from: data) as? NSArray
+                if #available(iOS 11.0, *) {
+                    array = try! NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSArray.self], from: data) as? NSArray
+                } else {
+                    array = NSKeyedUnarchiver.unarchiveObject(with: data) as? NSArray
+                }
                 if array == nil {
                     return []
                 }
@@ -935,7 +939,11 @@ class HKeyChainStore : NSObject {
         if (status == errSecSuccess) {
             var array: NSArray?
             if let data = result as! Data? {
-                array = try! NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSArray.self], from: data) as? NSArray
+                if #available(iOS 11.0, *) {
+                    array = try! NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSArray.self], from: data) as? NSArray
+                } else {
+                    array = NSKeyedUnarchiver.unarchiveObject(with: data) as? NSArray
+                }
                 if array == nil {
                     return []
                 }
@@ -962,7 +970,11 @@ class HKeyChainStore : NSObject {
         if (status == errSecSuccess) {
             var array: NSArray?
             if let data = result as! Data? {
-                array = try! NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSArray.self], from: data) as? NSArray
+                if #available(iOS 11.0, *) {
+                    array = try! NSKeyedUnarchiver.unarchivedObject(ofClasses: [NSArray.self], from: data) as? NSArray
+                } else {
+                    array = NSKeyedUnarchiver.unarchiveObject(with: data) as? NSArray
+                }
                 if array == nil {
                     return []
                 }
@@ -1371,7 +1383,11 @@ class HKeyChainStore : NSObject {
             case HKeyChainStoreAccessibility.AfterFirstUnlock:
                 return kSecAttrAccessibleAfterFirstUnlock
             case HKeyChainStoreAccessibility.Always:
-                return kSecAttrAccessibleAlways
+                if #available(iOS 12.0, *) {
+                    return kSecAttrAccessibleAfterFirstUnlock
+                }else {
+                    return kSecAttrAccessibleAlways
+                }
             case HKeyChainStoreAccessibility.WhenPasscodeSetThisDeviceOnly:
                 return kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly
             case HKeyChainStoreAccessibility.WhenUnlockedThisDeviceOnly:
@@ -1379,7 +1395,11 @@ class HKeyChainStore : NSObject {
             case HKeyChainStoreAccessibility.AfterFirstUnlockThisDeviceOnly:
                 return kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
             case HKeyChainStoreAccessibility.AlwaysThisDeviceOnly:
-                return kSecAttrAccessibleAlwaysThisDeviceOnly
+                if #available(iOS 12.0, *) {
+                    return kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
+                }else {
+                    return kSecAttrAccessibleAlwaysThisDeviceOnly
+                }
         }
     }
 

@@ -19,7 +19,12 @@ private var startDate: NSDate?
 extension NSDate {
 
     static func startTime() -> Void {
-        startDate = NSDate.now as NSDate
+        if #available(iOS 13.0, *) {
+            startDate = NSDate.now as NSDate
+        } else {
+            // Fallback on earlier versions
+            startDate = NSDate()
+        }
     }
     
     static func endTime() -> Void {
@@ -30,16 +35,25 @@ extension NSDate {
     }
 
     static func time(callback: @escaping () -> ()) -> Void {
-        let startDate: NSDate = NSDate.now as NSDate
+        let startDate: NSDate?
+        if #available(iOS 13.0, *) {
+            startDate = NSDate.now as NSDate
+        } else {
+            startDate = NSDate()
+        }
         callback()
-        NSLog("time: %f", -startDate.timeIntervalSinceNow)
+        NSLog("time: %f", -startDate!.timeIntervalSinceNow)
     }
     
     static func dateWithFormat(_ format: NSDateFormat) -> String {
         let formatString: String = self.stringWithFormat(format)
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = formatString
-        return formatter.string(from: NSDate.now)
+        if #available(iOS 13.0, *) {
+            return formatter.string(from: NSDate.now)
+        } else {
+            return formatter.string(from: NSDate() as Date)
+        }
     }
     
     static func dateWithString(_ aString: String, format: NSDateFormat) -> NSDate {
@@ -59,7 +73,11 @@ extension NSDate {
     }
     
     static func pastWithDays(_ days: Int, format: NSDateFormat) -> String {
-        return self.pastWithDate(NSDate.now as NSDate, days: days, format: format)
+        if #available(iOS 13.0, *) {
+            return self.pastWithDate(NSDate.now as NSDate, days: days, format: format)
+        } else {
+            return self.pastWithDate(NSDate(), days: days, format: format)
+        }
     }
     
     static func pastWithDate(_ date: NSDate, days: Int, format: NSDateFormat) -> String {
@@ -71,7 +89,11 @@ extension NSDate {
     }
     
     static func pastWithDays(_ days: Int) -> NSDate {
-        return self.pastWithDate(NSDate.now as NSDate, days: days)
+        if #available(iOS 13.0, *) {
+            return self.pastWithDate(NSDate.now as NSDate, days: days)
+        } else {
+            return self.pastWithDate(NSDate(), days: days)
+        }
     }
     
     static func pastWithDate(_ date: NSDate, days: Int) -> NSDate {
