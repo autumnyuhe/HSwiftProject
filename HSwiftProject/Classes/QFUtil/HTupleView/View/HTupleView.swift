@@ -736,7 +736,7 @@ extension HTupleView {
         DispatchQueue.main.async {
             let items = self.numberOfItems(inSection: section)
             for i in 0..<items {
-                let cell: HTupleBaseCell = self.allReuseCells.object(forKey: IndexPath.stringValue(i, section) as NSString) as! HTupleBaseCell
+                let cell = self.allReuseCells.object(forKey: IndexPath.stringValue(i, section) as NSString) as! HTupleBaseCell
                 if cell.signalBlock != nil {
                     cell.signalBlock!(cell, signal)
                 }
@@ -745,7 +745,7 @@ extension HTupleView {
     }
 
     func signal(_ signal: HTupleSignal, toRow row: Int, inSection section: Int) {
-        let cell: HTupleBaseCell = self.allReuseCells.object(forKey: indexPath(row, section).stringValue as NSString) as! HTupleBaseCell
+        let cell = self.allReuseCells.object(forKey: indexPath(row, section).stringValue as NSString) as! HTupleBaseCell
         if cell.signalBlock != nil {
             DispatchQueue.main.async {
                 cell.signalBlock!(cell, signal)
@@ -758,7 +758,7 @@ extension HTupleView {
         DispatchQueue.main.async {
             let sections = self.numberOfSections
             for i in 0..<sections {
-                let header: HTupleBaseApex = self.allReuseCells.object(forKey: IndexPath.stringValue(0, i) as NSString) as! HTupleBaseApex
+                let header = self.allReuseCells.object(forKey: IndexPath.stringValue(0, i) as NSString) as! HTupleBaseApex
                 if header.signalBlock != nil {
                     header.signalBlock!(header, signal)
                 }
@@ -767,7 +767,7 @@ extension HTupleView {
     }
 
     func signal(_ signal: HTupleSignal, headerSection section: Int) {
-        let header: HTupleBaseApex = self.allReuseCells.object(forKey: IndexPath.stringValue(0, section) as NSString) as! HTupleBaseApex
+        let header = self.allReuseCells.object(forKey: IndexPath.stringValue(0, section) as NSString) as! HTupleBaseApex
         if header.signalBlock != nil {
             DispatchQueue.main.async {
                 header.signalBlock!(header, signal)
@@ -780,7 +780,7 @@ extension HTupleView {
         DispatchQueue.main.async {
             let sections = self.numberOfSections
             for i in 0..<sections {
-                let footer: HTupleBaseApex = self.allReuseCells.object(forKey: IndexPath.stringValue(0, i) as NSString) as! HTupleBaseApex
+                let footer = self.allReuseCells.object(forKey: IndexPath.stringValue(0, i) as NSString) as! HTupleBaseApex
                 if footer.signalBlock != nil {
                     footer.signalBlock!(footer, signal)
                 }
@@ -789,7 +789,7 @@ extension HTupleView {
     }
 
     func signal(_ signal: HTupleSignal, footerSection section: Int) {
-        let footer: HTupleBaseApex = self.allReuseCells.object(forKey: IndexPath.stringValue(0, section) as NSString) as! HTupleBaseApex
+        let footer = self.allReuseCells.object(forKey: IndexPath.stringValue(0, section) as NSString) as! HTupleBaseApex
         if footer.signalBlock != nil {
             DispatchQueue.main.async {
                 footer.signalBlock!(footer, signal)
