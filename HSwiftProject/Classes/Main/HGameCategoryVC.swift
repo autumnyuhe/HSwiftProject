@@ -41,8 +41,8 @@ class HGameCategoryVC : HViewController, HTupleViewDelegate {
         self.view.addSubview(self.tupleView)
     }
     
-    @objc func tuple0_numberOfSectionsInTupleView() -> NSInt {
-        return NSInt(value: 3)
+    @objc func tuple0_numberOfSectionsInTupleView() -> Any {
+        return 3
     }
 
 }

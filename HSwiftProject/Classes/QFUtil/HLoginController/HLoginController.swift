@@ -18,38 +18,38 @@ class HLoginController: HTupleController {
         self.tupleView.delegate = self
     }
 
-    func numberOfSectionsInTupleView() -> NSInt {
-        return NSInt(value: 1)
+    func numberOfSectionsInTupleView() -> Any {
+        return 1
     }
-    func numberOfItemsInSection(_ section: NSInt) -> NSInt {
-        return NSInt(value: 6)
+    func numberOfItemsInSection(_ section: Any) -> Any {
+        return 6
     }
-    func sizeForItemAtIndexPath(_ indexPath: IndexPath) -> NSSize {
+    func sizeForItemAtIndexPath(_ indexPath: IndexPath) -> Any {
         switch (indexPath.row) {
-            case 0:return CGSizeMake(self.tupleView.width, 60).sizeValue
-            case 1:return CGSizeMake(self.tupleView.width, 60).sizeValue
-            case 2:return CGSizeMake(self.tupleView.width, 60).sizeValue
-            case 3:return CGSizeMake(self.tupleView.width, 40).sizeValue
-            case 4:return CGSizeMake(self.tupleView.width, 45).sizeValue
-            case 5:return CGSizeMake(self.tupleView.width, 20).sizeValue
-            default:return CGSizeZero.sizeValue
+            case 0:return CGSizeMake(self.tupleView.width, 60)
+            case 1:return CGSizeMake(self.tupleView.width, 60)
+            case 2:return CGSizeMake(self.tupleView.width, 60)
+            case 3:return CGSizeMake(self.tupleView.width, 40)
+            case 4:return CGSizeMake(self.tupleView.width, 45)
+            case 5:return CGSizeMake(self.tupleView.width, 20)
+            default:return CGSizeZero
         }
     }
-    func edgeInsetsForItemAtIndexPath(_ indexPath: IndexPath) -> NSEdgeInsets {
+    func edgeInsetsForItemAtIndexPath(_ indexPath: IndexPath) -> Any {
         switch (indexPath.row) {
-            case 0:return UIEdgeInsetsMake(15, 0, 0, 0).edgeInsetsValue
-            case 1:return UIEdgeInsetsMake(15, 0, 0, 0).edgeInsetsValue
-            case 2:return UIEdgeInsetsMake(15, 0, 0, 0).edgeInsetsValue
-            case 3:return UIEdgeInsetsMake(0, 15, 0, 15).edgeInsetsValue
-            case 4:return UIEdgeInsetsMake(0, 15, 0, 15).edgeInsetsValue
-            case 5:return UIEdgeInsetsMake(5, 15, 0, 0).edgeInsetsValue
-            default:return UIEdgeInsetsZero.edgeInsetsValue
+            case 0:return UIEdgeInsetsMake(15, 0, 0, 0)
+            case 1:return UIEdgeInsetsMake(15, 0, 0, 0)
+            case 2:return UIEdgeInsetsMake(15, 0, 0, 0)
+            case 3:return UIEdgeInsetsMake(0, 15, 0, 15)
+            case 4:return UIEdgeInsetsMake(0, 15, 0, 15)
+            case 5:return UIEdgeInsetsMake(5, 15, 0, 0)
+            default:return UIEdgeInsetsZero
         }
     }
-    func tupleItem(_ itemObject: NSTupleItem, atIndexPath indexPath: IndexPath) {
+    func tupleItem(_ itemBlock: Any, atIndexPath indexPath: IndexPath) {
         switch (indexPath.row) {
             case 0:
-                let cell = itemObject.itemBlock(nil, HTupleTextFieldCell.self, nil, true) as! HTupleTextFieldCell
+                let cell = (itemBlock as! HTupleItem)(nil, HTupleTextFieldCell.self, nil, true) as! HTupleTextFieldCell
                 cell.textField.backgroundColor = UIColor(hex:"#F2F2F2")
 
                 cell.textField.leftWidth = 80
@@ -65,7 +65,7 @@ class HLoginController: HTupleController {
 
                 } as? HTupleCellSignalBlock
             case 1:
-                let cell = itemObject.itemBlock(nil, HTupleTextFieldCell.self, nil, true) as! HTupleTextFieldCell
+                let cell = (itemBlock as! HTupleItem)(nil, HTupleTextFieldCell.self, nil, true) as! HTupleTextFieldCell
                 cell.textField.backgroundColor = UIColor(hex:"#F2F2F2")
 
                 cell.textField.leftWidth = 80
@@ -80,7 +80,7 @@ class HLoginController: HTupleController {
 
                 } as? HTupleCellSignalBlock
             case 2:
-                let cell = itemObject.itemBlock(nil, HTupleTextFieldCell.self, nil, true) as! HTupleTextFieldCell
+                let cell = (itemBlock as! HTupleItem)(nil, HTupleTextFieldCell.self, nil, true) as! HTupleTextFieldCell
                 cell.textField.backgroundColor = UIColor(hex:"#F2F2F2")
 
                 cell.textField.leftWidth = 80
@@ -103,9 +103,9 @@ class HLoginController: HTupleController {
 
                 } as? HTupleCellSignalBlock
             case 3:
-                _ = itemObject.itemBlock(nil, HTupleBaseCell.self, nil, true)
+                _ = (itemBlock as! HTupleItem)(nil, HTupleBaseCell.self, nil, true)
             case 4:
-                let cell = itemObject.itemBlock(nil, HTupleButtonCell.self, nil, true) as! HTupleButtonCell
+                let cell = (itemBlock as! HTupleItem)(nil, HTupleButtonCell.self, nil, true) as! HTupleButtonCell
                 cell.buttonView.backgroundColor = UIColor(hex:"#CCCCCC")
                 cell.buttonView.text = "登录"
                 cell.buttonView.pressed = { (_ send: AnyObject, _ data: AnyObject) in
@@ -117,7 +117,7 @@ class HLoginController: HTupleController {
                 } as? HTupleCellSignalBlock
             case 5:
 
-                let cell = itemObject.itemBlock(nil, HServiceAuthorizationCell.self, nil, true) as! HServiceAuthorizationCell
+                let cell = (itemBlock as! HTupleItem)(nil, HServiceAuthorizationCell.self, nil, true) as! HServiceAuthorizationCell
 
                 cell.serviceAgreementBlock = {
 
@@ -129,7 +129,7 @@ class HLoginController: HTupleController {
                 } as? HTupleCellSignalBlock
 
             default:
-                _ = itemObject.itemBlock(nil, HTupleBaseCell.self, nil, true)
+                _ = (itemBlock as! HTupleItem)(nil, HTupleBaseCell.self, nil, true)
         }
     }
 

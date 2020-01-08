@@ -65,24 +65,24 @@ class HTupleAppearance : NSObject {
 }
 
 @objc protocol HTupleViewDelegate : UICollectionViewDelegate {
-    @objc optional func numberOfSectionsInTupleView() -> NSInt
-    @objc optional func numberOfItemsInSection(_ section: NSInt) -> NSInt
+    @objc optional func numberOfSectionsInTupleView() -> Any
+    @objc optional func numberOfItemsInSection(_ section: Any) -> Any
     ///layout == HCollectionViewFlowLayout
-    @objc optional func colorForSection(_ section: NSInt) -> UIColor
+    @objc optional func colorForSection(_ section: Any) -> UIColor
 
-    @objc optional func sizeForHeaderInSection(_ section: NSInt) -> NSSize
-    @objc optional func sizeForFooterInSection(_ section: NSInt) -> NSSize
-    @objc optional func sizeForItemAtIndexPath(_ indexPath: IndexPath) -> NSSize
+    @objc optional func sizeForHeaderInSection(_ section: Any) -> Any
+    @objc optional func sizeForFooterInSection(_ section: Any) -> Any
+    @objc optional func sizeForItemAtIndexPath(_ indexPath: IndexPath) -> Any
 
-    @objc optional func edgeInsetsForHeaderInSection(_ section: NSInt) -> NSEdgeInsets
-    @objc optional func edgeInsetsForFooterInSection(_ section: NSInt) -> NSEdgeInsets
-    @objc optional func edgeInsetsForItemAtIndexPath(_ indexPath: IndexPath) -> NSEdgeInsets
+    @objc optional func edgeInsetsForHeaderInSection(_ section: Any) -> Any
+    @objc optional func edgeInsetsForFooterInSection(_ section: Any) -> Any
+    @objc optional func edgeInsetsForItemAtIndexPath(_ indexPath: IndexPath) -> Any
 
-    @objc optional func insetForSection(_ section: NSInt) -> NSEdgeInsets
+    @objc optional func insetForSection(_ section: Any) -> Any
 
-    @objc optional func tupleHeader(_ headerObject: NSTupleHeader, inSection section: NSInt)
-    @objc optional func tupleFooter(_ footerObject: NSTupleFooter, inSection section: NSInt)
-    @objc optional func tupleItem(_ itemObject: NSTupleItem, atIndexPath indexPath: IndexPath)
+    @objc optional func tupleHeader(_ headerBlock: Any, inSection section: Any)
+    @objc optional func tupleFooter(_ footerBlock: Any, inSection section: Any)
+    @objc optional func tupleItem(_ itemBlock: Any, atIndexPath indexPath: IndexPath)
 
     @objc optional func willDisplayCell(_ cell: UICollectionViewCell, atIndexPath indexPath: IndexPath)
     @objc optional func didSelectItemAtIndexPath(_ indexPath: IndexPath)
@@ -422,7 +422,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         let prefix = self.prefixWithSection(idxPath.section)
         let selector: Selector = #selector(self.tupleDelegate!.edgeInsetsForHeaderInSection(_:))
         if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
-            edgeInsets = (self.tupleDelegate!.performWithUnretainedValue(selector, with: NSInt(value: idxPath.section), withPre: prefix) as! NSEdgeInsets).edgeInsetsValue
+            edgeInsets = self.tupleDelegate!.performWithUnretainedValue(selector, with: idxPath.section, withPre: prefix) as! UIEdgeInsets
         }
         //设置属性
         if cell.responds(to: #selector(setter: cell.edgeInsets)) {
@@ -463,7 +463,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         let prefix = self.prefixWithSection(idxPath.section)
         let selector = #selector(self.tupleDelegate!.edgeInsetsForFooterInSection(_:))
         if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
-            edgeInsets = (self.tupleDelegate!.performWithUnretainedValue(selector, with: NSInt(value: idxPath.section), withPre: prefix) as! NSEdgeInsets).edgeInsetsValue
+            edgeInsets = self.tupleDelegate!.performWithUnretainedValue(selector, with: idxPath.section, withPre: prefix) as! UIEdgeInsets
         }
         //设置属性
         if cell.responds(to: #selector(setter: cell.edgeInsets)) {
@@ -503,7 +503,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         let prefix = self.prefixWithSection(idxPath.section)
         let selector = #selector(self.tupleDelegate!.edgeInsetsForItemAtIndexPath(_:))
         if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
-            edgeInsets = (self.tupleDelegate!.performWithUnretainedValue(selector, with: idxPath, withPre: prefix) as! NSEdgeInsets).edgeInsetsValue
+            edgeInsets = self.tupleDelegate!.performWithUnretainedValue(selector, with: idxPath, withPre: prefix) as! UIEdgeInsets
         }
         //设置属性
         if cell.responds(to: #selector(setter: cell.edgeInsets)) {
@@ -537,7 +537,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
             let prefix = ""
             let selector = #selector(self.tupleDelegate!.numberOfSectionsInTupleView)
             if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
-                sections = (self.tupleDelegate!.performWithUnretainedValue(selector, withPre: prefix) as! NSInt).intValue
+                sections = self.tupleDelegate!.performWithUnretainedValue(selector, withPre: prefix) as! Int
             }
             return sections
         case .split:
@@ -545,7 +545,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
             let prefix = KTupleDesignKey+"\(self.tupleState)"+"_"
             let selector = #selector(self.tupleDelegate!.numberOfSectionsInTupleView)
             if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
-                sections = (self.tupleDelegate!.performWithUnretainedValue(selector, withPre: prefix) as! NSInt).intValue
+                sections = self.tupleDelegate!.performWithUnretainedValue(selector, withPre: prefix) as! Int
             }
             return sections
         }
@@ -556,7 +556,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         let prefix = self.prefixWithSection(section)
         let selector: Selector = #selector(self.tupleDelegate!.numberOfItemsInSection(_:))
         if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
-            items = (self.tupleDelegate!.performWithUnretainedValue(selector, with: NSInt(value: section), withPre: prefix) as! NSInt).intValue
+            items = self.tupleDelegate!.performWithUnretainedValue(selector, with: section, withPre: prefix) as! Int
         }
         let edgeInsets = self.collectionView(self, layout: self.flowLayout!, insetForSectionAt: section)
         self.allSectionInsets.setObject(NSStringFromUIEdgeInsets(edgeInsets) as AnyObject, forKey: "\(section)" as NSString)
@@ -568,7 +568,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         let prefix = self.prefixWithSection(section)
         let selector = #selector(self.tupleDelegate!.colorForSection(_:))
         if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
-            return self.tupleDelegate!.performWithUnretainedValue(selector, with: NSInt(value: section), withPre: prefix) as! UIColor
+            return self.tupleDelegate!.performWithUnretainedValue(selector, with: section, withPre: prefix) as! UIColor
         }
         return UIColor.clear
     }
@@ -585,7 +585,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         let prefix = self.prefixWithSection(section)
         let selector = #selector(self.tupleDelegate!.insetForSection(_:))
         if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
-            return (self.tupleDelegate!.performWithUnretainedValue(selector, with: NSInt(value: section), withPre: prefix) as! NSEdgeInsets).edgeInsetsValue
+            return self.tupleDelegate!.performWithUnretainedValue(selector, with: section, withPre: prefix) as! UIEdgeInsets
         }
         return UIEdgeInsetsZero
     }
@@ -595,7 +595,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         let prefix = self.prefixWithSection(section)
         let selector = #selector(self.tupleDelegate!.sizeForHeaderInSection(_:))
         if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
-            size = (self.tupleDelegate!.performWithUnretainedValue(selector, with: NSInt(value: section), withPre: prefix) as! NSSize).sizeValue
+            size = self.tupleDelegate!.performWithUnretainedValue(selector, with: section, withPre: prefix) as! CGSize
         }
         return UISizeIntegral(size)
     }
@@ -605,7 +605,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         let prefix = self.prefixWithSection(section)
         let selector = #selector(self.tupleDelegate!.sizeForFooterInSection(_:))
         if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
-            size = (self.tupleDelegate!.performWithUnretainedValue(selector, with: NSInt(value: section), withPre: prefix) as! NSSize).sizeValue
+            size = self.tupleDelegate!.performWithUnretainedValue(selector, with: section, withPre: prefix) as! CGSize
         }
         return UISizeIntegral(size)
     }
@@ -615,7 +615,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         let prefix = self.prefixWithSection(indexPath.section)
         let selector = #selector(self.tupleDelegate!.sizeForItemAtIndexPath(_:))
         if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
-            size = (self.tupleDelegate!.performWithUnretainedValue(selector, with: indexPath, withPre: prefix) as! NSSize).sizeValue
+            size = self.tupleDelegate!.performWithUnretainedValue(selector, with: indexPath, withPre: prefix) as! CGSize
         }
         //不能为CGSizeZero，否则会崩溃
         if CGSizeZero == size {
@@ -628,12 +628,11 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         //调用代理方法
         let prefix = self.prefixWithSection(indexPath.section)
         let selector: Selector = #selector(self.tupleDelegate!.tupleItem(_:atIndexPath:))
-        let cellObject = NSTupleItem()
-        cellObject.itemBlock =  { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) in
+        let itemBlock = { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) in
             return self.dequeueReusableCellWithClass(cls, iblk: iblk, pre: pre, idx: idx, idxPath: indexPath)
         }
         if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
-            self.tupleDelegate!.performWithUnretainedValue(selector, with: cellObject, with: indexPath, withPre: prefix)
+            self.tupleDelegate!.performWithUnretainedValue(selector, with: itemBlock, with: indexPath, withPre: prefix)
         }
         //调用cell
         let cell = self.allReuseCells.object(forKey: indexPath.stringValue as NSString) as! HTupleBaseCell
@@ -650,12 +649,11 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
             //调用代理方法
             let prefix = self.prefixWithSection(indexPath.section)
             let selector: Selector = #selector(self.tupleDelegate!.tupleHeader(_:inSection:))
-            let cellObject = NSTupleHeader()
-            cellObject.headerBlock = { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) -> AnyObject in
+            let headerBlock = { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) -> AnyObject in
                 return self.dequeueReusableHeaderWithClass(cls, iblk: iblk, pre: pre, idx: idx, idxPath: indexPath)
             }
             if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
-                self.tupleDelegate!.performWithUnretainedValue(selector, with: cellObject, with: NSInt(value: indexPath.section), withPre: prefix)
+                self.tupleDelegate!.performWithUnretainedValue(selector, with: headerBlock, with: indexPath.section, withPre: prefix)
             }
             //调用cell
             cell = self.allReuseHeaders.object(forKey: indexPath.stringValue as NSString) as? HTupleBaseApex
@@ -663,12 +661,11 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
             //调用代理方法
             let prefix = self.prefixWithSection(indexPath.section)
             let selector: Selector = #selector(self.tupleDelegate!.tupleFooter(_:inSection:))
-            let cellObject = NSTupleFooter()
-            cellObject.footerBlock = { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) -> AnyObject in
+            let footerBlock = { (_ iblk: AnyObject?, _ cls: AnyClass, _ pre: String?, _ idx: Bool ) -> AnyObject in
                 return self.dequeueReusableFooterWithClass(cls, iblk: iblk, pre: pre, idx: idx, idxPath: indexPath)
             }
             if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
-                self.tupleDelegate!.performWithUnretainedValue(selector, with: cellObject, with: NSInt(value: indexPath.section), withPre: prefix)
+                self.tupleDelegate!.performWithUnretainedValue(selector, with: footerBlock, with: indexPath.section, withPre: prefix)
             }
             //调用cell
             cell = self.allReuseFooters.object(forKey: indexPath.stringValue as NSString) as? HTupleBaseApex

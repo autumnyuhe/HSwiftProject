@@ -10,17 +10,17 @@ import UIKit
 
 extension HGameCategoryVC {
 
-    @objc func tupleExa2_numberOfItemsInSection(_ section: NSInt) -> NSInt {
-        return NSInt(value: 1)
+    @objc func tupleExa2_numberOfItemsInSection(_ section: Any) -> Any {
+        return 1
     }
-    @objc func tupleExa2_sizeForItemAtIndexPath(_ indexPath: IndexPath) -> NSSize {
-        return CGSizeMake(self.tupleView.width, 65).sizeValue
+    @objc func tupleExa2_sizeForItemAtIndexPath(_ indexPath: IndexPath) -> Any {
+        return CGSizeMake(self.tupleView.width, 65)
     }
-    @objc func tupleExa2_edgeInsetsForItemAtIndexPath(_ indexPath: IndexPath) -> NSEdgeInsets {
-        return UIEdgeInsetsMake(10, 10, 10, 10).edgeInsetsValue
+    @objc func tupleExa2_edgeInsetsForItemAtIndexPath(_ indexPath: IndexPath) -> Any {
+        return UIEdgeInsetsMake(10, 10, 10, 10)
     }
-    @objc func tupleExa2_tupleItem(_ itemObject: NSTupleItem, atIndexPath indexPath: IndexPath) {
-        let cell = itemObject.itemBlock(nil, HTupleViewCell.self, nil, true) as! HTupleViewCell
+    @objc func tupleExa2_tupleItem(_ itemBlock: Any, atIndexPath indexPath: IndexPath) {
+        let cell = (itemBlock as! HTupleItem)(nil, HTupleViewCell.self, nil, true) as! HTupleViewCell
         cell.backgroundColor = UIColor.gray
         cell.isShouldShowSeparator = true
         cell.separatorInset = UILREdgeInsetsMake(10, 10)

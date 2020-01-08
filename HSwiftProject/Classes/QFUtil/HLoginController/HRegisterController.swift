@@ -98,20 +98,20 @@ class HRegisterController: HViewController, HTupleViewDelegate {
         return tabBar
     }
 
-    @objc func tupleExa0_numberOfItemsInSection(_ section: NSInt) -> NSInt {
-        return NSInt(value: 1)
+    @objc func tupleExa0_numberOfItemsInSection(_ section: Any) -> Any {
+        return 1
     }
-    @objc func tupleExa0_sizeForHeaderInSection(_ section: NSInt) -> NSSize {
-        return CGSizeMake(self.tupleView.width, 10).sizeValue
+    @objc func tupleExa0_sizeForHeaderInSection(_ section: Any) -> Any {
+        return CGSizeMake(self.tupleView.width, 10)
     }
-    @objc func tupleExa0_sizeForItemAtIndexPath(_ indexPath: IndexPath) -> NSSize {
-        return CGSizeMake(self.tupleView.width, 55).sizeValue
+    @objc func tupleExa0_sizeForItemAtIndexPath(_ indexPath: IndexPath) -> Any {
+        return CGSizeMake(self.tupleView.width, 55)
     }
-    @objc func tupleExa0_tupleHeader(_ headerObject: NSTupleHeader, inSection section: NSInt) {
-        _ = headerObject.headerBlock(nil, HTupleBaseApex.self, nil, false)
+    @objc func tupleExa0_tupleHeader(_ headerBlock: Any, inSection section: Any) {
+        _ = (headerBlock as! HTupleHeader)(nil, HTupleBaseApex.self, nil, false)
     }
-    @objc func tupleExa0_tupleItem(_ itemObject: NSTupleItem, atIndexPath indexPath: IndexPath) {
-        let cell = itemObject.itemBlock(nil, HTupleBaseCell.self, nil, true) as! HTupleBaseCell
+    @objc func tupleExa0_tupleItem(_ itemBlock: Any, atIndexPath indexPath: IndexPath) {
+        let cell = (itemBlock as! HTupleItem)(nil, HTupleBaseCell.self, nil, true) as! HTupleBaseCell
         let tabBar = cell.viewWithTag(12345) as? HTabBar
         if tabBar == nil {
             cell.addSubview(self.tabBarView)

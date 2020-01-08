@@ -19,58 +19,58 @@ class HMainController1: HTupleController {
         self.tupleView.delegate = self
     }
 
-    func numberOfSectionsInTupleView() -> NSInt {
-        return NSInt(value: 1)
+    func numberOfSectionsInTupleView() -> Any {
+        return 1
     }
-    func numberOfItemsInSection(_ section: NSInt) -> NSInt {
-        return NSInt(value: 8)
+    func numberOfItemsInSection(_ section: Any) -> Any {
+        return 8
     }
-    func insetForSection(_ section: NSInt) -> NSEdgeInsets {
-        return UIEdgeInsetsMake(0, 10, 0, 10).edgeInsetsValue
+    func insetForSection(_ section: Any) -> Any {
+        return UIEdgeInsetsMake(0, 10, 0, 10)
     }
-    func colorForSection(_ section: NSInt) -> UIColor {
+    func colorForSection(_ section: Any) -> UIColor {
         return UIColor.red
     }
-    func sizeForItemAtIndexPath(_ indexPath: IndexPath) -> NSSize {
+    func sizeForItemAtIndexPath(_ indexPath: IndexPath) -> Any {
         switch indexPath.row {
         case 0:
-            return CGSizeMake(self.tupleView.widthForSection(indexPath.section), 65).sizeValue
+            return CGSizeMake(self.tupleView.widthForSection(indexPath.section), 65)
         case 1:
-            return CGSizeMake(self.tupleView.widthForSection(indexPath.section), 65).sizeValue
+            return CGSizeMake(self.tupleView.widthForSection(indexPath.section), 65)
         case 2:
-            return CGSizeMake(self.tupleView.widthForSection(indexPath.section), 65).sizeValue
+            return CGSizeMake(self.tupleView.widthForSection(indexPath.section), 65)
         case 3:
             var width: CGFloat = self.tupleView.widthForSection(indexPath.section)
             width = self.tupleView.fixSlitWith(width, colCount: 3, index: indexPath.row-3)
-            return CGSizeMake(width, 120).sizeValue
+            return CGSizeMake(width, 120)
         case 4:
             var width: CGFloat = self.tupleView.widthForSection(indexPath.section)
             width = self.tupleView.fixSlitWith(width, colCount: 3, index: indexPath.row-3)
-            return CGSizeMake(width, 120).sizeValue
+            return CGSizeMake(width, 120)
         case 5:
             var width: CGFloat = self.tupleView.widthForSection(indexPath.section)
             width = self.tupleView.fixSlitWith(width, colCount: 3, index: indexPath.row-3)
-            return CGSizeMake(width, 120).sizeValue
+            return CGSizeMake(width, 120)
         default:
-            return CGSizeMake(self.tupleView.widthForSection(indexPath.section), 65).sizeValue
+            return CGSizeMake(self.tupleView.widthForSection(indexPath.section), 65)
         }
     }
-    func edgeInsetsForItemAtIndexPath(_ indexPath: IndexPath) -> NSEdgeInsets {
+    func edgeInsetsForItemAtIndexPath(_ indexPath: IndexPath) -> Any {
         switch (indexPath.row) {
             case 3:
-                return UIEdgeInsetsMake(10, 10, 10, 5).edgeInsetsValue
+                return UIEdgeInsetsMake(10, 10, 10, 5)
             case 4:
-                return UIEdgeInsetsMake(10, 5, 10, 5).edgeInsetsValue
+                return UIEdgeInsetsMake(10, 5, 10, 5)
             case 5:
-                return UIEdgeInsetsMake(10, 5, 10, 10).edgeInsetsValue
+                return UIEdgeInsetsMake(10, 5, 10, 10)
             default:
-                return UIEdgeInsetsMake(10, 10, 10, 10).edgeInsetsValue
+                return UIEdgeInsetsMake(10, 10, 10, 10)
         }
     }
-    func tupleItem(_ itemObject: NSTupleItem, atIndexPath indexPath: IndexPath) {
+    func tupleItem(_ itemBlock: Any, atIndexPath indexPath: IndexPath) {
         switch indexPath.row {
             case 0:
-                let cell = itemObject.itemBlock(nil, HTupleViewCellHoriValue4.self, nil, true) as! HTupleViewCellHoriValue4
+                let cell = (itemBlock as! HTupleItem)(nil, HTupleViewCellHoriValue4.self, nil, true) as! HTupleViewCellHoriValue4
                 cell.backgroundColor = UIColor.gray
                 cell.isShouldShowSeparator = true
                 cell.separatorInset = UILREdgeInsetsMake(10, 10)
@@ -105,7 +105,7 @@ class HMainController1: HTupleController {
 
                 } as? HTupleCellSignalBlock
             case 1:
-                let cell = itemObject.itemBlock(nil, HTupleViewCellHoriValue4.self, nil, true) as! HTupleViewCellHoriValue4
+                let cell = (itemBlock as! HTupleItem)(nil, HTupleViewCellHoriValue4.self, nil, true) as! HTupleViewCellHoriValue4
                 cell.backgroundColor = UIColor.gray
                 cell.isShouldShowSeparator = true
                 cell.separatorInset = UILREdgeInsetsMake(10, 10)
@@ -125,7 +125,7 @@ class HMainController1: HTupleController {
                 //发送信号
                 //self.tupleView signal:nil indexPath:NSIndexPath.getValue(0, 0)
             case 2:
-                let cell = itemObject.itemBlock(nil, HTupleViewCellHoriValue4.self, nil, true) as! HTupleViewCellHoriValue4
+                let cell = (itemBlock as! HTupleItem)(nil, HTupleViewCellHoriValue4.self, nil, true) as! HTupleViewCellHoriValue4
                 cell.backgroundColor = UIColor.gray
                 cell.isShouldShowSeparator = true
                 cell.separatorInset = UILREdgeInsetsMake(10, 10)
@@ -142,7 +142,7 @@ class HMainController1: HTupleController {
 
                 cell.detailLabel.backgroundColor = UIColor.yellow
             case 3:
-                let cell = itemObject.itemBlock(nil, HTupleViewCellVertValue1.self, nil, true) as! HTupleViewCellVertValue1
+                let cell = (itemBlock as! HTupleItem)(nil, HTupleViewCellVertValue1.self, nil, true) as! HTupleViewCellVertValue1
                 cell.backgroundColor = UIColor.gray
                 cell.isShouldShowSeparator = true
                 cell.separatorInset = UILREdgeInsetsMake(10, 0)
@@ -155,7 +155,7 @@ class HMainController1: HTupleController {
                 cell.label.textAlignment = .center
                 cell.label.text = "黑客帝国"
             case 4:
-                let cell = itemObject.itemBlock(nil, HTupleViewCellVertValue1.self, nil, true) as! HTupleViewCellVertValue1
+                let cell = (itemBlock as! HTupleItem)(nil, HTupleViewCellVertValue1.self, nil, true) as! HTupleViewCellVertValue1
                 cell.backgroundColor = UIColor.gray
                 cell.isShouldShowSeparator = true
 
@@ -167,7 +167,7 @@ class HMainController1: HTupleController {
                 cell.label.textAlignment = .center
                 cell.label.text = "黑客帝国"
             case 5:
-                let cell = itemObject.itemBlock(nil, HTupleViewCellVertValue1.self, nil, true) as! HTupleViewCellVertValue1
+                let cell = (itemBlock as! HTupleItem)(nil, HTupleViewCellVertValue1.self, nil, true) as! HTupleViewCellVertValue1
                 cell.backgroundColor = UIColor.gray
                 cell.isShouldShowSeparator = true
                 cell.separatorInset = UILREdgeInsetsMake(0, 10)
@@ -180,7 +180,7 @@ class HMainController1: HTupleController {
                 cell.label.textAlignment = .center
                 cell.label.text = "黑客帝国"
             case 6:
-                let cell = itemObject.itemBlock(nil, HTupleViewCellHoriValue3.self, nil, true) as! HTupleViewCellHoriValue3
+                let cell = (itemBlock as! HTupleItem)(nil, HTupleViewCellHoriValue3.self, nil, true) as! HTupleViewCellHoriValue3
                 cell.backgroundColor = UIColor.gray
                 cell.isShouldShowSeparator = true
                 cell.separatorInset = UILREdgeInsetsMake(10, 10)
@@ -199,7 +199,7 @@ class HMainController1: HTupleController {
                 cell.accessoryLabel.text = "accessoryLabel"
                 cell.accessoryLabel.textAlignment = .center
             case 7:
-                let cell = itemObject.itemBlock(nil, HTupleTextFieldCell.self, nil, true) as! HTupleTextFieldCell
+                let cell = (itemBlock as! HTupleItem)(nil, HTupleTextFieldCell.self, nil, true) as! HTupleTextFieldCell
                 cell.backgroundColor = UIColor.gray
                 cell.textField.backgroundColor = UIColor.red
 
