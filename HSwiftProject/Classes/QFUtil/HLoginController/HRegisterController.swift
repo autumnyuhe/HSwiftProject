@@ -64,7 +64,7 @@ class HRegisterController: HViewController, HTupleViewDelegate {
         
         //@www
         tabBar.tabbardSelectedBlock = { (_ idx: Int) in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
                 //@sss
                 switch (idx) {
                     case 0:
@@ -75,7 +75,7 @@ class HRegisterController: HViewController, HTupleViewDelegate {
                         item2.backgroundColor = UIColor.yellow
                     default: break
                 }
-                self.tupleView.tupleState = idx
+                self?.tupleView.tupleState = idx
             }
         }
         
