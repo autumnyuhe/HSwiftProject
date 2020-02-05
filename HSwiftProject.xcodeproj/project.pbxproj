@@ -98,6 +98,7 @@
 		A26D434323877F0A00F457AE /* UIControl+HSafeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26D434223877F0A00F457AE /* UIControl+HSafeUtil.swift */; };
 		A26D43452387827A00F457AE /* NSObject+HForwarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26D43442387827A00F457AE /* NSObject+HForwarding.swift */; };
 		A26D434923879FB900F457AE /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26D434823879FB900F457AE /* Router.swift */; };
+		A286251623EAB8DD00E81781 /* HCountDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A286251523EAB8DD00E81781 /* HCountDownButton.swift */; };
 		A28923A2238B72F800E4AB75 /* HTupleBaseApex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2892396238B72F800E4AB75 /* HTupleBaseApex.swift */; };
 		A28923A3238B72F800E4AB75 /* HTupleBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2892398238B72F800E4AB75 /* HTupleBaseCell.swift */; };
 		A28923A4238B72F800E4AB75 /* HGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A289239A238B72F800E4AB75 /* HGeometry.swift */; };
@@ -262,6 +263,7 @@
 		A26D434223877F0A00F457AE /* UIControl+HSafeUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+HSafeUtil.swift"; sourceTree = "<group>"; };
 		A26D43442387827A00F457AE /* NSObject+HForwarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+HForwarding.swift"; sourceTree = "<group>"; };
 		A26D434823879FB900F457AE /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		A286251523EAB8DD00E81781 /* HCountDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCountDownButton.swift; sourceTree = "<group>"; };
 		A2892396238B72F800E4AB75 /* HTupleBaseApex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTupleBaseApex.swift; sourceTree = "<group>"; };
 		A2892398238B72F800E4AB75 /* HTupleBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTupleBaseCell.swift; sourceTree = "<group>"; };
 		A289239A238B72F800E4AB75 /* HGeometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HGeometry.swift; sourceTree = "<group>"; };
@@ -579,6 +581,7 @@
 			isa = PBXGroup;
 			children = (
 				A28923AD238B750000E4AB75 /* HTextField.swift */,
+				A286251523EAB8DD00E81781 /* HCountDownButton.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -1037,6 +1040,7 @@
 				A2188799238FD3E0005C20BF /* HGameCategoryVC+HSection2.swift in Sources */,
 				A26D43292385665700F457AE /* NSUserDefaults+HUtil.swift in Sources */,
 				A258395923B4E70F00881941 /* HTableController.swift in Sources */,
+				A286251623EAB8DD00E81781 /* HCountDownButton.swift in Sources */,
 				A265DA032394B24C001F39B0 /* HTabBarController.swift in Sources */,
 				A2294891239756770058B939 /* HTableView.swift in Sources */,
 				A22948C02397992A0058B939 /* HServiceAuthorizationCell.swift in Sources */,
