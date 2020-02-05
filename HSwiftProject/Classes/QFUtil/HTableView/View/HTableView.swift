@@ -16,6 +16,8 @@ private enum HTableStyle: Int {
 ///自定义类型
 typealias HTableState = Int
 
+private let KTableDefaultTag   = 1615141312
+
 private let KDefaultPageSize   = 20
 private let KTableDesignKey    = "table"
 private let KTableExaDesignKey = "tableExa"
@@ -137,6 +139,9 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
     private func setup() -> Void {
         //保存tableView用于全局刷新
         HTableAppearance.addTable(self)
+        
+        //设置默认tag
+        self.tag = KTableDefaultTag;
         
         self.alwaysBounceVertical = true
         self.backgroundColor = UIColor.clear

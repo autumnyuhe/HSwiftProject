@@ -21,6 +21,8 @@ private enum HTupleStyle: Int {
 ///自定义类型
 typealias HTupleState = Int
 
+private let KTupleDefaultTag   = 1213141516
+
 private let KDefaultPageSize   = 20
 private let KTupleDesignKey    = "tuple"
 private let KTupleExaDesignKey = "tupleExa"
@@ -171,6 +173,9 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
     private func setup() -> Void {
         //保存tupleView用于全局刷新
         HTupleAppearance.addTuple(self)
+        
+        //设置默认tag
+        self.tag = KTupleDefaultTag;
         
         if self.flowLayout!.scrollDirection == .vertical {
             self.verticalBounceEnabled()

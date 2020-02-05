@@ -154,6 +154,27 @@ class HViewController: UIViewController {
             self.resetTopbarFrame()
         }
     }
+    
+    override func vcWillDisappear(_ type: HVCDisappearType) {
+        if (type == .pop || type == .dismiss) {
+            //tupleView default tag 1213141516
+            let tupleView = self.view.viewWithTag(1213141516)
+            if tupleView?.isKind(of: NSClassFromString("HTupleView")!) ?? false {
+                let selector = NSSelectorFromString("releaseTupleBlock")
+                if tupleView?.responds(to: selector) ?? false {
+                    tupleView?.perform(selector)
+                }
+            }
+            //tableView default tag 1615141312
+            let tableView = self.view.viewWithTag(1615141312)
+            if tableView?.isKind(of: NSClassFromString("HTableView")!) ?? false {
+                let selector = NSSelectorFromString("releaseTableBlock")
+                if tableView?.responds(to: selector) ?? false {
+                    tableView?.perform(selector)
+                }
+            }
+        }
+    }
 
     /// 事件处理
     func back() -> Void {
