@@ -55,7 +55,6 @@ class HVerifyCodeView: UIControl {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
         self.backgroundColor = HRandColor(0.2)
         self.addTarget(self, action: #selector(verifyCodeAction), for: .touchUpInside)
         self.loadCode()
@@ -71,9 +70,7 @@ class HVerifyCodeView: UIControl {
         self.setNeedsDisplay()
     }
     private func loadCode() {
-
         let mutableString = NSMutableString()
-        
         for _ in 0..<4 {
             let index = arc4random() % UInt32(_charsArray.count-1)
             let string = _charsArray.object(at: Int(index))
