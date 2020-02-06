@@ -482,28 +482,28 @@ class HTupleViewCellHoriValue3 : HTupleViewCellHoriBase2 {
         //保存centralLayoutView的值
         let tmpFrame5: CGRect = self.centralLayoutView.bounds
         
-        //计算detailLabel的坐标
-        if self.detailWidth > 0 {
-            var tmpFrame6: CGRect = tmpFrame5
-            tmpFrame6.width = self.detailWidth
-            tmpFrame6.x += self.detailLabelInsets.left
-            tmpFrame6.width -= self.detailLabelInsets.left+self.detailLabelInsets.right
-            self.detailLabel.frame = tmpFrame6
-        }
-        
         //计算accessoryLabel的坐标
         if self.accessoryWidth > 0 {
+            var tmpFrame6: CGRect = tmpFrame5
+            tmpFrame6.size.width = self.accessoryWidth
+            tmpFrame6.origin.x += self.accessoryLabelInsets.left
+            tmpFrame6.size.width -= self.accessoryLabelInsets.left+self.accessoryLabelInsets.right
+            self.accessoryLabel.frame = tmpFrame6
+        }
+        
+        //计算detailLabel的坐标
+        if self.detailWidth > 0 {
             var tmpFrame7: CGRect = tmpFrame5
-            tmpFrame7.x = tmpFrame5.width-self.accessoryWidth
-            tmpFrame7.width = self.accessoryWidth
-            tmpFrame7.x += self.accessoryLabelInsets.left
-            tmpFrame7.width -= self.accessoryLabelInsets.left+self.accessoryLabelInsets.right
-            self.accessoryLabel.frame = tmpFrame7
+            tmpFrame7.origin.x = tmpFrame5.width-self.detailWidth
+            tmpFrame7.size.width = self.detailWidth
+            tmpFrame7.origin.x += self.detailLabelInsets.left
+            tmpFrame7.size.width -= self.detailLabelInsets.left+self.detailLabelInsets.right
+            self.detailLabel.frame = tmpFrame7
         }
         
         //计算label的坐标
         var tmpFrame8: CGRect = tmpFrame5
-        tmpFrame8.x = self.detailWidth
+        tmpFrame8.x = self.accessoryWidth
         tmpFrame8.width = tmpFrame5.width-self.detailWidth-self.accessoryWidth
         tmpFrame8.x += self.labelInsets.left
         tmpFrame8.width -= self.labelInsets.left+self.labelInsets.right
