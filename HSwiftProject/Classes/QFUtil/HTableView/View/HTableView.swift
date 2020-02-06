@@ -634,6 +634,10 @@ class HTableView : UITableView, UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = self.allReuseCells.object(forKey: indexPath.stringValue as NSString) as! HTableBaseCell
+        if cell.didSelectCell != nil {
+            cell.didSelectCell!(cell, indexPath)
+        }
         let prefix = self.prefixWithSection(indexPath.section)
         let selector = #selector(self.tableDelegate!.didSelectRowAtIndexPath(_:))
         if self.tableDelegate!.responds(to: selector, withPre: prefix) {

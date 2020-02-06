@@ -179,6 +179,10 @@ class HMainController1: HTupleController {
                 cell.labelHeight = 25
                 cell.label.textAlignment = .center
                 cell.label.text = "黑客帝国"
+            
+                cell.didSelectCell = { ( cell: HTupleViewCellVertValue1, indexPath: IndexPath) in
+                    NSLog("选中黑客帝国")
+                } as? HTupleDidSelectCell
             case 6:
                 let cell = (itemBlock as! HTupleItem)(nil, HTupleViewCellHoriValue3.self, nil, true) as! HTupleViewCellHoriValue3
                 cell.backgroundColor = UIColor.gray

@@ -9,11 +9,15 @@
 import UIKit
 
 typealias HTupleCellBlock = (_ idxPath: IndexPath) -> Void
+typealias HTupleDidSelectCell = (_ cell: HTupleBaseCell, _ indexPath: IndexPath) -> Void
 
 class HTupleBaseCell : UICollectionViewCell {
     
     ///cell所在的tuple view
     weak var tuple: UICollectionView?
+    
+    ///选中item的block
+    var didSelectCell: HTupleDidSelectCell?
     
     ///cell所在的indexPath
     var indexPath: IndexPath?

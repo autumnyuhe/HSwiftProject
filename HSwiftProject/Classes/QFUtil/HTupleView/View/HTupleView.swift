@@ -691,10 +691,15 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
     }
 
     internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let prefix = self.prefixWithSection(indexPath.section)
-        let selector = #selector(self.tupleDelegate!.didSelectItemAtIndexPath(_:))
-        if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
-            self.tupleDelegate!.performWithUnretainedValue(selector, with: indexPath, withPre: prefix)
+        let cell = self.allReuseCells.object(forKey: indexPath.stringValue as NSString) as! HTupleBaseCell
+        if cell.didSelectCell != nil {
+            cell.didSelectCell!(cell, indexPath)
+        }else {
+            let prefix = self.prefixWithSection(indexPath.section)
+            let selector = #selector(self.tupleDelegate!.didSelectItemAtIndexPath(_:))
+            if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
+                self.tupleDelegate!.performWithUnretainedValue(selector, with: indexPath, withPre: prefix)
+            }
         }
     }
     
