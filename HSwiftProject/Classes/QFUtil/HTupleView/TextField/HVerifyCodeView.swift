@@ -90,7 +90,7 @@ class HVerifyCodeView: UIControl {
         }
         let text: NSString = _verifyCodeString!
         let cSize = NSString(string: "S").size(withAttributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: textSize), NSAttributedString.Key.foregroundColor: textColor])
-        let width = rect.size.width / (CGFloat(text.length)-cSize.width)
+        let width = rect.size.width / CGFloat(text.length) - cSize.width
         let height = rect.size.height - cSize.height
         var point: CGPoint = CGPoint.zero
 
@@ -98,8 +98,7 @@ class HVerifyCodeView: UIControl {
         var pY: CGFloat = 0.0
         
         for i in 0..<text.length {
-            
-            pX = CGFloat(arc4random() % UInt32(width)) + rect.size.width/CGFloat(text.length*i)
+            pX = CGFloat(arc4random() % UInt32(width)) + rect.size.width/CGFloat(text.length)*CGFloat(i)
             pY = CGFloat(arc4random() % UInt32(height))
             point = CGPoint(x: pX, y: pY)
             let c = text.character(at: i)

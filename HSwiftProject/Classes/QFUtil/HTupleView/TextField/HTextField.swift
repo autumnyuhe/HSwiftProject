@@ -79,6 +79,29 @@ class HTextField : UITextField, UITextFieldDelegate {
         }
         return _rightButton!
     }
+    
+    private var _rightCountDownButton: HCountDownButton?
+    var rightCountDownButton: HCountDownButton {
+        if _rightCountDownButton == nil {
+            _rightCountDownButton = HCountDownButton()
+            _rightCountDownButton!.textFont = UIFont.systemFont(ofSize: 14)
+            super.rightViewMode = .always
+            super.rightView = _rightCountDownButton!
+            self.setRightViewFrame()
+        }
+        return _rightCountDownButton!
+    }
+    
+    private var _rightVerifyCodeView: HVerifyCodeView?
+    var rightVerifyCodeView: HVerifyCodeView {
+        if _rightVerifyCodeView == nil {
+            _rightVerifyCodeView = HVerifyCodeView()
+            super.rightViewMode = .always
+            super.rightView = _rightVerifyCodeView!
+            self.setRightViewFrame()
+        }
+        return _rightVerifyCodeView!
+    }
 
     private var _leftWidth: CGFloat = 0
     var leftWidth: CGFloat {

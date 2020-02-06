@@ -76,7 +76,6 @@
 		A26D431523839C2800F457AE /* UIApplication+HUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26D431423839C2800F457AE /* UIApplication+HUtil.swift */; };
 		A26D43172383DE5800F457AE /* UIColor+HUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26D43162383DE5800F457AE /* UIColor+HUtil.swift */; };
 		A26D43192383E23300F457AE /* NSString+HUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26D43182383E23300F457AE /* NSString+HUtil.swift */; };
-		A26D431B2384017D00F457AE /* UIButton+HUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26D431A2384017C00F457AE /* UIButton+HUtil.swift */; };
 		A26D431D2384177900F457AE /* UIScreen+HUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26D431C2384177900F457AE /* UIScreen+HUtil.swift */; };
 		A26D431F238425BD00F457AE /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26D431E238425BD00F457AE /* CGRect.swift */; };
 		A26D432123842C9400F457AE /* UIGestureRecognizer+HUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26D432023842C9400F457AE /* UIGestureRecognizer+HUtil.swift */; };
@@ -242,7 +241,6 @@
 		A26D431423839C2800F457AE /* UIApplication+HUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+HUtil.swift"; sourceTree = "<group>"; };
 		A26D43162383DE5800F457AE /* UIColor+HUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HUtil.swift"; sourceTree = "<group>"; };
 		A26D43182383E23300F457AE /* NSString+HUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSString+HUtil.swift"; sourceTree = "<group>"; };
-		A26D431A2384017C00F457AE /* UIButton+HUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+HUtil.swift"; sourceTree = "<group>"; };
 		A26D431C2384177900F457AE /* UIScreen+HUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+HUtil.swift"; sourceTree = "<group>"; };
 		A26D431E238425BD00F457AE /* CGRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
 		A26D432023842C9400F457AE /* UIGestureRecognizer+HUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIGestureRecognizer+HUtil.swift"; sourceTree = "<group>"; };
@@ -717,7 +715,6 @@
 				A26D431E238425BD00F457AE /* CGRect.swift */,
 				A2B4308E2382CC8A00795605 /* UIDevice+HUtil.swift */,
 				A26D431423839C2800F457AE /* UIApplication+HUtil.swift */,
-				A26D431A2384017C00F457AE /* UIButton+HUtil.swift */,
 				A26D43162383DE5800F457AE /* UIColor+HUtil.swift */,
 				A26D431C2384177900F457AE /* UIScreen+HUtil.swift */,
 				A26D432023842C9400F457AE /* UIGestureRecognizer+HUtil.swift */,
@@ -1084,7 +1081,6 @@
 				A26D432B23856F8900F457AE /* NSTimer+HUtil.swift in Sources */,
 				A265DA052394B6F7001F39B0 /* UIScrollView+HTab.swift in Sources */,
 				A2B42FCE237CED5A00795605 /* SceneDelegate.swift in Sources */,
-				A26D431B2384017D00F457AE /* UIButton+HUtil.swift in Sources */,
 				A26D43452387827A00F457AE /* NSObject+HForwarding.swift in Sources */,
 				A26D432723853F2900F457AE /* NSObject+HMessy.swift in Sources */,
 				A229489F23975D850058B939 /* HTableViewCellHoriValue1.swift in Sources */,

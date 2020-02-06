@@ -213,11 +213,30 @@ class HMainController1: HTupleController {
                 cell.textField.textColor = UIColor.white
 
                 cell.textField.rightWidth = 90
-                cell.textField.rightButton.text = "获取验证码"
-                cell.textField.rightButton.backgroundColor = UIColor.green
-                cell.textField.rightButton.pressed = { (sender: AnyObject, data: AnyObject) in
-
-                } as? callback
+                //普通view
+//                cell.textField.rightButton.text = "获取验证码"
+//                cell.textField.rightButton.backgroundColor = UIColor.green
+//                cell.textField.rightButton.pressed = { (sender: AnyObject, data: AnyObject) in
+//
+//                } as? callback
+                //短信验证码
+                cell.textField.rightCountDownButton.text = "获取验证码";
+                cell.textField.rightCountDownButton.backgroundColor = UIColor.green
+                cell.textField.rightCountDownButton.countDownButtonHandler { (countDownButton, tag) in
+                    countDownButton.startCountDownWithSecond(60)
+                }
+                cell.textField.rightCountDownButton.countDownChanging({ (countDownButton, second) -> NSString in
+                    return NSString(format: "还剩%lu秒",second)
+                })
+                cell.textField.rightCountDownButton .countDownFinished { (countDownButton, second) -> NSString in
+                    return "重新获取"
+                }
+                //图形验证码
+//                cell.textField.rightVerifyCodeView.backgroundColor = UIColor.green
+//                cell.textField.rightVerifyCodeView.textSize = 20
+//                cell.textField.rightVerifyCodeView.textColor = UIColor.black
+//                cell.textField.rightVerifyCodeView.charsArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+            
             default: break
         }
     }
