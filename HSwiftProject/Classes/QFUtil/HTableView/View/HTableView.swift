@@ -661,7 +661,7 @@ extension HTableView {
     }
     
     ///给tableView发送信号
-    func signalToTableView(_ signal: HTableSignal) {
+    func signalToTableView(_ signal: HTableSignal?) {
         if self.signalBlock != nil {
             DispatchQueue.main.async { [weak self] in
                 self!.signalBlock!(self!, signal)
@@ -670,7 +670,7 @@ extension HTableView {
     }
 
     ///给所有item、某个section下的item或单独某个item发送信号
-    func signalToAllItems(_ signal: HTableSignal) {
+    func signalToAllItems(_ signal: HTableSignal?) {
         DispatchQueue.main.async { [weak self] in
             for object in self!.allReuseCells.objectEnumerator()!.allObjects {
                 let cell = object as! HTableBaseCell
@@ -681,7 +681,7 @@ extension HTableView {
         }
     }
 
-    func signal(_ signal: HTableSignal, itemSection section: Int) {
+    func signal(_ signal: HTableSignal?, itemSection section: Int) {
         DispatchQueue.main.async { [weak self] in
             let items = self!.numberOfRows(inSection: section)
             for i in 0..<items {
@@ -693,7 +693,7 @@ extension HTableView {
         }
     }
 
-    func signal(_ signal: HTableSignal, toRow row: Int, inSection section: Int) {
+    func signal(_ signal: HTableSignal?, toRow row: Int, inSection section: Int) {
         let cell = self.allReuseCells.object(forKey: indexPath(row, section).stringValue as NSString) as! HTableBaseCell
         if cell.signalBlock != nil {
             DispatchQueue.main.async { [weak cell] in
@@ -703,7 +703,7 @@ extension HTableView {
     }
 
     ///给所有header或单独某个header发送信号
-    func signalToAllHeader(_ signal: HTableSignal) {
+    func signalToAllHeader(_ signal: HTableSignal?) {
         DispatchQueue.main.async { [weak self] in
             let sections = self!.numberOfSections
             for i in 0..<sections {
@@ -715,7 +715,7 @@ extension HTableView {
         }
     }
 
-    func signal(_ signal: HTableSignal, headerSection section: Int) {
+    func signal(_ signal: HTableSignal?, headerSection section: Int) {
         let header = self.allReuseCells.object(forKey: IndexPath.stringValue(0, section) as NSString) as! HTableBaseApex
         if header.signalBlock != nil {
             DispatchQueue.main.async { [weak header] in
@@ -725,7 +725,7 @@ extension HTableView {
     }
 
     ///给所有footer或单独某个footer发送信号
-    func signalToAllFooter(_ signal: HTableSignal) {
+    func signalToAllFooter(_ signal: HTableSignal?) {
         DispatchQueue.main.async { [weak self] in
             let sections = self!.numberOfSections
             for i in 0..<sections {
@@ -737,7 +737,7 @@ extension HTableView {
         }
     }
 
-    func signal(_ signal: HTableSignal, footerSection section: Int) {
+    func signal(_ signal: HTableSignal?, footerSection section: Int) {
         let footer = self.allReuseCells.object(forKey: IndexPath.stringValue(0, section) as NSString) as! HTableBaseApex
         if footer.signalBlock != nil {
             DispatchQueue.main.async { [weak footer] in

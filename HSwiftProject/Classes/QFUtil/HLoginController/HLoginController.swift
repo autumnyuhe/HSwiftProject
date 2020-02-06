@@ -61,9 +61,10 @@ class HLoginController: HTupleController {
                 cell.textField.font = UIFont.systemFont(ofSize: 14)
                 //cell.textField.inputValidator = HPhoneValidator.new
 
-                cell.signalBlock = { ( cell: HTupleTextFieldCell, signal: HTupleSignal) in
-
-                } as? HTupleCellSignalBlock
+                cell.signalBlock = { ( target, signal) in
+                    let cell = target as! HTupleTextFieldCell
+                    NSLog("选中%d",cell)
+                }
             case 1:
                 let cell = (itemBlock as! HTupleItem)(nil, HTupleTextFieldCell.self, nil, true) as! HTupleTextFieldCell
                 cell.textField.backgroundColor = UIColor(hex:"#F2F2F2")
@@ -76,9 +77,10 @@ class HLoginController: HTupleController {
                 cell.textField.textColor = UIColor(hex:"#BABABF")
                 cell.textField.font = UIFont.systemFont(ofSize: 14)
 
-                cell.signalBlock = { ( cell: HTupleTextFieldCell, signal: HTupleSignal) in
-
-                } as? HTupleCellSignalBlock
+                cell.signalBlock = { ( target, signal) in
+                    let cell = target as! HTupleTextFieldCell
+                    NSLog("选中%d",cell)
+                }
             case 2:
                 let cell = (itemBlock as! HTupleItem)(nil, HTupleTextFieldCell.self, nil, true) as! HTupleTextFieldCell
                 cell.textField.backgroundColor = UIColor(hex:"#F2F2F2")
@@ -99,9 +101,10 @@ class HLoginController: HTupleController {
 
                 } as? callback
 
-                cell.signalBlock = { ( cell: HTupleTextFieldCell, signal: HTupleSignal) in
-
-                } as? HTupleCellSignalBlock
+                cell.signalBlock = { ( target, signal) in
+                    let cell = target as! HTupleTextFieldCell
+                    NSLog("选中%d",cell)
+                }
             case 3:
                 _ = (itemBlock as! HTupleItem)(nil, HTupleBaseCell.self, nil, true)
             case 4:
@@ -112,9 +115,10 @@ class HLoginController: HTupleController {
 
                 } as? callback
 
-                cell.signalBlock = { ( cell: HTupleButtonCell, signal: HTupleSignal) in
-
-                } as? HTupleCellSignalBlock
+                cell.signalBlock = { ( target, signal) in
+                    let cell = target as! HTupleButtonCell
+                    NSLog("选中%d",cell)
+                }
             case 5:
 
                 let cell = (itemBlock as! HTupleItem)(nil, HServiceAuthorizationCell.self, nil, true) as! HServiceAuthorizationCell
@@ -122,11 +126,12 @@ class HLoginController: HTupleController {
                 cell.serviceAgreementBlock = {
 
                 }
-                cell.signalBlock = { ( cell: HServiceAuthorizationCell, signal: HTupleSignal) in
+                cell.signalBlock = { ( target, signal) in
+                    let cell = target as! HServiceAuthorizationCell
                     if (cell.isAuthorized) {
 
                     }
-                } as? HTupleCellSignalBlock
+                }
 
             default:
                 _ = (itemBlock as! HTupleItem)(nil, HTupleBaseCell.self, nil, true)

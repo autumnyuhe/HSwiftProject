@@ -86,9 +86,10 @@ extension HRegisterController {
         
         cell.textField.text = self.tupleView.objectForKey("state", state: 1) as? String
 
-        cell.signalBlock = { ( cell: HTupleTextFieldCell, signal: HTupleSignal) in
-
-        } as? HTupleCellSignalBlock
+        cell.signalBlock = { ( target, signal) in
+            let cell = target as! HTupleTextFieldCell
+            NSLog("选中%d",cell)
+        }
     }
 
 }

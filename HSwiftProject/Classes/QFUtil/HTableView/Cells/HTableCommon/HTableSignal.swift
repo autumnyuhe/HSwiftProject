@@ -11,7 +11,7 @@ import UIKit
 let KTableSkinNotify = "tableSkinNotify"
 
 typealias HTableCellInitBlock = (_ target: AnyObject) -> Void
-typealias HTableCellSignalBlock = (_ target: AnyObject, _ signal: HTableSignal) -> Void
+typealias HTableCellSignalBlock = (_ target: AnyObject, _ signal: HTableSignal?) -> Void
 
 class HTableSignal: NSObject {
     var signal: AnyObject?
