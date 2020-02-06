@@ -9,7 +9,7 @@
 import UIKit
 
 typealias HTableCellBlock = (_ idxPath: IndexPath) -> Void
-typealias HTableDidSelectCell = (_ target: AnyObject, _ indexPath: IndexPath) -> Void
+typealias HTableDidSelectCell = (_ target: HTableBaseCell, _ indexPath: IndexPath) -> Void
 
 class HTableBaseCell : UITableViewCell {
     

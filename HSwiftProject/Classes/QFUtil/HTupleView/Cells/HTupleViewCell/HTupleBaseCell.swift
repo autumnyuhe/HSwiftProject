@@ -9,7 +9,7 @@
 import UIKit
 
 typealias HTupleCellBlock = (_ idxPath: IndexPath) -> Void
-typealias HTupleDidSelectCell = (_ target: AnyObject, _ indexPath: IndexPath) -> Void
+typealias HTupleDidSelectCell = (_ target: HTupleBaseCell, _ indexPath: IndexPath) -> Void
 
 class HTupleBaseCell : UICollectionViewCell {
     
