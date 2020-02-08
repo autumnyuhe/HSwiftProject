@@ -43,7 +43,7 @@ class HTupleViewTextLoopApex: HTupleBaseApex {
     
     override func relayoutSubviews() {
         if self.contentArr!.count > 0 {
-            HLayoutTupleCell(self.textLoopView)
+            HLayoutTupleApex(self.textLoopView)
         }
     }
 
