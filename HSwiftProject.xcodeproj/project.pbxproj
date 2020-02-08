@@ -120,6 +120,9 @@
 		A28923C3238BCB6200E4AB75 /* icon_tuple_arrow_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A28923BB238BCB6200E4AB75 /* icon_tuple_arrow_left@2x.png */; };
 		A28923C5238CDE8400E4AB75 /* HTupleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28923C4238CDE8400E4AB75 /* HTupleController.swift */; };
 		A28923C7238D21F300E4AB75 /* HObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28923C6238D21F300E4AB75 /* HObject.swift */; };
+		A28A022623EE55EB000556A2 /* HTextLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28A022523EE55EB000556A2 /* HTextLoopView.swift */; };
+		A28A022823EE62D6000556A2 /* HTupleViewTextLoopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28A022723EE62D6000556A2 /* HTupleViewTextLoopCell.swift */; };
+		A28A022A23EE65B7000556A2 /* HTupleViewTextLoopApex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28A022923EE65B7000556A2 /* HTupleViewTextLoopApex.swift */; };
 		A28C314923EBB4D80050CDA1 /* HVerifyCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28C314823EBB4D80050CDA1 /* HVerifyCodeView.swift */; };
 		A2AC8D0023B0FCF400FD8DB7 /* HKeyChainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC8CFF23B0FCF300FD8DB7 /* HKeyChainStore.swift */; };
 		A2B42FCC237CED5A00795605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B42FCB237CED5A00795605 /* AppDelegate.swift */; };
@@ -285,6 +288,9 @@
 		A28923BB238BCB6200E4AB75 /* icon_tuple_arrow_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_tuple_arrow_left@2x.png"; sourceTree = "<group>"; };
 		A28923C4238CDE8400E4AB75 /* HTupleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTupleController.swift; sourceTree = "<group>"; };
 		A28923C6238D21F300E4AB75 /* HObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HObject.swift; sourceTree = "<group>"; };
+		A28A022523EE55EB000556A2 /* HTextLoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTextLoopView.swift; sourceTree = "<group>"; };
+		A28A022723EE62D6000556A2 /* HTupleViewTextLoopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTupleViewTextLoopCell.swift; sourceTree = "<group>"; };
+		A28A022923EE65B7000556A2 /* HTupleViewTextLoopApex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTupleViewTextLoopApex.swift; sourceTree = "<group>"; };
 		A28C314823EBB4D80050CDA1 /* HVerifyCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HVerifyCodeView.swift; sourceTree = "<group>"; };
 		A2AC8CFF23B0FCF300FD8DB7 /* HKeyChainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKeyChainStore.swift; sourceTree = "<group>"; };
 		A2B42FC8237CED5A00795605 /* HSwiftProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSwiftProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -602,6 +608,16 @@
 			path = tuple_arrow_icons;
 			sourceTree = "<group>";
 		};
+		A28A022423EE55D3000556A2 /* HTextLoopView */ = {
+			isa = PBXGroup;
+			children = (
+				A28A022523EE55EB000556A2 /* HTextLoopView.swift */,
+				A28A022723EE62D6000556A2 /* HTupleViewTextLoopCell.swift */,
+				A28A022923EE65B7000556A2 /* HTupleViewTextLoopApex.swift */,
+			);
+			path = HTextLoopView;
+			sourceTree = "<group>";
+		};
 		A2B42FBF237CED5A00795605 = {
 			isa = PBXGroup;
 			children = (
@@ -674,6 +690,7 @@
 		A2B43058237FF2B100795605 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
+				A28A022423EE55D3000556A2 /* HTextLoopView */,
 				A22948B6239798DF0058B939 /* HLoginController */,
 				A229487A23965D880058B939 /* HTableView */,
 				A265D9F92390B8D7001F39B0 /* YPTabBarController */,
@@ -1074,10 +1091,12 @@
 				A28923A8238B72F800E4AB75 /* HCollectionViewFlowLayout.swift in Sources */,
 				A2B43071237FF2B100795605 /* Swifty.m in Sources */,
 				A22948AB2397986C0058B939 /* HMainController3+HSection0.swift in Sources */,
+				A28A022623EE55EB000556A2 /* HTextLoopView.swift in Sources */,
 				A2B43073237FF2B100795605 /* HCommonDefine.swift in Sources */,
 				A2B42FCC237CED5A00795605 /* AppDelegate.swift in Sources */,
 				A2B4307C237FF2B100795605 /* HGameCategoryVC.swift in Sources */,
 				A26D43412386CD9000F457AE /* NSTimer+HSafeUtil.swift in Sources */,
+				A28A022823EE62D6000556A2 /* HTupleViewTextLoopCell.swift in Sources */,
 				A26D432B23856F8900F457AE /* NSTimer+HUtil.swift in Sources */,
 				A265DA052394B6F7001F39B0 /* UIScrollView+HTab.swift in Sources */,
 				A2B42FCE237CED5A00795605 /* SceneDelegate.swift in Sources */,
@@ -1109,6 +1128,7 @@
 				A26D432F23868AFE00F457AE /* UIViewController+HDisappear.swift in Sources */,
 				A21887A823900832005C20BF /* HKeychainSwift.swift in Sources */,
 				A22948B8239798EC0058B939 /* HLoginController.swift in Sources */,
+				A28A022A23EE65B7000556A2 /* HTupleViewTextLoopApex.swift in Sources */,
 				A28923A5238B72F800E4AB75 /* HTupleSignal.swift in Sources */,
 				A22948A92397985B0058B939 /* HMainController3.swift in Sources */,
 				A2B43077237FF2B100795605 /* NSObject+HUtil.swift in Sources */,
