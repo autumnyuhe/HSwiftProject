@@ -124,6 +124,8 @@
 		A28A022823EE62D6000556A2 /* HTupleViewTextLoopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28A022723EE62D6000556A2 /* HTupleViewTextLoopCell.swift */; };
 		A28A022A23EE65B7000556A2 /* HTupleViewTextLoopApex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28A022923EE65B7000556A2 /* HTupleViewTextLoopApex.swift */; };
 		A28A022D23EE6BA6000556A2 /* HMarquee.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28A022C23EE6BA6000556A2 /* HMarquee.swift */; };
+		A28B652123FD215500B6B638 /* HNetworkDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28B652023FD215500B6B638 /* HNetworkDAO.swift */; };
+		A28B652323FD26CE00B6B638 /* HNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28B652223FD26CE00B6B638 /* HNetworkManager.swift */; };
 		A28C314923EBB4D80050CDA1 /* HVerifyCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28C314823EBB4D80050CDA1 /* HVerifyCodeView.swift */; };
 		A2AC8D0023B0FCF400FD8DB7 /* HKeyChainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC8CFF23B0FCF300FD8DB7 /* HKeyChainStore.swift */; };
 		A2B42FCC237CED5A00795605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B42FCB237CED5A00795605 /* AppDelegate.swift */; };
@@ -293,6 +295,8 @@
 		A28A022723EE62D6000556A2 /* HTupleViewTextLoopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTupleViewTextLoopCell.swift; sourceTree = "<group>"; };
 		A28A022923EE65B7000556A2 /* HTupleViewTextLoopApex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTupleViewTextLoopApex.swift; sourceTree = "<group>"; };
 		A28A022C23EE6BA6000556A2 /* HMarquee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMarquee.swift; sourceTree = "<group>"; };
+		A28B652023FD215500B6B638 /* HNetworkDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNetworkDAO.swift; sourceTree = "<group>"; };
+		A28B652223FD26CE00B6B638 /* HNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNetworkManager.swift; sourceTree = "<group>"; };
 		A28C314823EBB4D80050CDA1 /* HVerifyCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HVerifyCodeView.swift; sourceTree = "<group>"; };
 		A2AC8CFF23B0FCF300FD8DB7 /* HKeyChainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKeyChainStore.swift; sourceTree = "<group>"; };
 		A2B42FC8237CED5A00795605 /* HSwiftProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSwiftProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -628,6 +632,15 @@
 			path = HMarquee;
 			sourceTree = "<group>";
 		};
+		A28B651D23FCEF4A00B6B638 /* HNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				A28B652023FD215500B6B638 /* HNetworkDAO.swift */,
+				A28B652223FD26CE00B6B638 /* HNetworkManager.swift */,
+			);
+			path = HNetwork;
+			sourceTree = "<group>";
+		};
 		A2B42FBF237CED5A00795605 = {
 			isa = PBXGroup;
 			children = (
@@ -700,6 +713,7 @@
 		A2B43058237FF2B100795605 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
+				A28B651D23FCEF4A00B6B638 /* HNetwork */,
 				A28A022B23EE6B9E000556A2 /* HMarquee */,
 				A28A022423EE55D3000556A2 /* HTextLoopView */,
 				A22948B6239798DF0058B939 /* HLoginController */,
@@ -1057,6 +1071,7 @@
 				A2B4308D23825BBE00795605 /* HWebImageView.swift in Sources */,
 				A2B4308723823F3400795605 /* Error+HUtil.swift in Sources */,
 				A22948A123975F500058B939 /* HTableViewApexVertValue1.swift in Sources */,
+				A28B652323FD26CE00B6B638 /* HNetworkManager.swift in Sources */,
 				A26D434323877F0A00F457AE /* UIControl+HSafeUtil.swift in Sources */,
 				A229489523975A900058B939 /* HTableViewApex.swift in Sources */,
 				A28923A7238B72F800E4AB75 /* HTupleView.swift in Sources */,
@@ -1109,6 +1124,7 @@
 				A2B4307C237FF2B100795605 /* HGameCategoryVC.swift in Sources */,
 				A26D43412386CD9000F457AE /* NSTimer+HSafeUtil.swift in Sources */,
 				A28A022823EE62D6000556A2 /* HTupleViewTextLoopCell.swift in Sources */,
+				A28B652123FD215500B6B638 /* HNetworkDAO.swift in Sources */,
 				A26D432B23856F8900F457AE /* NSTimer+HUtil.swift in Sources */,
 				A265DA052394B6F7001F39B0 /* UIScrollView+HTab.swift in Sources */,
 				A2B42FCE237CED5A00795605 /* SceneDelegate.swift in Sources */,

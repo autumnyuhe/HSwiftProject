@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum HNetworkStatus: Int {
+enum HANetworkStatus: Int {
     case Unknown = -1
     case Not     = 0
     case Via2G   = 1
@@ -167,14 +167,14 @@ extension UIApplication {
     /**
     *  根据app状态栏获取网络状态
     */
-    static var networkStatusFromStateBar: HNetworkStatus {
+    static var networkStatusFromStateBar: HANetworkStatus {
         let objc = UIApplication.shared.value(forKey: "statusBar") as AnyObject
         let arr: Array<UIView> = objc.value(forKeyPath: "foregroundView") as! Array
         for item in arr {
             let view: UIView = item
             if view.isKind(of:NSClassFromString("UIStatusBarDataNetworkItemView")!.self) {
                 let value: String = view.value(forKeyPath: "dataNetworkType") as! String
-                let status: HNetworkStatus = HNetworkStatus(rawValue: Int(value)!)!
+                let status: HANetworkStatus = HANetworkStatus(rawValue: Int(value)!)!
                 return status
             }
         }
