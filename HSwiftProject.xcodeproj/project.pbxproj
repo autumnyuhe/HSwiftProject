@@ -129,6 +129,14 @@
 		A28C314923EBB4D80050CDA1 /* HVerifyCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28C314823EBB4D80050CDA1 /* HVerifyCodeView.swift */; };
 		A2A7A93323FE29470090EFD3 /* HTupleViewMarqueeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A7A93223FE29470090EFD3 /* HTupleViewMarqueeCell.swift */; };
 		A2A7A93523FE2CBF0090EFD3 /* HTupleViewMarqueeApex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A7A93423FE2CBF0090EFD3 /* HTupleViewMarqueeApex.swift */; };
+		A2A7A93923FE2E150090EFD3 /* HAbstractDotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A7A93823FE2E150090EFD3 /* HAbstractDotView.swift */; };
+		A2A7A93B23FE36440090EFD3 /* HAnimatedDotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A7A93A23FE36440090EFD3 /* HAnimatedDotView.swift */; };
+		A2A7A93D23FE3A790090EFD3 /* HDotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A7A93C23FE3A790090EFD3 /* HDotView.swift */; };
+		A2A7A94223FE3B500090EFD3 /* HCyclePageControlCurrentDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A7A93E23FE3B500090EFD3 /* HCyclePageControlCurrentDot@2x.png */; };
+		A2A7A94323FE3B500090EFD3 /* HCyclePageControlCurrentDot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A7A93F23FE3B500090EFD3 /* HCyclePageControlCurrentDot@3x.png */; };
+		A2A7A94423FE3B500090EFD3 /* HCyclePageControlDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A7A94023FE3B500090EFD3 /* HCyclePageControlDot@2x.png */; };
+		A2A7A94523FE3B500090EFD3 /* HCyclePageControlDot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A7A94123FE3B500090EFD3 /* HCyclePageControlDot@3x.png */; };
+		A2A7A94723FE3B5E0090EFD3 /* HPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A7A94623FE3B5E0090EFD3 /* HPageControl.swift */; };
 		A2AC8D0023B0FCF400FD8DB7 /* HKeyChainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC8CFF23B0FCF300FD8DB7 /* HKeyChainStore.swift */; };
 		A2B42FCC237CED5A00795605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B42FCB237CED5A00795605 /* AppDelegate.swift */; };
 		A2B42FCE237CED5A00795605 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B42FCD237CED5A00795605 /* SceneDelegate.swift */; };
@@ -302,6 +310,14 @@
 		A28C314823EBB4D80050CDA1 /* HVerifyCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HVerifyCodeView.swift; sourceTree = "<group>"; };
 		A2A7A93223FE29470090EFD3 /* HTupleViewMarqueeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTupleViewMarqueeCell.swift; sourceTree = "<group>"; };
 		A2A7A93423FE2CBF0090EFD3 /* HTupleViewMarqueeApex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTupleViewMarqueeApex.swift; sourceTree = "<group>"; };
+		A2A7A93823FE2E150090EFD3 /* HAbstractDotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HAbstractDotView.swift; sourceTree = "<group>"; };
+		A2A7A93A23FE36440090EFD3 /* HAnimatedDotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HAnimatedDotView.swift; sourceTree = "<group>"; };
+		A2A7A93C23FE3A790090EFD3 /* HDotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDotView.swift; sourceTree = "<group>"; };
+		A2A7A93E23FE3B500090EFD3 /* HCyclePageControlCurrentDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HCyclePageControlCurrentDot@2x.png"; sourceTree = "<group>"; };
+		A2A7A93F23FE3B500090EFD3 /* HCyclePageControlCurrentDot@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HCyclePageControlCurrentDot@3x.png"; sourceTree = "<group>"; };
+		A2A7A94023FE3B500090EFD3 /* HCyclePageControlDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HCyclePageControlDot@2x.png"; sourceTree = "<group>"; };
+		A2A7A94123FE3B500090EFD3 /* HCyclePageControlDot@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HCyclePageControlDot@3x.png"; sourceTree = "<group>"; };
+		A2A7A94623FE3B5E0090EFD3 /* HPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPageControl.swift; sourceTree = "<group>"; };
 		A2AC8CFF23B0FCF300FD8DB7 /* HKeyChainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKeyChainStore.swift; sourceTree = "<group>"; };
 		A2B42FC8237CED5A00795605 /* HSwiftProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSwiftProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B42FCB237CED5A00795605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -647,6 +663,29 @@
 			path = HNetwork;
 			sourceTree = "<group>";
 		};
+		A2A7A93623FE2DED0090EFD3 /* HCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				A2A7A93723FE2DFE0090EFD3 /* HPageControl */,
+			);
+			path = HCycleScrollView;
+			sourceTree = "<group>";
+		};
+		A2A7A93723FE2DFE0090EFD3 /* HPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				A2A7A93823FE2E150090EFD3 /* HAbstractDotView.swift */,
+				A2A7A93A23FE36440090EFD3 /* HAnimatedDotView.swift */,
+				A2A7A93C23FE3A790090EFD3 /* HDotView.swift */,
+				A2A7A94623FE3B5E0090EFD3 /* HPageControl.swift */,
+				A2A7A93E23FE3B500090EFD3 /* HCyclePageControlCurrentDot@2x.png */,
+				A2A7A93F23FE3B500090EFD3 /* HCyclePageControlCurrentDot@3x.png */,
+				A2A7A94023FE3B500090EFD3 /* HCyclePageControlDot@2x.png */,
+				A2A7A94123FE3B500090EFD3 /* HCyclePageControlDot@3x.png */,
+			);
+			path = HPageControl;
+			sourceTree = "<group>";
+		};
 		A2B42FBF237CED5A00795605 = {
 			isa = PBXGroup;
 			children = (
@@ -719,6 +758,7 @@
 		A2B43058237FF2B100795605 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
+				A2A7A93623FE2DED0090EFD3 /* HCycleScrollView */,
 				A28B651D23FCEF4A00B6B638 /* HNetwork */,
 				A28A022B23EE6B9E000556A2 /* HMarquee */,
 				A28A022423EE55D3000556A2 /* HTextLoopView */,
@@ -989,6 +1029,7 @@
 				A258395623B4E34600881941 /* di_zhuce@2x.png in Resources */,
 				A28923C2238BCB6200E4AB75 /* icon_tuple_arrow_right@2x.png in Resources */,
 				A2188788238F7131005C20BF /* loading_new_5@2x.png in Resources */,
+				A2A7A94523FE3B500090EFD3 /* HCyclePageControlDot@3x.png in Resources */,
 				A2B43008237D005C00795605 /* di_kf_h@3x.png in Resources */,
 				A28923BD238BCB6200E4AB75 /* icon_tuple_arrow_up@2x.png in Resources */,
 				A2B42FD8237CED5B00795605 /* LaunchScreen.storyboard in Resources */,
@@ -1000,12 +1041,15 @@
 				A2188784238F7131005C20BF /* loading_new_14@2x.png in Resources */,
 				A2B42FD5237CED5B00795605 /* Assets.xcassets in Resources */,
 				A2188791238F7131005C20BF /* loading_new_8@2x.png in Resources */,
+				A2A7A94423FE3B500090EFD3 /* HCyclePageControlDot@2x.png in Resources */,
 				A2B42FFF237D005C00795605 /* di_kf@3x.png in Resources */,
 				A2188785238F7131005C20BF /* loading_new_3@2x.png in Resources */,
 				A2188781238F7131005C20BF /* icon_load_nothing@3x.png in Resources */,
+				A2A7A94323FE3B500090EFD3 /* HCyclePageControlCurrentDot@3x.png in Resources */,
 				A218878D238F7131005C20BF /* loading_new_2@2x.png in Resources */,
 				A2B42FD3237CED5A00795605 /* Main.storyboard in Resources */,
 				A2B42FF0237CFFAB00795605 /* di_index_h@2x.png in Resources */,
+				A2A7A94223FE3B500090EFD3 /* HCyclePageControlCurrentDot@2x.png in Resources */,
 				A2188782238F7131005C20BF /* icon_load_nothing@2x.png in Resources */,
 				A218878F238F7131005C20BF /* loading_new_13@2x.png in Resources */,
 				A28923C0238BCB6200E4AB75 /* icon_tuple_xx_gray@2x.png in Resources */,
@@ -1118,6 +1162,7 @@
 				A28923C7238D21F300E4AB75 /* HObject.swift in Sources */,
 				A2188795238FD3CC005C20BF /* HGameCategoryVC+HSection0.swift in Sources */,
 				A2B43074237FF2B100795605 /* UIView+HPrinter.swift in Sources */,
+				A2A7A93923FE2E150090EFD3 /* HAbstractDotView.swift in Sources */,
 				A26D43392386C0A000F457AE /* UINavigationController+HUtil.swift in Sources */,
 				A26D43352386BA5800F457AE /* UIAlertController+HError.swift in Sources */,
 				A2B4308523823B9000795605 /* HCommonBlock.swift in Sources */,
@@ -1141,6 +1186,7 @@
 				A26D43192383E23300F457AE /* NSString+HUtil.swift in Sources */,
 				A22948A5239798000058B939 /* HMainController1.swift in Sources */,
 				A2188797238FD3D6005C20BF /* HGameCategoryVC+HSection1.swift in Sources */,
+				A2A7A93B23FE36440090EFD3 /* HAnimatedDotView.swift in Sources */,
 				A26D434923879FB900F457AE /* Router.swift in Sources */,
 				A28923C5238CDE8400E4AB75 /* HTupleController.swift in Sources */,
 				A265DA012392A2B3001F39B0 /* UIViewController+HTab.swift in Sources */,
@@ -1175,6 +1221,8 @@
 				A2B4307A237FF2B100795605 /* HMenuViewController.swift in Sources */,
 				A21887A723900832005C20BF /* HKeychainSwiftAccessOptions.swift in Sources */,
 				A22948B5239798AF0058B939 /* HMainController6.swift in Sources */,
+				A2A7A94723FE3B5E0090EFD3 /* HPageControl.swift in Sources */,
+				A2A7A93D23FE3A790090EFD3 /* HDotView.swift in Sources */,
 				A2B43075237FF2B100795605 /* HPrinterManager.swift in Sources */,
 				A22948A323975FB10058B939 /* HTableViewApexHoriValue1.swift in Sources */,
 				A28923A6238B72F800E4AB75 /* NSIndexPath+HUtil.swift in Sources */,
