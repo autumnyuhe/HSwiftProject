@@ -127,6 +127,8 @@
 		A28B652123FD215500B6B638 /* HNetworkDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28B652023FD215500B6B638 /* HNetworkDAO.swift */; };
 		A28B652323FD26CE00B6B638 /* HNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28B652223FD26CE00B6B638 /* HNetworkManager.swift */; };
 		A28C314923EBB4D80050CDA1 /* HVerifyCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28C314823EBB4D80050CDA1 /* HVerifyCodeView.swift */; };
+		A2A7A93323FE29470090EFD3 /* HTupleViewMarqueeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A7A93223FE29470090EFD3 /* HTupleViewMarqueeCell.swift */; };
+		A2A7A93523FE2CBF0090EFD3 /* HTupleViewMarqueeApex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A7A93423FE2CBF0090EFD3 /* HTupleViewMarqueeApex.swift */; };
 		A2AC8D0023B0FCF400FD8DB7 /* HKeyChainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC8CFF23B0FCF300FD8DB7 /* HKeyChainStore.swift */; };
 		A2B42FCC237CED5A00795605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B42FCB237CED5A00795605 /* AppDelegate.swift */; };
 		A2B42FCE237CED5A00795605 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B42FCD237CED5A00795605 /* SceneDelegate.swift */; };
@@ -298,6 +300,8 @@
 		A28B652023FD215500B6B638 /* HNetworkDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNetworkDAO.swift; sourceTree = "<group>"; };
 		A28B652223FD26CE00B6B638 /* HNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNetworkManager.swift; sourceTree = "<group>"; };
 		A28C314823EBB4D80050CDA1 /* HVerifyCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HVerifyCodeView.swift; sourceTree = "<group>"; };
+		A2A7A93223FE29470090EFD3 /* HTupleViewMarqueeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTupleViewMarqueeCell.swift; sourceTree = "<group>"; };
+		A2A7A93423FE2CBF0090EFD3 /* HTupleViewMarqueeApex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTupleViewMarqueeApex.swift; sourceTree = "<group>"; };
 		A2AC8CFF23B0FCF300FD8DB7 /* HKeyChainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKeyChainStore.swift; sourceTree = "<group>"; };
 		A2B42FC8237CED5A00795605 /* HSwiftProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSwiftProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B42FCB237CED5A00795605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -628,6 +632,8 @@
 			isa = PBXGroup;
 			children = (
 				A28A022C23EE6BA6000556A2 /* HMarquee.swift */,
+				A2A7A93223FE29470090EFD3 /* HTupleViewMarqueeCell.swift */,
+				A2A7A93423FE2CBF0090EFD3 /* HTupleViewMarqueeApex.swift */,
 			);
 			path = HMarquee;
 			sourceTree = "<group>";
@@ -1081,6 +1087,7 @@
 				A265D9FD23910309001F39B0 /* HTabBar.swift in Sources */,
 				A28923AB238B733500E4AB75 /* HTupleViewCell.swift in Sources */,
 				A2188799238FD3E0005C20BF /* HGameCategoryVC+HSection2.swift in Sources */,
+				A2A7A93523FE2CBF0090EFD3 /* HTupleViewMarqueeApex.swift in Sources */,
 				A26D43292385665700F457AE /* NSUserDefaults+HUtil.swift in Sources */,
 				A258395923B4E70F00881941 /* HTableController.swift in Sources */,
 				A286251623EAB8DD00E81781 /* HCountDownButton.swift in Sources */,
@@ -1160,6 +1167,7 @@
 				A28923A5238B72F800E4AB75 /* HTupleSignal.swift in Sources */,
 				A22948A92397985B0058B939 /* HMainController3.swift in Sources */,
 				A2B43077237FF2B100795605 /* NSObject+HUtil.swift in Sources */,
+				A2A7A93323FE29470090EFD3 /* HTupleViewMarqueeCell.swift in Sources */,
 				A229489723975AE80058B939 /* HTupleViewApex.swift in Sources */,
 				A2B43080237FF57C00795605 /* HViewController.swift in Sources */,
 				A2294890239756770058B939 /* HTableBaseCell.swift in Sources */,

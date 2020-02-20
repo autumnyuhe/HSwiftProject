@@ -9,17 +9,17 @@
 import UIKit
 
 enum HMarqueeSpeedLevel: Int {
-    case HMarqueeSpeedLevelFast       = 2
-    case HMarqueeSpeedLevelMediumFast = 4
-    case HMarqueeSpeedLevelMediumSlow = 6
-    case HMarqueeSpeedLevelSlow       = 8
+    case Fast       = 2
+    case MediumFast = 4
+    case MediumSlow = 6
+    case Slow       = 8
 }
 
 typealias HWonderfulAction = () -> Void
 
 private enum HMarqueeTapMode: Int {
-    case HMarqueeTapForMove    = 1
-    case HMarqueeTapForAction  = 2
+    case Move    = 1
+    case Action  = 2
 }
 
 class HMarquee: UIView {
@@ -36,7 +36,7 @@ class HMarquee: UIView {
     private var marqueeLbl: UILabel {
         get {
             if _marqueeLbl == nil {
-                self.tapMode = .HMarqueeTapForMove
+                self.tapMode = .Move
                 let h: CGFloat = self.frame.size.height
                 _marqueeLbl = UILabel()
                 _marqueeLbl!.text = self.msg
@@ -57,8 +57,8 @@ class HMarquee: UIView {
         }
     }
     private var tapAction: HWonderfulAction?
-    private var tapMode: HMarqueeTapMode = .HMarqueeTapForMove
-    private var speedLevel: HMarqueeSpeedLevel = .HMarqueeSpeedLevelMediumFast
+    private var tapMode: HMarqueeTapMode = .Move
+    private var speedLevel: HMarqueeSpeedLevel = .MediumFast
     private var middleView: UIView?
     private var marqueeLabelFont: UIFont?
     
@@ -109,14 +109,14 @@ class HMarquee: UIView {
     *
     *  @return self
     */
-    init(frame: CGRect, speed: HMarqueeSpeedLevel?, msg: String) {
+    init(frame: CGRect, speed: HMarqueeSpeedLevel?, msg: String?) {
         super.init(frame: frame)
         self.layer.cornerRadius = 2
         self.msg = msg
         if speed != nil {
             self.speedLevel = speed!
         }else {
-            self.speedLevel = .HMarqueeSpeedLevelMediumFast
+            self.speedLevel = .MediumFast
         }
         self.bgColor = UIColor.white
         self.txtColor = UIColor.darkGray
@@ -131,7 +131,7 @@ class HMarquee: UIView {
     *
     *  @return self
     */
-    init(frame: CGRect, speed: HMarqueeSpeedLevel?, msg: String, bgColor: UIColor?, txtColor: UIColor?) {
+    init(frame: CGRect, speed: HMarqueeSpeedLevel?, msg: String?, bgColor: UIColor?, txtColor: UIColor?) {
         super.init(frame: frame)
         self.layer.cornerRadius = 2
         self.msg = msg
@@ -150,7 +150,7 @@ class HMarquee: UIView {
         if speed != nil {
             self.speedLevel = speed!
         }else {
-            self.speedLevel = .HMarqueeSpeedLevelMediumFast
+            self.speedLevel = .MediumFast
         }
     }
 
@@ -197,7 +197,7 @@ class HMarquee: UIView {
     func changeTapMarqueeAction(action: @escaping HWonderfulAction) {
         self.addSubview(self.bgBtn)
         self.tapAction = action
-        self.tapMode = .HMarqueeTapForAction
+        self.tapMode = .Action
         self.bringSubviewToFront(self.bgBtn)
     }
 
@@ -225,13 +225,13 @@ class HMarquee: UIView {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if self.tapMode == .HMarqueeTapForMove {
+        if self.tapMode == .Move {
             self.stop()
         }
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if self.tapMode == .HMarqueeTapForMove {
+        if self.tapMode == .Move {
             self.restart()
         }
     }
