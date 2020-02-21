@@ -10,9 +10,9 @@ import UIKit
 
 class HCollectionViewCell: UICollectionViewCell {
     
-    var titleLabel: UILabel
+    var titleLabel: UILabel!
 
-    var imageView: HWebImageView
+    var imageView: HWebImageView!
     
     private var _title: String?
     var title: String? {
