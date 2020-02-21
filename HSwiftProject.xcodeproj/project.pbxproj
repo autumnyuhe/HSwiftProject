@@ -63,6 +63,8 @@
 		A22948BC2397990B0058B939 /* HRegisterController+KS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948BB2397990B0058B939 /* HRegisterController+KS.swift */; };
 		A22948BE239799190058B939 /* HRegisterController+SJ.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948BD239799190058B939 /* HRegisterController+SJ.swift */; };
 		A22948C02397992A0058B939 /* HServiceAuthorizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22948BF2397992A0058B939 /* HServiceAuthorizationCell.swift */; };
+		A250DF1023FFC05C009F5E47 /* HTupleViewBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A250DF0F23FFC05C009F5E47 /* HTupleViewBannerCell.swift */; };
+		A250DF1223FFC2AB009F5E47 /* HTupleViewBannerApex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A250DF1123FFC2AB009F5E47 /* HTupleViewBannerApex.swift */; };
 		A258395623B4E34600881941 /* di_zhuce@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A258395423B4E34600881941 /* di_zhuce@2x.png */; };
 		A258395723B4E34600881941 /* di_zhuce@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A258395523B4E34600881941 /* di_zhuce@3x.png */; };
 		A258395923B4E70F00881941 /* HTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A258395823B4E70F00881941 /* HTableController.swift */; };
@@ -248,6 +250,8 @@
 		A22948BB2397990B0058B939 /* HRegisterController+KS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HRegisterController+KS.swift"; sourceTree = "<group>"; };
 		A22948BD239799190058B939 /* HRegisterController+SJ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HRegisterController+SJ.swift"; sourceTree = "<group>"; };
 		A22948BF2397992A0058B939 /* HServiceAuthorizationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HServiceAuthorizationCell.swift; sourceTree = "<group>"; };
+		A250DF0F23FFC05C009F5E47 /* HTupleViewBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTupleViewBannerCell.swift; sourceTree = "<group>"; };
+		A250DF1123FFC2AB009F5E47 /* HTupleViewBannerApex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTupleViewBannerApex.swift; sourceTree = "<group>"; };
 		A258395423B4E34600881941 /* di_zhuce@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "di_zhuce@2x.png"; sourceTree = "<group>"; };
 		A258395523B4E34600881941 /* di_zhuce@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "di_zhuce@3x.png"; sourceTree = "<group>"; };
 		A258395823B4E70F00881941 /* HTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTableController.swift; sourceTree = "<group>"; };
@@ -679,6 +683,8 @@
 				A28DF9B923FF77350065418F /* HCollectionViewCell.swift */,
 				A28DF9B723FF748A0065418F /* UIView+HExtension.swift */,
 				A2A7A94A23FE8A5A0090EFD3 /* HCyclePlaceholder@2x.png */,
+				A250DF0F23FFC05C009F5E47 /* HTupleViewBannerCell.swift */,
+				A250DF1123FFC2AB009F5E47 /* HTupleViewBannerApex.swift */,
 			);
 			path = HCycleScrollView;
 			sourceTree = "<group>";
@@ -1143,6 +1149,7 @@
 				A26D431F238425BD00F457AE /* CGRect.swift in Sources */,
 				A28923A2238B72F800E4AB75 /* HTupleBaseApex.swift in Sources */,
 				A265D9FD23910309001F39B0 /* HTabBar.swift in Sources */,
+				A250DF1023FFC05C009F5E47 /* HTupleViewBannerCell.swift in Sources */,
 				A28923AB238B733500E4AB75 /* HTupleViewCell.swift in Sources */,
 				A2188799238FD3E0005C20BF /* HGameCategoryVC+HSection2.swift in Sources */,
 				A2A7A93523FE2CBF0090EFD3 /* HTupleViewMarqueeApex.swift in Sources */,
@@ -1176,6 +1183,7 @@
 				A28923C7238D21F300E4AB75 /* HObject.swift in Sources */,
 				A2188795238FD3CC005C20BF /* HGameCategoryVC+HSection0.swift in Sources */,
 				A2B43074237FF2B100795605 /* UIView+HPrinter.swift in Sources */,
+				A250DF1223FFC2AB009F5E47 /* HTupleViewBannerApex.swift in Sources */,
 				A2A7A93923FE2E150090EFD3 /* HAbstractDotView.swift in Sources */,
 				A26D43392386C0A000F457AE /* UINavigationController+HUtil.swift in Sources */,
 				A26D43352386BA5800F457AE /* UIAlertController+HError.swift in Sources */,

@@ -28,13 +28,11 @@ typealias HItemDidScrollOperationBlock = (_ currentIndex: Int) -> Void
 
 @objc protocol HCycleScrollViewDelegate : NSObjectProtocol {
 
-    @objc optional
-
     /** 点击图片回调 */
-    func cycleScrollView(_ cycleScrollView: HCycleScrollView, didSelectItemAtIndex index: Int)
+    @objc optional func cycleScrollView(_ cycleScrollView: HCycleScrollView, didSelectItemAtIndex index: Int)
 
     /** 图片滚动回调 */
-    func cycleScrollView(_ cycleScrollView: HCycleScrollView, didScrollToIndex index: Int)
+    @objc optional func cycleScrollView(_ cycleScrollView: HCycleScrollView, didScrollToIndex index: Int)
 
 
     // 不需要自定义轮播cell的请忽略以下两个的代理方法
@@ -42,13 +40,13 @@ typealias HItemDidScrollOperationBlock = (_ currentIndex: Int) -> Void
     // ========== 轮播自定义cell ==========
 
     /** 如果你需要自定义cell样式，请在实现此代理方法返回你的自定义cell的class。 */
-    func customCollectionViewCellClassForCycleScrollView(_ view: HCycleScrollView) -> AnyClass
+    @objc optional func customCollectionViewCellClassForCycleScrollView(_ view: HCycleScrollView) -> AnyClass
 
     /** 如果你需要自定义cell样式，请在实现此代理方法返回你的自定义cell的Nib。 */
-    func customCollectionViewCellNibForCycleScrollView(_ view: HCycleScrollView) -> UINib
+    @objc optional func customCollectionViewCellNibForCycleScrollView(_ view: HCycleScrollView) -> UINib
 
     /** 如果你自定义了cell样式，请在实现此代理方法为你的cell填充数据以及其它一系列设置 */
-    func setupCustomCell(_ cell: UICollectionViewCell, forIndex index: Int, cycleScrollView view: HCycleScrollView)
+    @objc optional func setupCustomCell(_ cell: UICollectionViewCell, forIndex index: Int, cycleScrollView view: HCycleScrollView)
 
 }
 
@@ -220,10 +218,10 @@ class HCycleScrollView : UIView, UICollectionViewDataSource, UICollectionViewDel
             _delegate = newValue
             if _delegate != nil {
                 if _delegate!.responds(to: #selector(_delegate!.customCollectionViewCellClassForCycleScrollView(_:))) {
-                    let nib: AnyClass = _delegate!.customCollectionViewCellClassForCycleScrollView(self)
+                    let nib: AnyClass = _delegate!.customCollectionViewCellClassForCycleScrollView!(self)
                     self.mainView?.register(nib, forCellWithReuseIdentifier: KCycleID)
                 }else if _delegate!.responds(to: #selector(_delegate!.customCollectionViewCellNibForCycleScrollView(_:))) {
-                    let nib: UINib = _delegate!.customCollectionViewCellNibForCycleScrollView(self)
+                    let nib: UINib = _delegate!.customCollectionViewCellNibForCycleScrollView!(self)
                     self.mainView?.register(nib, forCellWithReuseIdentifier: KCycleID)
                 }
             }
@@ -683,11 +681,11 @@ class HCycleScrollView : UIView, UICollectionViewDataSource, UICollectionViewDel
 
         if (self.delegate!.responds(to: #selector(self.delegate!.setupCustomCell(_:forIndex:cycleScrollView:))) &&
             self.delegate!.responds(to: #selector(self.delegate!.customCollectionViewCellClassForCycleScrollView(_:)))) {
-            self.delegate!.setupCustomCell(cell, forIndex: itemIndex, cycleScrollView: self)
+            self.delegate!.setupCustomCell!(cell, forIndex: itemIndex, cycleScrollView: self)
             return cell
         }else if (self.delegate!.responds(to: #selector(self.delegate!.setupCustomCell(_:forIndex:cycleScrollView:))) &&
                   self.delegate!.responds(to: #selector(self.delegate!.customCollectionViewCellNibForCycleScrollView(_:)))) {
-            self.delegate!.setupCustomCell(cell, forIndex: itemIndex, cycleScrollView: self)
+            self.delegate!.setupCustomCell!(cell, forIndex: itemIndex, cycleScrollView: self)
             return cell
         }
 
@@ -776,7 +774,7 @@ class HCycleScrollView : UIView, UICollectionViewDataSource, UICollectionViewDel
         let indexOnPageControl = self.pageControlIndexWithCurrentCellIndex(itemIndex)
 
         if self.delegate != nil && self.delegate!.responds(to: #selector(self.delegate?.cycleScrollView(_:didScrollToIndex:))) {
-            self.delegate!.cycleScrollView(self, didScrollToIndex: indexOnPageControl)
+            self.delegate!.cycleScrollView!(self, didScrollToIndex: indexOnPageControl)
         } else if (self.itemDidScrollOperationBlock != nil) {
             self.itemDidScrollOperationBlock!(indexOnPageControl)
         }
