@@ -102,9 +102,7 @@ class HUserDefaults : NSObject {
     }()
 
     private static var defaultsUserId: String? {
-        var userName = HUserDefaults.defaults.userName
-        userName = userName.uppercased()
-        return userName
+        return HUserDefaults.defaults.userName.uppercased()
     }
 
     //初始化数据
