@@ -20,11 +20,13 @@ class HUserDefaults : NSObject {
             return _isLogin
         }
         set {
-            _isLogin = newValue;
-            if _isLogin {
-                self.saveUser()
-            }else {
-                self.removeUser()
+            if _isLogin != newValue {
+                _isLogin = newValue;
+                if _isLogin {
+                    self.saveUser()
+                }else {
+                    self.removeUser()
+                }
             }
         }
     }
