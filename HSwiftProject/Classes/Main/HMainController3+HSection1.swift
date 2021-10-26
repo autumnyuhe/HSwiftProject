@@ -20,7 +20,8 @@ extension HMainController3 {
         return UIEdgeInsetsMake(10, 10, 10, 10)
     }
     @objc func tupleExa1_tupleItem(_ itemBlock: Any, atIndexPath indexPath: IndexPath) {
-        let cell = (itemBlock as! HTupleItem)(nil, HTupleViewCell.self, nil, true) as! HTupleViewCell
+        let itemBlock = itemBlock as! HTupleItem
+        let cell = itemBlock(nil, HTupleViewCell.self, nil, true) as! HTupleViewCell
         cell.backgroundColor = UIColor.gray
         cell.isShouldShowSeparator = true
         cell.separatorInset = UILREdgeInsetsMake(10, 10)

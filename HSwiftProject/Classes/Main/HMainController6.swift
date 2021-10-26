@@ -31,10 +31,11 @@ class HMainController6: HTableController {
         return UIEdgeInsetsMake(10, 10, 10, 10)
     }
     func tableRow(_ itemBlock: Any, atIndexPath indexPath: IndexPath) {
+        let itemBlock = itemBlock as! HTableRow
         
         switch (indexPath.row) {
         case 0:
-            let cell = (itemBlock as! HTableRow)(nil, HTableViewCellHoriValue4.self, nil, true) as! HTableViewCellHoriValue4
+            let cell = itemBlock(nil, HTableViewCellHoriValue4.self, nil, true) as! HTableViewCellHoriValue4
             cell.backgroundColor = UIColor.gray
             cell.isShouldShowSeparator = true
             cell.separatorInset = UIEdgeInsetsMake(0, 10, 0, 10)
@@ -70,7 +71,7 @@ class HMainController6: HTableController {
                 NSLog("选中%d",cell.label)
             }
         case 1:
-            let cell = (itemBlock as! HTableRow)(nil, HTableViewCellHoriValue4.self, nil, true) as! HTableViewCellHoriValue4
+            let cell = itemBlock(nil, HTableViewCellHoriValue4.self, nil, true) as! HTableViewCellHoriValue4
             cell.backgroundColor = UIColor.gray
             cell.isShouldShowSeparator = true
             cell.separatorInset = UIEdgeInsetsMake(0, 10, 0, 10)
@@ -88,7 +89,7 @@ class HMainController6: HTableController {
                 NSLog("选中%d",cell.label)
             }
         case 2:
-            let cell = (itemBlock as! HTableRow)(nil, HTableViewCellHoriValue4.self, nil, true) as! HTableViewCellHoriValue4
+            let cell = itemBlock(nil, HTableViewCellHoriValue4.self, nil, true) as! HTableViewCellHoriValue4
             cell.backgroundColor = UIColor.gray
             cell.isShouldShowSeparator = true
             cell.separatorInset = UIEdgeInsetsMake(0, 10, 0, 10)
@@ -105,7 +106,7 @@ class HMainController6: HTableController {
 
             cell.detailLabel.backgroundColor = UIColor.yellow
         case 3:
-            let cell = (itemBlock as! HTableRow)(nil, HTableViewCellHoriValue3.self, nil, true) as! HTableViewCellHoriValue3
+            let cell = itemBlock(nil, HTableViewCellHoriValue3.self, nil, true) as! HTableViewCellHoriValue3
             cell.backgroundColor = UIColor.gray
             cell.isShouldShowSeparator = true
             cell.separatorInset = UIEdgeInsetsMake(0, 10, 0, 10)
@@ -124,7 +125,7 @@ class HMainController6: HTableController {
             cell.accessoryLabel.text = "accessoryLabel"
             cell.accessoryLabel.textAlignment = .center
         case 4:
-            let cell = (itemBlock as! HTableRow)(nil, HTableTextFieldCell.self, nil, true) as! HTableTextFieldCell
+            let cell = itemBlock(nil, HTableTextFieldCell.self, nil, true) as! HTableTextFieldCell
             cell.backgroundColor = UIColor.gray
             cell.textField.backgroundColor = UIColor.red
             

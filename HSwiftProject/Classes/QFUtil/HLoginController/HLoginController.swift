@@ -47,9 +47,11 @@ class HLoginController: HTupleController {
         }
     }
     func tupleItem(_ itemBlock: Any, atIndexPath indexPath: IndexPath) {
+        let itemBlock = itemBlock as! HTupleItem
+        
         switch (indexPath.row) {
             case 0:
-                let cell = (itemBlock as! HTupleItem)(nil, HTupleTextFieldCell.self, nil, true) as! HTupleTextFieldCell
+                let cell = itemBlock(nil, HTupleTextFieldCell.self, nil, true) as! HTupleTextFieldCell
                 cell.textField.backgroundColor = UIColor(hex:"#F2F2F2")
 
                 cell.textField.leftWidth = 80
@@ -66,7 +68,7 @@ class HLoginController: HTupleController {
                     NSLog("选中%d",cell)
                 }
             case 1:
-                let cell = (itemBlock as! HTupleItem)(nil, HTupleTextFieldCell.self, nil, true) as! HTupleTextFieldCell
+                let cell = itemBlock(nil, HTupleTextFieldCell.self, nil, true) as! HTupleTextFieldCell
                 cell.textField.backgroundColor = UIColor(hex:"#F2F2F2")
 
                 cell.textField.leftWidth = 80
@@ -82,7 +84,7 @@ class HLoginController: HTupleController {
                     NSLog("选中%d",cell)
                 }
             case 2:
-                let cell = (itemBlock as! HTupleItem)(nil, HTupleTextFieldCell.self, nil, true) as! HTupleTextFieldCell
+                let cell = itemBlock(nil, HTupleTextFieldCell.self, nil, true) as! HTupleTextFieldCell
                 cell.textField.backgroundColor = UIColor(hex:"#F2F2F2")
 
                 cell.textField.leftWidth = 80
@@ -106,9 +108,9 @@ class HLoginController: HTupleController {
                     NSLog("选中%d",cell)
                 }
             case 3:
-                _ = (itemBlock as! HTupleItem)(nil, HTupleBaseCell.self, nil, true)
+                _ = itemBlock(nil, HTupleBaseCell.self, nil, true)
             case 4:
-                let cell = (itemBlock as! HTupleItem)(nil, HTupleButtonCell.self, nil, true) as! HTupleButtonCell
+                let cell = itemBlock(nil, HTupleButtonCell.self, nil, true) as! HTupleButtonCell
                 cell.buttonView.backgroundColor = UIColor(hex:"#CCCCCC")
                 cell.buttonView.text = "登录"
                 cell.buttonView.pressed = { (sender, data) in
@@ -121,7 +123,7 @@ class HLoginController: HTupleController {
                 }
             case 5:
 
-                let cell = (itemBlock as! HTupleItem)(nil, HServiceAuthorizationCell.self, nil, true) as! HServiceAuthorizationCell
+                let cell = itemBlock(nil, HServiceAuthorizationCell.self, nil, true) as! HServiceAuthorizationCell
 
                 cell.serviceAgreementBlock = {
 
@@ -134,7 +136,7 @@ class HLoginController: HTupleController {
                 }
 
             default:
-                _ = (itemBlock as! HTupleItem)(nil, HTupleBaseCell.self, nil, true)
+                _ = itemBlock(nil, HTupleBaseCell.self, nil, true)
         }
     }
 

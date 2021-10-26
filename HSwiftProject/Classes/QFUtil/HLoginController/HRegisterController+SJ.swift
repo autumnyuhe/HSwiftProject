@@ -74,7 +74,8 @@ extension HRegisterController {
         _ = (footerBlock as! HTupleFooter)(nil, HTupleBaseApex.self, nil, false)
     }
     @objc func tuple1_tupleItem(_ itemBlock: Any, atIndexPath indexPath: IndexPath) {
-        let cell = (itemBlock as! HTupleItem)(nil, HTupleTextFieldCell.self, "tuple1", true) as! HTupleTextFieldCell
+        let itemBlock = itemBlock as! HTupleItem
+        let cell = itemBlock(nil, HTupleTextFieldCell.self, "tuple1", true) as! HTupleTextFieldCell
         cell.textField.backgroundColor = UIColor.init(hex: "#F2F2F2")
 
         cell.textField.leftWidth = 80

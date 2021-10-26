@@ -68,9 +68,11 @@ class HMainController1: HTupleController {
         }
     }
     func tupleItem(_ itemBlock: Any, atIndexPath indexPath: IndexPath) {
+        let itemBlock = itemBlock as! HTupleItem
+        
         switch indexPath.row {
             case 0:
-                let cell = (itemBlock as! HTupleItem)(nil, HTupleViewCellHoriValue4.self, nil, true) as! HTupleViewCellHoriValue4
+                let cell = itemBlock(nil, HTupleViewCellHoriValue4.self, nil, true) as! HTupleViewCellHoriValue4
                 cell.backgroundColor = UIColor.gray
                 cell.isShouldShowSeparator = true
                 cell.separatorInset = UILREdgeInsetsMake(10, 10)
@@ -106,7 +108,7 @@ class HMainController1: HTupleController {
                     NSLog("选中%d",cell.label)
                 }
             case 1:
-                let cell = (itemBlock as! HTupleItem)(nil, HTupleViewCellHoriValue4.self, nil, true) as! HTupleViewCellHoriValue4
+                let cell = itemBlock(nil, HTupleViewCellHoriValue4.self, nil, true) as! HTupleViewCellHoriValue4
                 cell.backgroundColor = UIColor.gray
                 cell.isShouldShowSeparator = true
                 cell.separatorInset = UILREdgeInsetsMake(10, 10)
@@ -124,7 +126,7 @@ class HMainController1: HTupleController {
                     NSLog("选中%d",cell.label)
                 }
             case 2:
-                let cell = (itemBlock as! HTupleItem)(nil, HTupleViewCellHoriValue4.self, nil, true) as! HTupleViewCellHoriValue4
+                let cell = itemBlock(nil, HTupleViewCellHoriValue4.self, nil, true) as! HTupleViewCellHoriValue4
                 cell.backgroundColor = UIColor.gray
                 cell.isShouldShowSeparator = true
                 cell.separatorInset = UILREdgeInsetsMake(10, 10)
@@ -141,7 +143,7 @@ class HMainController1: HTupleController {
 
                 cell.detailLabel.backgroundColor = UIColor.yellow
             case 3:
-                let cell = (itemBlock as! HTupleItem)(nil, HTupleViewCellVertValue1.self, nil, true) as! HTupleViewCellVertValue1
+                let cell = itemBlock(nil, HTupleViewCellVertValue1.self, nil, true) as! HTupleViewCellVertValue1
                 cell.backgroundColor = UIColor.gray
                 cell.isShouldShowSeparator = true
                 cell.separatorInset = UILREdgeInsetsMake(10, 0)
@@ -154,7 +156,7 @@ class HMainController1: HTupleController {
                 cell.label.textAlignment = .center
                 cell.label.text = "黑客帝国"
             case 4:
-                let cell = (itemBlock as! HTupleItem)(nil, HTupleViewCellVertValue1.self, nil, true) as! HTupleViewCellVertValue1
+                let cell = itemBlock(nil, HTupleViewCellVertValue1.self, nil, true) as! HTupleViewCellVertValue1
                 cell.backgroundColor = UIColor.gray
                 cell.isShouldShowSeparator = true
 
@@ -166,7 +168,7 @@ class HMainController1: HTupleController {
                 cell.label.textAlignment = .center
                 cell.label.text = "黑客帝国"
             case 5:
-                let cell = (itemBlock as! HTupleItem)(nil, HTupleViewCellVertValue1.self, nil, true) as! HTupleViewCellVertValue1
+                let cell = itemBlock(nil, HTupleViewCellVertValue1.self, nil, true) as! HTupleViewCellVertValue1
                 cell.backgroundColor = UIColor.gray
                 cell.isShouldShowSeparator = true
                 cell.separatorInset = UILREdgeInsetsMake(0, 10)
@@ -184,7 +186,7 @@ class HMainController1: HTupleController {
                     NSLog("选中黑客帝国%d",cell.labelHeight)
                 }
             case 6:
-                let cell = (itemBlock as! HTupleItem)(nil, HTupleViewCellHoriValue3.self, nil, true) as! HTupleViewCellHoriValue3
+                let cell = itemBlock(nil, HTupleViewCellHoriValue3.self, nil, true) as! HTupleViewCellHoriValue3
                 cell.backgroundColor = UIColor.gray
                 cell.isShouldShowSeparator = true
                 cell.separatorInset = UILREdgeInsetsMake(10, 10)
@@ -203,7 +205,7 @@ class HMainController1: HTupleController {
                 cell.accessoryLabel.text = "accessoryLabel"
                 cell.accessoryLabel.textAlignment = .center
             case 7:
-                let cell = (itemBlock as! HTupleItem)(nil, HTupleTextFieldCell.self, nil, true) as! HTupleTextFieldCell
+                let cell = itemBlock(nil, HTupleTextFieldCell.self, nil, true) as! HTupleTextFieldCell
                 cell.backgroundColor = UIColor.gray
                 cell.textField.backgroundColor = UIColor.red
 
