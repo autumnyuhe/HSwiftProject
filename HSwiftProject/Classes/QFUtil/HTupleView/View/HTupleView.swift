@@ -89,14 +89,14 @@ class HTupleAppearance : NSObject {
     @objc optional func willDisplayCell(_ cell: UICollectionViewCell, atIndexPath indexPath: IndexPath)
     @objc optional func didSelectItemAtIndexPath(_ indexPath: IndexPath)
     
-    // UICollectionViewDataSource
+    /// UICollectionViewDataSource
     @objc optional func canMoveItemAtIndexPath(_ indexPath: IndexPath) -> Bool
     @objc optional func moveItemAtIndexPath(_ sourceIndexPath: IndexPath, toIndexPath destinationIndexPath: IndexPath)
     
     @objc optional func indexTitlesForCollectionView() -> [String]?
     @objc optional func indexPathForIndexTitle(_ title: String, atIndex index: NSInteger) -> IndexPath
 
-    // UICollectionViewDelegate
+    /// UICollectionViewDelegate
     @objc optional func shouldHighlightItemAtIndexPath(_ indexPath: IndexPath) -> Bool
     @objc optional func didHighlightItemAtIndexPath(_ indexPath: IndexPath)
     @objc optional func didUnhighlightItemAtIndexPath(_ indexPath: IndexPath)
@@ -114,7 +114,7 @@ class HTupleAppearance : NSObject {
     
     @objc optional func transitionLayoutForOldLayout(_ fromLayout: UICollectionViewLayout, newLayout toLayout: UICollectionViewLayout) -> UICollectionViewTransitionLayout?
 
-     // Focus
+     /// Focus
     @objc optional func canFocusItemAtIndexPath(_ indexPath: IndexPath) -> Bool
     @objc optional func shouldUpdateFocusInContext(_ context: UICollectionViewFocusUpdateContext) -> Bool
     @objc optional func didUpdateFocusInContext(_ context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
@@ -144,7 +144,7 @@ class HTupleAppearance : NSObject {
     @available(iOS 13.0, *)
     @objc optional func willPerformPreviewActionForMenuWithConfiguration(_ configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating)
 
-    // UIScrollViewDelegate
+    /// UIScrollViewDelegate
     @objc optional func tupleScrollViewDidScroll(_ scrollView: UIScrollView)
     @objc optional func tupleScrollViewDidZoom(_ scrollView: UIScrollView)
     
@@ -628,7 +628,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         return prefix
     }
     
-    ///以下为UICollectionView的代理方法
+    /// 以下为UICollectionView的代理方法
     internal func numberOfSections(in collectionView: UICollectionView) -> Int {
         if self.allSectionInsets.count > 0 {
             self.allSectionInsets.removeAllObjects()
@@ -665,7 +665,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         return items
     }
 
-    ///layout == HCollectionViewFlowLayout
+    /// layout == HCollectionViewFlowLayout
     internal func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, colorForSectionAt section: NSInteger) -> UIColor {
         let prefix = self.prefixWithSection(section)
         let selector = #selector(self.tupleDelegate!.colorForSection(_:))
@@ -800,7 +800,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         }
     }
     
-    // UICollectionViewDataSource
+    /// UICollectionViewDataSource
     internal func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
         let prefix = self.prefixWithSection(indexPath.section)
         let selector = #selector(self.tupleDelegate!.canMoveItemAtIndexPath(_:))
@@ -835,16 +835,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         return IndexPath();
     }
 
-//    - (NSIndexPath *)collectionView:(UICollectionView *)collectionView indexPathForIndexTitle:(NSString *)title atIndex:(NSInteger)index {
-//        NSString *prefix = [self tuplePrefix];
-//        SEL selector = NSSelectorFromString(@"indexPathForIndexTitle:atIndex:");
-//        if ([(NSObject *)self.tupleDelegate respondsToSelector:selector withPre:prefix]) {
-//            return [(NSObject *)self.tupleDelegate performSelector:selector withPre:prefix];
-//        }
-//        return nil;
-//    }
-
-    // UICollectionViewDelegate
+    /// UICollectionViewDelegate
     internal func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
         let prefix = self.prefixWithSection(indexPath.section)
         let selector = #selector(self.tupleDelegate!.shouldHighlightItemAtIndexPath(_:))
@@ -946,7 +937,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         return UICollectionViewTransitionLayout.init(coder: NSCoder.init())!;
     }
 
-    // Focus
+    /// Focus
     internal func collectionView(_ collectionView: UICollectionView, canFocusItemAt indexPath: IndexPath) -> Bool {
         let prefix = self.prefixWithSection(indexPath.section)
         let selector = #selector(self.tupleDelegate!.canFocusItemAtIndexPath(_:))
@@ -1070,7 +1061,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         }
     }
 
-    // UIScrollViewDelegate
+    /// UIScrollViewDelegate
     internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let prefix = self.tupleScrollSplitPrefix()
         let selector = NSSelectorFromString("tupleScrollViewDidScroll:")
