@@ -101,7 +101,7 @@ class HMainController1: HTupleController {
     //            cell.accessoryLabel.backgroundColor = UIColor.green
 
                 //接收信号
-                cell.signalBlock = { ( target, signal) in
+                cell.signalBlock = { (target, signal) in
                     let cell = target as! HTupleViewCellHoriValue4
                     NSLog("选中%d",cell.label)
                 }
@@ -119,7 +119,7 @@ class HMainController1: HTupleController {
                 cell.detailLabel.backgroundColor = UIColor.yellow
 
                 //接收信号
-                cell.signalBlock = { ( target, signal) in
+                cell.signalBlock = { (target, signal) in
                     let cell = target as! HTupleViewCellHoriValue4
                     NSLog("选中%d",cell.label)
                 }
@@ -179,7 +179,7 @@ class HMainController1: HTupleController {
                 cell.label.textAlignment = .center
                 cell.label.text = "黑客帝国"
             
-                cell.didSelectCell = { ( target, indexPath) in
+                cell.didSelectCell = { (target, indexPath) in
                     let cell = target as! HTupleViewCellVertValue1
                     NSLog("选中黑客帝国%d",cell.labelHeight)
                 }

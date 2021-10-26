@@ -65,7 +65,7 @@ class HMainController6: HTableController {
 //            cell.accessoryLabel.backgroundColor = UIColor.green
             
             //接收信
-            cell.signalBlock = { ( target, signal) in
+            cell.signalBlock = { (target, signal) in
                 let cell = target as! HTableViewCellHoriValue4
                 NSLog("选中%d",cell.label)
             }
@@ -83,7 +83,7 @@ class HMainController6: HTableController {
             cell.detailLabel.backgroundColor = UIColor.yellow
             
             //接收信号
-            cell.signalBlock = { ( target, signal) in
+            cell.signalBlock = { (target, signal) in
                 let cell = target as! HTableViewCellHoriValue4
                 NSLog("选中%d",cell.label)
             }

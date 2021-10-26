@@ -25,7 +25,7 @@ extension Selector {
 
 public struct Swizzle {
 
-    @_functionBuilder
+    @resultBuilder
     public struct SwizzleFunctionBuilder {
         
         public static func buildBlock(_ swizzlePairs: SwizzlePair...) -> [SwizzlePair] {

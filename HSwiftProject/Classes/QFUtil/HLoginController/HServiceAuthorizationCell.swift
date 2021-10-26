@@ -38,9 +38,10 @@ class HServiceAuthorizationCell : HTupleLabelCell {
                 _buttonView!.setImage(UIImage(named: "registet_checkbox_icon"), for: .normal)
                 _buttonView!.setImage(UIImage(named: "registet_checkbox_icon_h"), for: .selected)
                 _buttonView!.isSelected = !_buttonView!.isSelected
-                _buttonView!.pressed = { (_ buttonView: HWebButtonView, _ data: AnyObject?) in
+                _buttonView!.pressed = { (target, data) in
+                    let buttonView = target as! HWebButtonView
                     buttonView.isSelected = !buttonView.isSelected
-                } as? callback
+                }
             }
             return _buttonView!
         }
