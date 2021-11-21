@@ -635,7 +635,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
         }
         switch self.tupleStyle {
         case .default:
-            var sections = 0
+            var sections = 1
             let prefix = ""
             let selector = #selector(self.tupleDelegate!.numberOfSectionsInTupleView)
             if self.tupleDelegate!.responds(to: selector, withPre: prefix) {
@@ -643,7 +643,7 @@ class HTupleView : UICollectionView, UICollectionViewDelegate, UICollectionViewD
             }
             return sections
         case .split:
-            var sections = 0
+            var sections = 1
             let prefix = KTupleDesignKey+"\(self.tupleState)"+"_"
             let selector = #selector(self.tupleDelegate!.numberOfSectionsInTupleView)
             if self.tupleDelegate!.responds(to: selector, withPre: prefix) {

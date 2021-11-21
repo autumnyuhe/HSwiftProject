@@ -31,7 +31,7 @@ extension UIViewController {
     }
 
     
-    @objc private func keyboardWillShow(_ notification: NSNotification) -> Void {
+    @objc func keyboardWillShow(_ notification: NSNotification) -> Void {
         if self.isViewInBackground() {
             return
         }
@@ -46,7 +46,7 @@ extension UIViewController {
         self.keyboardWillShowWithRect(keyboardRect, animationDuration: CGFloat(animationDuration))
     }
     
-    @objc private func keyboardWillHide(_ notification: NSNotification) -> Void {
+    @objc func keyboardWillHide(_ notification: NSNotification) -> Void {
         if self.isViewInBackground() {
             return
         }
@@ -67,9 +67,9 @@ extension UIViewController {
     *  @param keyboardRect 键盘rect
     *  @param duration     键盘弹出动画的时间
     */
-    func keyboardWillShowWithRect(_ keyboardRect: CGRect, animationDuration duration: CGFloat) -> Void { }
+    @objc func keyboardWillShowWithRect(_ keyboardRect: CGRect, animationDuration duration: CGFloat) -> Void { }
     
-    func keyboardWillHideWithRect(_ keyboardRect: CGRect, animationDuration duration: CGFloat) -> Void { }
+    @objc func keyboardWillHideWithRect(_ keyboardRect: CGRect, animationDuration duration: CGFloat) -> Void { }
 
     /**
     *  点击背景self.view的时候，关闭键盘

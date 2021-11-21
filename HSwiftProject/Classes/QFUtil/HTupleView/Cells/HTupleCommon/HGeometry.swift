@@ -76,6 +76,7 @@ func UITBEdgeInsetsMake(_ top: CGFloat, _ bottom: CGFloat) -> UITBEdgeInsets { r
 func UILREdgeInsetsMake(_ left: CGFloat, _ right: CGFloat) -> UILREdgeInsets { return UILREdgeInsets(left: left, right: right) }
 func UIEdgeInsetsMake(_ top: CGFloat, _ left: CGFloat, _ bottom: CGFloat, _ right: CGFloat) -> UIEdgeInsets { return UIEdgeInsets(top: top, left: left, bottom: bottom, right: right) }
 func CGSizeMake(_ width: CGFloat, _ height: CGFloat) -> CGSize { return CGSize(width: width, height: height) }
+func CGPointMake(_ x: CGFloat, _ y: CGFloat) -> CGPoint { return CGPoint(x: x, y: y) }
 
 
 public func NSStringFromUIEdgeInsets(_ edgeInsets: UIEdgeInsets) -> String {

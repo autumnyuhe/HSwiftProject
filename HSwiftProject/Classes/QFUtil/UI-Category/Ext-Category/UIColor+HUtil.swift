@@ -8,6 +8,9 @@
 
 import UIKit
 
+func HColorHex(_ hex: String) -> UIColor { return UIColor.init(hex: hex) }
+func HColorHexAlpha(_ hex: String, _ alpha: CGFloat) -> UIColor { return UIColor.init(hex: hex, alpha: alpha) }
+
 extension UIColor {
     var revertColor: UIColor? {
         if self.cgColor.colorSpace?.model == CGColorSpaceModel.rgb {

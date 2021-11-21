@@ -161,7 +161,7 @@ class HTextField : UITextField, UITextFieldDelegate {
         set {
             if newValue!.length > 0 {
                 let placeholderString: NSMutableAttributedString = NSMutableAttributedString(string: newValue!)
-                let range: NSRange = NSMakeRange(0, newValue!.length)
+                let range: NSRange = NSMakeRange(0, placeholderString.length)
                 if self.placeholderFont != nil {//字体
                     placeholderString.addAttribute(.font, value: self.placeholderFont!, range: range)
                 }

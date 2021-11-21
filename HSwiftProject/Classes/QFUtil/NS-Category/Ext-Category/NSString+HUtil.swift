@@ -14,16 +14,16 @@ extension String {
         return self.lengthOfBytes(using: .utf8)
     }
     
-    var intValue: Int? {
-        return Int(self)
+    var intValue: Int {
+        return Int(self)!
     }
 
-    var floatValue: Float? {
-        return Float(self)
+    var floatValue: Float {
+        return Float(self)!
     }
 
-    var doubleValue: Double? {
-        return Double(self)
+    var doubleValue: Double {
+        return Double(self)!
     }
 
     ///去除字符串两端的空白字符

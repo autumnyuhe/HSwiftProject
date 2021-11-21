@@ -14,10 +14,9 @@ typealias HGestureBlock = (_ sender: AnyObject) -> Void
 
 class UIGestureRecognizerBlockTarget : NSObject {
 
-    private var gestureBlock: HGestureBlock? = nil
-    private let block: HGestureBlock? = nil
+    private var block: HGestureBlock? = nil
     
-    private func invoke(_ sender: AnyObject) {
+    @objc private func invoke(_ sender: AnyObject) {
         if self.block != nil {
             self.block!(sender)
         }
@@ -25,9 +24,12 @@ class UIGestureRecognizerBlockTarget : NSObject {
 
     convenience init(block: @escaping HGestureBlock) {
         self.init()
-        gestureBlock = block
+        self.block = block
     }
     
+    override init() {
+        super.init()
+    }
 }
 
 extension UIGestureRecognizer {
@@ -53,7 +55,7 @@ extension UIGestureRecognizer {
     }
 
     func allGestureRecognizerBlockTargets() -> NSMutableArray {
-        var targets: NSMutableArray? = (objc_getAssociatedObject(self, &gesture_block_key) as! NSMutableArray)
+        var targets = objc_getAssociatedObject(self, &gesture_block_key) as? NSMutableArray
         if targets == nil {
             targets = NSMutableArray()
             objc_setAssociatedObject(self, &gesture_block_key, targets, .OBJC_ASSOCIATION_RETAIN_NONATOMIC);

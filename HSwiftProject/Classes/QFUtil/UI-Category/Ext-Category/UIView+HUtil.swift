@@ -149,28 +149,33 @@ extension UIView {
         recognizer.numberOfTapsRequired = numberOfTapsRequired
         self.addGestureRecognizer(recognizer)
         return recognizer
-        
     }
     
     /**
     *  添加单击事件，多次调用只会持有一个UITapGestureRecognizer对象，之前的会被清除
     */
+    @discardableResult
     func addSingleTapGestureWithBlock(block: @escaping HGestureBlock) -> UITapGestureRecognizer {
-        for item in self.gestureRecognizers! {
-            let gesture: UIGestureRecognizer = item
-            if gesture.isKind(of: UITapGestureRecognizer.self) {
-                self.removeGestureRecognizer(gesture)
+        if (self.gestureRecognizers != nil) {
+            for item in self.gestureRecognizers! {
+                let gesture: UIGestureRecognizer = item
+                if gesture.isKind(of: UITapGestureRecognizer.self) {
+                    self.removeGestureRecognizer(gesture)
+                }
             }
         }
         return self.addTapGestureWithNumberOfTapsRequired(1, block: block)
     }
     
+    @discardableResult
     func addSingleTapGestureTarget(target: AnyObject, action: Selector) -> UITapGestureRecognizer {
         self.isUserInteractionEnabled = true
-        for item in self.gestureRecognizers! {
-            let gesture: UIGestureRecognizer = item
-            if gesture.isKind(of: UITapGestureRecognizer.self) {
-                self.removeGestureRecognizer(gesture)
+        if (self.gestureRecognizers != nil) {
+            for item in self.gestureRecognizers! {
+                let gesture: UIGestureRecognizer = item
+                if gesture.isKind(of: UITapGestureRecognizer.self) {
+                    self.removeGestureRecognizer(gesture)
+                }
             }
         }
         let recognizer: UITapGestureRecognizer = UITapGestureRecognizer.init(target: target, action: action)
