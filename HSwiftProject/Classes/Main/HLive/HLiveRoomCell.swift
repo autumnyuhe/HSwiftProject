@@ -73,9 +73,9 @@ class HLiveRoomCell : HLiveRoomBgCell, HTupleViewDelegate {
             })
             _liveRightView!.backgroundColor = UIColor.clear;
             _liveRightView!.bounceDisenable()
-            let swipeGesture = UISwipeGestureRecognizer.init(target: self, action:  #selector(rightSwipped))
-            swipeGesture.direction = .right
-            _liveRightView!.addGestureRecognizer(swipeGesture)
+//            let swipeGesture = UISwipeGestureRecognizer.init(target: self, action:  #selector(rightSwipped))
+//            swipeGesture.direction = .right
+//            _liveRightView!.addGestureRecognizer(swipeGesture)
         }
         return _liveRightView!
     }
@@ -92,6 +92,10 @@ class HLiveRoomCell : HLiveRoomBgCell, HTupleViewDelegate {
         
         //设置liveRightView release key
         self.liveRightView.releaseTupleKey = KLiveRoomReleaseTupleKey
+        
+        let swipeGesture = UISwipeGestureRecognizer.init(target: self, action:  #selector(rightSwipped))
+        swipeGesture.direction = .right
+        self.addGestureRecognizer(swipeGesture)
     }
     //用于子类更新子视图布局
     override func relayoutSubviews() {

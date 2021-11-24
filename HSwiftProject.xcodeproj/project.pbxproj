@@ -154,6 +154,16 @@
 		A2A7A94B23FE8A5A0090EFD3 /* HCyclePlaceholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A2A7A94A23FE8A5A0090EFD3 /* HCyclePlaceholder@2x.png */; };
 		A2A8148D2748EFB900FAB929 /* HLiveRoomCell+HSection1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A8148C2748EFB900FAB929 /* HLiveRoomCell+HSection1.swift */; };
 		A2A8148F2749139600FAB929 /* HLiveRoomCell+HSection2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A8148E2749139600FAB929 /* HLiveRoomCell+HSection2.swift */; };
+		A2A814AE274C05BB00FAB929 /* HAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A814AD274C05BB00FAB929 /* HAlertController.swift */; };
+		A2A814B0274C07E300FAB929 /* UIViewController+HTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A814AF274C07E300FAB929 /* UIViewController+HTransition.swift */; };
+		A2A814B2274C081B00FAB929 /* HTransitionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A814B1274C081B00FAB929 /* HTransitionHeader.swift */; };
+		A2A814B4274C0E2000FAB929 /* HTupleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A814B3274C0E2000FAB929 /* HTupleHeader.swift */; };
+		A2A814B6274CC23C00FAB929 /* HTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A814B5274CC23C00FAB929 /* HTransitionAnimation.swift */; };
+		A2A814B8274CCA7200FAB929 /* HPresentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A814B7274CCA7200FAB929 /* HPresentAnimation.swift */; };
+		A2A814BA274CCC1800FAB929 /* HPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A814B9274CCC1800FAB929 /* HPresentationController.swift */; };
+		A2A814BC274D694E00FAB929 /* UIViewController+HAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A814BB274D694E00FAB929 /* UIViewController+HAnimation.swift */; };
+		A2A814BE274D6C3000FAB929 /* HPushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A814BD274D6C3000FAB929 /* HPushAnimation.swift */; };
+		A2A814C0274E030100FAB929 /* HSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A814BF274E030100FAB929 /* HSheetController.swift */; };
 		A2AC8D0023B0FCF400FD8DB7 /* HKeyChainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC8CFF23B0FCF300FD8DB7 /* HKeyChainStore.swift */; };
 		A2B42FCC237CED5A00795605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B42FCB237CED5A00795605 /* AppDelegate.swift */; };
 		A2B42FCE237CED5A00795605 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B42FCD237CED5A00795605 /* SceneDelegate.swift */; };
@@ -354,6 +364,16 @@
 		A2A7A94A23FE8A5A0090EFD3 /* HCyclePlaceholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HCyclePlaceholder@2x.png"; sourceTree = "<group>"; };
 		A2A8148C2748EFB900FAB929 /* HLiveRoomCell+HSection1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HLiveRoomCell+HSection1.swift"; sourceTree = "<group>"; };
 		A2A8148E2749139600FAB929 /* HLiveRoomCell+HSection2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HLiveRoomCell+HSection2.swift"; sourceTree = "<group>"; };
+		A2A814AD274C05BB00FAB929 /* HAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HAlertController.swift; sourceTree = "<group>"; };
+		A2A814AF274C07E300FAB929 /* UIViewController+HTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HTransition.swift"; sourceTree = "<group>"; };
+		A2A814B1274C081B00FAB929 /* HTransitionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTransitionHeader.swift; sourceTree = "<group>"; };
+		A2A814B3274C0E2000FAB929 /* HTupleHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTupleHeader.swift; sourceTree = "<group>"; };
+		A2A814B5274CC23C00FAB929 /* HTransitionAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTransitionAnimation.swift; sourceTree = "<group>"; };
+		A2A814B7274CCA7200FAB929 /* HPresentAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPresentAnimation.swift; sourceTree = "<group>"; };
+		A2A814B9274CCC1800FAB929 /* HPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPresentationController.swift; sourceTree = "<group>"; };
+		A2A814BB274D694E00FAB929 /* UIViewController+HAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HAnimation.swift"; sourceTree = "<group>"; };
+		A2A814BD274D6C3000FAB929 /* HPushAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPushAnimation.swift; sourceTree = "<group>"; };
+		A2A814BF274E030100FAB929 /* HSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSheetController.swift; sourceTree = "<group>"; };
 		A2AC8CFF23B0FCF300FD8DB7 /* HKeyChainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKeyChainStore.swift; sourceTree = "<group>"; };
 		A2B42FC8237CED5A00795605 /* HSwiftProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSwiftProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B42FCB237CED5A00795605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -686,6 +706,7 @@
 			isa = PBXGroup;
 			children = (
 				A289239A238B72F800E4AB75 /* HGeometry.swift */,
+				A2A814B3274C0E2000FAB929 /* HTupleHeader.swift */,
 				A289239B238B72F800E4AB75 /* HTupleSignal.swift */,
 				A289239C238B72F800E4AB75 /* NSIndexPath+HUtil.swift */,
 				A2CC441023B360AE00DB095F /* HTupleRefresh.swift */,
@@ -795,6 +816,22 @@
 			path = HPageControl;
 			sourceTree = "<group>";
 		};
+		A2A81493274C059100FAB929 /* HTransitionAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				A2A814AD274C05BB00FAB929 /* HAlertController.swift */,
+				A2A814B7274CCA7200FAB929 /* HPresentAnimation.swift */,
+				A2A814B9274CCC1800FAB929 /* HPresentationController.swift */,
+				A2A814BD274D6C3000FAB929 /* HPushAnimation.swift */,
+				A2A814BF274E030100FAB929 /* HSheetController.swift */,
+				A2A814B5274CC23C00FAB929 /* HTransitionAnimation.swift */,
+				A2A814B1274C081B00FAB929 /* HTransitionHeader.swift */,
+				A2A814BB274D694E00FAB929 /* UIViewController+HAnimation.swift */,
+				A2A814AF274C07E300FAB929 /* UIViewController+HTransition.swift */,
+			);
+			path = HTransitionAnimation;
+			sourceTree = "<group>";
+		};
 		A2B42FBF237CED5A00795605 = {
 			isa = PBXGroup;
 			children = (
@@ -867,6 +904,7 @@
 		A2B43058237FF2B100795605 /* QFUtil */ = {
 			isa = PBXGroup;
 			children = (
+				A2A81493274C059100FAB929 /* HTransitionAnimation */,
 				A2A7A93623FE2DED0090EFD3 /* HCycleScrollView */,
 				A28B651D23FCEF4A00B6B638 /* HNetwork */,
 				A28A022B23EE6B9E000556A2 /* HMarquee */,
@@ -1232,6 +1270,7 @@
 				A2B42FD0237CED5A00795605 /* ViewController.swift in Sources */,
 				A22948BC2397990B0058B939 /* HRegisterController+KS.swift in Sources */,
 				A26D4323238526BA00F457AE /* UIViewController+HUtil.swift in Sources */,
+				A2A814B0274C07E300FAB929 /* UIViewController+HTransition.swift in Sources */,
 				A2B4308D23825BBE00795605 /* HWebImageView.swift in Sources */,
 				A2B4308723823F3400795605 /* Error+HUtil.swift in Sources */,
 				A22948A123975F500058B939 /* HTableViewApexVertValue1.swift in Sources */,
@@ -1253,18 +1292,21 @@
 				A286251623EAB8DD00E81781 /* HCountDownButton.swift in Sources */,
 				A28A022D23EE6BA6000556A2 /* HMarquee.swift in Sources */,
 				A265DA032394B24C001F39B0 /* HTabBarController.swift in Sources */,
+				A2A814BC274D694E00FAB929 /* UIViewController+HAnimation.swift in Sources */,
 				A2294891239756770058B939 /* HTableView.swift in Sources */,
 				A22948C02397992A0058B939 /* HServiceAuthorizationCell.swift in Sources */,
 				A26D432123842C9400F457AE /* UIGestureRecognizer+HUtil.swift in Sources */,
 				A22948BA239798FC0058B939 /* HRegisterController.swift in Sources */,
 				A26D432D238682D200F457AE /* HNavigationController.swift in Sources */,
 				A22948B3239798A30058B939 /* HMainController5.swift in Sources */,
+				A2A814BA274CCC1800FAB929 /* HPresentationController.swift in Sources */,
 				A2B4308F2382CC8A00795605 /* UIDevice+HUtil.swift in Sources */,
 				A229488E239756770058B939 /* HTableBaseApex.swift in Sources */,
 				A22948B1239798960058B939 /* HMainController4.swift in Sources */,
 				A2AC8D0023B0FCF400FD8DB7 /* HKeyChainStore.swift in Sources */,
 				A229489D23975CE40058B939 /* HTableViewCellVertValue1.swift in Sources */,
 				A26D431523839C2800F457AE /* UIApplication+HUtil.swift in Sources */,
+				A2A814AE274C05BB00FAB929 /* HAlertController.swift in Sources */,
 				A21887A923900832005C20BF /* HTegKeychainConstants.swift in Sources */,
 				A2B43078237FF2B100795605 /* NSObject+HExclusive.swift in Sources */,
 				A2B43079237FF2B100795605 /* HCenterViewController.swift in Sources */,
@@ -1272,7 +1314,9 @@
 				A2418C8D27450E88005C8125 /* HLRDManager.swift in Sources */,
 				A22948BE239799190058B939 /* HRegisterController+SJ.swift in Sources */,
 				A28923A4238B72F800E4AB75 /* HGeometry.swift in Sources */,
+				A2A814BE274D6C3000FAB929 /* HPushAnimation.swift in Sources */,
 				A2418C842744F15E005C8125 /* HLiveRoomShareVC.m in Sources */,
+				A2A814C0274E030100FAB929 /* HSheetController.swift in Sources */,
 				A22948A72397980A0058B939 /* HMainController2.swift in Sources */,
 				A2CC441323B3691D00DB095F /* HTableRefresh.swift in Sources */,
 				A28923A3238B72F800E4AB75 /* HTupleBaseCell.swift in Sources */,
@@ -1281,6 +1325,7 @@
 				A2188795238FD3CC005C20BF /* HGameCategoryVC+HSection0.swift in Sources */,
 				A2B43074237FF2B100795605 /* UIView+HPrinter.swift in Sources */,
 				A250DF1223FFC2AB009F5E47 /* HTupleViewBannerApex.swift in Sources */,
+				A2A814B6274CC23C00FAB929 /* HTransitionAnimation.swift in Sources */,
 				A2A7A93923FE2E150090EFD3 /* HAbstractDotView.swift in Sources */,
 				A26D43392386C0A000F457AE /* UINavigationController+HUtil.swift in Sources */,
 				A2A8148D2748EFB900FAB929 /* HLiveRoomCell+HSection1.swift in Sources */,
@@ -1295,6 +1340,7 @@
 				A2B42FCC237CED5A00795605 /* AppDelegate.swift in Sources */,
 				A2B4307C237FF2B100795605 /* HGameCategoryVC.swift in Sources */,
 				A26D43412386CD9000F457AE /* NSTimer+HSafeUtil.swift in Sources */,
+				A2A814B2274C081B00FAB929 /* HTransitionHeader.swift in Sources */,
 				A28A022823EE62D6000556A2 /* HTupleViewTextLoopCell.swift in Sources */,
 				A28B652123FD215500B6B638 /* HNetworkDAO.swift in Sources */,
 				A2418CA2274658CB005C8125 /* HLiveRoomCell.swift in Sources */,
@@ -1304,6 +1350,7 @@
 				A26D43452387827A00F457AE /* NSObject+HForwarding.swift in Sources */,
 				A26D432723853F2900F457AE /* NSObject+HMessy.swift in Sources */,
 				A229489F23975D850058B939 /* HTableViewCellHoriValue1.swift in Sources */,
+				A2A814B4274C0E2000FAB929 /* HTupleHeader.swift in Sources */,
 				A26D43192383E23300F457AE /* NSString+HUtil.swift in Sources */,
 				A22948A5239798000058B939 /* HMainController1.swift in Sources */,
 				A2188797238FD3D6005C20BF /* HGameCategoryVC+HSection1.swift in Sources */,
@@ -1346,6 +1393,7 @@
 				A229488F239756770058B939 /* HTableSignal.swift in Sources */,
 				A2B4307A237FF2B100795605 /* HMenuViewController.swift in Sources */,
 				A21887A723900832005C20BF /* HKeychainSwiftAccessOptions.swift in Sources */,
+				A2A814B8274CCA7200FAB929 /* HPresentAnimation.swift in Sources */,
 				A22948B5239798AF0058B939 /* HMainController6.swift in Sources */,
 				A2A7A94723FE3B5E0090EFD3 /* HPageControl.swift in Sources */,
 				A2A7A93D23FE3A790090EFD3 /* HDotView.swift in Sources */,

@@ -248,7 +248,7 @@ class HMainController1: HTupleController {
             default: break
         }
     }
-    func didSelectItemAtIndexPath(_ indexPath: NSIndexPath) {
+    func didSelectItemAtIndexPath(_ indexPath: IndexPath) {
 
     }
         
