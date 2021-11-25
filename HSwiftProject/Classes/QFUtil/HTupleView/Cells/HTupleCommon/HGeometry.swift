@@ -42,6 +42,23 @@ public struct UILREdgeInsets {
     }
 }
 
+public struct UILimitInsets {
+
+    public var min: CGFloat
+
+    public var max: CGFloat
+
+    public init() {
+        self.min = 0.0
+        self.max = 0.0
+    }
+
+    public init(min: CGFloat, max: CGFloat) {
+        self.min = min
+        self.max = max
+    }
+}
+
 extension UITBEdgeInsets : Equatable {
     public static func == (lhs: UITBEdgeInsets, rhs: UITBEdgeInsets) -> Bool {
         return (lhs.top == rhs.top && lhs.bottom == rhs.bottom)
@@ -66,12 +83,14 @@ func UISizeIntegral(_ size: CGSize) -> CGSize {
     return CGSize(width: CGFloat(floorf(Float(size.width))), height: CGFloat(floorf(Float(size.height))))
 }
 
+public let UILimitInsetsZero  = UILimitInsets(min: 0.0, max: 0.0)
 public let UITBEdgeInsetsZero = UITBEdgeInsets(top: 0.0, bottom: 0.0)
 public let UILREdgeInsetsZero = UILREdgeInsets(left: 0.0, right: 0.0)
 public let UIEdgeInsetsZero = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
 public let CGSizeZero = CGSize(width: 0.0, height: 0.0)
 public let CGRectZero = CGRect(x: 0.0, y: 0.0, width: 0.0, height: 0.0)
 
+func UILimitInsetsMake(_ min: CGFloat, _ max: CGFloat) -> UILimitInsets { return UILimitInsets(min: min, max: max) }
 func UITBEdgeInsetsMake(_ top: CGFloat, _ bottom: CGFloat) -> UITBEdgeInsets { return UITBEdgeInsets(top: top, bottom: bottom) }
 func UILREdgeInsetsMake(_ left: CGFloat, _ right: CGFloat) -> UILREdgeInsets { return UILREdgeInsets(left: left, right: right) }
 func UIEdgeInsetsMake(_ top: CGFloat, _ left: CGFloat, _ bottom: CGFloat, _ right: CGFloat) -> UIEdgeInsets { return UIEdgeInsets(top: top, left: left, bottom: bottom, right: right) }

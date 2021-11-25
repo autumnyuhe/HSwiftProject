@@ -8,55 +8,6 @@
 
 import Foundation
 
-//enum HSectionType: Int {
-//    case HSection0 = 0
-//    case HSection1 = 1
-//    case HSection2 = 2
-//    case HSection3 = 3
-//    case HSection4 = 4
-//    case HSection5 = 5
-//    case HSection6 = 6
-//    case HSection7 = 7
-//    case HSection8 = 8
-//    case HSection9 = 9
-//    case HSection10 = 10
-//    case HSection11 = 11
-//    case HSection12 = 12
-//    case HSection13 = 13
-//    case HSection14 = 14
-//    case HSection15 = 15
-//    case HSection16 = 16
-//    case HSection17 = 17
-//    case HSection18 = 18
-//    case HSection19 = 19
-//    case HSection20 = 20
-//}
-//
-//enum HCellType: Int {
-//    case HCell0 = 0
-//    case HCell1 = 1
-//    case HCell2 = 2
-//    case HCell3 = 3
-//    case HCell4 = 4
-//    case HCell5 = 5
-//    case HCell6 = 6
-//    case HCell7 = 7
-//    case HCell8 = 8
-//    case HCell9 = 9
-//    case HCell10 = 10
-//    case HCell11 = 11
-//    case HCell12 = 12
-//    case HCell13 = 13
-//    case HCell14 = 14
-//    case HCell15 = 15
-//    case HCell16 = 16
-//    case HCell17 = 17
-//    case HCell18 = 18
-//    case HCell19 = 19
-//    case HCell20 = 20
-//}
-
-
 let HSection0 = 0
 let HSection1 = 1
 let HSection2 = 2
