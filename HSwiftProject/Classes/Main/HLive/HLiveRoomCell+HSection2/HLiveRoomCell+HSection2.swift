@@ -97,22 +97,22 @@ class HLiveRoomBottomBarView : UIView, HTupleViewDelegate {
                 cell.buttonView.setImageWithName("icon_no_server")
 //                cell.buttonView setFillet:YES];
                 cell.buttonView.pressed = { (_ sender: Any?, _ data: Any?) in
-//                    [[self viewController] presentController:HLiveRoomNoteVC.new completion:^(HTransitionType transitionType) {
-//                        NSLog(@"");
-//                    }];
+                    self.viewController?.presentController(HLiveRoomNoteVC.init(), completion: { transitionType in
+                        NSLog("")
+                    })
                 }
                 break;
             case 3:
                 let cell = itemBlock(nil, HTupleButtonCell.self, nil, true) as! HTupleButtonCell
                 cell.buttonView.backgroundColor = UIColor.red
 //                cell.buttonView.cornerRadius = cell.buttonView.height/2
-            cell.buttonView.cornerRadius = cell.layoutViewFrame.height/2
+                cell.buttonView.cornerRadius = cell.layoutViewFrame.height/2
                 cell.buttonView.setImageWithName("icon_no_server")
 //                [cell.buttonView setFillet:YES];
                 cell.buttonView.pressed = { (_ sender: Any?, _ data: Any?) in
-//                    [[self viewController] presentController:HLiveRoomShareVC.new completion:^(HTransitionType transitionType) {
-//                        NSLog(@"");
-//                    }];
+                    self.viewController?.presentController(HLiveRoomShareVC.init(), completion: { transitionType in
+                        NSLog("")
+                    })
                 }
                 break;
             case 4:

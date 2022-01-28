@@ -113,7 +113,7 @@ class HLiveRoomShareVC : HViewController, HTupleViewDelegate {
         let cell = footerBlock(nil, HTupleButtonApex.self, nil, true) as! HTupleButtonApex
         cell.setTopLineWithColor(UIColor.init(white: 0.1, alpha: 0.2), paddingLeft: 0, paddingRight: 0)
         cell.buttonView.backgroundColor = UIColor.white;
-        cell.buttonView.backgroundColor = UIColor.black
+        cell.buttonView.textColor = UIColor.black
         cell.buttonView.text = "取消"
         cell.buttonView.pressed = { (_ sender: Any?, _ data: Any?) in
             self.back()
@@ -129,6 +129,7 @@ class HLiveRoomShareVC : HViewController, HTupleViewDelegate {
         cell.labelHeight = 25
         cell.label.text = "Item"
         cell.label.textColor = UIColor.black
+        cell.label.textAlignment = .center
         //[cell.label setTextAlignment:NSTextAlignmentCenter];
     }
     func didSelectItemAtIndexPath(_ indexPath: IndexPath) {

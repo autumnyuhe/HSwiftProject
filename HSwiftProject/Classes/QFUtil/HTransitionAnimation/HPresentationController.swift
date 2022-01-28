@@ -116,20 +116,20 @@ class HPresentationController : UIPresentationController {
     override var frameOfPresentedViewInContainerView: CGRect {
         var makeRect = CGRectZero;
         if (self.presentType == HTransitionStyle.alert) {
-            makeRect = CGRectMake(self.containerView?.center.x ?? 0.0 - self.contentSize.width * 0.5,
-                                  self.containerView?.center.y ?? 0.0 - self.contentSize.height * 0.5,
+            makeRect = CGRectMake(self.containerView!.center.x - self.contentSize.width * 0.5,
+                                  self.containerView!.center.y - self.contentSize.height * 0.5,
                                   self.contentSize.width,
                                   self.contentSize.height);
             
         }else if (self.presentType == HTransitionStyle.sheet) {
             if (self.contentSize.equalTo(CGSizeZero)) {
-                self.contentSize = self.containerView?.size ?? CGSizeZero
+                self.contentSize = self.containerView!.size
             }
             if (self.contentSize.width == 0 && self.contentSize.height > 0) {
-                self.contentSize = CGSizeMake(self.containerView?.bounds.width ?? 0.0, self.contentSize.height);
+                self.contentSize = CGSizeMake(self.containerView!.bounds.width, self.contentSize.height);
             }
-            makeRect = CGRectMake(self.containerView?.bounds.size.width ?? 0.0 - self.contentSize.width,
-                                  self.containerView?.bounds.size.height ?? 0.0 - self.contentSize.height,
+            makeRect = CGRectMake(self.containerView!.bounds.size.width - self.contentSize.width,
+                                  self.containerView!.bounds.size.height - self.contentSize.height,
                                   self.contentSize.width,
                                   self.contentSize.height);
         }
